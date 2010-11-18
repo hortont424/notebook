@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBCell.h"
+#import "NBCellController.h"
 
 @class NBNotebookView; // TODO: wrong, need a protocol
 
@@ -17,11 +18,13 @@
     NSTextView * textView;
     NBCell * cell;
     NBNotebookView * parent;
+    NBCellController * controller;
 }
 
 @property (assign) NSTextView * textView;
 @property (assign) NBNotebookView * parent;
 @property (nonatomic,retain) NBCell * cell;
+@property (nonatomic,retain) NBCellController * controller;
 
 - (void)textDidChange:(NSNotification *)aNotification;
 - (float)requestedHeight;

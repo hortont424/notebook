@@ -13,6 +13,7 @@
 @synthesize cell;
 @synthesize textView;
 @synthesize parent;
+@synthesize controller;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -20,10 +21,10 @@
     
     if(self)
     {
+        controller = [[[NBCellController alloc] init] autorelease];
+        
         textView = [[NSTextView alloc] initWithFrame:frame];
-        //[textView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
         [textView setFieldEditor:NO];
-        [textView setDelegate:self];
         [textView setFont:[NSFont fontWithName:@"PanicSans" size:12]];
         [textView setTextContainerInset:NSMakeSize(10, 10)];
         [textView setPostsFrameChangedNotifications:YES];
@@ -31,7 +32,9 @@
         
         [self addSubview:textView];
         
-        [textView setString:@"initial text..."]; // TODO: wrong; bind to NBCell's content property! (in the controller, too)
+        [controller bind:@"contentObject" toObject:self withKeyPath:@"cell" options:nil];
+        [textView bind:@"string" toObject:controller withKeyPath:@"selection.content" options:nil];
+
         [self textViewResized:nil];
     }
     return self;
@@ -42,13 +45,6 @@
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0);
     CGContextFillRect(ctx, [self bounds]);
-}
-
-- (void)textDidChange:(NSNotification *)aNotification
-{    
-    //[self setFrameSize:[textView bounds].size];
-    
-    //[parent relayoutViews];
 }
 
 - (float)requestedHeight

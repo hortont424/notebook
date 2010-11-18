@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NBCellController : NSViewController
+@interface NBCellController : NSObjectController
 {
 
 }

@@ -19,11 +19,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NBCell * cell = [[NBCell alloc] init];
-    cell.content = @"asdfasdfasdfasdfasadf";
+    cell.content = @"import random";
     [notebookController notebookView:notebookView addCell:cell];
     
     cell = [[NBCell alloc] init];
-    cell.content = @"asdfasdfasdfasdfasadf";
+    cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(max)";
     [notebookController notebookView:notebookView addCell:cell];
 }
 
