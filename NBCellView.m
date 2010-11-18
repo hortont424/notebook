@@ -43,7 +43,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0);
+    CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
     CGContextFillRect(ctx, [self bounds]);
 }
 
@@ -63,7 +63,7 @@
     
     frame.size.width = [self frame].size.width;
     frame.size.height = [self frame].size.height;
-    [textView setFrame:NSInsetRect(frame, 1, 1)];
+    [textView setFrame:NSInsetRect(frame, 0, 1)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewResized:) name:NSViewFrameDidChangeNotification object:textView];
 }
