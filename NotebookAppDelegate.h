@@ -9,17 +9,17 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBNotebookView.h"
-#import "NBNotebookController.h"
+#import "NBNotebookViewController.h"
 
 @interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
 {
     NSWindow * window;
     NBNotebookView * notebookView;
-    NBNotebookController * notebookController;
+    NBNotebookViewController * notebookController;
 }
 
 @property (assign) IBOutlet NSWindow * window;
 @property (assign) IBOutlet NBNotebookView * notebookView;
-@property (assign) IBOutlet NBNotebookController * notebookController;
+@property (assign) IBOutlet NBNotebookViewController * notebookController;
 
 @end

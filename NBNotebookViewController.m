@@ -1,14 +1,14 @@
 //
-//  NBNotebookController.m
+//  NBNotebookViewController.m
 //  Notebook
 //
 //  Created by Tim Horton on 2010.11.17.
 //  Copyright 2010 Rensselaer Polytechnic Institute. All rights reserved.
 //
 
-#import "NBNotebookController.h"
+#import "NBNotebookViewController.h"
 
-@implementation NBNotebookController
+@implementation NBNotebookViewController
 
 - (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell
 {

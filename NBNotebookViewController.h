@@ -1,5 +1,5 @@
 //
-//  NBNotebookController.h
+//  NBNotebookViewController.h
 //  Notebook
 //
 //  Created by Tim Horton on 2010.11.17.
@@ -11,7 +11,7 @@
 #import "NBNotebookView.h"
 #import "NBCell.h"
 
-@interface NBNotebookController : NSViewController
+@interface NBNotebookViewController : NSViewController
 {
 
 }

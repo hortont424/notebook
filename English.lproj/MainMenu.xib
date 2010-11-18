@@ -1360,7 +1360,7 @@
 								<object class="NSScroller" id="915523778">
 									<reference key="NSNextResponder" ref="787332708"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{445, 1}, {15, 340}}</string>
+									<string key="NSFrame">{{445, 1}, {15, 325}}</string>
 									<reference key="NSSuperview" ref="787332708"/>
 									<reference key="NSTarget" ref="787332708"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1403,7 +1403,7 @@
 				<string key="NSClassName">NBNotebook</string>
 			</object>
 			<object class="NSCustomObject" id="910490812">
-				<string key="NSClassName">NBNotebookController</string>
+				<string key="NSClassName">NBNotebookViewController</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -3761,14 +3761,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">NBNotebookController</string>
-					<string key="superclassName">NSViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NBNotebookController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">NBNotebookView</string>
 					<string key="superclassName">NSView</string>
 					<object class="NSMutableDictionary" key="outlets">
@@ -3788,6 +3780,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">NBNotebookViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">NBNotebookViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">NotebookAppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="outlets">
@@ -3800,7 +3800,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NBNotebookController</string>
+							<string>NBNotebookViewController</string>
 							<string>NBNotebookView</string>
 							<string>NSWindow</string>
 						</object>
@@ -3817,7 +3817,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">notebookController</string>
-								<string key="candidateClassName">NBNotebookController</string>
+								<string key="candidateClassName">NBNotebookViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">notebookView</string>
