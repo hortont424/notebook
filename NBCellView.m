@@ -25,7 +25,7 @@
         
         textView = [[NSTextView alloc] initWithFrame:frame];
         [textView setFieldEditor:NO];
-        [textView setFont:[NSFont fontWithName:@"PanicSans" size:12]];
+        [textView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [textView setTextContainerInset:NSMakeSize(10, 10)];
         [textView setPostsFrameChangedNotifications:YES];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewResized:) name:NSViewFrameDidChangeNotification object:textView];
