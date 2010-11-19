@@ -118,6 +118,7 @@
 - (void)textDidChange:(NSNotification *)aNotification
 {
     cell.content = [sourceView string];
+    self.state = NBCellViewChanged;
 }
 
 - (void)viewDidResize:(NSNotification *)aNotification
