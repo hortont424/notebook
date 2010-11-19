@@ -37,9 +37,9 @@
 
 @interface NBPythonEngine : NSObject<NBEngine>
 {
-    PyThreadState * interpreter;
+    PyObject * mainModule;
     
-    PyObject * globals, * locals;
+    PyObject * globals;
 }
 
 @end

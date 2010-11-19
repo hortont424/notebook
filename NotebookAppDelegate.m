@@ -26,7 +26,6 @@
 #import "NotebookAppDelegate.h"
 
 #import "NBCell.h"
-#import "NBPythonEngine.h"
 
 @implementation NotebookAppDelegate
 
@@ -41,22 +40,12 @@
     [notebookController notebookView:notebookView addCell:cell];
     
     cell = [[NBCell alloc] init];
-    cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(max)";
+    cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
     [notebookController notebookView:notebookView addCell:cell];
     
     cell = [[NBCell alloc] init];
-    cell.content = @"doSomethingRandom()";
+    cell.content = @"print doSomethingRandom()";
     [notebookController notebookView:notebookView addCell:cell];
-    
-    NBCompilationError * err = nil;
-    
-    engine = [[NBPythonEngine alloc] init];
-    err = [engine executeSnippet:@"print 2.0 + 2.0"];
-    
-    if(err)
-    {
-        NSLog(@"%@ %d:%d", err.message, err.line, err.column);
-    }
 }
 
 @end

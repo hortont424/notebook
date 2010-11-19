@@ -44,8 +44,8 @@
     {
         Py_Initialize();
         
-        globals = PyDict_New();
-        locals = PyDict_New(); // TODO: global locals? seems wrong...
+        mainModule = PyImport_AddModule("__main__");
+        globals = PyModule_GetDict(mainModule);
     }
     
     return self;
@@ -84,7 +84,7 @@
         return err;
     }
     
-    PyEval_EvalCode((PyCodeObject *)codeObject, globals, locals);
+    PyEval_EvalCode((PyCodeObject *)codeObject, globals, globals);
     
     return nil;
 }
