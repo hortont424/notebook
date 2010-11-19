@@ -31,6 +31,7 @@
 @synthesize sourceView;
 @synthesize controller;
 @synthesize delegate;
+@synthesize state;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -38,7 +39,8 @@
     
     if(self)
     {
-        margin = NSMakeSize(0, 1);
+        margin = NSMakeSize(4, 1);
+        state = NBCellViewChanged;
         
         controller = [[[NSObjectController alloc] init] autorelease];
         
@@ -66,9 +68,18 @@
     [sourceView setString:cell.content];
 }
 
+- (void)setState:(NBCellViewState)inState
+{
+    state = inState;
+    
+    [self setNeedsDisplay:YES];
+}
+
 - (void)evaluate
 {
-    [delegate evaluateCellView:self];
+    self.state = NBCellViewEvaluating;
+    
+    [delegate evaluateCellView:self]; // TODO: this needs to happen in a different thread, of course
 }
 
 - (float)requestedHeight
@@ -78,9 +89,30 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    // Draw the cell background
+    
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
     CGContextFillRect(ctx, [self bounds]);
+    
+    // Draw the cell state indicator (right hand side of the cell
+    
+    switch(self.state)
+    {
+        case NBCellViewChanged:
+            CGContextSetRGBFillColor(ctx, 0.729, 0.741, 0.714, 1.0);
+            break;
+        case NBCellViewEvaluating:
+            CGContextSetRGBFillColor(ctx, 0.988, 0.914, 0.310, 1.0);
+            break;
+        case NBCellViewFailed:
+            CGContextSetRGBFillColor(ctx, 0.788, 0.000, 0.000, 1.0);
+            break;
+        case NBCellViewSuccessful:
+            CGContextSetRGBFillColor(ctx, 0.451, 0.824, 0.086, 1.0);
+            break;
+    }
+    CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
@@ -91,7 +123,7 @@
 - (void)viewDidResize:(NSNotification *)aNotification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
-    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width, self.frame.size.height - (margin.height * 2))];
+    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width - margin.width, self.frame.size.height - (margin.height * 2))];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
 }
 

@@ -51,40 +51,67 @@
     return self;
 }
 
+- (NBException *)parsePythonException
+{
+    NBException * err = [[NBException alloc] init];
+    
+    PyObject * exceptionType, * exceptionValue, * exceptionTraceback;
+    PyObject * exceptionOffset, * exceptionLine, * exceptionMessage;
+    
+    PyErr_Fetch(&exceptionType, &exceptionValue, &exceptionTraceback);
+    PyErr_NormalizeException(&exceptionType, &exceptionValue, &exceptionTraceback);
+    
+    exceptionOffset = PyObject_GetAttrString(exceptionValue, "offset");
+    exceptionLine = PyObject_GetAttrString(exceptionValue, "lineno");
+    exceptionMessage = PyObject_GetAttrString(exceptionValue, "msg");
+    
+    if(exceptionOffset)
+    {    
+        err.column = PyInt_AsLong(exceptionOffset);
+    }
+    
+    if(exceptionLine)
+    {
+        err.line = PyInt_AsLong(exceptionLine);
+    }
+    
+    if(exceptionMessage)
+    {
+        err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
+    }
+    else
+    {
+        exceptionMessage = PyObject_GetAttrString(exceptionValue, "message");
+        
+        if(exceptionMessage)
+        {
+            err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
+        }
+    }
 
-- (NBCompilationError *)executeSnippet:(NSString *)snippet
+    
+    return err;
+}
+
+- (NBException *)executeSnippet:(NSString *)snippet
 {
     PyObject * codeObject = Py_CompileString([snippet UTF8String], "snippet", Py_file_input);
     
-    if(!codeObject)
+    if(!codeObject && PyErr_Occurred())
     {
-        NBCompilationError * err;
-        
-        err = [[NBCompilationError alloc] init];
-        
-        if(PyErr_Occurred())
-        {
-            PyObject * exceptionType, * exceptionValue, * exceptionTraceback;
-            PyObject * exceptionOffset, * exceptionLine, * exceptionMessage;
-
-            PyErr_Fetch(&exceptionType, &exceptionValue, &exceptionTraceback);
-            PyErr_NormalizeException(&exceptionType, &exceptionValue, &exceptionTraceback);
-            
-            exceptionOffset = PyObject_GetAttrString(exceptionValue, "offset");
-            exceptionLine = PyObject_GetAttrString(exceptionValue, "lineno");
-            exceptionMessage = PyObject_GetAttrString(exceptionValue, "msg");
-            
-            err.column = PyInt_AsLong(exceptionOffset);
-            err.line = PyInt_AsLong(exceptionLine);
-            err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
-            
-            PyErr_Clear();
-        }
-        
+        NBException * err = [self parsePythonException];
+        PyErr_Clear();
         return err;
     }
     
     PyEval_EvalCode((PyCodeObject *)codeObject, globals, globals);
+    
+    if(PyErr_Occurred())
+    {
+        NBException * err = [self parsePythonException];
+        PyErr_Clear();
+        return err;
+    }
     
     return nil;
 }

@@ -25,7 +25,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NBCompilationError : NSObject
+@interface NBException : NSObject
 {
     uint32_t line, column;
     NSString * message;
@@ -45,6 +45,6 @@
 
 @protocol NBEngine
 
-- (NBCompilationError *)executeSnippet:(NSString *)snippet;
+- (NBException *)executeSnippet:(NSString *)snippet;
 
 @end

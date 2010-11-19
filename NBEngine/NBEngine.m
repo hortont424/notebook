@@ -25,7 +25,7 @@
 
 #import "NBEngine.h"
 
-@implementation NBCompilationError
+@implementation NBException
 
 @synthesize line, column, message;
 

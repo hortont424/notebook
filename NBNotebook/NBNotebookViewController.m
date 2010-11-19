@@ -63,7 +63,7 @@
 - (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView
 {
     id<NBEngine> engine = [self engineForNotebookView:notebookView];
-    NBCompilationError * err = nil;
+    NBException * err = nil;
     
     err = [engine executeSnippet:cellView.cell.content];
     
@@ -72,6 +72,8 @@
     {
         NSLog(@"%@ %d:%d", err.message, err.line, err.column);
     }
+    
+    cellView.state = err ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
 @end

@@ -30,6 +30,14 @@
 #import "NBSourceView.h"
 #import "NBSourceViewDelegate.h"
 
+typedef enum _NBCellViewState
+{
+    NBCellViewChanged = 0,
+    NBCellViewEvaluating,
+    NBCellViewFailed,
+    NBCellViewSuccessful
+} NBCellViewState;
+
 @interface NBCellView : NSView<NSTextViewDelegate, NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
@@ -37,9 +45,12 @@
     NSObjectController * controller; // TODO: pretty sure this is wrong
     id<NBCellViewDelegate> delegate;
     
+    NBCellViewState state;
+    
     NSSize margin;
 }
 
+@property (assign) NBCellViewState state;
 @property (assign) NBSourceView * sourceView;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) NSObjectController * controller;
