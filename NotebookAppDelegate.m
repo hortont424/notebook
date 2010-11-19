@@ -42,6 +42,10 @@
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(max)";
     [notebookController notebookView:notebookView addCell:cell];
+    
+    cell = [[NBCell alloc] init];
+    cell.content = @"doSomethingRandom()";
+    [notebookController notebookView:notebookView addCell:cell];
 }
 
 @end

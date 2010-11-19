@@ -28,7 +28,7 @@
 @implementation NBCellView
 
 @synthesize cell;
-@synthesize textView;
+@synthesize sourceView;
 @synthesize parent;
 @synthesize controller;
 
@@ -40,19 +40,19 @@
     {
         controller = [[[NBCellController alloc] init] autorelease];
         
-        textView = [[NSTextView alloc] initWithFrame:frame];
-        [textView setFieldEditor:NO];
-        [textView setFont:[NSFont fontWithName:@"Menlo" size:12]];
-        [textView setTextContainerInset:NSMakeSize(10, 10)];
-        [textView setPostsFrameChangedNotifications:YES];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewResized:) name:NSViewFrameDidChangeNotification object:textView];
+        sourceView = [[NBSourceView alloc] initWithFrame:frame];
+        [sourceView setFieldEditor:NO];
+        [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
+        [sourceView setTextContainerInset:NSMakeSize(10, 10)];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
         
-        [self addSubview:textView];
+        [self addSubview:sourceView];
         
         [controller bind:@"contentObject" toObject:self withKeyPath:@"cell" options:nil];
-        [textView bind:@"string" toObject:controller withKeyPath:@"selection.content" options:nil];
+        [sourceView bind:@"string" toObject:controller withKeyPath:@"selection.content" options:nil];
 
-        [self textViewResized:nil];
+        [self sourceViewDidResize:nil];
     }
     return self;
 }
@@ -66,23 +66,22 @@
 
 - (float)requestedHeight
 {
-    return [textView bounds].size.height + 2;
+    return [sourceView bounds].size.height + 2;
 }
 
-- (void)textViewResized:(NSNotification *)aNotification
+- (void)sourceViewDidResize:(NSNotification *)aNotification
 {
     NSRect frame = NSZeroRect;
     
-    [textView setAutoresizingMask:0];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:textView];
     [parent relayoutViews];
     
     frame.size.width = [self frame].size.width;
     frame.size.height = [self frame].size.height;
-    [textView setFrame:NSInsetRect(frame, 0, 1)];
+    [sourceView setFrame:NSInsetRect(frame, 0, 1)];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewResized:) name:NSViewFrameDidChangeNotification object:textView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
 }
 
 @end

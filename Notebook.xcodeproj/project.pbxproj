@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */; };
+		353E2AE91295C6E3001A40B6 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 353E2AE81295C6E3001A40B6 /* NBSourceView.m */; };
+		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		358E2B0E12948ADD009A2D95 /* NBCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B0D12948ADD009A2D95 /* NBCellController.m */; };
 		358E2B381294BAC4009A2D95 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B371294BAC4009A2D95 /* NBCellView.m */; };
 		358E2B5F1294BF58009A2D95 /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B5E1294BF58009A2D95 /* NBNotebookView.m */; };
@@ -31,6 +33,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		353E2AE71295C6E3001A40B6 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSourceView.h; sourceTree = "<group>"; };
+		353E2AE81295C6E3001A40B6 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSourceView.m; sourceTree = "<group>"; };
+		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		358E2B0C12948ADD009A2D95 /* NBCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellController.h; sourceTree = "<group>"; };
 		358E2B0D12948ADD009A2D95 /* NBCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellController.m; sourceTree = "<group>"; };
 		358E2B361294BAC4009A2D95 /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellView.h; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +70,8 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* NotebookAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */,
+				353E2AE71295C6E3001A40B6 /* NBSourceView.h */,
+				353E2AE81295C6E3001A40B6 /* NBSourceView.m */,
 				358E2B681294CB8E009A2D95 /* NBCell.h */,
 				358E2B691294CB8E009A2D95 /* NBCell.m */,
 				358E2B0C12948ADD009A2D95 /* NBCellController.h */,
@@ -94,6 +102,7 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 				358E2B621294BF63009A2D95 /* NBNotebook.m in Sources */,
 				358E2B651294BF6C009A2D95 /* NBNotebookViewController.m in Sources */,
 				358E2B6A1294CB8E009A2D95 /* NBCell.m in Sources */,
+				353E2AE91295C6E3001A40B6 /* NBSourceView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,8 +29,6 @@
 
 - (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell
 {
-    NSLog(@"notebookView:addCell:");
-    
     [notebookView.notebook addCell:cell];
     [notebookView addViewForCell:cell atIndex:0]; // FIXME: 0 for now, is wrong!
 }

@@ -36,6 +36,8 @@
     if(self)
     {
         cellViews = [[NSMutableArray alloc] init];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
     
     return self;
@@ -49,6 +51,11 @@
 - (BOOL)isFlipped
 {
     return YES;
+}
+
+- (void)viewDidResize:(NSNotification *)aNotification
+{
+    [self relayoutViews];
 }
 
 - (void)addViewForCell:(NBCell *)cell atIndex:(uint32_t)idx
@@ -67,11 +74,15 @@
 {
     NSSize totalSize = NSZeroSize;
     
+    NSLog(@"---- ==== relayoutViews");
+    
     for(NBCellView * cellView in cellViews)
     {
         float requestedHeight = [cellView requestedHeight];
+        NSRect newFrame = NSMakeRect(0, totalSize.height, [self frame].size.width, requestedHeight);
         
-        [cellView setFrame:NSMakeRect(0, totalSize.height, [self frame].size.width, requestedHeight)];
+        [cellView setFrame:newFrame];
+        
         totalSize.height += requestedHeight + 3;
     }
     

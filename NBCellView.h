@@ -27,24 +27,24 @@
 
 #import "NBCell.h"
 #import "NBCellController.h"
+#import "NBSourceView.h"
 
 @class NBNotebookView; // TODO: wrong, need a protocol
 
 @interface NBCellView : NSView<NSTextViewDelegate>
 {
-    NSTextView * textView;
+    NBSourceView * sourceView;
     NBCell * cell;
     NBNotebookView * parent;
     NBCellController * controller;
 }
 
-@property (assign) NSTextView * textView;
+@property (assign) NBSourceView * sourceView;
 @property (assign) NBNotebookView * parent;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) NBCellController * controller;
 
 - (void)textDidChange:(NSNotification *)aNotification;
 - (float)requestedHeight;
-- (void)textViewResized:(NSNotification *)aNotification;
 
 @end
