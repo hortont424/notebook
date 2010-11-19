@@ -60,7 +60,7 @@
 
 - (void)addViewForCell:(NBCell *)cell atIndex:(uint32_t)idx
 {
-    NBCellView * cellView = [[NBCellView alloc] init];
+    NBCellView * cellView = [[NBCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
     cellView.cell = cell;
     cellView.parent = self;
     [cellViews addObject:cellView];
@@ -76,17 +76,15 @@
     
     for(NBCellView * cellView in cellViews)
     {
-        float requestedHeight = [cellView requestedHeight];
-        NSRect newFrame = NSMakeRect(0, totalSize.height, [self frame].size.width, requestedHeight);
-        
-        [cellView setFrame:newFrame];
-        
-        totalSize.height += requestedHeight + 3;
+        [cellView setFrame:NSMakeRect(0, totalSize.height, self.frame.size.width, [cellView requestedHeight])];
+        totalSize.height += [cellView requestedHeight] + 3;
     }
     
     totalSize.width = [self frame].size.width;
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
 }
 
 @end

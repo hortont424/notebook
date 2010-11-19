@@ -38,6 +38,8 @@
     
     if(self)
     {
+        margin = NSMakeSize(0, 1);
+        
         controller = [[[NBCellController alloc] init] autorelease];
         
         sourceView = [[NBSourceView alloc] initWithFrame:frame];
@@ -46,6 +48,7 @@
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
         
         [self addSubview:sourceView];
         
@@ -57,6 +60,11 @@
     return self;
 }
 
+- (float)requestedHeight
+{
+    return sourceView.frame.size.height + (margin.height * 2);
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
@@ -64,24 +72,22 @@
     CGContextFillRect(ctx, [self bounds]);
 }
 
-- (float)requestedHeight
+- (void)viewDidResize:(NSNotification *)aNotification
 {
-    return [sourceView bounds].size.height + 2;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
+    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width, self.frame.size.height - (margin.height * 2))];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
 }
 
 - (void)sourceViewDidResize:(NSNotification *)aNotification
 {
-    NSRect frame = NSZeroRect;
+    [self setFrameSize:NSMakeSize(self.frame.size.width, sourceView.frame.size.height + (margin.height * 2))];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
+    [sourceView setFrameOrigin:NSMakePoint(0, margin.height)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
     
     [parent relayoutViews];
-    
-    frame.size.width = [self frame].size.width;
-    frame.size.height = [self frame].size.height;
-    [sourceView setFrame:NSInsetRect(frame, 0, 1)];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
 }
 
 @end

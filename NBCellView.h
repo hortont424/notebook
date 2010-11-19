@@ -37,6 +37,8 @@
     NBCell * cell;
     NBNotebookView * parent;
     NBCellController * controller;
+    
+    NSSize margin;
 }
 
 @property (assign) NBSourceView * sourceView;
@@ -44,7 +46,6 @@
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) NBCellController * controller;
 
-- (void)textDidChange:(NSNotification *)aNotification;
 - (float)requestedHeight;
 
 @end
