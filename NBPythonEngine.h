@@ -23,41 +23,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBSourceView.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation NBSourceView
-
-- (id)initWithFrame:(NSRect)frame
+@interface NBPythonEngine : NSObject
 {
-    self = [super initWithFrame:frame];
-    
-    if(self)
-    {
-        // Initialization code here.
-    }
-    
-    return self;
-}
 
-- (void)keyDown:(NSEvent *)theEvent
-{
-    BOOL handled = NO;
-    
-    switch([theEvent keyCode])
-    {
-        case 36:
-            if([theEvent modifierFlags] & NSShiftKeyMask)
-            {
-                NSLog(@"newline");
-                handled = YES;
-            }
-            break;
-    }
-    
-    if(!handled)
-    {
-        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
-    }
 }
 
 @end
