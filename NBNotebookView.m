@@ -74,8 +74,6 @@
 {
     NSSize totalSize = NSZeroSize;
     
-    NSLog(@"---- ==== relayoutViews");
-    
     for(NBCellView * cellView in cellViews)
     {
         float requestedHeight = [cellView requestedHeight];
