@@ -29,8 +29,8 @@
 
 @synthesize cell;
 @synthesize sourceView;
-@synthesize parent;
 @synthesize controller;
+@synthesize delegate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -40,24 +40,35 @@
     {
         margin = NSMakeSize(0, 1);
         
-        controller = [[[NBCellController alloc] init] autorelease];
+        controller = [[[NSObjectController alloc] init] autorelease];
         
         sourceView = [[NBSourceView alloc] initWithFrame:frame];
         [sourceView setFieldEditor:NO];
+        [sourceView setDelegate:self];
         [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
 
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
         
         [self addSubview:sourceView];
-        
-        [controller bind:@"contentObject" toObject:self withKeyPath:@"cell" options:nil];
-        [sourceView bind:@"string" toObject:controller withKeyPath:@"selection.content" options:nil];
 
         [self sourceViewDidResize:nil];
     }
     return self;
+}
+
+- (void)setCell:(NBCell *)inCell
+{
+    cell = inCell;
+    
+    [sourceView setString:cell.content];
+}
+
+- (void)evaluate
+{
+    [delegate evaluateCellView:self];
 }
 
 - (float)requestedHeight
@@ -70,6 +81,11 @@
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
     CGContextFillRect(ctx, [self bounds]);
+}
+
+- (void)textDidChange:(NSNotification *)aNotification
+{
+    cell.content = [sourceView string];
 }
 
 - (void)viewDidResize:(NSNotification *)aNotification
@@ -87,7 +103,7 @@
     [sourceView setFrameOrigin:NSMakePoint(0, margin.height)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
     
-    [parent relayoutViews];
+    [delegate cellViewResized:self];
 }
 
 @end

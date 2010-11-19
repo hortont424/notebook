@@ -25,6 +25,68 @@
 
 #import "NBPythonEngine.h"
 
+@implementation NBPythonValue
+
+- (NSString *)asString
+{
+    return @"asdfasdfasdfasdfasdf";
+}
+
+@end
+
 @implementation NBPythonEngine
+
+- (id)init
+{
+    self = [super init];
+    
+    if(self != nil)
+    {
+        Py_Initialize();
+        
+        globals = PyDict_New();
+        locals = PyDict_New(); // TODO: global locals? seems wrong...
+    }
+    
+    return self;
+}
+
+
+- (NBCompilationError *)executeSnippet:(NSString *)snippet
+{
+    PyObject * codeObject = Py_CompileString([snippet UTF8String], "snippet", Py_file_input);
+    
+    if(!codeObject)
+    {
+        NBCompilationError * err;
+        
+        err = [[NBCompilationError alloc] init];
+        
+        if(PyErr_Occurred())
+        {
+            PyObject * exceptionType, * exceptionValue, * exceptionTraceback;
+            PyObject * exceptionOffset, * exceptionLine, * exceptionMessage;
+
+            PyErr_Fetch(&exceptionType, &exceptionValue, &exceptionTraceback);
+            PyErr_NormalizeException(&exceptionType, &exceptionValue, &exceptionTraceback);
+            
+            exceptionOffset = PyObject_GetAttrString(exceptionValue, "offset");
+            exceptionLine = PyObject_GetAttrString(exceptionValue, "lineno");
+            exceptionMessage = PyObject_GetAttrString(exceptionValue, "msg");
+            
+            err.column = PyInt_AsLong(exceptionOffset);
+            err.line = PyInt_AsLong(exceptionLine);
+            err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
+            
+            PyErr_Clear();
+        }
+        
+        return err;
+    }
+    
+    PyEval_EvalCode((PyCodeObject *)codeObject, globals, locals);
+    
+    return nil;
+}
 
 @end

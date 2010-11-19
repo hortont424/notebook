@@ -27,12 +27,14 @@
 
 #import "NBNotebookView.h"
 #import "NBNotebookViewController.h"
+#import "NBEngine.h"
 
 @interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
 {
     NSWindow * window;
     NBNotebookView * notebookView;
     NBNotebookViewController * notebookController;
+    id<NBEngine> engine;
 }
 
 @property (assign) IBOutlet NSWindow * window;

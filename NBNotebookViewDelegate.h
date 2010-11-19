@@ -24,22 +24,13 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Python/Python.h>
 
 #import "NBEngine.h"
+#import "NBCellView.h"
 
-@interface NBPythonValue : NSObject<NBValue>
-{
-    
-}
+@protocol NBNotebookViewDelegate
 
-@end
-
-@interface NBPythonEngine : NSObject<NBEngine>
-{
-    PyThreadState * interpreter;
-    
-    PyObject * globals, * locals;
-}
+- (id<NBEngine>)engineForNotebookView:(id)notebookView;
+- (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView;
 
 @end

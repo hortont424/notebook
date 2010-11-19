@@ -27,7 +27,9 @@
 
 @implementation NBNotebook
 
-- (id) init
+@synthesize engine;
+
+- (id)init
 {
     self = [super init];
     

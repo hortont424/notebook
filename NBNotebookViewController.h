@@ -27,10 +27,13 @@
 
 #import "NBNotebookView.h"
 #import "NBCell.h"
+#import "NBCellView.h"
+#import "NBPythonEngine.h"
+#import "NBNotebookViewDelegate.h"
 
-@interface NBNotebookViewController : NSViewController
+@interface NBNotebookViewController : NSViewController<NBNotebookViewDelegate>
 {
-
+    NSMutableDictionary * engines;
 }
 
 - (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell;

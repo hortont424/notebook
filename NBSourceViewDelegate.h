@@ -25,9 +25,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NBCellController : NSObjectController
-{
+#import "NBCell.h"
 
-}
+@protocol NBSourceViewDelegate
+
+- (void)evaluate;
 
 @end

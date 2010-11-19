@@ -23,23 +23,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
-#import <Python/Python.h>
-
 #import "NBEngine.h"
 
-@interface NBPythonValue : NSObject<NBValue>
-{
-    
-}
+@implementation NBCompilationError
 
-@end
-
-@interface NBPythonEngine : NSObject<NBEngine>
-{
-    PyThreadState * interpreter;
-    
-    PyObject * globals, * locals;
-}
+@synthesize line, column, message;
 
 @end

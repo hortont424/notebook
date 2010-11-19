@@ -12,7 +12,8 @@
 		353E2AE91295C6E3001A40B6 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 353E2AE81295C6E3001A40B6 /* NBSourceView.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3555D3301296132300FBC06F /* NBPythonEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555D32F1296132300FBC06F /* NBPythonEngine.m */; };
-		358E2B0E12948ADD009A2D95 /* NBCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B0D12948ADD009A2D95 /* NBCellController.m */; };
+		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
+		3555D4B01296440B00FBC06F /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555D4AF1296440B00FBC06F /* NBEngine.m */; };
 		358E2B381294BAC4009A2D95 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B371294BAC4009A2D95 /* NBCellView.m */; };
 		358E2B5F1294BF58009A2D95 /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B5E1294BF58009A2D95 /* NBNotebookView.m */; };
 		358E2B621294BF63009A2D95 /* NBNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 358E2B611294BF63009A2D95 /* NBNotebook.m */; };
@@ -39,8 +40,12 @@
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3555D32E1296132300FBC06F /* NBPythonEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngine.h; sourceTree = "<group>"; };
 		3555D32F1296132300FBC06F /* NBPythonEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPythonEngine.m; sourceTree = "<group>"; };
-		358E2B0C12948ADD009A2D95 /* NBCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellController.h; sourceTree = "<group>"; };
-		358E2B0D12948ADD009A2D95 /* NBCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellController.m; sourceTree = "<group>"; };
+		3555D337129613D400FBC06F /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngine.h; sourceTree = "<group>"; };
+		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		3555D4AF1296440B00FBC06F /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngine.m; sourceTree = "<group>"; };
+		3555D5CB12964DA900FBC06F /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSourceViewDelegate.h; sourceTree = "<group>"; };
+		3555D5F61296520000FBC06F /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellViewDelegate.h; sourceTree = "<group>"; };
+		3555D61F129654EB00FBC06F /* NBNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookViewDelegate.h; sourceTree = "<group>"; };
 		358E2B361294BAC4009A2D95 /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellView.h; sourceTree = "<group>"; };
 		358E2B371294BAC4009A2D95 /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellView.m; sourceTree = "<group>"; };
 		358E2B5D1294BF58009A2D95 /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookView.h; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */,
+				3555D3681296153000FBC06F /* Python.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,24 +77,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3555D3351296139B00FBC06F /* Source View */,
+				3555D3341296138A00FBC06F /* Engines */,
+				3555D3331296137E00FBC06F /* Notebook */,
+				3555D3321296137200FBC06F /* Notebook Cell */,
 				256AC3D80F4B6AC300CF3369 /* NotebookAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */,
-				353E2AE71295C6E3001A40B6 /* NBSourceView.h */,
-				353E2AE81295C6E3001A40B6 /* NBSourceView.m */,
-				358E2B681294CB8E009A2D95 /* NBCell.h */,
-				358E2B691294CB8E009A2D95 /* NBCell.m */,
-				358E2B0C12948ADD009A2D95 /* NBCellController.h */,
-				358E2B0D12948ADD009A2D95 /* NBCellController.m */,
-				358E2B361294BAC4009A2D95 /* NBCellView.h */,
-				358E2B371294BAC4009A2D95 /* NBCellView.m */,
-				358E2B5D1294BF58009A2D95 /* NBNotebookView.h */,
-				358E2B5E1294BF58009A2D95 /* NBNotebookView.m */,
-				3555D32E1296132300FBC06F /* NBPythonEngine.h */,
-				3555D32F1296132300FBC06F /* NBPythonEngine.m */,
-				358E2B601294BF63009A2D95 /* NBNotebook.h */,
-				358E2B611294BF63009A2D95 /* NBNotebook.m */,
-				358E2B631294BF6C009A2D95 /* NBNotebookViewController.h */,
-				358E2B641294BF6C009A2D95 /* NBNotebookViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -104,6 +98,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3555D3671296153000FBC06F /* Python.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -158,6 +153,61 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3555D3321296137200FBC06F /* Notebook Cell */ = {
+			isa = PBXGroup;
+			children = (
+				358E2B681294CB8E009A2D95 /* NBCell.h */,
+				358E2B691294CB8E009A2D95 /* NBCell.m */,
+				358E2B361294BAC4009A2D95 /* NBCellView.h */,
+				358E2B371294BAC4009A2D95 /* NBCellView.m */,
+				3555D5F61296520000FBC06F /* NBCellViewDelegate.h */,
+			);
+			name = "Notebook Cell";
+			sourceTree = "<group>";
+		};
+		3555D3331296137E00FBC06F /* Notebook */ = {
+			isa = PBXGroup;
+			children = (
+				3555D61F129654EB00FBC06F /* NBNotebookViewDelegate.h */,
+				358E2B5D1294BF58009A2D95 /* NBNotebookView.h */,
+				358E2B5E1294BF58009A2D95 /* NBNotebookView.m */,
+				358E2B601294BF63009A2D95 /* NBNotebook.h */,
+				358E2B611294BF63009A2D95 /* NBNotebook.m */,
+				358E2B631294BF6C009A2D95 /* NBNotebookViewController.h */,
+				358E2B641294BF6C009A2D95 /* NBNotebookViewController.m */,
+			);
+			name = Notebook;
+			sourceTree = "<group>";
+		};
+		3555D3341296138A00FBC06F /* Engines */ = {
+			isa = PBXGroup;
+			children = (
+				3555D336129613B900FBC06F /* Python */,
+				3555D337129613D400FBC06F /* NBEngine.h */,
+				3555D4AF1296440B00FBC06F /* NBEngine.m */,
+			);
+			name = Engines;
+			sourceTree = "<group>";
+		};
+		3555D3351296139B00FBC06F /* Source View */ = {
+			isa = PBXGroup;
+			children = (
+				3555D5CB12964DA900FBC06F /* NBSourceViewDelegate.h */,
+				353E2AE71295C6E3001A40B6 /* NBSourceView.h */,
+				353E2AE81295C6E3001A40B6 /* NBSourceView.m */,
+			);
+			name = "Source View";
+			sourceTree = "<group>";
+		};
+		3555D336129613B900FBC06F /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				3555D32E1296132300FBC06F /* NBPythonEngine.h */,
+				3555D32F1296132300FBC06F /* NBPythonEngine.m */,
+			);
+			name = Python;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +274,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */,
-				358E2B0E12948ADD009A2D95 /* NBCellController.m in Sources */,
 				358E2B381294BAC4009A2D95 /* NBCellView.m in Sources */,
 				358E2B5F1294BF58009A2D95 /* NBNotebookView.m in Sources */,
 				358E2B621294BF63009A2D95 /* NBNotebook.m in Sources */,
@@ -232,6 +281,7 @@
 				358E2B6A1294CB8E009A2D95 /* NBCell.m in Sources */,
 				353E2AE91295C6E3001A40B6 /* NBSourceView.m in Sources */,
 				3555D3301296132300FBC06F /* NBPythonEngine.m in Sources */,
+				3555D4B01296440B00FBC06F /* NBEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +343,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

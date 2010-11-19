@@ -25,9 +25,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NBSourceViewDelegate.h"
+
 @interface NBSourceView : NSTextView
 {
-
+    id<NBSourceViewDelegate> delegate;
 }
+
+@property (nonatomic,retain) id<NBSourceViewDelegate> delegate;
 
 @end

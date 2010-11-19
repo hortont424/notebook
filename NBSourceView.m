@@ -27,6 +27,8 @@
 
 @implementation NBSourceView
 
+@synthesize delegate;
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -48,7 +50,7 @@
         case 36:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                NSLog(@"newline");
+                [delegate evaluate];
                 handled = YES;
             }
             break;

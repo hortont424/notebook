@@ -25,9 +25,12 @@
 
 #import "NBNotebookView.h"
 
+#import "NBCellView.h"
+
 @implementation NBNotebookView
 
 @synthesize notebook;
+@synthesize delegate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -62,7 +65,7 @@
 {
     NBCellView * cellView = [[NBCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
     cellView.cell = cell;
-    cellView.parent = self;
+    cellView.delegate = self;
     [cellViews addObject:cellView];
     
     [self addSubview:cellView];
@@ -85,6 +88,16 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
+}
+
+- (void)cellViewResized:(NBCellView *)cellView
+{
+    [self relayoutViews];
+}
+
+- (void)evaluateCellView:(NBCellView *)cellView
+{
+    [delegate notebookView:self evaluateCellView:cellView];
 }
 
 @end

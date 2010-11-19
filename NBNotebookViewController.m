@@ -27,10 +27,44 @@
 
 @implementation NBNotebookViewController
 
+- (id)init
+{
+    self = [super init];
+    
+    if(self != nil)
+    {
+        engines = [[NSMutableDictionary alloc] init];
+    }
+    
+    return self;
+}
+
 - (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell
 {
     [notebookView.notebook addCell:cell];
     [notebookView addViewForCell:cell atIndex:0]; // FIXME: 0 for now, is wrong!
+}
+
+- (id<NBEngine>)engineForNotebookView:(id)notebookView
+{
+    id<NBEngine> engine = nil;
+    
+    engine = [engines objectForKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
+    
+    if(!engine)
+    {
+        engine = [[NBPythonEngine alloc] init]; // TODO: pluggable!
+        [engines setObject:engine forKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
+    }
+    
+    return engine;
+}
+
+- (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView
+{
+    id<NBEngine> engine = [self engineForNotebookView:notebookView];
+    
+    [engine executeSnippet:cellView.cell.content];
 }
 
 @end

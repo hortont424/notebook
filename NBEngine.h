@@ -23,8 +23,28 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBCellController.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation NBCellController
+@interface NBCompilationError : NSObject
+{
+    uint32_t line, column;
+    NSString * message;
+}
+
+@property (nonatomic,assign) uint32_t line;
+@property (nonatomic,assign) uint32_t column;
+@property (nonatomic,retain) NSString * message;
+
+@end
+
+@protocol NBValue
+
+- (NSString *)asString;
+
+@end
+
+@protocol NBEngine
+
+- (NBCompilationError *)executeSnippet:(NSString *)snippet;
 
 @end

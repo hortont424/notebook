@@ -24,20 +24,23 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <QuartzCore/QuartzCore.h>
 
 #import "NBNotebook.h"
 #import "NBCell.h"
-#import "NBCellView.h"
+#import "NBCellViewDelegate.h"
+#import "NBNotebookViewDelegate.h"
 
-@interface NBNotebookView : NSView
+@interface NBNotebookView : NSView<NBCellViewDelegate>
 {
     IBOutlet NBNotebook * notebook;
     
     NSMutableArray * cellViews;
+    
+    id<NBNotebookViewDelegate> delegate;
 }
 
 @property (assign) IBOutlet NBNotebook * notebook;
+@property (assign) id<NBNotebookViewDelegate> delegate;
 
 - (void)addViewForCell:(NBCell *)cell atIndex:(uint32_t)idx;
 - (void)relayoutViews;

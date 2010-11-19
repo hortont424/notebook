@@ -26,26 +26,28 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBCell.h"
-#import "NBCellController.h"
+#import "NBCellViewDelegate.h"
 #import "NBSourceView.h"
+#import "NBSourceViewDelegate.h"
 
-@class NBNotebookView; // TODO: wrong, need a protocol
-
-@interface NBCellView : NSView<NSTextViewDelegate>
+@interface NBCellView : NSView<NSTextViewDelegate, NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
     NBCell * cell;
-    NBNotebookView * parent;
-    NBCellController * controller;
+    NSObjectController * controller; // TODO: pretty sure this is wrong
+    id<NBCellViewDelegate> delegate;
     
     NSSize margin;
 }
 
 @property (assign) NBSourceView * sourceView;
-@property (assign) NBNotebookView * parent;
 @property (nonatomic,retain) NBCell * cell;
-@property (nonatomic,retain) NBCellController * controller;
+@property (nonatomic,retain) NSObjectController * controller;
+@property (nonatomic,retain) id<NBCellViewDelegate> delegate;
 
 - (float)requestedHeight;
+
+- (void)viewDidResize:(NSNotification *)aNotification;
+- (void)sourceViewDidResize:(NSNotification *)aNotification;
 
 @end

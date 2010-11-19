@@ -26,11 +26,16 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBCell.h"
+#import "NBEngine.h"
 
 @interface NBNotebook : NSObject
 {
     NSMutableArray * cells;
+    
+    id<NBEngine> engine;
 }
+
+@property (nonatomic,retain) id<NBEngine> engine;
 
 - (void)addCell:(NBCell *)cell;
 

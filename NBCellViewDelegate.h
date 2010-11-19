@@ -24,22 +24,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Python/Python.h>
 
-#import "NBEngine.h"
+@protocol NBCellViewDelegate
 
-@interface NBPythonValue : NSObject<NBValue>
-{
-    
-}
-
-@end
-
-@interface NBPythonEngine : NSObject<NBEngine>
-{
-    PyThreadState * interpreter;
-    
-    PyObject * globals, * locals;
-}
+- (void)cellViewResized:(id)cellView;
+- (void)evaluateCellView:(id)cellView;
 
 @end
