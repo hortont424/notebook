@@ -25,6 +25,8 @@
 
 #import "NBSourceView.h"
 
+#import <Carbon/Carbon.h>
+
 @implementation NBSourceView
 
 @synthesize delegate;
@@ -47,7 +49,7 @@
     
     switch([theEvent keyCode])
     {
-        case 36:
+        case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
                 [delegate evaluate];

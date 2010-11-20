@@ -19,6 +19,7 @@
 		3578686D129666B80014825F /* NBNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786869129666B80014825F /* NBNotebookViewController.m */; };
 		35786873129666C80014825F /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578686F129666C80014825F /* NBCell.m */; };
 		35786874129666C80014825F /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786871129666C80014825F /* NBCellView.m */; };
+		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		358BECD812975E960060DDFA /* NBPythonEngineThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 358BECD712975E960060DDFA /* NBPythonEngineThread.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -57,6 +58,7 @@
 		35786870129666C80014825F /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellView.h; path = NBCell/NBCellView.h; sourceTree = "<group>"; };
 		35786871129666C80014825F /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCellView.m; path = NBCell/NBCellView.m; sourceTree = "<group>"; };
 		35786872129666C80014825F /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellViewDelegate.h; path = NBCell/NBCellViewDelegate.h; sourceTree = "<group>"; };
+		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		358BECD612975E960060DDFA /* NBPythonEngineThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngineThread.h; sourceTree = "<group>"; };
 		358BECD712975E960060DDFA /* NBPythonEngineThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPythonEngineThread.m; sourceTree = "<group>"; };
 		358BED51129766360060DDFA /* NBPythonEngineThreadProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngineThreadProtocol.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */,
 				3555D3681296153000FBC06F /* Python.framework in Frameworks */,
+				357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				357FF7391297A7D200A661E5 /* Carbon.framework */,
 				3555D3671296153000FBC06F /* Python.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
