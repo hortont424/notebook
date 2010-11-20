@@ -40,6 +40,8 @@
         output = [NSPort port];
         ports = [NSArray arrayWithObjects:output, input, nil];
         
+        taskQueue = [[NSMutableArray alloc] init];
+        
         engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
         [engineConnection setRootObject:self];
         
@@ -65,7 +67,12 @@
 
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception))completion
 {
-    // TODO: if busy, enqueue snippet!!
+    if(busy)
+    {
+        [taskQueue insertObject:[NSDictionary dictionaryWithObjectsAndKeys:snippet,@"snippet",[completion copy],@"callback",nil] atIndex:0];
+        
+        return;
+    }
     
     busy = YES;
     lastCompletionCallback = [completion copy];
@@ -78,6 +85,14 @@
     lastCompletionCallback(exception);
     busy = NO;
     lastCompletionCallback = nil;
+    
+    if([taskQueue count])
+    {
+        NSDictionary * enqueuedTask = [taskQueue lastObject];
+        [taskQueue removeLastObject];
+        
+        [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
+    }
 }
 
 @end

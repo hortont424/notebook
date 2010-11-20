@@ -33,6 +33,8 @@
     NSDistantObject<NBPythonEngineThreadProtocol> * engineThread;
     NSConnection * engineConnection;
     
+    NSMutableArray * taskQueue;
+    
     void (^lastCompletionCallback)(NBException * exception);
     volatile BOOL busy;
 }
