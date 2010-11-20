@@ -44,29 +44,40 @@
         [engineConnection setRootObject:self];
         
         engine = nil;
+        busy = NO;
         
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBPythonEngineThread class] withObject:ports];
     
         while(!engine)
         {
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
         }
     }
     
     return self;
 }
 
-- (void)setEngine:(id<NBPythonEngineThreadProtocol>)inEngine
+- (void)setEngine:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngine
 {
     engine = inEngine;
     [engine setProtocolForProxy:@protocol(NBPythonEngineThreadProtocol)];
 }
 
-- (void)executeSnippet:(NSString *)snippet
+- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception))completion
 {
-    [engine executeSnippet:snippet];
+    // TODO: if busy, enqueue snippet!!
     
-    NSLog(@"started executing snippet");
+    busy = YES;
+    lastCompletionCallback = [completion copy];
+    
+    [engine executeSnippet:snippet];
+}
+
+- (oneway void)snippetComplete:(NBException *)exception
+{
+    lastCompletionCallback(exception);
+    busy = NO;
+    lastCompletionCallback = nil;
 }
 
 @end

@@ -27,24 +27,28 @@
 
 @implementation NBPythonEngineThread
 
+@synthesize connection;
+
 + (void)connectWithPorts:(NSArray *)ports
 {
     NSAutoreleasePool * pool;
-    NSConnection * connection;
+    NSConnection * classConnection;
     NBPythonEngineThread * engine;
     
     pool = [[NSAutoreleasePool alloc] init];
-    connection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
+    classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
     engine = [[self alloc] init];
     
-    [((NBPythonEngine *)[connection rootProxy]) setEngine:engine];
+    engine.connection = classConnection;
+    
+    [((NBPythonEngine *)[classConnection rootProxy]) setEngine:engine];
     
     [[NSRunLoop currentRunLoop] run];
     
     [pool drain];
 }
 
-- (id) init
+- (id)init
 {
     self = [super init];
     
@@ -109,7 +113,10 @@
     {
         NBException * err = [self parsePythonException];
         PyErr_Clear();
-        return;// err;
+        
+        [((NBPythonEngine *)[connection rootProxy]) snippetComplete:err];
+        
+        return;
     }
     
     PyEval_EvalCode((PyCodeObject *)codeObject, globals, globals);
@@ -118,8 +125,13 @@
     {
         NBException * err = [self parsePythonException];
         PyErr_Clear();
-        return;// err;
+        
+        [((NBPythonEngine *)[connection rootProxy]) snippetComplete:err];
+        
+        return;
     }
+    
+    [((NBPythonEngine *)[connection rootProxy]) snippetComplete:nil];
 }
 
 @end

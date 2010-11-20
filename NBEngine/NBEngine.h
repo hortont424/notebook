@@ -45,6 +45,6 @@
 
 @protocol NBEngine
 
-- (void)executeSnippet:(NSString *)snippet;
+- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception))completion;
 
 @end

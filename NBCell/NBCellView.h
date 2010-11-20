@@ -29,6 +29,7 @@
 #import "NBCellViewDelegate.h"
 #import "NBSourceView.h"
 #import "NBSourceViewDelegate.h"
+#import "NBEngine.h"
 
 typedef enum _NBCellViewState
 {
@@ -60,5 +61,7 @@ typedef enum _NBCellViewState
 
 - (void)viewDidResize:(NSNotification *)aNotification;
 - (void)sourceViewDidResize:(NSNotification *)aNotification;
+
+- (void)evaluationComplete:(NBException *)exception;
 
 @end

@@ -31,7 +31,12 @@
 
 @interface NBPythonEngineThread : NSObject<NBPythonEngineThreadProtocol>
 {
+    NSConnection * connection;
+    
     PyObject * mainModule;
     PyObject * globals;
 }
+
+@property (nonatomic,assign) NSConnection * connection;
+
 @end

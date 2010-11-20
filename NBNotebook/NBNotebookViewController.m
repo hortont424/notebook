@@ -64,7 +64,7 @@
 {
     id<NBEngine> engine = [self engineForNotebookView:notebookView];
     
-    [engine executeSnippet:cellView.cell.content];
+    [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception) { [cellView evaluationComplete:exception]; }];
 }
 
 @end

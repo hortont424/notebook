@@ -79,7 +79,17 @@
 {
     self.state = NBCellViewEvaluating;
     
-    [delegate evaluateCellView:self]; // TODO: this needs to happen in a different thread, of course
+    [delegate evaluateCellView:self];
+}
+
+- (void)evaluationComplete:(NBException *)exception
+{
+    if(exception)
+    {
+        NSLog(@"%@ %d:%d", exception.message, exception.line, exception.column);
+    }
+    
+    self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
 - (float)requestedHeight
