@@ -25,6 +25,11 @@
 
 #import "NBSourceViewController.h"
 
+#import "srchilite/sourcehighlight.h"
+#import "srchilite/langmap.h"
+
+using namespace srchilite;
+
 @implementation NBSourceViewController
 
 @synthesize parent;

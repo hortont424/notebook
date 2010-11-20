@@ -11,7 +11,7 @@
 		256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
-		35709436129855CC00A9FC59 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35709435129855CC00A9FC59 /* NBSourceViewController.m */; };
+		356C1F711298839F0000B224 /* NBSourceViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 356C1F701298839F0000B224 /* NBSourceViewController.mm */; };
 		3578685C129666910014825F /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578685A129666910014825F /* NBSourceView.m */; };
 		35786862129666A70014825F /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578685E129666A70014825F /* NBEngine.m */; };
 		35786863129666A70014825F /* NBPythonEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786861129666A70014825F /* NBPythonEngine.m */; };
@@ -40,8 +40,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
-		35709434129855CC00A9FC59 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSourceViewController.h; sourceTree = "<group>"; };
-		35709435129855CC00A9FC59 /* NBSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSourceViewController.m; sourceTree = "<group>"; };
+		356C1F6F1298839F0000B224 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewController.h; path = NBSource/NBSourceViewController.h; sourceTree = "<group>"; };
+		356C1F701298839F0000B224 /* NBSourceViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NBSourceViewController.mm; path = NBSource/NBSourceViewController.mm; sourceTree = "<group>"; };
 		35786859129666910014825F /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = NBSource/NBSourceView.h; sourceTree = "<group>"; };
 		3578685A129666910014825F /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = NBSource/NBSourceView.m; sourceTree = "<group>"; };
 		3578685B129666910014825F /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = NBSource/NBSourceViewDelegate.h; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 		3555D3351296139B00FBC06F /* Source View */ = {
 			isa = PBXGroup;
 			children = (
-				35709434129855CC00A9FC59 /* NBSourceViewController.h */,
-				35709435129855CC00A9FC59 /* NBSourceViewController.m */,
+				356C1F6F1298839F0000B224 /* NBSourceViewController.h */,
+				356C1F701298839F0000B224 /* NBSourceViewController.mm */,
 				35786859129666910014825F /* NBSourceView.h */,
 				3578685A129666910014825F /* NBSourceView.m */,
 				3578685B129666910014825F /* NBSourceViewDelegate.h */,
@@ -300,7 +300,7 @@
 				35786873129666C80014825F /* NBCell.m in Sources */,
 				35786874129666C80014825F /* NBCellView.m in Sources */,
 				358BECD812975E960060DDFA /* NBPythonEngineThread.m in Sources */,
-				35709436129855CC00A9FC59 /* NBSourceViewController.m in Sources */,
+				356C1F711298839F0000B224 /* NBSourceViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
