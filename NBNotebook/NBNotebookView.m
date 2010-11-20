@@ -100,11 +100,13 @@
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     appendingCellView = (NBCellView *)[(NSDictionary *)[theEvent userData] objectForKey:@"cellView"];
+    [[NSCursor resizeDownCursor] push];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
 {   
     appendingCellView = nil;
+    [NSCursor pop];
 }
 
 - (void)relayoutViews
