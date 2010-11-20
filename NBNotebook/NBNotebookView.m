@@ -69,8 +69,6 @@
     [cellViews addObject:cellView];
     
     [self addSubview:cellView];
-    
-    [self relayoutViews];
 }
 
 - (void)relayoutViews

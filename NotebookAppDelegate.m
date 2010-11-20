@@ -46,6 +46,10 @@
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
     [notebookController notebookView:notebookView addCell:cell];
+    
+    cell = [[NBCell alloc] init];
+    cell.content = @"for x in range(100000):\n    print x";
+    [notebookController notebookView:notebookView addCell:cell];
 }
 
 @end

@@ -67,7 +67,6 @@
     
     err = [engine executeSnippet:cellView.cell.content];
     
-    // TODO: for some reason this generally doesn't work?
     if(err)
     {
         NSLog(@"%@ %d:%d", err.message, err.line, err.column);
