@@ -33,10 +33,13 @@
 {
     NSConnection * connection;
     
+    id engine; // TODO: protocol
+    
     PyObject * mainModule;
     PyObject * globals;
 }
 
 @property (nonatomic,assign) NSConnection * connection;
+@property (nonatomic,assign) id engine;
 
 @end

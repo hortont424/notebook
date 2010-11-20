@@ -30,14 +30,14 @@
 
 @interface NBPythonEngine : NSObject<NBEngine>
 {
-    NSDistantObject<NBPythonEngineThreadProtocol> * engine;
+    NSDistantObject<NBPythonEngineThreadProtocol> * engineThread;
     NSConnection * engineConnection;
     
     void (^lastCompletionCallback)(NBException * exception);
     volatile BOOL busy;
 }
 
-- (void)setEngine:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngine;
+- (void)setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngineThread;
 
 - (oneway void)snippetComplete:(NBException *)exception;
 

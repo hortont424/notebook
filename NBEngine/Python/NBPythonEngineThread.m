@@ -27,21 +27,22 @@
 
 @implementation NBPythonEngineThread
 
-@synthesize connection;
+@synthesize connection, engine;
 
 + (void)connectWithPorts:(NSArray *)ports
 {
     NSAutoreleasePool * pool;
     NSConnection * classConnection;
-    NBPythonEngineThread * engine;
+    NBPythonEngineThread * engineThread;
     
     pool = [[NSAutoreleasePool alloc] init];
     classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
-    engine = [[self alloc] init];
+    engineThread = [[self alloc] init];
     
-    engine.connection = classConnection;
+    engineThread.connection = classConnection;
+    engineThread.engine = (NBPythonEngine *)[classConnection rootProxy];
     
-    [((NBPythonEngine *)[classConnection rootProxy]) setEngine:engine];
+    [engineThread.engine setEngineThread:engineThread];
     
     [[NSRunLoop currentRunLoop] run];
     
@@ -101,7 +102,7 @@
         NBException * err = [self parsePythonException];
         PyErr_Clear();
         
-        [((NBPythonEngine *)[connection rootProxy]) snippetComplete:err];
+        [engine snippetComplete:err];
         
         return;
     }
@@ -113,12 +114,12 @@
         NBException * err = [self parsePythonException];
         PyErr_Clear();
         
-        [((NBPythonEngine *)[connection rootProxy]) snippetComplete:err];
+        [engine snippetComplete:err];
         
         return;
     }
     
-    [((NBPythonEngine *)[connection rootProxy]) snippetComplete:nil];
+    [engine snippetComplete:nil];
 }
 
 @end

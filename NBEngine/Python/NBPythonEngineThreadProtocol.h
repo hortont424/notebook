@@ -25,7 +25,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @protocol NBPythonEngineThreadProtocol
 
 + (void)connectWithPorts:(NSArray *)ports;

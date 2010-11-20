@@ -43,12 +43,12 @@
         engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
         [engineConnection setRootObject:self];
         
-        engine = nil;
+        engineThread = nil;
         busy = NO;
         
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBPythonEngineThread class] withObject:ports];
     
-        while(!engine)
+        while(!engineThread)
         {
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
         }
@@ -57,10 +57,10 @@
     return self;
 }
 
-- (void)setEngine:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngine
+- (void)setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngineThread
 {
-    engine = inEngine;
-    [engine setProtocolForProxy:@protocol(NBPythonEngineThreadProtocol)];
+    engineThread = inEngineThread;
+    [engineThread setProtocolForProxy:@protocol(NBPythonEngineThreadProtocol)];
 }
 
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception))completion
@@ -70,7 +70,7 @@
     busy = YES;
     lastCompletionCallback = [completion copy];
     
-    [engine executeSnippet:snippet];
+    [engineThread executeSnippet:snippet];
 }
 
 - (oneway void)snippetComplete:(NBException *)exception
