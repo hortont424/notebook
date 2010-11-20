@@ -42,22 +42,30 @@
     
     if(self)
     {
+        NSRect frameWithoutMargin = frame;
         margin = NSMakeSize(4, 1);
-        state = NBCellViewChanged;
+        frameWithoutMargin.size.width -= (2 * margin.width);
+        frameWithoutMargin.size.height -= (2 * margin.height);
+        frameWithoutMargin.origin.x += margin.width;
+        frameWithoutMargin.origin.y += margin.height;
         
+        state = NBCellViewChanged;
+    
         controller = [[[NSObjectController alloc] init] autorelease];
         
         NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
         sourceViewController.parent = self; // TODO: wrong? should be by method or something
         
-        sourceView = [[NBSourceView alloc] initWithFrame:frame];
+        sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
+        [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:sourceViewController];
         [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
-        outputView = [[NSTextView alloc] initWithFrame:frame];
+        outputView = [[NSTextView alloc] initWithFrame:frameWithoutMargin];
+        [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];
         [outputView setFont:[NSFont fontWithName:@"Menlo" size:12]];
@@ -65,7 +73,6 @@
         [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
         [self enableContentResizeNotifications];
         
         [self addSubview:sourceView];
@@ -204,25 +211,19 @@
 
 - (float)requestedHeight
 {
+    float height = 0.0;
+    
     if(cell.output)
     {
-        return sourceView.frame.size.height + outputView.frame.size.height + (margin.height * 3);
+        height = sourceView.frame.size.height + outputView.frame.size.height + (margin.height * 3);
     }
     else
     {
-        return sourceView.frame.size.height + (margin.height * 2);
+        height = sourceView.frame.size.height + (margin.height * 2);
     }
-
-}
-
-- (void)viewDidResize:(NSNotification *)aNotification
-{
-    [self disableContentResizeNotifications];
     
-    [sourceView setFrameSize:NSMakeSize(self.frame.size.width - (margin.width * 2), sourceView.frame.size.height)];
-    [outputView setFrameSize:NSMakeSize(self.frame.size.width - (margin.width * 2), outputView.frame.size.height)];
-    
-    [self enableContentResizeNotifications];
+    return height;
+
 }
 
 - (void)sourceViewDidResize:(NSNotification *)aNotification

@@ -28,7 +28,7 @@
 #import "NBSourceViewDelegate.h"
 #import "NBCellView.h"
 
-@interface NBSourceViewController : NSObject<NBSourceViewDelegate>
+@interface NBSourceViewController : NSObject<NBSourceViewDelegate, NSTextStorageDelegate>
 {
     NBCellView * parent;
 }

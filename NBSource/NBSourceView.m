@@ -43,6 +43,13 @@
     return self;
 }
 
+- (void)setDelegate:(id <NBSourceViewDelegate>)inDelegate
+{
+    delegate = inDelegate;
+    
+    [[self textStorage] setDelegate:delegate];
+}
+
 - (void)keyDown:(NSEvent *)theEvent
 {
     BOOL handled = NO;
