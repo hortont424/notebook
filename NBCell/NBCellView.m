@@ -138,7 +138,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    // Draw the cell border
+    // Draw the cell background
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
