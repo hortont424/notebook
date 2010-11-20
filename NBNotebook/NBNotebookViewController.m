@@ -41,8 +41,13 @@
 
 - (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
+    [self notebookView:notebookView addCell:cell afterCellView:afterCellView withAnimation:NO];
+}
+
+- (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation
+{
     [notebookView.notebook addCell:cell];
-    return [notebookView addViewForCell:cell afterCellView:(NBCellView *)afterCellView];
+    return [notebookView addViewForCell:cell afterCellView:(NBCellView *)afterCellView withAnimation:animation];
 }
 
 - (id<NBEngine>)engineForNotebookView:(id)notebookView
@@ -74,7 +79,7 @@
     
     newCell.content = @"";
     
-    newCellView = [self notebookView:notebookView addCell:newCell afterCellView:cellView];
+    newCellView = [self notebookView:notebookView addCell:newCell afterCellView:cellView withAnimation:YES];
     
     [[newCellView window] makeFirstResponder:newCellView];
     

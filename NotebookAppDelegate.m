@@ -35,7 +35,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NBCell * cell = [[NBCell alloc] init];
+    NBCell * cell;
+    
+    cell = [[NBCell alloc] init];
     cell.content = @"import random";
     [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     

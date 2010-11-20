@@ -62,7 +62,7 @@
     [self relayoutViews];
 }
 
-- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
+- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation
 {
     NSUInteger insertionIndex = NSNotFound;
     
@@ -83,8 +83,9 @@
     [cellViews insertObject:cellView atIndex:insertionIndex];
     
     [self addSubview:cellView];
+    [cellView setFrameOrigin:NSMakePoint(0, [self yForView:cellView])];
     
-    [self relayoutViews];
+    [self relayoutViewsWithAnimation:animation];
     
     return cellView;
 }
@@ -109,10 +110,24 @@
     [NSCursor pop];
 }
 
-- (void)relayoutViews
+- (float)yForView:(NBCellView *)cellView
+{
+    float y = 0;
+    
+    for(NBCellView * v in cellViews)
+    {
+        if(v == cellView)
+            return y;
+        
+        y += [v requestedHeight] + 4; // TODO: make 4 a parameter
+    }
+    
+    return 0;
+}
+
+- (void)relayoutViewsWithAnimation:(BOOL)animation
 {
     NSSize totalSize = NSZeroSize;
-    
     totalSize.width = self.frame.size.width;
     
     for(NSTrackingArea * trackingArea in addCellTrackingAreas)
@@ -120,13 +135,24 @@
         [self removeTrackingArea:trackingArea];
     }
     
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:0.1f];
+    
     for(NBCellView * cellView in cellViews)
     {
         NSTrackingArea * trackingArea;
+        float requestedHeight = [cellView requestedHeight];
         
-        [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, [cellView requestedHeight])];
+        if(animation)
+        {
+            [[cellView animator] setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
+        }
+        else
+        {
+            [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
+        }
         
-        totalSize.height += [cellView requestedHeight] + 4; // TODO: make 4 a parameter
+        totalSize.height += requestedHeight + 4; // TODO: make 4 a parameter
         
         trackingArea = [[NSTrackingArea alloc] initWithRect:NSMakeRect(0, totalSize.height - 4, totalSize.width, 4)
                                                     options:(NSTrackingMouseEnteredAndExited|NSTrackingActiveInKeyWindow)
@@ -137,14 +163,21 @@
         [addCellTrackingAreas addObject:trackingArea];
     }
     
+    [NSAnimationContext endGrouping];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
 }
 
+- (void)relayoutViews
+{
+    [self relayoutViewsWithAnimation:NO];
+}
+
 - (void)cellViewResized:(NBCellView *)cellView
 {
-    [self relayoutViews];
+    [self relayoutViewsWithAnimation:NO];
 }
 
 - (void)evaluateCellView:(NBCellView *)cellView

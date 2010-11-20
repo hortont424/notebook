@@ -146,7 +146,7 @@
 - (void)viewDidResize:(NSNotification *)aNotification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
-    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width - margin.width, self.frame.size.height - (margin.height * 2))];
+    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width - margin.width, sourceView.frame.size.height)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
 }
 
