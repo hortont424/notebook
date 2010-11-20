@@ -69,14 +69,13 @@
     NBException * err = [[NBException alloc] init];
     
     PyObject * exceptionType, * exceptionValue, * exceptionTraceback;
-    PyObject * exceptionOffset, * exceptionLine, * exceptionMessage;
+    PyObject * exceptionOffset, * exceptionLine;
     
     PyErr_Fetch(&exceptionType, &exceptionValue, &exceptionTraceback);
     PyErr_NormalizeException(&exceptionType, &exceptionValue, &exceptionTraceback);
     
     exceptionOffset = PyObject_GetAttrString(exceptionValue, "offset");
     exceptionLine = PyObject_GetAttrString(exceptionValue, "lineno");
-    exceptionMessage = PyObject_GetAttrString(exceptionValue, "msg");
     
     if(exceptionOffset)
     {    
@@ -88,19 +87,7 @@
         err.line = PyInt_AsLong(exceptionLine);
     }
     
-    if(exceptionMessage)
-    {
-        err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
-    }
-    else
-    {
-        exceptionMessage = PyObject_GetAttrString(exceptionValue, "message");
-        
-        if(exceptionMessage)
-        {
-            err.message = [NSString stringWithUTF8String:PyString_AsString(exceptionMessage)];
-        }
-    }
+    err.message = [NSString stringWithUTF8String:PyString_AsString(PyObject_Str(exceptionValue))];
     
     return err;
 }
