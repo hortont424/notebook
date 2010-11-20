@@ -60,7 +60,6 @@ typedef enum _NBCellViewState
 
 - (float)requestedHeight;
 
-- (void)viewDidResize:(NSNotification *)aNotification;
 - (void)sourceViewDidResize:(NSNotification *)aNotification;
 
 - (void)evaluate;

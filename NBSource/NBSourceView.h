@@ -29,9 +29,9 @@
 
 @interface NBSourceView : NSTextView
 {
-    id<NBSourceViewDelegate> delegate;
+    id<NBSourceViewDelegate, NSTextStorageDelegate> delegate;
 }
 
-@property (nonatomic,retain) id<NBSourceViewDelegate> delegate;
+@property (nonatomic,retain) id<NBSourceViewDelegate, NSTextStorageDelegate> delegate;
 
 @end

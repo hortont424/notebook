@@ -43,7 +43,7 @@
     return self;
 }
 
-- (void)setDelegate:(id <NBSourceViewDelegate>)inDelegate
+- (void)setDelegate:(id <NBSourceViewDelegate, NSTextStorageDelegate>)inDelegate
 {
     delegate = inDelegate;
     
