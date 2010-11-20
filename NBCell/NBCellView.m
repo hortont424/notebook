@@ -105,7 +105,7 @@
     CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
     CGContextFillRect(ctx, [self bounds]);
     
-    // Draw the cell state indicator (right hand side of the cell
+    // Draw the cell state indicator (right hand side of the cell)
     
     switch(self.state)
     {
