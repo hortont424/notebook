@@ -161,6 +161,8 @@
             CGContextSetRGBFillColor(ctx, 0.451, 0.824, 0.086, 1.0);
             break;
     }
+    
+    CGContextFillRect(ctx, NSMakeRect(0, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
     CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
 }
 
@@ -212,8 +214,8 @@
 {
     [self disableContentResizeNotifications];
     
-    [sourceView setFrameSize:NSMakeSize(self.frame.size.width - margin.width, sourceView.frame.size.height)];
-    [outputView setFrameSize:NSMakeSize(self.frame.size.width - margin.width, outputView.frame.size.height)];
+    [sourceView setFrameSize:NSMakeSize(self.frame.size.width - (margin.width * 2), sourceView.frame.size.height)];
+    [outputView setFrameSize:NSMakeSize(self.frame.size.width - (margin.width * 2), outputView.frame.size.height)];
     
     [self enableContentResizeNotifications];
 }
@@ -222,8 +224,8 @@
 {
     [self disableContentResizeNotifications];
     
-    [sourceView setFrameOrigin:NSMakePoint(0, margin.height)];
-    [outputView setFrameOrigin:NSMakePoint(0, sourceView.frame.origin.y + sourceView.frame.size.height + margin.height)];
+    [sourceView setFrameOrigin:NSMakePoint(margin.width, margin.height)];
+    [outputView setFrameOrigin:NSMakePoint(margin.width, sourceView.frame.origin.y + sourceView.frame.size.height + margin.height)];
     
     [self enableContentResizeNotifications];
     
