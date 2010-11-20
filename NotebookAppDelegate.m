@@ -54,7 +54,7 @@
     [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
-    cell.content = @"asdf = lambda x : 1\n\ndef asdf2():\n    print 2 + 2, \"some random string\" # 4, definitely\nasdf2()";
+    cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
     [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
 }
 
