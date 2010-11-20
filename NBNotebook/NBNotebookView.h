@@ -45,7 +45,7 @@
 @property (assign) IBOutlet NBNotebook * notebook;
 @property (assign) id<NBNotebookViewDelegate> delegate;
 
-- (void)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
+- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
 - (void)relayoutViews;
 
 @end

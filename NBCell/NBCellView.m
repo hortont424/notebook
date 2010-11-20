@@ -61,6 +61,18 @@
     return self;
 }
 
+- (BOOL)becomeFirstResponder
+{
+    [self.window makeFirstResponder:self.sourceView];
+    
+    return YES;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    [self becomeFirstResponder];
+}
+
 - (void)setCell:(NBCell *)inCell
 {
     cell = inCell;

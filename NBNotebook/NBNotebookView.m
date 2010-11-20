@@ -62,7 +62,7 @@
     [self relayoutViews];
 }
 
-- (void)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
+- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
     NSUInteger insertionIndex = NSNotFound;
     
@@ -85,6 +85,8 @@
     [self addSubview:cellView];
     
     [self relayoutViews];
+    
+    return cellView;
 }
 
 - (void)mouseDown:(NSEvent *)theEvent
