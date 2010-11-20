@@ -32,5 +32,6 @@
 
 - (id<NBEngine>)engineForNotebookView:(id)notebookView;
 - (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView;
+- (void)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView;
 
 @end

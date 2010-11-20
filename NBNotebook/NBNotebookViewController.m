@@ -39,10 +39,10 @@
     return self;
 }
 
-- (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell
+- (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
     [notebookView.notebook addCell:cell];
-    [notebookView addViewForCell:cell atIndex:0]; // FIXME: 0 for now, is wrong!
+    [notebookView addViewForCell:cell afterCellView:(NBCellView *)afterCellView];
 }
 
 - (id<NBEngine>)engineForNotebookView:(id)notebookView
@@ -65,6 +65,15 @@
     id<NBEngine> engine = [self engineForNotebookView:notebookView];
     
     [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception) { [cellView evaluationComplete:exception]; }];
+}
+
+- (void)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView
+{
+    NBCell * newCell = [[NBCell alloc] init];
+    
+    newCell.content = @"asdf";
+    
+    [self notebookView:notebookView addCell:newCell afterCellView:cellView];
 }
 
 @end

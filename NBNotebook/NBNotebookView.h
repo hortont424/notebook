@@ -35,6 +35,9 @@
     IBOutlet NBNotebook * notebook;
     
     NSMutableArray * cellViews;
+    NSMutableArray * addCellTrackingAreas;
+    
+    NBCellView * appendingCellView;
     
     id<NBNotebookViewDelegate> delegate;
 }
@@ -42,7 +45,7 @@
 @property (assign) IBOutlet NBNotebook * notebook;
 @property (assign) id<NBNotebookViewDelegate> delegate;
 
-- (void)addViewForCell:(NBCell *)cell atIndex:(uint32_t)idx;
+- (void)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
 - (void)relayoutViews;
 
 @end

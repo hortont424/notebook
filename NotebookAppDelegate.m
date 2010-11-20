@@ -37,19 +37,19 @@
 {
     NBCell * cell = [[NBCell alloc] init];
     cell.content = @"import random";
-    [notebookController notebookView:notebookView addCell:cell];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [notebookController notebookView:notebookView addCell:cell];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
-    [notebookController notebookView:notebookView addCell:cell];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"for x in range(100000):\n    print x";
-    [notebookController notebookView:notebookView addCell:cell];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
 }
 
 @end

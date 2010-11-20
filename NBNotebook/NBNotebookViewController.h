@@ -36,6 +36,6 @@
     NSMutableDictionary * engines;
 }
 
-- (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell;
+- (void)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
 
 @end

@@ -39,6 +39,7 @@
     if(self)
     {
         cellViews = [[NSMutableArray alloc] init];
+        addCellTrackingAreas = [[NSMutableArray alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
@@ -61,27 +62,76 @@
     [self relayoutViews];
 }
 
-- (void)addViewForCell:(NBCell *)cell atIndex:(uint32_t)idx
+- (void)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
+    NSUInteger insertionIndex = NSNotFound;
+    
     NBCellView * cellView = [[NBCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
     cellView.cell = cell;
     cellView.delegate = self;
-    [cellViews addObject:cellView];
+    
+    if(afterCellView)
+    {
+        insertionIndex = [cellViews indexOfObject:afterCellView] + 1;
+    }
+    
+    if(insertionIndex == NSNotFound)
+    {
+        insertionIndex = [cellViews count];
+    }
+    
+    [cellViews insertObject:cellView atIndex:insertionIndex];
     
     [self addSubview:cellView];
+    
+    [self relayoutViews];
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    if(appendingCellView)
+    {
+        [delegate notebookView:self addNewCellAfterCell:appendingCellView];
+    }
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent
+{
+    appendingCellView = (NBCellView *)[(NSDictionary *)[theEvent userData] objectForKey:@"cellView"];
+}
+
+- (void)mouseExited:(NSEvent *)theEvent
+{   
+    appendingCellView = nil;
 }
 
 - (void)relayoutViews
 {
     NSSize totalSize = NSZeroSize;
     
-    for(NBCellView * cellView in cellViews)
+    totalSize.width = self.frame.size.width;
+    
+    for(NSTrackingArea * trackingArea in addCellTrackingAreas)
     {
-        [cellView setFrame:NSMakeRect(0, totalSize.height, self.frame.size.width, [cellView requestedHeight])];
-        totalSize.height += [cellView requestedHeight] + 3;
+        [self removeTrackingArea:trackingArea];
     }
     
-    totalSize.width = [self frame].size.width;
+    for(NBCellView * cellView in cellViews)
+    {
+        NSTrackingArea * trackingArea;
+        
+        [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, [cellView requestedHeight])];
+        
+        totalSize.height += [cellView requestedHeight] + 4; // TODO: make 4 a parameter
+        
+        trackingArea = [[NSTrackingArea alloc] initWithRect:NSMakeRect(0, totalSize.height - 4, totalSize.width, 4)
+                                                    options:(NSTrackingMouseEnteredAndExited|NSTrackingActiveInKeyWindow)
+                                                      owner:self
+                                                   userInfo:[NSDictionary dictionaryWithObject:cellView forKey:@"cellView"]];
+        
+        [self addTrackingArea:trackingArea];
+        [addCellTrackingAreas addObject:trackingArea];
+    }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
