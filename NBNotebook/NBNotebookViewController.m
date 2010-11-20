@@ -41,7 +41,7 @@
 
 - (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
-    [self notebookView:notebookView addCell:cell afterCellView:afterCellView withAnimation:NO];
+    return [self notebookView:notebookView addCell:cell afterCellView:afterCellView withAnimation:NO];
 }
 
 - (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation

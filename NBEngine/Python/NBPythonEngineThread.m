@@ -42,7 +42,7 @@
     engineThread.connection = classConnection;
     engineThread.engine = (NBPythonEngine *)[classConnection rootProxy];
     
-    [engineThread.engine setEngineThread:engineThread];
+    [engineThread.engine setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)engineThread];
     
     [[NSRunLoop currentRunLoop] run];
     

@@ -59,7 +59,7 @@
 
 - (void)viewDidResize:(NSNotification *)aNotification
 {
-    [self relayoutViews];
+    [self relayoutViewsWithAnimation:NO];
 }
 
 - (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation
@@ -168,11 +168,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
-}
-
-- (void)relayoutViews
-{
-    [self relayoutViewsWithAnimation:NO];
 }
 
 - (void)cellViewResized:(NBCellView *)cellView
