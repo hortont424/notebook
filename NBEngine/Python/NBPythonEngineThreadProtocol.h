@@ -23,50 +23,12 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBPythonEngine.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation NBPythonEngine
 
-- (id)init
-{
-    self = [super init];
-    
-    if(self != nil)
-    {
-        NSPort * input, * output;
-        NSArray * ports;
-        
-        input = [NSPort port];
-        output = [NSPort port];
-        ports = [NSArray arrayWithObjects:output, input, nil];
-        
-        engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
-        [engineConnection setRootObject:self];
-        
-        engine = nil;
-        
-        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBPythonEngineThread class] withObject:ports];
-    
-        while(!engine)
-        {
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
-        }
-    }
-    
-    return self;
-}
+@protocol NBPythonEngineThreadProtocol
 
-- (void)setEngine:(id<NBPythonEngineThreadProtocol>)inEngine
-{
-    engine = inEngine;
-    [engine setProtocolForProxy:@protocol(NBPythonEngineThreadProtocol)];
-}
-
-- (void)executeSnippet:(NSString *)snippet
-{
-    [engine executeSnippet:snippet];
-    
-    NSLog(@"started executing snippet");
-}
++ (void)connectWithPorts:(NSArray *)ports;
+- (oneway void)executeSnippet:(NSString *)snippet;
 
 @end

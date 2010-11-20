@@ -24,22 +24,16 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Python/Python.h>
 
 #import "NBEngine.h"
-
-@interface NBPythonValue : NSObject<NBValue>
-{
-    
-}
-
-@end
+#import "NBPythonEngineThread.h"
 
 @interface NBPythonEngine : NSObject<NBEngine>
 {
-    PyObject * mainModule;
-    
-    PyObject * globals;
+    id<NBPythonEngineThreadProtocol> engine;
+    NSConnection * engineConnection;
 }
+
+- (void)setEngine:(id<NBPythonEngineThreadProtocol>)inEngine;
 
 @end
