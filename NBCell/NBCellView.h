@@ -42,6 +42,7 @@ typedef enum _NBCellViewState
 @interface NBCellView : NSView<NSTextViewDelegate, NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
+    NSTextView * outputView;
     NBCell * cell;
     NSObjectController * controller; // TODO: pretty sure this is wrong
     id<NBCellViewDelegate> delegate;
@@ -53,6 +54,7 @@ typedef enum _NBCellViewState
 
 @property (assign) NBCellViewState state;
 @property (assign) NBSourceView * sourceView;
+@property (assign) NSTextView * outputView;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) NSObjectController * controller;
 @property (nonatomic,retain) id<NBCellViewDelegate> delegate;
@@ -63,5 +65,8 @@ typedef enum _NBCellViewState
 - (void)sourceViewDidResize:(NSNotification *)aNotification;
 
 - (void)evaluationComplete:(NBException *)exception;
+
+- (void)enableContentResizeNotifications;
+- (void)disableContentResizeNotifications;
 
 @end

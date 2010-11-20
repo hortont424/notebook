@@ -28,8 +28,10 @@
 @interface NBCell : NSObject
 {
     NSString * content;
+    NSString * output;
 }
 
 @property (nonatomic,retain) NSString * content;
+@property (nonatomic,retain) NSString * output;
 
 @end

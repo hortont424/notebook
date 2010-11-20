@@ -136,7 +136,7 @@
     }
     
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.1f];
+    [[NSAnimationContext currentContext] setDuration:0.1f]; // TODO: make all animation speeds a parameter
     
     for(NBCellView * cellView in cellViews)
     {

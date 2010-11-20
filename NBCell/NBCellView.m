@@ -29,6 +29,7 @@
 
 @synthesize cell;
 @synthesize sourceView;
+@synthesize outputView;
 @synthesize controller;
 @synthesize delegate;
 @synthesize state;
@@ -49,16 +50,39 @@
         [sourceView setDelegate:self];
         [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
+        [[sourceView textContainer] setHeightTracksTextView:NO];
+        
+        outputView = [[NSTextView alloc] initWithFrame:frame];
+        [outputView setFieldEditor:NO];
+        [outputView setDelegate:self];
+        [outputView setFont:[NSFont fontWithName:@"Menlo" size:12]];
+        [outputView setTextContainerInset:NSMakeSize(10, 10)];
+        [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
+        [self enableContentResizeNotifications];
         
         [self addSubview:sourceView];
-
-        [self sourceViewDidResize:nil];
     }
     return self;
+}
+
+- (BOOL)isFlipped
+{
+    return YES;
+}
+
+- (void)enableContentResizeNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:outputView];
+}
+
+- (void)disableContentResizeNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:outputView];
 }
 
 - (BOOL)becomeFirstResponder
@@ -77,7 +101,12 @@
 {
     cell = inCell;
     
+    [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
+    
     [sourceView setString:cell.content];
+    [sourceView display]; // sourceView needs to determine its proper size!
+    
+    [self sourceViewDidResize:nil];
 }
 
 - (void)setState:(NBCellViewState)inState
@@ -92,26 +121,24 @@
     self.state = NBCellViewEvaluating;
     
     [delegate evaluateCellView:self];
+    
+    cell.output = nil;
 }
 
 - (void)evaluationComplete:(NBException *)exception
 {
     if(exception)
     {
-        NSLog(@"%@ %d:%d", exception.message, exception.line, exception.column);
+        // TODO: highlight line/character where exception occurred
+        cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
     }
     
     self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
-- (float)requestedHeight
-{
-    return sourceView.frame.size.height + (margin.height * 2);
-}
-
 - (void)drawRect:(NSRect)dirtyRect
 {
-    // Draw the cell background
+    // Draw the cell border
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
@@ -141,20 +168,64 @@
 {
     cell.content = [sourceView string];
     self.state = NBCellViewChanged;
+    
+    [self sourceViewDidResize:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"output"])
+    {
+        if(cell.output && ([[self subviews] indexOfObject:outputView] == NSNotFound))
+        {
+            [self addSubview:outputView];
+        }
+        else if(!cell.output && ([[self subviews] indexOfObject:outputView] != NSNotFound))
+        {
+            [outputView removeFromSuperview];
+        }
+        
+        if(cell.output)
+        {
+            [outputView setString:cell.output];
+            [outputView display];
+        }
+        
+        [self sourceViewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
+    }
+}
+
+- (float)requestedHeight
+{
+    if(cell.output)
+    {
+        return sourceView.frame.size.height + outputView.frame.size.height + (margin.height * 3);
+    }
+    else
+    {
+        return sourceView.frame.size.height + (margin.height * 2);
+    }
+
 }
 
 - (void)viewDidResize:(NSNotification *)aNotification
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
-    [sourceView setFrame:NSMakeRect(0, margin.height, self.frame.size.width - margin.width, sourceView.frame.size.height)];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
+    [self disableContentResizeNotifications];
+    
+    [sourceView setFrameSize:NSMakeSize(self.frame.size.width - margin.width, sourceView.frame.size.height)];
+    [outputView setFrameSize:NSMakeSize(self.frame.size.width - margin.width, outputView.frame.size.height)];
+    
+    [self enableContentResizeNotifications];
 }
 
 - (void)sourceViewDidResize:(NSNotification *)aNotification
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
+    [self disableContentResizeNotifications];
+    
     [sourceView setFrameOrigin:NSMakePoint(0, margin.height)];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
+    [outputView setFrameOrigin:NSMakePoint(0, sourceView.frame.origin.y + sourceView.frame.size.height + margin.height)];
+    
+    [self enableContentResizeNotifications];
     
     [delegate cellViewResized:self];
 }
