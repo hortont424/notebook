@@ -23,45 +23,15 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBSourceView.h"
+#import "NBSourceViewController.h"
 
-#import <Carbon/Carbon.h>
+@implementation NBSourceViewController
 
-@implementation NBSourceView
+@synthesize parent;
 
-@synthesize delegate;
-
-- (id)initWithFrame:(NSRect)frame
+- (void)evaluateSourceView:(id)sourceView
 {
-    self = [super initWithFrame:frame];
-    
-    if(self)
-    {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    BOOL handled = NO;
-    
-    switch([theEvent keyCode])
-    {
-        case kVK_Return:
-            if([theEvent modifierFlags] & NSShiftKeyMask)
-            {
-                [delegate evaluateSourceView:self];
-                handled = YES;
-            }
-            break;
-    }
-    
-    if(!handled)
-    {
-        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
-    }
+    [parent evaluate];
 }
 
 @end

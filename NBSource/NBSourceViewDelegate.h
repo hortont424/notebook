@@ -29,6 +29,6 @@
 
 @protocol NBSourceViewDelegate
 
-- (void)evaluate;
+- (void)evaluateSourceView:(id)sourceView;
 
 @end

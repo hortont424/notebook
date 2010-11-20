@@ -25,6 +25,8 @@
 
 #import "NBCellView.h"
 
+#import "NBSourceViewController.h"
+
 @implementation NBCellView
 
 @synthesize cell;
@@ -45,9 +47,12 @@
         
         controller = [[[NSObjectController alloc] init] autorelease];
         
+        NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
+        sourceViewController.parent = self; // TODO: wrong? should be by method or something
+        
         sourceView = [[NBSourceView alloc] initWithFrame:frame];
         [sourceView setFieldEditor:NO];
-        [sourceView setDelegate:self];
+        [sourceView setDelegate:sourceViewController];
         [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
         [[sourceView textContainer] setHeightTracksTextView:NO];
