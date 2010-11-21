@@ -38,15 +38,15 @@
 {
     NSTextStorage * textStorage = [notification object];
     NSString * string = [textStorage string];
-    NSRange found;
+    RKRegex * expression = [RKRegex regexWithRegexString:@"(^|\\s)def(\\s|$)" options:RKCompileNoOptions];
+    RKEnumerator * rangeEnumerator = [string matchEnumeratorWithRegex:expression];
     
     [textStorage removeAttribute:NSForegroundColorAttributeName range:NSMakeRange(0, [string length])];
     
-    found = [string rangeOfRegex:@"def[^\\w]" options:RKLNoOptions inRange:NSMakeRange(0, [string length]) capture:0 error:nil];
-    
-    if(found.location != NSNotFound)
+    while([rangeEnumerator nextRanges] != NULL)
     {
-        [textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:found];
+        NSRange matchRange = [rangeEnumerator currentRange];
+        [textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:matchRange];
     }
 }
 
