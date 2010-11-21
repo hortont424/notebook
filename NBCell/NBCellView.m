@@ -60,7 +60,6 @@
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:sourceViewController];
-        [sourceView setFont:[NSFont fontWithName:@"Menlo" size:12]];
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
         [[sourceView textContainer] setHeightTracksTextView:NO];
         

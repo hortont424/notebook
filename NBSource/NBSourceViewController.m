@@ -34,20 +34,52 @@
     [parent evaluate];
 }
 
+- (void)highlightRegex:(NSString *)regex onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
+{
+    RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline];
+    NSString * string = [[textStorage string] stringByAppendingString:@"\n"];
+    RKEnumerator * enumerator = [string matchEnumeratorWithRegex:expression];
+    
+    while([enumerator nextRanges] != NULL)
+    {
+        NSRange range = [enumerator currentRange];
+        
+        [textStorage addAttribute:NSForegroundColorAttributeName value:highlight.color range:range];
+        [textStorage addAttribute:NSFontAttributeName value:highlight.font range:range];
+    }
+}
+
 - (void)textStorageDidProcessEditing:(NSNotification *)notification
 {
     NSTextStorage * textStorage = [notification object];
-    NSString * string = [textStorage string];
-    RKRegex * expression = [RKRegex regexWithRegexString:@"(^|\\s)def(\\s|$)" options:RKCompileNoOptions];
-    RKEnumerator * rangeEnumerator = [string matchEnumeratorWithRegex:expression];
+    NBSettings * settings = [NBSettings sharedInstance];
+    NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
     
-    [textStorage removeAttribute:NSForegroundColorAttributeName range:NSMakeRange(0, [string length])];
+    [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
+    [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
+    [textStorage addAttribute:NSFontAttributeName value:settings.editorFont range:wholeStringRange];
     
-    while([rangeEnumerator nextRanges] != NULL)
+    // First, highlight Python keywords
+    
+    // TODO: Consider getting the list of keywords from Python (keywords.kwlist), or at least from a file
+    NSArray * keywords = [NSArray arrayWithObjects:@"and", @"as", @"assert", @"break", @"class", @"continue", @"def", @"del", @"elif", @"else", @"except", @"exec", @"finally", @"for", @"from", @"global", @"if", @"import", @"in", @"is", @"lambda", @"not", @"or", @"pass", @"print", @"raise", @"return", @"try", @"while", @"with", @"yield", nil];
+    
+    for(NSString * keyword in keywords)
     {
-        NSRange matchRange = [rangeEnumerator currentRange];
-        [textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:matchRange];
+        [self highlightRegex:[NSString stringWithFormat:@"\\b%@\\b", keyword, nil] onTextStorage:textStorage withHighlight:settings.editorKeywordHighlight];
     }
+    
+    // Highlight numbers of various formats
+    
+    [self highlightRegex:@"\\b([1-9]+[0-9]*|0)" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
+    [self highlightRegex:@"\\b(?i:([1-9]+[0-9]*|0)L)" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
+    [self highlightRegex:@"\\b(?i:(\\d+e[\\-\\+]?\\d+))" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
+    [self highlightRegex:@"(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
+    [self highlightRegex:@"\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?=[^a-zA-Z_])" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
+    
+    // Highlight comments last, as they should take over any other highlighting
+    
+    [self highlightRegex:@"#.*$" onTextStorage:textStorage withHighlight:settings.editorCommentHighlight];
 }
 
 @end

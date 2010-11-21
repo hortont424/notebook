@@ -24,17 +24,37 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <RegexKit/RegexKit.h>
 
-#import "NBSourceViewDelegate.h"
-#import "NBCellView.h"
-#import "NBSettings.h"
-
-@interface NBSourceViewController : NSObject<NBSourceViewDelegate, NSTextStorageDelegate>
+@interface NBHighlightSettings : NSObject
 {
-    NBCellView * parent;
+    NSFont * font;
+    NSColor * color;
 }
 
-@property (nonatomic,retain) NBCellView * parent;
+@property (nonatomic,assign) NSFont * font;
+@property (nonatomic,assign) NSColor * color;
+
++ (NBHighlightSettings *)highlightWithColor:(NSColor *)color font:(NSFont *)font;
+
+@end
+
+@interface NBSettings : NSObject
+{
+    NSFont * editorFont, * editorBoldFont, * editorItalicFont;
+    NSColor * editorColor;
+    
+    NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight;
+}
+
+@property (nonatomic,assign) NSFont * editorFont;
+@property (nonatomic,assign) NSFont * editorBoldFont;
+@property (nonatomic,assign) NSFont * editorItalicFont;
+@property (nonatomic,assign) NSColor * editorColor;
+
+@property (nonatomic,assign) NBHighlightSettings * editorCommentHighlight;
+@property (nonatomic,assign) NBHighlightSettings * editorKeywordHighlight;
+@property (nonatomic,assign) NBHighlightSettings * editorNumberHighlight;
+
++ (NBSettings *)sharedInstance;
 
 @end
