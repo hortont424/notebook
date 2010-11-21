@@ -95,6 +95,12 @@
 
 - (oneway void)executeSnippet:(NSString *)snippet
 {
+    PyObject * stringIOModule = PyImport_Import(PyString_FromString("StringIO"));
+    PyObject * stringIOConstructor = PyObject_GetAttrString(stringIOModule, "StringIO");
+    PyObject * stringIOObject = PyObject_Call(stringIOConstructor, PyTuple_New(0), NULL);
+    
+    PySys_SetObject("stdout", stringIOObject);
+    
     PyObject * codeObject = Py_CompileString([snippet UTF8String], "snippet", Py_file_input);
     
     if(!codeObject && PyErr_Occurred())
@@ -102,24 +108,38 @@
         NBException * err = [self parsePythonException];
         PyErr_Clear();
         
-        [engine snippetComplete:err];
+        [engine snippetComplete:err withOutput:nil];
         
         return;
     }
     
     PyEval_EvalCode((PyCodeObject *)codeObject, globals, globals);
     
+    PyObject * stringIOGetValueFunction = PyObject_GetAttrString(stringIOObject, "getvalue");
+    PyObject * stdoutValue = PyObject_Call(stringIOGetValueFunction, PyTuple_New(0), NULL);
+    NSString * stdoutString = [NSString stringWithUTF8String:PyString_AsString(stdoutValue)];
+    NSString * strippedString;
+    
+    @try
+    {
+        strippedString = [stdoutString substringToIndex:[stdoutString length] - 1];
+    }
+    @catch (NSException * e)
+    {
+        strippedString = stdoutString;
+    }
+    
     if(PyErr_Occurred())
     {
         NBException * err = [self parsePythonException];
         PyErr_Clear();
         
-        [engine snippetComplete:err];
+        [engine snippetComplete:err withOutput:strippedString];
         
         return;
     }
     
-    [engine snippetComplete:nil];
+    [engine snippetComplete:nil withOutput:strippedString];
 }
 
 @end

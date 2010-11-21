@@ -65,7 +65,7 @@
     [engineThread setProtocolForProxy:@protocol(NBPythonEngineThreadProtocol)];
 }
 
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception))completion
+- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
 {
     if(busy)
     {
@@ -80,9 +80,10 @@
     [engineThread executeSnippet:snippet];
 }
 
-- (oneway void)snippetComplete:(NBException *)exception
+- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
 {
-    lastCompletionCallback(exception);
+    lastCompletionCallback(exception, outputString);
+    
     busy = NO;
     lastCompletionCallback = nil;
     

@@ -69,7 +69,7 @@
 {
     id<NBEngine> engine = [self engineForNotebookView:notebookView];
     
-    [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception) { [cellView evaluationComplete:exception]; }];
+    [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) { [cellView evaluationComplete:exception withOutput:output]; }];
 }
 
 - (NBCellView *)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView

@@ -35,12 +35,12 @@
     
     NSMutableArray * taskQueue;
     
-    void (^lastCompletionCallback)(NBException * exception);
+    void (^lastCompletionCallback)(NBException * exception, NSString * output);
     volatile BOOL busy;
 }
 
 - (void)setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngineThread;
 
-- (oneway void)snippetComplete:(NBException *)exception;
+- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end

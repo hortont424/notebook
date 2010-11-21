@@ -132,16 +132,31 @@
     self.state = NBCellViewEvaluating;
     
     [delegate evaluateCellView:self];
-    
-    cell.output = nil;
 }
 
-- (void)evaluationComplete:(NBException *)exception
+- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output
 {
     if(exception)
     {
         // TODO: highlight line/character where exception occurred
+        // TODO: Make error more distinct in the case where we have both (bold it?!)
         cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
+        
+        if(output && [output length])
+        {
+            cell.output = [cell.output stringByAppendingFormat:@"\n\n%@", output, nil];
+        }
+    }
+    else
+    {
+        if(output && [output length])
+        {
+            cell.output = [NSString stringWithFormat:@"%@", output, nil];
+        }
+        else
+        {
+            cell.output = nil;
+        }
     }
     
     self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
