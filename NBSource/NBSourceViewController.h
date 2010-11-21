@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <RegexKit/RegexKit.h>
 
 #import "NBSourceViewDelegate.h"
 #import "NBCellView.h"

@@ -37,25 +37,16 @@
 - (void)textStorageDidProcessEditing:(NSNotification *)notification
 {
     NSTextStorage * textStorage = [notification object];
-    NSRange found, area;
-    NSString *string = [textStorage string];
-    unsigned int length = [string length];
+    NSString * string = [textStorage string];
+    NSRange found;
     
-    area.location = 0;
-    area.length = length;
+    [textStorage removeAttribute:NSForegroundColorAttributeName range:NSMakeRange(0, [string length])];
     
-    [textStorage removeAttribute:NSForegroundColorAttributeName range:area];
+    found = [string rangeOfRegex:@"def[^\\w]" options:RKLNoOptions inRange:NSMakeRange(0, [string length]) capture:0 error:nil];
     
-    while (area.length)
+    if(found.location != NSNotFound)
     {
-        found = [string rangeOfString:@"def " options:0 range:area];
-        
-        if(found.location == NSNotFound)
-            break;
-        
         [textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:found];
-        area.location = NSMaxRange(found);
-        area.length = length - area.location;
     }
 }
 
