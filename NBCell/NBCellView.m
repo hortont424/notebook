@@ -26,6 +26,7 @@
 #import "NBCellView.h"
 
 #import "NBSourceViewController.h"
+#import "NBSettings.h"
 
 @implementation NBCellView
 
@@ -67,7 +68,7 @@
         [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];
-        [outputView setFont:[NSFont fontWithName:@"Menlo" size:12]];
+        [outputView setFont:[[NBSettings sharedInstance] editorFont]];
         [outputView setTextContainerInset:NSMakeSize(10, 10)];
         [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state
 
