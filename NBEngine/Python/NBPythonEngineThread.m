@@ -65,12 +65,19 @@
 }
 
 
-- (NBException *)parsePythonException
+- (NBException *)retrievePythonException
 {
-    NBException * err = [[NBException alloc] init];
+    NBException * err;
     
     PyObject * exceptionType, * exceptionValue, * exceptionTraceback;
     PyObject * exceptionOffset, * exceptionLine;
+    
+    if(!PyErr_Occurred())
+    {
+        return nil;
+    }
+    
+    err = [[NBException alloc] init];
     
     PyErr_Fetch(&exceptionType, &exceptionValue, &exceptionTraceback);
     PyErr_NormalizeException(&exceptionType, &exceptionValue, &exceptionTraceback);
@@ -90,56 +97,68 @@
     
     err.message = [NSString stringWithUTF8String:PyString_AsString(PyObject_Str(exceptionValue))];
     
+    PyErr_Clear();
+    
     return err;
 }
 
-- (oneway void)executeSnippet:(NSString *)snippet
+- (PyObject *)capturePythonStdout
 {
+    // Install a StringIO object as sys.stdout so we can intercept Python's output
+    // TODO: intercept stderr too!
+    
     PyObject * stringIOModule = PyImport_Import(PyString_FromString("StringIO"));
     PyObject * stringIOConstructor = PyObject_GetAttrString(stringIOModule, "StringIO");
     PyObject * stringIOObject = PyObject_Call(stringIOConstructor, PyTuple_New(0), NULL);
     
     PySys_SetObject("stdout", stringIOObject);
     
-    PyObject * codeObject = Py_CompileString([snippet UTF8String], "snippet", Py_file_input);
-    
-    if(!codeObject && PyErr_Occurred())
-    {
-        NBException * err = [self parsePythonException];
-        PyErr_Clear();
-        
-        [engine snippetComplete:err withOutput:nil];
-        
-        return;
-    }
-    
-    PyEval_EvalCode((PyCodeObject *)codeObject, globals, globals);
+    return stringIOObject;
+}
+
+- (NSString *)prepareCapturedPythonStdout:(PyObject *)stringIOObject
+{
+    // Retrieve the final value of the StringIO object we installed as sys.stdout
     
     PyObject * stringIOGetValueFunction = PyObject_GetAttrString(stringIOObject, "getvalue");
     PyObject * stdoutValue = PyObject_Call(stringIOGetValueFunction, PyTuple_New(0), NULL);
     NSString * stdoutString = [NSString stringWithUTF8String:PyString_AsString(stdoutValue)];
-    NSString * strippedString;
     
-    @try
-    {
-        strippedString = [stdoutString substringToIndex:[stdoutString length] - 1];
-    }
-    @catch (NSException * e)
-    {
-        strippedString = stdoutString;
-    }
+    // If the output string ends in a newline, strip it out (TODO: is this the right thing to do?)
     
-    if(PyErr_Occurred())
+    if([stdoutString length] && ([stdoutString characterAtIndex:[stdoutString length] - 1] == '\n'))
+        stdoutString = [stdoutString substringToIndex:[stdoutString length] - 1];
+    
+    return stdoutString;
+}
+
+- (oneway void)executeSnippet:(NSString *)snippet
+{
+    PyObject * pythonStdout, * compiledSnippet;
+    
+    // Try to compile the given snippet of Python
+    
+    compiledSnippet = Py_CompileString([snippet UTF8String], "snippet", Py_file_input);
+    
+    if(!compiledSnippet)
     {
-        NBException * err = [self parsePythonException];
-        PyErr_Clear();
+        // Compilation failed, bail out and inform the caller (attempting to retrieve the compilation error on the way)
         
-        [engine snippetComplete:err withOutput:strippedString];
-        
+        [engine snippetComplete:[self retrievePythonException] withOutput:nil];
         return;
     }
     
-    [engine snippetComplete:nil withOutput:strippedString];
+    // Capture stdout
+    
+    pythonStdout = [self capturePythonStdout];
+    
+    // Execute the code in the context of our engine
+    
+    PyEval_EvalCode((PyCodeObject *)compiledSnippet, globals, globals);
+    
+    // Let the caller know that we're done, including any exceptions that occurred and any captured output
+    
+    [engine snippetComplete:[self retrievePythonException] withOutput:[self prepareCapturedPythonStdout:pythonStdout]];
 }
 
 @end
