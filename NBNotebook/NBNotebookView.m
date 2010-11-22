@@ -180,4 +180,15 @@
     [delegate notebookView:self evaluateCellView:cellView];
 }
 
+- (void)cellViewTookFocus:(NBCellView *)cellView
+{
+    for(NBCellView * defocusView in cellViews)
+    {
+        if(defocusView == cellView)
+            continue;
+    
+        [defocusView clearSelection];
+    }
+}
+
 @end

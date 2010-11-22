@@ -27,8 +27,6 @@
 
 @implementation NBSourceViewController
 
-@synthesize parent;
-
 - (void)evaluateSourceView:(id)sourceView
 {
     [parent evaluate];

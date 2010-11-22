@@ -23,12 +23,31 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBSourceView.h"
 
-@protocol NBCellViewDelegate
+#import <Carbon/Carbon.h>
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@implementation NBSourceView
+
+- (void)keyDown:(NSEvent *)theEvent
+{
+    BOOL handled = NO;
+    
+    switch([theEvent keyCode])
+    {
+        case kVK_Return:
+            if([theEvent modifierFlags] & NSShiftKeyMask)
+            {
+                [delegate evaluateSourceView:self];
+                handled = YES;
+            }
+            break;
+    }
+    
+    if(!handled)
+    {
+        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
+    }
+}
 
 @end

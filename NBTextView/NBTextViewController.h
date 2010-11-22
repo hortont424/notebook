@@ -25,10 +25,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBCellViewDelegate
+#import "NBTextViewDelegate.h"
+#import "NBCellView.h"
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@interface NBTextViewController : NSObject<NBTextViewDelegate, NSTextStorageDelegate>
+{
+    NBCellView * parent;
+}
+
+@property (nonatomic,retain) NBCellView * parent;
 
 @end

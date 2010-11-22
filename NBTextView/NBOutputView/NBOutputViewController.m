@@ -23,12 +23,9 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBOutputViewController.h"
 
-@protocol NBCellViewDelegate
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@implementation NBOutputViewController
 
 @end

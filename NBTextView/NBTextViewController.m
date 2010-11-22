@@ -23,12 +23,15 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBTextViewController.h"
 
-@protocol NBCellViewDelegate
+@implementation NBTextViewController
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@synthesize parent;
+
+- (void)textViewBecameFirstResponder:(id)textView
+{
+    [parent textViewBecameFirstResponder:textView];
+}
 
 @end

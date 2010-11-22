@@ -23,52 +23,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBSourceView.h"
+#import <Cocoa/Cocoa.h>
 
-#import <Carbon/Carbon.h>
+#import "NBTextViewDelegate.h"
 
-@implementation NBSourceView
-
-@synthesize delegate;
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    
-    if(self)
-    {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)setDelegate:(id <NBSourceViewDelegate, NSTextStorageDelegate>)inDelegate
-{
-    delegate = inDelegate;
-    
-    [[self textStorage] setDelegate:delegate];
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    BOOL handled = NO;
-    
-    switch([theEvent keyCode])
-    {
-        case kVK_Return:
-            if([theEvent modifierFlags] & NSShiftKeyMask)
-            {
-                [delegate evaluateSourceView:self];
-                handled = YES;
-            }
-            break;
-    }
-    
-    if(!handled)
-    {
-        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
-    }
-}
+@protocol NBSourceViewDelegate<NBTextViewDelegate>
 
 @end

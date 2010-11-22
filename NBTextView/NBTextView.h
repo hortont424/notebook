@@ -24,17 +24,14 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <RegexKit/RegexKit.h>
 
-#import "NBSourceViewDelegate.h"
-#import "NBCellView.h"
-#import "NBSettings.h"
+#import "NBTextViewDelegate.h"
 
-@interface NBSourceViewController : NSObject<NBSourceViewDelegate, NSTextStorageDelegate>
+@interface NBTextView : NSTextView
 {
-    NBCellView * parent;
+    id<NBTextViewDelegate,NSTextStorageDelegate> delegate;
 }
 
-@property (nonatomic,retain) NBCellView * parent;
+@property (nonatomic,retain) id<NBTextViewDelegate,NSTextStorageDelegate> delegate;
 
 @end

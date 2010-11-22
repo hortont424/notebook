@@ -104,6 +104,11 @@
     return YES;
 }
 
+- (void)textViewBecameFirstResponder:(id)textView
+{
+    [delegate cellViewTookFocus:self];
+}
+
 - (void)mouseDown:(NSEvent *)theEvent
 {
     [self becomeFirstResponder];
@@ -249,6 +254,12 @@
     [self enableContentResizeNotifications];
     
     [delegate cellViewResized:self];
+}
+
+- (void)clearSelection
+{
+    [sourceView setSelectedRange:NSMakeRange(0, 0)];
+    [outputView setSelectedRange:NSMakeRange(0, 0)];
 }
 
 @end

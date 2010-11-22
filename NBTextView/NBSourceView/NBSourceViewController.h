@@ -24,11 +24,15 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <RegexKit/RegexKit.h>
 
-@protocol NBCellViewDelegate
+#import "NBTextViewController.h"
+#import "NBSourceViewDelegate.h"
+#import "NBCellView.h"
+#import "NBSettings.h"
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@interface NBSourceViewController : NBTextViewController<NBSourceViewDelegate>
+{
+}
 
 @end

@@ -23,12 +23,24 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBTextView.h"
 
-#import "NBCell.h"
+@implementation NBTextView
 
-@protocol NBSourceViewDelegate
+@synthesize delegate;
 
-- (void)evaluateSourceView:(id)sourceView;
+- (void)setDelegate:(id<NBTextViewDelegate,NSTextStorageDelegate>)inDelegate
+{
+    delegate = inDelegate;
+    
+    [[self textStorage] setDelegate:delegate];
+}
+
+- (BOOL)becomeFirstResponder
+{
+    [delegate textViewBecameFirstResponder:self];
+    
+    return [super becomeFirstResponder];
+}
 
 @end

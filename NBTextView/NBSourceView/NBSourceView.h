@@ -25,10 +25,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBCellViewDelegate
+#import "NBSourceViewDelegate.h"
+#import "NBTextView.h"
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@interface NBSourceView : NBTextView
+{
+}
 
 @end

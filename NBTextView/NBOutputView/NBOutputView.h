@@ -25,10 +25,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBCellViewDelegate
 
-- (void)cellViewResized:(id)cellView;
-- (void)evaluateCellView:(id)cellView;
-- (void)cellViewTookFocus:(id)cellView;
+@interface NBOutputView : NSObject {
+
+}
 
 @end

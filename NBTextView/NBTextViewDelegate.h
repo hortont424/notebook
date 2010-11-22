@@ -25,13 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBSourceViewDelegate.h"
+@protocol NBTextViewDelegate
 
-@interface NBSourceView : NSTextView
-{
-    id<NBSourceViewDelegate, NSTextStorageDelegate> delegate;
-}
-
-@property (nonatomic,retain) id<NBSourceViewDelegate, NSTextStorageDelegate> delegate;
+- (void)textViewBecameFirstResponder:(id)textView;
 
 @end
