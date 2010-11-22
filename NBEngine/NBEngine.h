@@ -27,12 +27,12 @@
 
 @interface NBException : NSObject
 {
-    uint32_t line, column;
+    NSUInteger line, column;
     NSString * message;
 }
 
-@property (nonatomic,assign) uint32_t line;
-@property (nonatomic,assign) uint32_t column;
+@property (nonatomic,assign) NSUInteger line;
+@property (nonatomic,assign) NSUInteger column;
 @property (nonatomic,retain) NSString * message;
 
 @end
