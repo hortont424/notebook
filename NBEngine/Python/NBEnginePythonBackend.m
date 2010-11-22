@@ -132,7 +132,7 @@
     
     // Execute the code in the context of our engine
     
-    PyEval_EvalCode((PyCodeObject *)compiledSnippet, globals, globals);
+    PyEval_EvalCode((PyCodeObject *)compiledSnippet, globals, globals); // TODO: check about sending globals as locals
     
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
     
