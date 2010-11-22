@@ -50,15 +50,15 @@
     return [notebookView addViewForCell:cell afterCellView:(NBCellView *)afterCellView withAnimation:animation];
 }
 
-- (id<NBEngine>)engineForNotebookView:(id)notebookView
+- (NBEngine *)engineForNotebookView:(id)notebookView
 {
-    id<NBEngine> engine = nil;
+    NBEngine * engine = nil;
     
     engine = [engines objectForKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
     
     if(!engine)
     {
-        engine = [[NBPythonEngine alloc] init]; // TODO: pluggable!
+        engine = [[NBEngine alloc] init]; // TODO: pluggable!
         [engines setObject:engine forKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
     }
     
@@ -67,7 +67,7 @@
 
 - (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView
 {
-    id<NBEngine> engine = [self engineForNotebookView:notebookView];
+    NBEngine * engine = [self engineForNotebookView:notebookView];
     
     [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) { [cellView evaluationComplete:exception withOutput:output]; }];
 }

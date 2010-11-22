@@ -18,14 +18,13 @@
 		356A9594129A551E00C5BA66 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9590129A551E00C5BA66 /* NBSourceView.m */; };
 		356A9595129A551E00C5BA66 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9592129A551E00C5BA66 /* NBSourceViewController.m */; };
 		35786862129666A70014825F /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578685E129666A70014825F /* NBEngine.m */; };
-		35786863129666A70014825F /* NBPythonEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786861129666A70014825F /* NBPythonEngine.m */; };
 		3578686B129666B80014825F /* NBNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786865129666B80014825F /* NBNotebook.m */; };
 		3578686C129666B80014825F /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786867129666B80014825F /* NBNotebookView.m */; };
 		3578686D129666B80014825F /* NBNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786869129666B80014825F /* NBNotebookViewController.m */; };
 		35786873129666C80014825F /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578686F129666C80014825F /* NBCell.m */; };
 		35786874129666C80014825F /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786871129666C80014825F /* NBCellView.m */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
-		358BECD812975E960060DDFA /* NBPythonEngineThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 358BECD712975E960060DDFA /* NBPythonEngineThread.m */; };
+		358BECD812975E960060DDFA /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 358BECD712975E960060DDFA /* NBEnginePythonBackend.m */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5D19E1298FA760032AB15 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F5D19D1298FA760032AB15 /* NBSettings.m */; };
@@ -78,8 +77,6 @@
 		356A9593129A551E00C5BA66 /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = NBTextView/NBSourceView/NBSourceViewDelegate.h; sourceTree = "<group>"; };
 		3578685D129666A70014825F /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngine.h; path = NBEngine/NBEngine.h; sourceTree = "<group>"; };
 		3578685E129666A70014825F /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngine.m; path = NBEngine/NBEngine.m; sourceTree = "<group>"; };
-		35786860129666A70014825F /* NBPythonEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngine.h; sourceTree = "<group>"; };
-		35786861129666A70014825F /* NBPythonEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPythonEngine.m; sourceTree = "<group>"; };
 		35786864129666B80014825F /* NBNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebook.h; path = NBNotebook/NBNotebook.h; sourceTree = "<group>"; };
 		35786865129666B80014825F /* NBNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebook.m; path = NBNotebook/NBNotebook.m; sourceTree = "<group>"; };
 		35786866129666B80014825F /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookView.h; path = NBNotebook/NBNotebookView.h; sourceTree = "<group>"; };
@@ -93,9 +90,9 @@
 		35786871129666C80014825F /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCellView.m; path = NBCell/NBCellView.m; sourceTree = "<group>"; };
 		35786872129666C80014825F /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellViewDelegate.h; path = NBCell/NBCellViewDelegate.h; sourceTree = "<group>"; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		358BECD612975E960060DDFA /* NBPythonEngineThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngineThread.h; sourceTree = "<group>"; };
-		358BECD712975E960060DDFA /* NBPythonEngineThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPythonEngineThread.m; sourceTree = "<group>"; };
-		358BED51129766360060DDFA /* NBPythonEngineThreadProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPythonEngineThreadProtocol.h; sourceTree = "<group>"; };
+		358BECD612975E960060DDFA /* NBEnginePythonBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonBackend.h; sourceTree = "<group>"; };
+		358BECD712975E960060DDFA /* NBEnginePythonBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonBackend.m; sourceTree = "<group>"; };
+		358BED51129766360060DDFA /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineBackend.h; path = NBEngine/Python/NBEngineBackend.h; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		35F5D19C1298FA760032AB15 /* NBSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSettings.h; path = NBSettings/NBSettings.h; sourceTree = "<group>"; };
 		35F5D19D1298FA760032AB15 /* NBSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSettings.m; path = NBSettings/NBSettings.m; sourceTree = "<group>"; };
@@ -234,6 +231,7 @@
 			children = (
 				3578685D129666A70014825F /* NBEngine.h */,
 				3578685E129666A70014825F /* NBEngine.m */,
+				358BED51129766360060DDFA /* NBEngineBackend.h */,
 				3578685F129666A70014825F /* Python */,
 			);
 			name = Engines;
@@ -280,11 +278,8 @@
 		3578685F129666A70014825F /* Python */ = {
 			isa = PBXGroup;
 			children = (
-				35786860129666A70014825F /* NBPythonEngine.h */,
-				35786861129666A70014825F /* NBPythonEngine.m */,
-				358BECD612975E960060DDFA /* NBPythonEngineThread.h */,
-				358BECD712975E960060DDFA /* NBPythonEngineThread.m */,
-				358BED51129766360060DDFA /* NBPythonEngineThreadProtocol.h */,
+				358BECD612975E960060DDFA /* NBEnginePythonBackend.h */,
+				358BECD712975E960060DDFA /* NBEnginePythonBackend.m */,
 			);
 			name = Python;
 			path = NBEngine/Python;
@@ -365,13 +360,12 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */,
 				35786862129666A70014825F /* NBEngine.m in Sources */,
-				35786863129666A70014825F /* NBPythonEngine.m in Sources */,
 				3578686B129666B80014825F /* NBNotebook.m in Sources */,
 				3578686C129666B80014825F /* NBNotebookView.m in Sources */,
 				3578686D129666B80014825F /* NBNotebookViewController.m in Sources */,
 				35786873129666C80014825F /* NBCell.m in Sources */,
 				35786874129666C80014825F /* NBCellView.m in Sources */,
-				358BECD812975E960060DDFA /* NBPythonEngineThread.m in Sources */,
+				358BECD812975E960060DDFA /* NBEnginePythonBackend.m in Sources */,
 				35F5D19E1298FA760032AB15 /* NBSettings.m in Sources */,
 				356A9586129A550500C5BA66 /* NBTextView.m in Sources */,
 				356A9587129A550500C5BA66 /* NBTextViewController.m in Sources */,

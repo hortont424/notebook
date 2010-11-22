@@ -25,6 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NBEngineBackend.h"
+
 @interface NBException : NSObject
 {
     NSUInteger line, column;
@@ -37,14 +39,19 @@
 
 @end
 
-@protocol NBValue
+@interface NBEngine : NSObject
+{
+    id<NBEngineBackend> engineThread;
+    NSConnection * engineConnection;
+    
+    NSMutableArray * taskQueue;
+    
+    void (^lastCompletionCallback)(NBException * exception, NSString * output);
+    volatile BOOL busy;
+}
 
-- (NSString *)asString;
-
-@end
-
-@protocol NBEngine
-
+- (void)setEngineThread:(id<NBEngineBackend>)inEngineThread;
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
+- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end

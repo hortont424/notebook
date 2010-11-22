@@ -34,7 +34,7 @@
     NSWindow * window;
     NBNotebookView * notebookView;
     NBNotebookViewController * notebookController;
-    id<NBEngine> engine;
+    NBEngine * engine;
 }
 
 @property (assign) IBOutlet NSWindow * window;

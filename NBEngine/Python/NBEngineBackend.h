@@ -25,22 +25,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngine.h"
-#import "NBPythonEngineThread.h"
+@protocol NBEngineBackend
 
-@interface NBPythonEngine : NSObject<NBEngine>
-{
-    NSDistantObject<NBPythonEngineThreadProtocol> * engineThread;
-    NSConnection * engineConnection;
-    
-    NSMutableArray * taskQueue;
-    
-    void (^lastCompletionCallback)(NBException * exception, NSString * output);
-    volatile BOOL busy;
-}
-
-- (void)setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)inEngineThread;
-
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
++ (void)connectWithPorts:(NSArray *)ports;
+- (oneway void)executeSnippet:(NSString *)snippet;
 
 @end

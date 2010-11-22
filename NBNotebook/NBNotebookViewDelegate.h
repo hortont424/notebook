@@ -30,7 +30,7 @@
 
 @protocol NBNotebookViewDelegate
 
-- (id<NBEngine>)engineForNotebookView:(id)notebookView;
+- (NBEngine *)engineForNotebookView:(id)notebookView;
 - (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView;
 - (NBCellView *)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView;
 

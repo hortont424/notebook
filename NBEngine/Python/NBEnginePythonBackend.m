@@ -23,9 +23,9 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NBPythonEngineThread.h"
+#import "NBEnginePythonBackend.h"
 
-@implementation NBPythonEngineThread
+@implementation NBEnginePythonBackend
 
 @synthesize connection, engine;
 
@@ -33,16 +33,16 @@
 {
     NSAutoreleasePool * pool;
     NSConnection * classConnection;
-    NBPythonEngineThread * engineThread;
+    NBEnginePythonBackend * engineThread;
     
     pool = [[NSAutoreleasePool alloc] init];
     classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
     engineThread = [[self alloc] init];
     
     engineThread.connection = classConnection;
-    engineThread.engine = (NBPythonEngine *)[classConnection rootProxy];
+    engineThread.engine = (NBEngine *)[classConnection rootProxy];
     
-    [engineThread.engine setEngineThread:(NSDistantObject<NBPythonEngineThreadProtocol> *)engineThread];
+    [engineThread.engine setEngineThread:(id<NBEngineBackend>)engineThread];
     
     [[NSRunLoop currentRunLoop] run];
     

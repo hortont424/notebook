@@ -28,7 +28,7 @@
 #import "NBNotebookView.h"
 #import "NBCell.h"
 #import "NBCellView.h"
-#import "NBPythonEngine.h"
+#import "NBEngine.h"
 #import "NBNotebookViewDelegate.h"
 
 @interface NBNotebookViewController : NSViewController<NBNotebookViewDelegate>

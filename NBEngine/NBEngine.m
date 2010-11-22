@@ -25,8 +25,82 @@
 
 #import "NBEngine.h"
 
+#import "NBEnginePythonBackend.h"
+
 @implementation NBException
 
 @synthesize line, column, message;
+
+@end
+
+@implementation NBEngine
+
+- (id)init
+{
+    self = [super init];
+    
+    if(self != nil)
+    {
+        NSPort * input, * output;
+        NSArray * ports;
+        
+        input = [NSPort port];
+        output = [NSPort port];
+        ports = [NSArray arrayWithObjects:output, input, nil];
+        
+        taskQueue = [[NSMutableArray alloc] init];
+        
+        engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
+        [engineConnection setRootObject:self];
+        
+        engineThread = nil;
+        busy = NO;
+        
+        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBEnginePythonBackend class] withObject:ports];
+        
+        while(!engineThread)
+        {
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+        }
+    }
+    
+    return self;
+}
+
+- (void)setEngineThread:(id<NBEngineBackend>)inEngineThread
+{
+    engineThread = inEngineThread;
+}
+
+- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
+{
+    if(busy)
+    {
+        [taskQueue insertObject:[NSDictionary dictionaryWithObjectsAndKeys:snippet,@"snippet",[completion copy],@"callback",nil] atIndex:0];
+        
+        return;
+    }
+    
+    busy = YES;
+    lastCompletionCallback = [completion copy];
+    
+    [engineThread executeSnippet:snippet];
+}
+
+- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
+{
+    lastCompletionCallback(exception, outputString);
+    
+    busy = NO;
+    lastCompletionCallback = nil;
+    
+    if([taskQueue count])
+    {
+        NSDictionary * enqueuedTask = [taskQueue lastObject];
+        [taskQueue removeLastObject];
+        
+        [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
+    }
+}
 
 @end

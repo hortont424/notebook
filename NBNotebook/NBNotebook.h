@@ -32,10 +32,10 @@
 {
     NSMutableArray * cells;
     
-    id<NBEngine> engine;
+    NBEngine * engine;
 }
 
-@property (nonatomic,retain) id<NBEngine> engine;
+@property (nonatomic,retain) NBEngine * engine;
 
 - (void)addCell:(NBCell *)cell;
 

@@ -24,10 +24,22 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <Python/Python.h>
 
-@protocol NBPythonEngineThreadProtocol
+#import "NBEngineBackend.h"
+#import "NBEngine.h"
 
-+ (void)connectWithPorts:(NSArray *)ports;
-- (oneway void)executeSnippet:(NSString *)snippet;
+@interface NBEnginePythonBackend : NSObject<NBEngineBackend>
+{
+    NSConnection * connection;
+    
+    id engine; // TODO: protocol
+    
+    PyObject * mainModule;
+    PyObject * globals;
+}
+
+@property (nonatomic,assign) NSConnection * connection;
+@property (nonatomic,assign) id engine;
 
 @end
