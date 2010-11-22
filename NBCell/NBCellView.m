@@ -201,7 +201,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if([keyPath isEqualToString:@"output"])
+    if([keyPath isEqualToString:@"output"] && (object == cell))
     {
         if(cell.output && ([[self subviews] indexOfObject:outputView] == NSNotFound))
         {
