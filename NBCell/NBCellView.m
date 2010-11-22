@@ -197,8 +197,6 @@
 {
     cell.content = [sourceView string];
     self.state = NBCellViewChanged;
-    
-    [self sourceViewDidResize:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
