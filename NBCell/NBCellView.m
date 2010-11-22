@@ -44,7 +44,7 @@
     if(self)
     {
         NSRect frameWithoutMargin = frame;
-        margin = NSMakeSize(4, 1);
+        margin = NSMakeSize(4, 1); // TODO: make it a setting!
         frameWithoutMargin.size.width -= (2 * margin.width);
         frameWithoutMargin.size.height -= (2 * margin.height);
         frameWithoutMargin.origin.x += margin.width;
@@ -55,13 +55,13 @@
         controller = [[[NSObjectController alloc] init] autorelease];
         
         NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
-        sourceViewController.parent = self; // TODO: wrong? should be by method or something
+        sourceViewController.parent = self; // TODO: wrong? should be on the view or something
         
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:sourceViewController];
-        [sourceView setTextContainerInset:NSMakeSize(10, 10)];
+        [sourceView setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
