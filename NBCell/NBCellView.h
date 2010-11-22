@@ -28,6 +28,7 @@
 #import "NBCell.h"
 #import "NBCellViewDelegate.h"
 #import "NBSourceView.h"
+#import "NBOutputView.h"
 #import "NBEngine.h"
 
 typedef enum _NBCellViewState

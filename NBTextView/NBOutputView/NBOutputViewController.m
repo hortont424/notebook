@@ -25,7 +25,6 @@
 
 #import "NBOutputViewController.h"
 
-
 @implementation NBOutputViewController
 
 @end

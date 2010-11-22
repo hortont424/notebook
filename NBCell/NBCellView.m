@@ -64,7 +64,7 @@
         [sourceView setTextContainerInset:NSMakeSize(10, 10)];
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
-        outputView = [[NSTextView alloc] initWithFrame:frameWithoutMargin];
+        outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];

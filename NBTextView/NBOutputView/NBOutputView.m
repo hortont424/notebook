@@ -25,7 +25,6 @@
 
 #import "NBOutputView.h"
 
-
 @implementation NBOutputView
 
 @end

@@ -25,7 +25,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBSourceViewDelegate.h"
 #import "NBTextView.h"
 
 @interface NBSourceView : NBTextView

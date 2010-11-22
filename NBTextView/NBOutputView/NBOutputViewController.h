@@ -25,8 +25,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NBTextViewController.h"
 
-@interface NBOutputViewController : NSObject {
+@interface NBOutputViewController : NBTextViewController
+{
 
 }
 
