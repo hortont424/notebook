@@ -70,7 +70,7 @@
         [outputView setDelegate:self];
         [outputView setFont:[[NBSettings sharedInstance] editorFont]];
         [outputView setTextContainerInset:NSMakeSize(10, 10)];
-        [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state
+        [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state; these (and state colors) should come from settings
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [self enableContentResizeNotifications];
