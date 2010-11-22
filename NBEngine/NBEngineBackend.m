@@ -23,16 +23,37 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
-#import <Python/Python.h>
-
 #import "NBEngineBackend.h"
+
 #import "NBEngine.h"
 
-@interface NBEnginePythonBackend : NBEngineBackend
+@implementation NBEngineBackend
+
+@synthesize connection, engine;
+
++ (void)connectWithPorts:(NSArray *)ports
 {
-    PyObject * mainModule;
-    PyObject * globals;
+    NSAutoreleasePool * pool;
+    NSConnection * classConnection;
+    NBEngineBackend * backend;
+    
+    pool = [[NSAutoreleasePool alloc] init];
+    classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
+    backend = [[self alloc] init];
+    
+    backend.connection = classConnection;
+    backend.engine = (NBEngine *)[classConnection rootProxy];
+    
+    [backend.engine setBackend:(NBEngineBackend *)backend];
+    
+    [[NSRunLoop currentRunLoop] run];
+    
+    [pool drain];
+}
+
+- (oneway void)executeSnippet:(NSString *)snippet
+{
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end

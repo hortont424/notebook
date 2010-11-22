@@ -41,7 +41,7 @@
 
 @interface NBEngine : NSObject
 {
-    id<NBEngineBackend> engineThread;
+    NBEngineBackend * backend;
     NSConnection * engineConnection;
     
     NSMutableArray * taskQueue;
@@ -50,7 +50,7 @@
     volatile BOOL busy;
 }
 
-- (void)setEngineThread:(id<NBEngineBackend>)inEngineThread;
+- (void)setBackend:(NBEngineBackend *)inBackend;
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 

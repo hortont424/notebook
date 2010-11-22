@@ -25,7 +25,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBEngineBackend
+@interface NBEngineBackend : NSObject
+{
+    NSConnection * connection;
+    
+    id engine; // TODO: protocol
+}
+
+@property (nonatomic,assign) NSConnection * connection;
+@property (nonatomic,assign) id engine;
 
 + (void)connectWithPorts:(NSArray *)ports;
 - (oneway void)executeSnippet:(NSString *)snippet;

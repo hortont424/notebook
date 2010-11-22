@@ -27,28 +27,6 @@
 
 @implementation NBEnginePythonBackend
 
-@synthesize connection, engine;
-
-+ (void)connectWithPorts:(NSArray *)ports
-{
-    NSAutoreleasePool * pool;
-    NSConnection * classConnection;
-    NBEnginePythonBackend * engineThread;
-    
-    pool = [[NSAutoreleasePool alloc] init];
-    classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
-    engineThread = [[self alloc] init];
-    
-    engineThread.connection = classConnection;
-    engineThread.engine = (NBEngine *)[classConnection rootProxy];
-    
-    [engineThread.engine setEngineThread:(id<NBEngineBackend>)engineThread];
-    
-    [[NSRunLoop currentRunLoop] run];
-    
-    [pool drain];
-}
-
 - (id)init
 {
     self = [super init];

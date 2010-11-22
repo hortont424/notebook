@@ -53,12 +53,12 @@
         engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
         [engineConnection setRootObject:self];
         
-        engineThread = nil;
+        backend = nil;
         busy = NO;
         
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBEnginePythonBackend class] withObject:ports];
         
-        while(!engineThread)
+        while(!backend)
         {
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
         }
@@ -67,9 +67,9 @@
     return self;
 }
 
-- (void)setEngineThread:(id<NBEngineBackend>)inEngineThread
+- (void)setBackend:(NBEngineBackend *)inBackend
 {
-    engineThread = inEngineThread;
+    backend = inBackend;
 }
 
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
@@ -84,7 +84,7 @@
     busy = YES;
     lastCompletionCallback = [completion copy];
     
-    [engineThread executeSnippet:snippet];
+    [backend executeSnippet:snippet];
 }
 
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
