@@ -48,6 +48,9 @@ static NBSettings * sharedInstance = nil;
 @synthesize editorFont, editorBoldFont, editorItalicFont, editorColor;
 @synthesize editorCommentHighlight, editorKeywordHighlight, editorNumberHighlight;
 
+@synthesize sourceViewBackgroundColor, outputViewBackgroundColor;
+@synthesize statusSuccessColor, statusFailureColor, statusBusyColor, statusDefaultColor;
+
 - (id) init
 {
     self = [super init];
@@ -62,6 +65,15 @@ static NBSettings * sharedInstance = nil;
         editorCommentHighlight = [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0] font:editorItalicFont];
         editorKeywordHighlight = [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedRed:0.306 green:0.604 blue:0.024 alpha:1.0] font:editorBoldFont];
         editorNumberHighlight = [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedRed:0.125 green:0.290 blue:0.529 alpha:1.0] font:editorFont];
+        
+        sourceViewBackgroundColor = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
+        outputViewBackgroundColor = [NSColor colorWithDeviceWhite:0.9 alpha:1.0];
+        
+        statusDefaultColor = [NSColor colorWithCalibratedRed:0.729 green:0.741 blue:0.714 alpha:1.0];
+        statusBusyColor = [NSColor colorWithCalibratedRed:0.988 green:0.914 blue:0.310 alpha:1.0];
+        statusFailureColor = [NSColor colorWithCalibratedRed:0.788 green:0.000 blue:0.000 alpha:1.0];
+        statusSuccessColor = [NSColor colorWithCalibratedRed:0.451 green:0.824 blue:0.086 alpha:1.0];
+        
     }
     
     return self;

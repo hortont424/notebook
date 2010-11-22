@@ -27,6 +27,6 @@
 
 #import "NBTextViewDelegate.h"
 
-@protocol NBSourceViewDelegate<NBTextViewDelegate>
+@protocol NBOutputViewDelegate<NBTextViewDelegate>
 
 @end

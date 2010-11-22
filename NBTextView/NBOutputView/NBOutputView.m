@@ -25,6 +25,22 @@
 
 #import "NBOutputView.h"
 
+#import "NBSettings.h"
+
 @implementation NBOutputView
+
+@dynamic delegate;
+
+- (id)initWithFrame:(NSRect)frame	 	
+{
+    self = [super initWithFrame:frame];
+    
+    if(self)
+    {
+        [self setBackgroundColor:[[NBSettings sharedInstance] outputViewBackgroundColor]];
+    }
+    
+    return self;
+}
 
 @end

@@ -26,9 +26,12 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBTextView.h"
+#import "NBOutputViewDelegate.h"
 
 @interface NBOutputView : NBTextView
 {
 }
+
+@property (nonatomic,retain) id<NBOutputViewDelegate,NSTextStorageDelegate> delegate;
 
 @end

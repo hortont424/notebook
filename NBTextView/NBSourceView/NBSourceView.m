@@ -27,7 +27,23 @@
 
 #import <Carbon/Carbon.h>
 
+#import "NBSettings.h"
+
 @implementation NBSourceView
+
+@dynamic delegate;
+
+- (id)initWithFrame:(NSRect)frame	 	
+{
+    self = [super initWithFrame:frame];
+    
+    if(self)
+    {
+        [self setBackgroundColor:[[NBSettings sharedInstance] sourceViewBackgroundColor]];
+    }
+
+    return self;
+}
 
 - (void)keyDown:(NSEvent *)theEvent
 {
@@ -38,7 +54,7 @@
         case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                [delegate evaluateSourceView:self];
+                [delegate evaluateSourceView:self]; // TODO: fix warning (SO says this should have worked)
                 handled = YES;
             }
             break;

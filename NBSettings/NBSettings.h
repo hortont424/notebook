@@ -44,6 +44,9 @@
     NSColor * editorColor;
     
     NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight;
+    
+    NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor;
+    NSColor * statusSuccessColor, * statusFailureColor, * statusBusyColor, * statusDefaultColor;
 }
 
 @property (nonatomic,assign) NSFont * editorFont;
@@ -54,6 +57,13 @@
 @property (nonatomic,assign) NBHighlightSettings * editorCommentHighlight;
 @property (nonatomic,assign) NBHighlightSettings * editorKeywordHighlight;
 @property (nonatomic,assign) NBHighlightSettings * editorNumberHighlight;
+
+@property (nonatomic,assign) NSColor * sourceViewBackgroundColor;
+@property (nonatomic,assign) NSColor * outputViewBackgroundColor;
+@property (nonatomic,assign) NSColor * statusSuccessColor;
+@property (nonatomic,assign) NSColor * statusFailureColor;
+@property (nonatomic,assign) NSColor * statusBusyColor;
+@property (nonatomic,assign) NSColor * statusDefaultColor;
 
 + (NBSettings *)sharedInstance;
 

@@ -70,7 +70,6 @@
         [outputView setDelegate:self];
         [outputView setFont:[[NBSettings sharedInstance] editorFont]];
         [outputView setTextContainerInset:NSMakeSize(10, 10)];
-        [outputView setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]]; // TODO: recolor output based on success state; these (and state colors) should come from settings
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [self enableContentResizeNotifications];
@@ -97,8 +96,16 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:outputView];
 }
 
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    [self becomeFirstResponder];
+}
+
 - (BOOL)becomeFirstResponder
 {
+    // If the NBCellView itself gets focus (someone clicks in the margin), give the contained NBSourceView focus instead
+    // It might be better to give the NBOutputView focus if the click is closer to that (TODO?)
+    
     [self.window makeFirstResponder:self.sourceView];
     
     return YES;
@@ -120,11 +127,6 @@
     // Clear selection in all the other cells
     
     [delegate cellViewTookFocus:self];
-}
-
-- (void)mouseDown:(NSEvent *)theEvent
-{
-    [self becomeFirstResponder];
 }
 
 - (void)setCell:(NBCell *)inCell
@@ -183,6 +185,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    NBSettings * settings = [NBSettings sharedInstance];
     // Draw the cell background
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
@@ -194,16 +197,16 @@
     switch(self.state)
     {
         case NBCellViewChanged:
-            CGContextSetRGBFillColor(ctx, 0.729, 0.741, 0.714, 1.0);
+            [settings.statusDefaultColor setFill];
             break;
         case NBCellViewEvaluating:
-            CGContextSetRGBFillColor(ctx, 0.988, 0.914, 0.310, 1.0);
+            [settings.statusBusyColor setFill];
             break;
         case NBCellViewFailed:
-            CGContextSetRGBFillColor(ctx, 0.788, 0.000, 0.000, 1.0);
+            [settings.statusFailureColor setFill];
             break;
         case NBCellViewSuccessful:
-            CGContextSetRGBFillColor(ctx, 0.451, 0.824, 0.086, 1.0);
+            [settings.statusSuccessColor setFill];
             break;
     }
     
