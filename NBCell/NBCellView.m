@@ -106,6 +106,19 @@
 
 - (void)textViewBecameFirstResponder:(id)textView
 {
+    // Clear selection in whichever view did *not* just get focus
+    
+    if(textView == sourceView)
+    {
+        [outputView setSelectedRange:NSMakeRange(0, 0)];
+    }
+    else if(textView == outputView)
+    {
+        [sourceView setSelectedRange:NSMakeRange(0, 0)];
+    }
+    
+    // Clear selection in all the other cells
+    
     [delegate cellViewTookFocus:self];
 }
 
