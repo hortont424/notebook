@@ -47,6 +47,9 @@
     
     NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor;
     NSColor * statusSuccessColor, * statusFailureColor, * statusBusyColor, * statusDefaultColor;
+    
+    NSNumber * cellAnimationSpeed;
+    NSNumber * cellSpacing;
 }
 
 @property (nonatomic,assign) NSFont * editorFont;
@@ -64,6 +67,9 @@
 @property (nonatomic,assign) NSColor * statusFailureColor;
 @property (nonatomic,assign) NSColor * statusBusyColor;
 @property (nonatomic,assign) NSColor * statusDefaultColor;
+
+@property (nonatomic,assign) NSNumber * cellAnimationSpeed;
+@property (nonatomic,assign) NSNumber * cellSpacing;
 
 + (NBSettings *)sharedInstance;
 

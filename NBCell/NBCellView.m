@@ -157,6 +157,9 @@
 
 - (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output
 {
+    // The backend finished evaluating our snippet, so update the NBCell's output string (which will propagate
+    // through to the NBOutputView).
+    
     if(exception)
     {
         // TODO: highlight line/character where exception occurred
@@ -186,6 +189,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];
+    
     // Draw the cell background
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
@@ -216,6 +220,8 @@
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
+    // Someone typed into the NBSourceView, so our NBCell and evaluation are no longer valid
+    
     cell.content = [sourceView string];
     self.state = NBCellViewChanged;
 }
@@ -224,17 +230,25 @@
 {
     if([keyPath isEqualToString:@"output"] && (object == cell))
     {
+        // Our NBCell's output has changed, so we need to update our NBOutputView to correspond
+        
         if(cell.output && ([[self subviews] indexOfObject:outputView] == NSNotFound))
         {
+            // There's output now, and there wasn't before: display our NBOutputView
+            
             [self addSubview:outputView];
         }
         else if(!cell.output && ([[self subviews] indexOfObject:outputView] != NSNotFound))
         {
+            // There's no output now, and there was before: hide our NBOutputView
+            
             [outputView removeFromSuperview];
         }
         
         if(cell.output)
         {
+            // Update the NBOutputView's displayed string, and force it to redraw so that the size is updated
+            
             [outputView setString:cell.output];
             [outputView display];
         }

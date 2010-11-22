@@ -51,6 +51,9 @@ static NBSettings * sharedInstance = nil;
 @synthesize sourceViewBackgroundColor, outputViewBackgroundColor;
 @synthesize statusSuccessColor, statusFailureColor, statusBusyColor, statusDefaultColor;
 
+@synthesize cellAnimationSpeed;
+@synthesize cellSpacing;
+
 - (id) init
 {
     self = [super init];
@@ -74,6 +77,8 @@ static NBSettings * sharedInstance = nil;
         statusFailureColor = [NSColor colorWithCalibratedRed:0.788 green:0.000 blue:0.000 alpha:1.0];
         statusSuccessColor = [NSColor colorWithCalibratedRed:0.451 green:0.824 blue:0.086 alpha:1.0];
         
+        cellAnimationSpeed = [NSNumber numberWithFloat:0.2];
+        cellSpacing = [NSNumber numberWithFloat:4.0];
     }
     
     return self;

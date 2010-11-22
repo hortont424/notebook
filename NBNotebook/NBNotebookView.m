@@ -26,6 +26,7 @@
 #import "NBNotebookView.h"
 
 #import "NBCellView.h"
+#import "NBSettings.h"
 
 @implementation NBNotebookView
 
@@ -127,6 +128,11 @@
 
 - (void)relayoutViewsWithAnimation:(BOOL)animation
 {
+    NBSettings * settings = [NBSettings sharedInstance];
+    
+    float cellSpacing = [settings.cellSpacing floatValue];
+    float cellAnimationSpeed = [settings.cellAnimationSpeed floatValue];
+    
     NSSize totalSize = NSZeroSize;
     totalSize.width = self.frame.size.width;
     
@@ -136,11 +142,12 @@
     }
     
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.1f]; // TODO: make all animation speeds a parameter
+    [[NSAnimationContext currentContext] setDuration:cellAnimationSpeed];
     
     for(NBCellView * cellView in cellViews)
     {
         NSTrackingArea * trackingArea;
+        NSRect trackingRect;
         float requestedHeight = [cellView requestedHeight];
         
         if(animation)
@@ -152,10 +159,11 @@
             [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
         }
         
-        totalSize.height += requestedHeight + 4; // TODO: make 4 a parameter
+        totalSize.height += requestedHeight + [settings.cellSpacing floatValue];
         
-        trackingArea = [[NSTrackingArea alloc] initWithRect:NSMakeRect(0, totalSize.height - 4, totalSize.width, 4)
-                                                    options:(NSTrackingMouseEnteredAndExited|NSTrackingActiveInKeyWindow)
+        trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
+        trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
+                                                    options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                       owner:self
                                                    userInfo:[NSDictionary dictionaryWithObject:cellView forKey:@"cellView"]];
         
