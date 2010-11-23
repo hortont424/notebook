@@ -31,9 +31,6 @@
 @implementation NBCellView
 
 @synthesize cell;
-@synthesize sourceView;
-@synthesize outputView;
-@synthesize controller;
 @synthesize delegate;
 @synthesize state;
 
@@ -43,38 +40,8 @@
     
     if(self)
     {
-        NSRect frameWithoutMargin = frame;
         margin = NSMakeSize(4, 1); // TODO: make it a setting!
-        frameWithoutMargin.size.width -= (2 * margin.width);
-        frameWithoutMargin.size.height -= (2 * margin.height);
-        frameWithoutMargin.origin.x += margin.width;
-        frameWithoutMargin.origin.y += margin.height;
-        
         state = NBCellViewChanged;
-    
-        controller = [[[NSObjectController alloc] init] autorelease];
-        
-        NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
-        sourceViewController.parent = self; // TODO: wrong? should be on the view or something
-        
-        sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
-        [sourceView setAutoresizingMask:NSViewWidthSizable];
-        [sourceView setFieldEditor:NO];
-        [sourceView setDelegate:sourceViewController];
-        [sourceView setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [[sourceView textContainer] setHeightTracksTextView:NO];
-        
-        outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
-        [outputView setAutoresizingMask:NSViewWidthSizable];
-        [outputView setFieldEditor:NO];
-        [outputView setDelegate:self];
-        [outputView setFont:[[NBSettings sharedInstance] editorFont]];
-        [outputView setTextContainerInset:NSMakeSize(10, 10)];
-
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
-        [self enableContentResizeNotifications];
-        
-        [self addSubview:sourceView];
     }
     return self;
 }
@@ -86,14 +53,12 @@
 
 - (void)enableContentResizeNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:outputView];
+    
 }
 
 - (void)disableContentResizeNotifications
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:outputView];
+    
 }
 
 - (void)mouseDown:(NSEvent *)theEvent
@@ -103,42 +68,15 @@
 
 - (BOOL)becomeFirstResponder
 {
-    // If the NBCellView itself gets focus (someone clicks in the margin), give the contained NBSourceView focus instead
-    // It might be better to give the NBOutputView focus if the click is closer to that (TODO?)
-    
-    [self.window makeFirstResponder:self.sourceView];
-    
     return YES;
 }
 
-- (void)textViewBecameFirstResponder:(id)textView
-{
-    // Clear selection in whichever view did *not* just get focus
-    
-    if(textView == sourceView)
-    {
-        [outputView setSelectedRange:NSMakeRange(0, 0)];
-    }
-    else if(textView == outputView)
-    {
-        [sourceView setSelectedRange:NSMakeRange(0, 0)];
-    }
-    
-    // Clear selection in all the other cells
-    
-    [delegate cellViewTookFocus:self];
-}
 
 - (void)setCell:(NBCell *)inCell
 {
     cell = inCell;
     
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
-    
-    [sourceView setString:cell.content];
-    [sourceView display]; // sourceView needs to determine its proper size!
-    
-    [self sourceViewDidResize:nil];
 }
 
 - (void)setState:(NBCellViewState)inState
@@ -146,44 +84,6 @@
     state = inState;
     
     [self setNeedsDisplay:YES];
-}
-
-- (void)evaluate
-{
-    self.state = NBCellViewEvaluating;
-    
-    [delegate evaluateCellView:self];
-}
-
-- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output
-{
-    // The backend finished evaluating our snippet, so update the NBCell's output string (which will propagate
-    // through to the NBOutputView).
-    
-    if(exception)
-    {
-        // TODO: highlight line/character where exception occurred
-        // TODO: Make error more distinct in the case where we have both (bold it?!)
-        cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
-        
-        if(output && [output length])
-        {
-            cell.output = [cell.output stringByAppendingFormat:@"\n\n%@", output, nil];
-        }
-    }
-    else
-    {
-        if(output && [output length])
-        {
-            cell.output = [NSString stringWithFormat:@"%@", output, nil];
-        }
-        else
-        {
-            cell.output = nil;
-        }
-    }
-    
-    self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -218,78 +118,22 @@
     CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
 }
 
-- (void)textDidChange:(NSNotification *)aNotification
-{
-    // Someone typed into the NBSourceView, so our NBCell and evaluation are no longer valid
-    
-    cell.content = [sourceView string];
-    self.state = NBCellViewChanged;
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if([keyPath isEqualToString:@"output"] && (object == cell))
-    {
-        // Our NBCell's output has changed, so we need to update our NBOutputView to correspond
-        
-        if(cell.output && ([[self subviews] indexOfObject:outputView] == NSNotFound))
-        {
-            // There's output now, and there wasn't before: display our NBOutputView
-            
-            [self addSubview:outputView];
-        }
-        else if(!cell.output && ([[self subviews] indexOfObject:outputView] != NSNotFound))
-        {
-            // There's no output now, and there was before: hide our NBOutputView
-            
-            [outputView removeFromSuperview];
-        }
-        
-        if(cell.output)
-        {
-            // Update the NBOutputView's displayed string, and force it to redraw so that the size is updated
-            
-            [outputView setString:cell.output];
-            [outputView display];
-        }
-        
-        [self sourceViewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
-    }
+    
 }
 
 - (float)requestedHeight
 {
     float height = 0.0;
     
-    if(cell.output)
-    {
-        height = sourceView.frame.size.height + outputView.frame.size.height + (margin.height * 3);
-    }
-    else
-    {
-        height = sourceView.frame.size.height + (margin.height * 2);
-    }
-    
     return height;
 
 }
 
-- (void)sourceViewDidResize:(NSNotification *)aNotification
-{
-    [self disableContentResizeNotifications];
-    
-    [sourceView setFrameOrigin:NSMakePoint(margin.width, margin.height)];
-    [outputView setFrameOrigin:NSMakePoint(margin.width, sourceView.frame.origin.y + sourceView.frame.size.height + margin.height)];
-    
-    [self enableContentResizeNotifications];
-    
-    [delegate cellViewResized:self];
-}
-
 - (void)clearSelection
 {
-    [sourceView setSelectedRange:NSMakeRange(0, 0)];
-    [outputView setSelectedRange:NSMakeRange(0, 0)];
+
 }
 
 @end

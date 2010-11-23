@@ -10,6 +10,7 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
+		35475C91129B454A00BA0BC2 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		356A9586129A550500C5BA66 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9582129A550500C5BA66 /* NBTextView.m */; };
 		356A9587129A550500C5BA66 /* NBTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9584129A550500C5BA66 /* NBTextViewController.m */; };
@@ -60,6 +61,9 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		35475C8E129B454A00BA0BC2 /* NBSourceCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellView.h; path = NBCell/NBSourceCellView/NBSourceCellView.h; sourceTree = "<group>"; };
+		35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceCellView.m; path = NBCell/NBSourceCellView/NBSourceCellView.m; sourceTree = "<group>"; };
+		35475C90129B454A00BA0BC2 /* NBSourceCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellViewDelegate.h; path = NBCell/NBSourceCellView/NBSourceCellViewDelegate.h; sourceTree = "<group>"; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		356A9581129A550500C5BA66 /* NBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextView.h; path = NBTextView/NBTextView.h; sourceTree = "<group>"; };
 		356A9582129A550500C5BA66 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = NBTextView/NBTextView.m; sourceTree = "<group>"; };
@@ -202,9 +206,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		35475C45129B3EF200BA0BC2 /* Source Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35475C8E129B454A00BA0BC2 /* NBSourceCellView.h */,
+				35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */,
+				35475C90129B454A00BA0BC2 /* NBSourceCellViewDelegate.h */,
+			);
+			name = "Source Cell";
+			sourceTree = "<group>";
+		};
 		3555D3321296137200FBC06F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				35475C45129B3EF200BA0BC2 /* Source Cell */,
 				3578686E129666C80014825F /* NBCell.h */,
 				3578686F129666C80014825F /* NBCell.m */,
 				35786870129666C80014825F /* NBCellView.h */,
@@ -377,6 +392,7 @@
 				356A9594129A551E00C5BA66 /* NBSourceView.m in Sources */,
 				356A9595129A551E00C5BA66 /* NBSourceViewController.m in Sources */,
 				356A9762129A6ED400C5BA66 /* NBEngineBackend.m in Sources */,
+				35475C91129B454A00BA0BC2 /* NBSourceCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

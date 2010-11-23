@@ -25,7 +25,7 @@
 
 #import "NBNotebookView.h"
 
-#import "NBCellView.h"
+#import "NBSourceCellView.h"
 #import "NBSettings.h"
 
 @implementation NBNotebookView
@@ -67,7 +67,9 @@
 {
     NSUInteger insertionIndex = NSNotFound;
     
-    NBCellView * cellView = [[NBCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
+    // TODO: cells need to have a type to delegate to the NBCellView subclasses
+    
+    NBSourceCellView * cellView = [[NBSourceCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
     cellView.cell = cell;
     cellView.delegate = self;
     

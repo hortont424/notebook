@@ -25,43 +25,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCell.h"
 #import "NBCellViewDelegate.h"
-#import "NBSourceView.h"
-#import "NBOutputView.h"
-#import "NBEngine.h"
 
-typedef enum _NBCellViewState
-{
-    NBCellViewChanged = 0,
-    NBCellViewEvaluating,
-    NBCellViewFailed,
-    NBCellViewSuccessful
-} NBCellViewState;
+@protocol NBSourceCellViewDelegate
 
-@interface NBCellView : NSView<NSTextViewDelegate>
-{
-    NBCell * cell;    
-    NBCellViewState state;
-    NSSize margin;
-    id<NBCellViewDelegate> delegate;
-}
-
-@property (assign) NBCellViewState state;
-@property (nonatomic,retain) NBCell * cell;
-@property (nonatomic,retain) id<NBCellViewDelegate> delegate;
-
-- (float)requestedHeight;
-
-- (void)sourceViewDidResize:(NSNotification *)aNotification;
-- (void)textViewBecameFirstResponder:(id)sourceView;
-
-- (void)evaluate;
-- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output;
-
-- (void)enableContentResizeNotifications;
-- (void)disableContentResizeNotifications;
-
-- (void)clearSelection;
+- (void)evaluateCellView:(id)cellView; // TODO: SourceCellView
 
 @end

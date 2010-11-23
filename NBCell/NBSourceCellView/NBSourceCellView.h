@@ -26,30 +26,23 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBCell.h"
-#import "NBCellViewDelegate.h"
+#import "NBCellView.h"
+#import "NBSourceCellViewDelegate.h"
 #import "NBSourceView.h"
 #import "NBOutputView.h"
 #import "NBEngine.h"
 
-typedef enum _NBCellViewState
+@interface NBSourceCellView : NBCellView<NSTextViewDelegate>
 {
-    NBCellViewChanged = 0,
-    NBCellViewEvaluating,
-    NBCellViewFailed,
-    NBCellViewSuccessful
-} NBCellViewState;
-
-@interface NBCellView : NSView<NSTextViewDelegate>
-{
-    NBCell * cell;    
-    NBCellViewState state;
-    NSSize margin;
-    id<NBCellViewDelegate> delegate;
+    NBSourceView * sourceView;
+    NSTextView * outputView;
+    NSObjectController * controller; // TODO: pretty sure this is wrong
 }
 
-@property (assign) NBCellViewState state;
-@property (nonatomic,retain) NBCell * cell;
-@property (nonatomic,retain) id<NBCellViewDelegate> delegate;
+@property (assign) NBSourceView * sourceView;
+@property (assign) NSTextView * outputView;
+@property (nonatomic,retain) NSObjectController * controller;
+@property (nonatomic,retain) id<NBSourceCellViewDelegate> delegate;
 
 - (float)requestedHeight;
 
