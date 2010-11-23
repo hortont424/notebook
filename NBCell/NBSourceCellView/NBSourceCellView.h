@@ -46,7 +46,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 
-- (void)textViewBecameFirstResponder:(id)sourceView;
+- (void)subviewBecameFirstResponder:(id)subview;
 
 - (void)evaluate;
 - (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output;

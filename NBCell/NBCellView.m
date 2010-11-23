@@ -89,6 +89,11 @@
     [self setNeedsDisplay:YES];
 }
 
+- (void)evaluate
+{
+    
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];
@@ -149,6 +154,13 @@
     [self enableContentResizeNotifications];
     
     [delegate cellViewResized:self];
+}
+
+- (void)subviewBecameFirstResponder:(id)subview
+{
+    // Clear selection in all the other cells
+    
+    [delegate cellViewTookFocus:self];
 }
 
 - (void)clearSelection

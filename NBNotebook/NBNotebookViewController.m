@@ -25,6 +25,8 @@
 
 #import "NBNotebookViewController.h"
 
+#import "NBSourceCellView.h"
+
 @implementation NBNotebookViewController
 
 - (id)init
@@ -69,7 +71,12 @@
 {
     NBEngine * engine = [self engineForNotebookView:notebookView];
     
-    [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) { [cellView evaluationComplete:exception withOutput:output]; }];
+    if([cellView isKindOfClass:[NBSourceCellView class]])
+    {
+        [engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) {
+            [(NBSourceCellView *)cellView evaluationComplete:exception withOutput:output];
+        }];
+    }
 }
 
 - (NBCellView *)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView

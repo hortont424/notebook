@@ -31,7 +31,7 @@
 
 - (void)textViewBecameFirstResponder:(id)textView
 {
-    [parent textViewBecameFirstResponder:textView];
+    [parent subviewBecameFirstResponder:textView];
 }
 
 @end
