@@ -25,7 +25,6 @@
 
 #import "NBCellView.h"
 
-#import "NBSourceViewController.h"
 #import "NBSettings.h"
 
 @implementation NBCellView
@@ -53,12 +52,18 @@
 
 - (void)enableContentResizeNotifications
 {
-    
+    for(NSView * subview in [self subviews])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subviewDidResize:) name:NSViewFrameDidChangeNotification object:subview];
+    }
 }
 
 - (void)disableContentResizeNotifications
 {
-    
+    for(NSView * subview in [self subviews])
+    {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:subview];
+    }
 }
 
 - (void)mouseDown:(NSEvent *)theEvent
@@ -75,8 +80,6 @@
 - (void)setCell:(NBCell *)inCell
 {
     cell = inCell;
-    
-    [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
 }
 
 - (void)setState:(NBCellViewState)inState
@@ -118,22 +121,39 @@
     CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (float)requestedHeight
 {
+    float height = margin.height;
+    
+    for(NSView * subview in [self subviews])
+    {
+        height += subview.frame.size.height + margin.height;
+    }
+    
+    return height;
     
 }
 
-- (float)requestedHeight
+- (void)subviewDidResize:(NSNotification *)aNotification
 {
-    float height = 0.0;
+    float currentY = margin.height;
     
-    return height;
-
+    [self disableContentResizeNotifications];
+    
+    for(NSView * subview in [self subviews])
+    {
+        [subview setFrameOrigin:NSMakePoint(margin.width, currentY)];
+        currentY = subview.frame.origin.y + subview.frame.size.height + margin.height;
+    }
+    
+    [self enableContentResizeNotifications];
+    
+    [delegate cellViewResized:self];
 }
 
 - (void)clearSelection
 {
-
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end

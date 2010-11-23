@@ -74,18 +74,6 @@
     return self;
 }
 
-- (void)enableContentResizeNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:sourceView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceViewDidResize:) name:NSViewFrameDidChangeNotification object:outputView];
-}
-
-- (void)disableContentResizeNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:sourceView];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:outputView];
-}
-
 - (BOOL)becomeFirstResponder
 {
     // If the NBCellView itself gets focus (someone clicks in the margin), give the contained NBSourceView focus instead
@@ -118,10 +106,11 @@
 {
     [super setCell:inCell];
     
+    [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
     [sourceView setString:cell.content];
     [sourceView display]; // sourceView needs to determine its proper size!
     
-    [self sourceViewDidResize:nil];
+    [self subviewDidResize:nil];
 }
 
 - (void)evaluate
@@ -197,37 +186,8 @@
             [outputView display];
         }
         
-        [self sourceViewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
+        [self subviewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
     }
-}
-
-- (float)requestedHeight
-{
-    float height = 0.0;
-    
-    if(cell.output)
-    {
-        height = sourceView.frame.size.height + outputView.frame.size.height + (margin.height * 3);
-    }
-    else
-    {
-        height = sourceView.frame.size.height + (margin.height * 2);
-    }
-    
-    return height;
-
-}
-
-- (void)sourceViewDidResize:(NSNotification *)aNotification
-{
-    [self disableContentResizeNotifications];
-    
-    [sourceView setFrameOrigin:NSMakePoint(margin.width, margin.height)];
-    [outputView setFrameOrigin:NSMakePoint(margin.width, sourceView.frame.origin.y + sourceView.frame.size.height + margin.height)];
-    
-    [self enableContentResizeNotifications];
-    
-    [delegate cellViewResized:self];
 }
 
 - (void)clearSelection

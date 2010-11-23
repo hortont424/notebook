@@ -53,11 +53,8 @@ typedef enum _NBCellViewState
 
 - (float)requestedHeight;
 
-- (void)sourceViewDidResize:(NSNotification *)aNotification;
+- (void)subviewDidResize:(NSNotification *)aNotification;
 - (void)textViewBecameFirstResponder:(id)sourceView;
-
-- (void)evaluate;
-- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output;
 
 - (void)enableContentResizeNotifications;
 - (void)disableContentResizeNotifications;
