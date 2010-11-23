@@ -54,7 +54,7 @@
         case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                [delegate evaluateSourceView:self]; // TODO: fix warning (SO says this should have worked)
+                [(id<NBSourceViewDelegate>)delegate evaluateSourceView:self];
                 handled = YES;
             }
             break;
