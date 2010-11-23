@@ -8,30 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
-		35475C91129B454A00BA0BC2 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */; };
+		35475DED129B520C00BA0BC2 /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 35475DAF129B520C00BA0BC2 /* Source */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
-		356A9586129A550500C5BA66 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9582129A550500C5BA66 /* NBTextView.m */; };
-		356A9587129A550500C5BA66 /* NBTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9584129A550500C5BA66 /* NBTextViewController.m */; };
-		356A958D129A551800C5BA66 /* NBOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9589129A551800C5BA66 /* NBOutputView.m */; };
-		356A958E129A551800C5BA66 /* NBOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A958B129A551800C5BA66 /* NBOutputViewController.m */; };
-		356A9594129A551E00C5BA66 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9590129A551E00C5BA66 /* NBSourceView.m */; };
-		356A9595129A551E00C5BA66 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9592129A551E00C5BA66 /* NBSourceViewController.m */; };
-		356A9762129A6ED400C5BA66 /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A9761129A6ED400C5BA66 /* NBEngineBackend.m */; };
-		35786862129666A70014825F /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578685E129666A70014825F /* NBEngine.m */; };
-		3578686B129666B80014825F /* NBNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786865129666B80014825F /* NBNotebook.m */; };
-		3578686C129666B80014825F /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786867129666B80014825F /* NBNotebookView.m */; };
-		3578686D129666B80014825F /* NBNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786869129666B80014825F /* NBNotebookViewController.m */; };
-		35786873129666C80014825F /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3578686F129666C80014825F /* NBCell.m */; };
-		35786874129666C80014825F /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35786871129666C80014825F /* NBCellView.m */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
-		358BECD812975E960060DDFA /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 358BECD712975E960060DDFA /* NBEnginePythonBackend.m */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
-		35F5D19E1298FA760032AB15 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F5D19D1298FA760032AB15 /* NBSettings.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,54 +37,13 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		256AC3D80F4B6AC300CF3369 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookAppDelegate.h; sourceTree = "<group>"; };
-		256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookAppDelegate.m; sourceTree = "<group>"; };
-		256AC3F00F4B6AF500CF3369 /* Notebook_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook_Prefix.pch; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		35475C8E129B454A00BA0BC2 /* NBSourceCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellView.h; path = NBCell/NBSourceCellView/NBSourceCellView.h; sourceTree = "<group>"; };
-		35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceCellView.m; path = NBCell/NBSourceCellView/NBSourceCellView.m; sourceTree = "<group>"; };
-		35475C90129B454A00BA0BC2 /* NBSourceCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellViewDelegate.h; path = NBCell/NBSourceCellView/NBSourceCellViewDelegate.h; sourceTree = "<group>"; };
+		35475DAF129B520C00BA0BC2 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
-		356A9581129A550500C5BA66 /* NBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextView.h; path = NBTextView/NBTextView.h; sourceTree = "<group>"; };
-		356A9582129A550500C5BA66 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = NBTextView/NBTextView.m; sourceTree = "<group>"; };
-		356A9583129A550500C5BA66 /* NBTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewController.h; path = NBTextView/NBTextViewController.h; sourceTree = "<group>"; };
-		356A9584129A550500C5BA66 /* NBTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextViewController.m; path = NBTextView/NBTextViewController.m; sourceTree = "<group>"; };
-		356A9585129A550500C5BA66 /* NBTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewDelegate.h; path = NBTextView/NBTextViewDelegate.h; sourceTree = "<group>"; };
-		356A9588129A551800C5BA66 /* NBOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputView.h; path = NBTextView/NBOutputView/NBOutputView.h; sourceTree = "<group>"; };
-		356A9589129A551800C5BA66 /* NBOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputView.m; path = NBTextView/NBOutputView/NBOutputView.m; sourceTree = "<group>"; };
-		356A958A129A551800C5BA66 /* NBOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewController.h; path = NBTextView/NBOutputView/NBOutputViewController.h; sourceTree = "<group>"; };
-		356A958B129A551800C5BA66 /* NBOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputViewController.m; path = NBTextView/NBOutputView/NBOutputViewController.m; sourceTree = "<group>"; };
-		356A958C129A551800C5BA66 /* NBOutputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewDelegate.h; path = NBTextView/NBOutputView/NBOutputViewDelegate.h; sourceTree = "<group>"; };
-		356A958F129A551E00C5BA66 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = NBTextView/NBSourceView/NBSourceView.h; sourceTree = "<group>"; };
-		356A9590129A551E00C5BA66 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = NBTextView/NBSourceView/NBSourceView.m; sourceTree = "<group>"; };
-		356A9591129A551E00C5BA66 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewController.h; path = NBTextView/NBSourceView/NBSourceViewController.h; sourceTree = "<group>"; };
-		356A9592129A551E00C5BA66 /* NBSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewController.m; path = NBTextView/NBSourceView/NBSourceViewController.m; sourceTree = "<group>"; };
-		356A9593129A551E00C5BA66 /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = NBTextView/NBSourceView/NBSourceViewDelegate.h; sourceTree = "<group>"; };
-		356A9761129A6ED400C5BA66 /* NBEngineBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineBackend.m; path = NBEngine/NBEngineBackend.m; sourceTree = "<group>"; };
-		356A9763129A6ED900C5BA66 /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineBackend.h; path = NBEngine/NBEngineBackend.h; sourceTree = "<group>"; };
-		3578685D129666A70014825F /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngine.h; path = NBEngine/NBEngine.h; sourceTree = "<group>"; };
-		3578685E129666A70014825F /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngine.m; path = NBEngine/NBEngine.m; sourceTree = "<group>"; };
-		35786864129666B80014825F /* NBNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebook.h; path = NBNotebook/NBNotebook.h; sourceTree = "<group>"; };
-		35786865129666B80014825F /* NBNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebook.m; path = NBNotebook/NBNotebook.m; sourceTree = "<group>"; };
-		35786866129666B80014825F /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookView.h; path = NBNotebook/NBNotebookView.h; sourceTree = "<group>"; };
-		35786867129666B80014825F /* NBNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookView.m; path = NBNotebook/NBNotebookView.m; sourceTree = "<group>"; };
-		35786868129666B80014825F /* NBNotebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookViewController.h; path = NBNotebook/NBNotebookViewController.h; sourceTree = "<group>"; };
-		35786869129666B80014825F /* NBNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookViewController.m; path = NBNotebook/NBNotebookViewController.m; sourceTree = "<group>"; };
-		3578686A129666B80014825F /* NBNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookViewDelegate.h; path = NBNotebook/NBNotebookViewDelegate.h; sourceTree = "<group>"; };
-		3578686E129666C80014825F /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = NBCell/NBCell.h; sourceTree = "<group>"; };
-		3578686F129666C80014825F /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = NBCell/NBCell.m; sourceTree = "<group>"; };
-		35786870129666C80014825F /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellView.h; path = NBCell/NBCellView.h; sourceTree = "<group>"; };
-		35786871129666C80014825F /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCellView.m; path = NBCell/NBCellView.m; sourceTree = "<group>"; };
-		35786872129666C80014825F /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellViewDelegate.h; path = NBCell/NBCellViewDelegate.h; sourceTree = "<group>"; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		358BECD612975E960060DDFA /* NBEnginePythonBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonBackend.h; sourceTree = "<group>"; };
-		358BECD712975E960060DDFA /* NBEnginePythonBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonBackend.m; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
-		35F5D19C1298FA760032AB15 /* NBSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSettings.h; path = NBSettings/NBSettings.h; sourceTree = "<group>"; };
-		35F5D19D1298FA760032AB15 /* NBSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSettings.m; path = NBSettings/NBSettings.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,20 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				356A9570129A547F00C5BA66 /* Text Views */,
-				35F5D0281298C9C20032AB15 /* Settings */,
-				3555D3341296138A00FBC06F /* Engines */,
-				3555D3331296137E00FBC06F /* Notebook */,
-				3555D3321296137200FBC06F /* Cell */,
-				256AC3D80F4B6AC300CF3369 /* NotebookAppDelegate.h */,
-				256AC3D90F4B6AC300CF3369 /* NotebookAppDelegate.m */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,22 +97,12 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				35475DAF129B520C00BA0BC2 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = Notebook;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				256AC3F00F4B6AF500CF3369 /* Notebook_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -204,112 +122,6 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		35475C45129B3EF200BA0BC2 /* Source Cell */ = {
-			isa = PBXGroup;
-			children = (
-				35475C8E129B454A00BA0BC2 /* NBSourceCellView.h */,
-				35475C8F129B454A00BA0BC2 /* NBSourceCellView.m */,
-				35475C90129B454A00BA0BC2 /* NBSourceCellViewDelegate.h */,
-			);
-			name = "Source Cell";
-			sourceTree = "<group>";
-		};
-		3555D3321296137200FBC06F /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				35475C45129B3EF200BA0BC2 /* Source Cell */,
-				3578686E129666C80014825F /* NBCell.h */,
-				3578686F129666C80014825F /* NBCell.m */,
-				35786870129666C80014825F /* NBCellView.h */,
-				35786871129666C80014825F /* NBCellView.m */,
-				35786872129666C80014825F /* NBCellViewDelegate.h */,
-			);
-			name = Cell;
-			sourceTree = "<group>";
-		};
-		3555D3331296137E00FBC06F /* Notebook */ = {
-			isa = PBXGroup;
-			children = (
-				35786864129666B80014825F /* NBNotebook.h */,
-				35786865129666B80014825F /* NBNotebook.m */,
-				35786866129666B80014825F /* NBNotebookView.h */,
-				35786867129666B80014825F /* NBNotebookView.m */,
-				35786868129666B80014825F /* NBNotebookViewController.h */,
-				35786869129666B80014825F /* NBNotebookViewController.m */,
-				3578686A129666B80014825F /* NBNotebookViewDelegate.h */,
-			);
-			name = Notebook;
-			sourceTree = "<group>";
-		};
-		3555D3341296138A00FBC06F /* Engines */ = {
-			isa = PBXGroup;
-			children = (
-				3578685D129666A70014825F /* NBEngine.h */,
-				3578685E129666A70014825F /* NBEngine.m */,
-				356A9763129A6ED900C5BA66 /* NBEngineBackend.h */,
-				356A9761129A6ED400C5BA66 /* NBEngineBackend.m */,
-				3578685F129666A70014825F /* Python */,
-			);
-			name = Engines;
-			sourceTree = "<group>";
-		};
-		3555D3351296139B00FBC06F /* Source View */ = {
-			isa = PBXGroup;
-			children = (
-				356A958F129A551E00C5BA66 /* NBSourceView.h */,
-				356A9590129A551E00C5BA66 /* NBSourceView.m */,
-				356A9591129A551E00C5BA66 /* NBSourceViewController.h */,
-				356A9592129A551E00C5BA66 /* NBSourceViewController.m */,
-				356A9593129A551E00C5BA66 /* NBSourceViewDelegate.h */,
-			);
-			name = "Source View";
-			sourceTree = "<group>";
-		};
-		356A9556129A540500C5BA66 /* Output View */ = {
-			isa = PBXGroup;
-			children = (
-				356A9588129A551800C5BA66 /* NBOutputView.h */,
-				356A9589129A551800C5BA66 /* NBOutputView.m */,
-				356A958A129A551800C5BA66 /* NBOutputViewController.h */,
-				356A958B129A551800C5BA66 /* NBOutputViewController.m */,
-				356A958C129A551800C5BA66 /* NBOutputViewDelegate.h */,
-			);
-			name = "Output View";
-			sourceTree = "<group>";
-		};
-		356A9570129A547F00C5BA66 /* Text Views */ = {
-			isa = PBXGroup;
-			children = (
-				356A9581129A550500C5BA66 /* NBTextView.h */,
-				356A9582129A550500C5BA66 /* NBTextView.m */,
-				356A9583129A550500C5BA66 /* NBTextViewController.h */,
-				356A9584129A550500C5BA66 /* NBTextViewController.m */,
-				356A9585129A550500C5BA66 /* NBTextViewDelegate.h */,
-				3555D3351296139B00FBC06F /* Source View */,
-				356A9556129A540500C5BA66 /* Output View */,
-			);
-			name = "Text Views";
-			sourceTree = "<group>";
-		};
-		3578685F129666A70014825F /* Python */ = {
-			isa = PBXGroup;
-			children = (
-				358BECD612975E960060DDFA /* NBEnginePythonBackend.h */,
-				358BECD712975E960060DDFA /* NBEnginePythonBackend.m */,
-			);
-			name = Python;
-			path = NBEngine/Python;
-			sourceTree = "<group>";
-		};
-		35F5D0281298C9C20032AB15 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				35F5D19C1298FA760032AB15 /* NBSettings.h */,
-				35F5D19D1298FA760032AB15 /* NBSettings.m */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +177,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				35475DED129B520C00BA0BC2 /* Source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,24 +188,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				256AC3DA0F4B6AC300CF3369 /* NotebookAppDelegate.m in Sources */,
-				35786862129666A70014825F /* NBEngine.m in Sources */,
-				3578686B129666B80014825F /* NBNotebook.m in Sources */,
-				3578686C129666B80014825F /* NBNotebookView.m in Sources */,
-				3578686D129666B80014825F /* NBNotebookViewController.m in Sources */,
-				35786873129666C80014825F /* NBCell.m in Sources */,
-				35786874129666C80014825F /* NBCellView.m in Sources */,
-				358BECD812975E960060DDFA /* NBEnginePythonBackend.m in Sources */,
-				35F5D19E1298FA760032AB15 /* NBSettings.m in Sources */,
-				356A9586129A550500C5BA66 /* NBTextView.m in Sources */,
-				356A9587129A550500C5BA66 /* NBTextViewController.m in Sources */,
-				356A958D129A551800C5BA66 /* NBOutputView.m in Sources */,
-				356A958E129A551800C5BA66 /* NBOutputViewController.m in Sources */,
-				356A9594129A551E00C5BA66 /* NBSourceView.m in Sources */,
-				356A9595129A551E00C5BA66 /* NBSourceViewController.m in Sources */,
-				356A9762129A6ED400C5BA66 /* NBEngineBackend.m in Sources */,
-				35475C91129B454A00BA0BC2 /* NBSourceCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
