@@ -25,6 +25,8 @@
 
 #import "NBSourceViewController.h"
 
+#import "NBEnginePythonHighlighter.h" // TODO: get rid of this
+
 @implementation NBSourceViewController
 
 - (void)evaluateSourceView:(id)sourceView
@@ -57,27 +59,12 @@
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:settings.editorFont range:wholeStringRange];
     
-    // First, highlight Python keywords
+    NBEngineHighlighter * highlighter = [[NBEnginePythonHighlighter alloc] init]; // TODO: defined by notebook type!
     
-    // TODO: Consider getting the list of keywords from Python (keywords.kwlist), or at least from a file
-    NSArray * keywords = [NSArray arrayWithObjects:@"and", @"as", @"assert", @"break", @"class", @"continue", @"def", @"del", @"elif", @"else", @"except", @"exec", @"finally", @"for", @"from", @"global", @"if", @"import", @"in", @"is", @"lambda", @"not", @"or", @"pass", @"print", @"raise", @"return", @"try", @"while", @"with", @"yield", nil];
-    
-    for(NSString * keyword in keywords)
+    for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
-        [self highlightRegex:[NSString stringWithFormat:@"\\b%@\\b", keyword, nil] onTextStorage:textStorage withHighlight:settings.editorKeywordHighlight];
+        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:context.highlight];
     }
-    
-    // Highlight numbers of various formats
-    
-    [self highlightRegex:@"\\b([1-9]+[0-9]*|0)" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
-    [self highlightRegex:@"\\b(?i:([1-9]+[0-9]*|0)L)" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
-    [self highlightRegex:@"\\b(?i:(\\d+e[\\-\\+]?\\d+))" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
-    [self highlightRegex:@"(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
-    [self highlightRegex:@"\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?=[^a-zA-Z_])" onTextStorage:textStorage withHighlight:settings.editorNumberHighlight];
-    
-    // Highlight comments last, as they should take over any other highlighting
-    
-    [self highlightRegex:@"#.*$" onTextStorage:textStorage withHighlight:settings.editorCommentHighlight];
 }
 
 @end

@@ -23,6 +23,28 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
+#import <Cocoa/Cocoa.h>
+
+#import "NBSettings.h"
+
+@interface NBEngineHighlightContext : NSObject
+{
+    NBHighlightSettings * highlight;
+    NSString * expression;
+}
+
+@property (nonatomic,assign) NBHighlightSettings * highlight;
+@property (nonatomic,assign) NSString * expression;
+
++ (NBEngineHighlightContext *)contextWithHighlight:(NBHighlightSettings *)inHighlight expression:(NSString *)inExpression;
+
+@end
+
+@interface NBEngineHighlighter : NSObject
+{
+    NSArray * highlightingPairs;
+}
+
+@property (nonatomic,assign) NSArray * highlightingPairs;
+
+@end

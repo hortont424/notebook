@@ -43,7 +43,7 @@
     NSFont * editorFont, * editorBoldFont, * editorItalicFont;
     NSColor * editorColor;
     
-    NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight;
+    NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight, * editorStringHighlight;
     
     NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor;
     NSColor * statusSuccessColor, * statusFailureColor, * statusBusyColor, * statusDefaultColor;
@@ -60,6 +60,7 @@
 @property (nonatomic,assign) NBHighlightSettings * editorCommentHighlight;
 @property (nonatomic,assign) NBHighlightSettings * editorKeywordHighlight;
 @property (nonatomic,assign) NBHighlightSettings * editorNumberHighlight;
+@property (nonatomic,assign) NBHighlightSettings * editorStringHighlight;
 
 @property (nonatomic,assign) NSColor * sourceViewBackgroundColor;
 @property (nonatomic,assign) NSColor * outputViewBackgroundColor;

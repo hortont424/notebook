@@ -8,8 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
+		352F59B2129B5E5300C34824 /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597D129B5E5300C34824 /* NBCell.m */; };
+		352F59B3129B5E5300C34824 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597F129B5E5300C34824 /* NBCellView.m */; };
+		352F59B4129B5E5300C34824 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5983129B5E5300C34824 /* NBSourceCellView.m */; };
+		352F59B5129B5E5300C34824 /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5987129B5E5300C34824 /* NBEngine.m */; };
+		352F59B6129B5E5300C34824 /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5989129B5E5300C34824 /* NBEngineBackend.m */; };
+		352F59B7129B5E5300C34824 /* NBEngineHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F598B129B5E5300C34824 /* NBEngineHighlighter.m */; };
+		352F59B8129B5E5300C34824 /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F598E129B5E5300C34824 /* NBEnginePythonBackend.m */; };
+		352F59B9129B5E5300C34824 /* NBEnginePythonHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5990129B5E5300C34824 /* NBEnginePythonHighlighter.m */; };
+		352F59BA129B5E5300C34824 /* NBNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5993129B5E5300C34824 /* NBNotebook.m */; };
+		352F59BB129B5E5300C34824 /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5995129B5E5300C34824 /* NBNotebookView.m */; };
+		352F59BC129B5E5300C34824 /* NBNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5997129B5E5300C34824 /* NBNotebookViewController.m */; };
+		352F59BD129B5E5300C34824 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599B129B5E5300C34824 /* NBSettings.m */; };
+		352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599F129B5E5300C34824 /* NBOutputView.m */; };
+		352F59BF129B5E5300C34824 /* NBOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A1129B5E5300C34824 /* NBOutputViewController.m */; };
+		352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A5129B5E5300C34824 /* NBSourceView.m */; };
+		352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A7129B5E5300C34824 /* NBSourceViewController.m */; };
+		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
+		352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AC129B5E5300C34824 /* NBTextViewController.m */; };
+		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
-		35475DED129B520C00BA0BC2 /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 35475DAF129B520C00BA0BC2 /* Source */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
@@ -39,8 +58,52 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		352F597A129B5E5300C34824 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
+		352F597C129B5E5300C34824 /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = Source/NBCell/NBCell.h; sourceTree = SOURCE_ROOT; };
+		352F597D129B5E5300C34824 /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = Source/NBCell/NBCell.m; sourceTree = SOURCE_ROOT; };
+		352F597E129B5E5300C34824 /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellView.h; path = Source/NBCell/NBCellView.h; sourceTree = SOURCE_ROOT; };
+		352F597F129B5E5300C34824 /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCellView.m; path = Source/NBCell/NBCellView.m; sourceTree = SOURCE_ROOT; };
+		352F5980129B5E5300C34824 /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellViewDelegate.h; path = Source/NBCell/NBCellViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F5982129B5E5300C34824 /* NBSourceCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellView.h; path = Source/NBCell/NBSourceCellView/NBSourceCellView.h; sourceTree = SOURCE_ROOT; };
+		352F5983129B5E5300C34824 /* NBSourceCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceCellView.m; path = Source/NBCell/NBSourceCellView/NBSourceCellView.m; sourceTree = SOURCE_ROOT; };
+		352F5984129B5E5300C34824 /* NBSourceCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellViewDelegate.h; path = Source/NBCell/NBSourceCellView/NBSourceCellViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F5986129B5E5300C34824 /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngine.h; path = Source/NBEngine/NBEngine.h; sourceTree = SOURCE_ROOT; };
+		352F5987129B5E5300C34824 /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngine.m; path = Source/NBEngine/NBEngine.m; sourceTree = SOURCE_ROOT; };
+		352F5988129B5E5300C34824 /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineBackend.h; path = Source/NBEngine/NBEngineBackend.h; sourceTree = SOURCE_ROOT; };
+		352F5989129B5E5300C34824 /* NBEngineBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineBackend.m; path = Source/NBEngine/NBEngineBackend.m; sourceTree = SOURCE_ROOT; };
+		352F598A129B5E5300C34824 /* NBEngineHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineHighlighter.h; path = Source/NBEngine/NBEngineHighlighter.h; sourceTree = SOURCE_ROOT; };
+		352F598B129B5E5300C34824 /* NBEngineHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineHighlighter.m; path = Source/NBEngine/NBEngineHighlighter.m; sourceTree = SOURCE_ROOT; };
+		352F598D129B5E5300C34824 /* NBEnginePythonBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePythonBackend.h; path = Source/NBEngine/Python/NBEnginePythonBackend.h; sourceTree = SOURCE_ROOT; };
+		352F598E129B5E5300C34824 /* NBEnginePythonBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEnginePythonBackend.m; path = Source/NBEngine/Python/NBEnginePythonBackend.m; sourceTree = SOURCE_ROOT; };
+		352F598F129B5E5300C34824 /* NBEnginePythonHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePythonHighlighter.h; path = Source/NBEngine/Python/NBEnginePythonHighlighter.h; sourceTree = SOURCE_ROOT; };
+		352F5990129B5E5300C34824 /* NBEnginePythonHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEnginePythonHighlighter.m; path = Source/NBEngine/Python/NBEnginePythonHighlighter.m; sourceTree = SOURCE_ROOT; };
+		352F5992129B5E5300C34824 /* NBNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebook.h; path = Source/NBNotebook/NBNotebook.h; sourceTree = SOURCE_ROOT; };
+		352F5993129B5E5300C34824 /* NBNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebook.m; path = Source/NBNotebook/NBNotebook.m; sourceTree = SOURCE_ROOT; };
+		352F5994129B5E5300C34824 /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookView.h; path = Source/NBNotebook/NBNotebookView.h; sourceTree = SOURCE_ROOT; };
+		352F5995129B5E5300C34824 /* NBNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookView.m; path = Source/NBNotebook/NBNotebookView.m; sourceTree = SOURCE_ROOT; };
+		352F5996129B5E5300C34824 /* NBNotebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookViewController.h; path = Source/NBNotebook/NBNotebookViewController.h; sourceTree = SOURCE_ROOT; };
+		352F5997129B5E5300C34824 /* NBNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookViewController.m; path = Source/NBNotebook/NBNotebookViewController.m; sourceTree = SOURCE_ROOT; };
+		352F5998129B5E5300C34824 /* NBNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookViewDelegate.h; path = Source/NBNotebook/NBNotebookViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F599A129B5E5300C34824 /* NBSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSettings.h; path = Source/NBSettings/NBSettings.h; sourceTree = SOURCE_ROOT; };
+		352F599B129B5E5300C34824 /* NBSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSettings.m; path = Source/NBSettings/NBSettings.m; sourceTree = SOURCE_ROOT; };
+		352F599E129B5E5300C34824 /* NBOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputView.h; path = Source/NBTextView/NBOutputView/NBOutputView.h; sourceTree = SOURCE_ROOT; };
+		352F599F129B5E5300C34824 /* NBOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputView.m; path = Source/NBTextView/NBOutputView/NBOutputView.m; sourceTree = SOURCE_ROOT; };
+		352F59A0129B5E5300C34824 /* NBOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewController.h; path = Source/NBTextView/NBOutputView/NBOutputViewController.h; sourceTree = SOURCE_ROOT; };
+		352F59A1129B5E5300C34824 /* NBOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputViewController.m; path = Source/NBTextView/NBOutputView/NBOutputViewController.m; sourceTree = SOURCE_ROOT; };
+		352F59A2129B5E5300C34824 /* NBOutputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewDelegate.h; path = Source/NBTextView/NBOutputView/NBOutputViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F59A4129B5E5300C34824 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = Source/NBTextView/NBSourceView/NBSourceView.h; sourceTree = SOURCE_ROOT; };
+		352F59A5129B5E5300C34824 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = Source/NBTextView/NBSourceView/NBSourceView.m; sourceTree = SOURCE_ROOT; };
+		352F59A6129B5E5300C34824 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewController.h; path = Source/NBTextView/NBSourceView/NBSourceViewController.h; sourceTree = SOURCE_ROOT; };
+		352F59A7129B5E5300C34824 /* NBSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewController.m; path = Source/NBTextView/NBSourceView/NBSourceViewController.m; sourceTree = SOURCE_ROOT; };
+		352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = Source/NBTextView/NBSourceView/NBSourceViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F59A9129B5E5300C34824 /* NBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextView.h; path = Source/NBTextView/NBTextView.h; sourceTree = SOURCE_ROOT; };
+		352F59AA129B5E5300C34824 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = Source/NBTextView/NBTextView.m; sourceTree = SOURCE_ROOT; };
+		352F59AB129B5E5300C34824 /* NBTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewController.h; path = Source/NBTextView/NBTextViewController.h; sourceTree = SOURCE_ROOT; };
+		352F59AC129B5E5300C34824 /* NBTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextViewController.m; path = Source/NBTextView/NBTextViewController.m; sourceTree = SOURCE_ROOT; };
+		352F59AD129B5E5300C34824 /* NBTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewDelegate.h; path = Source/NBTextView/NBTextViewDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/NotebookAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/NotebookAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		35475DAF129B520C00BA0BC2 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
@@ -97,7 +160,7 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
-				35475DAF129B520C00BA0BC2 /* Source */,
+				352F5979129B5E5300C34824 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -123,6 +186,139 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		352F5979129B5E5300C34824 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				352F597A129B5E5300C34824 /* main.m */,
+				352F597B129B5E5300C34824 /* NBCell */,
+				352F5985129B5E5300C34824 /* NBEngine */,
+				352F5991129B5E5300C34824 /* NBNotebook */,
+				352F5999129B5E5300C34824 /* NBSettings */,
+				352F599C129B5E5300C34824 /* NBTextView */,
+				352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */,
+				352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */,
+			);
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F597B129B5E5300C34824 /* NBCell */ = {
+			isa = PBXGroup;
+			children = (
+				352F597C129B5E5300C34824 /* NBCell.h */,
+				352F597D129B5E5300C34824 /* NBCell.m */,
+				352F597E129B5E5300C34824 /* NBCellView.h */,
+				352F597F129B5E5300C34824 /* NBCellView.m */,
+				352F5980129B5E5300C34824 /* NBCellViewDelegate.h */,
+				352F5981129B5E5300C34824 /* NBSourceCellView */,
+			);
+			name = NBCell;
+			path = Source/NBCell;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F5981129B5E5300C34824 /* NBSourceCellView */ = {
+			isa = PBXGroup;
+			children = (
+				352F5982129B5E5300C34824 /* NBSourceCellView.h */,
+				352F5983129B5E5300C34824 /* NBSourceCellView.m */,
+				352F5984129B5E5300C34824 /* NBSourceCellViewDelegate.h */,
+			);
+			name = NBSourceCellView;
+			path = Source/NBCell/NBSourceCellView;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F5985129B5E5300C34824 /* NBEngine */ = {
+			isa = PBXGroup;
+			children = (
+				352F5986129B5E5300C34824 /* NBEngine.h */,
+				352F5987129B5E5300C34824 /* NBEngine.m */,
+				352F5988129B5E5300C34824 /* NBEngineBackend.h */,
+				352F5989129B5E5300C34824 /* NBEngineBackend.m */,
+				352F598A129B5E5300C34824 /* NBEngineHighlighter.h */,
+				352F598B129B5E5300C34824 /* NBEngineHighlighter.m */,
+				352F598C129B5E5300C34824 /* Python */,
+			);
+			name = NBEngine;
+			path = Source/NBEngine;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F598C129B5E5300C34824 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				352F598D129B5E5300C34824 /* NBEnginePythonBackend.h */,
+				352F598E129B5E5300C34824 /* NBEnginePythonBackend.m */,
+				352F598F129B5E5300C34824 /* NBEnginePythonHighlighter.h */,
+				352F5990129B5E5300C34824 /* NBEnginePythonHighlighter.m */,
+			);
+			name = Python;
+			path = Source/NBEngine/Python;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F5991129B5E5300C34824 /* NBNotebook */ = {
+			isa = PBXGroup;
+			children = (
+				352F5992129B5E5300C34824 /* NBNotebook.h */,
+				352F5993129B5E5300C34824 /* NBNotebook.m */,
+				352F5994129B5E5300C34824 /* NBNotebookView.h */,
+				352F5995129B5E5300C34824 /* NBNotebookView.m */,
+				352F5996129B5E5300C34824 /* NBNotebookViewController.h */,
+				352F5997129B5E5300C34824 /* NBNotebookViewController.m */,
+				352F5998129B5E5300C34824 /* NBNotebookViewDelegate.h */,
+			);
+			name = NBNotebook;
+			path = Source/NBNotebook;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F5999129B5E5300C34824 /* NBSettings */ = {
+			isa = PBXGroup;
+			children = (
+				352F599A129B5E5300C34824 /* NBSettings.h */,
+				352F599B129B5E5300C34824 /* NBSettings.m */,
+			);
+			name = NBSettings;
+			path = Source/NBSettings;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F599C129B5E5300C34824 /* NBTextView */ = {
+			isa = PBXGroup;
+			children = (
+				352F599D129B5E5300C34824 /* NBOutputView */,
+				352F59A3129B5E5300C34824 /* NBSourceView */,
+				352F59A9129B5E5300C34824 /* NBTextView.h */,
+				352F59AA129B5E5300C34824 /* NBTextView.m */,
+				352F59AB129B5E5300C34824 /* NBTextViewController.h */,
+				352F59AC129B5E5300C34824 /* NBTextViewController.m */,
+				352F59AD129B5E5300C34824 /* NBTextViewDelegate.h */,
+			);
+			name = NBTextView;
+			path = Source/NBTextView;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F599D129B5E5300C34824 /* NBOutputView */ = {
+			isa = PBXGroup;
+			children = (
+				352F599E129B5E5300C34824 /* NBOutputView.h */,
+				352F599F129B5E5300C34824 /* NBOutputView.m */,
+				352F59A0129B5E5300C34824 /* NBOutputViewController.h */,
+				352F59A1129B5E5300C34824 /* NBOutputViewController.m */,
+				352F59A2129B5E5300C34824 /* NBOutputViewDelegate.h */,
+			);
+			name = NBOutputView;
+			path = Source/NBTextView/NBOutputView;
+			sourceTree = SOURCE_ROOT;
+		};
+		352F59A3129B5E5300C34824 /* NBSourceView */ = {
+			isa = PBXGroup;
+			children = (
+				352F59A4129B5E5300C34824 /* NBSourceView.h */,
+				352F59A5129B5E5300C34824 /* NBSourceView.m */,
+				352F59A6129B5E5300C34824 /* NBSourceViewController.h */,
+				352F59A7129B5E5300C34824 /* NBSourceViewController.m */,
+				352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */,
+			);
+			name = NBSourceView;
+			path = Source/NBTextView/NBSourceView;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -177,7 +373,6 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				35475DED129B520C00BA0BC2 /* Source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +383,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352F59B1129B5E5300C34824 /* main.m in Sources */,
+				352F59B2129B5E5300C34824 /* NBCell.m in Sources */,
+				352F59B3129B5E5300C34824 /* NBCellView.m in Sources */,
+				352F59B4129B5E5300C34824 /* NBSourceCellView.m in Sources */,
+				352F59B5129B5E5300C34824 /* NBEngine.m in Sources */,
+				352F59B6129B5E5300C34824 /* NBEngineBackend.m in Sources */,
+				352F59B7129B5E5300C34824 /* NBEngineHighlighter.m in Sources */,
+				352F59B8129B5E5300C34824 /* NBEnginePythonBackend.m in Sources */,
+				352F59B9129B5E5300C34824 /* NBEnginePythonHighlighter.m in Sources */,
+				352F59BA129B5E5300C34824 /* NBNotebook.m in Sources */,
+				352F59BB129B5E5300C34824 /* NBNotebookView.m in Sources */,
+				352F59BC129B5E5300C34824 /* NBNotebookViewController.m in Sources */,
+				352F59BD129B5E5300C34824 /* NBSettings.m in Sources */,
+				352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */,
+				352F59BF129B5E5300C34824 /* NBOutputViewController.m in Sources */,
+				352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */,
+				352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */,
+				352F59C2129B5E5300C34824 /* NBTextView.m in Sources */,
+				352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */,
+				352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,8 +442,6 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Notebook_Prefix.pch;
 				INFOPLIST_FILE = "Notebook-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Notebook;
@@ -246,8 +459,6 @@
 					"\"$(SRCROOT)/External\"",
 				);
 				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Notebook_Prefix.pch;
 				INFOPLIST_FILE = "Notebook-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Notebook;
@@ -266,6 +477,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx10.6;
 			};
@@ -281,6 +493,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx10.6;
 			};
