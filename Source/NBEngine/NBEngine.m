@@ -56,7 +56,7 @@
         backend = nil;
         busy = NO;
         
-        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[NBEnginePythonBackend class] withObject:ports];
+        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[self getBackendClass] withObject:ports];
         
         while(!backend)
         {
@@ -65,6 +65,20 @@
     }
     
     return self;
+}
+
+- (Class)getBackendClass
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
+- (Class)getHighlighterClass
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
 }
 
 - (void)setBackend:(NBEngineBackend *)inBackend

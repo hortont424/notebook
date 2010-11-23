@@ -23,38 +23,21 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBEnginePython.h"
 
-#import "NBEngineBackend.h"
+#import "NBEnginePythonBackend.h"
+#import "NBEnginePythonHighlighter.h"
 
-@interface NBException : NSObject
+@implementation NBEnginePython
+
+- (Class)getBackendClass
 {
-    NSUInteger line, column;
-    NSString * message;
+    return [NBEnginePythonBackend class];
 }
 
-@property (nonatomic,assign) NSUInteger line;
-@property (nonatomic,assign) NSUInteger column;
-@property (nonatomic,retain) NSString * message;
-
-@end
-
-@interface NBEngine : NSObject
+- (Class)getHighlighterClass
 {
-    NBEngineBackend * backend;
-    NSConnection * engineConnection;
-    
-    NSMutableArray * taskQueue;
-    
-    void (^lastCompletionCallback)(NBException * exception, NSString * output);
-    volatile BOOL busy;
+    return [NBEnginePythonHighlighter class];
 }
-
-- (Class)getBackendClass;
-- (Class)getHighlighterClass;
-
-- (void)setBackend:(NBEngineBackend *)inBackend;
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end

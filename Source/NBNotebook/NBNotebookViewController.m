@@ -26,6 +26,7 @@
 #import "NBNotebookViewController.h"
 
 #import "NBSourceCellView.h"
+#import "NBEnginePython.h"
 
 @implementation NBNotebookViewController
 
@@ -60,7 +61,7 @@
     
     if(!engine)
     {
-        engine = [[NBEngine alloc] init]; // TODO: pluggable!
+        engine = [[NBEnginePython alloc] init]; // TODO: pluggable!
         [engines setObject:engine forKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
     }
     

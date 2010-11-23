@@ -25,36 +25,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngineBackend.h"
+#import "NBEngine.h"
 
-@interface NBException : NSObject
+@interface NBEnginePython : NBEngine
 {
-    NSUInteger line, column;
-    NSString * message;
-}
-
-@property (nonatomic,assign) NSUInteger line;
-@property (nonatomic,assign) NSUInteger column;
-@property (nonatomic,retain) NSString * message;
-
-@end
-
-@interface NBEngine : NSObject
-{
-    NBEngineBackend * backend;
-    NSConnection * engineConnection;
     
-    NSMutableArray * taskQueue;
-    
-    void (^lastCompletionCallback)(NBException * exception, NSString * output);
-    volatile BOOL busy;
 }
-
-- (Class)getBackendClass;
-- (Class)getHighlighterClass;
-
-- (void)setBackend:(NBEngineBackend *)inBackend;
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end
