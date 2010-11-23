@@ -32,6 +32,8 @@
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		35812AFB129B73490092AECD /* NBEnginePython.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812AFA129B73490092AECD /* NBEnginePython.m */; };
+		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
+		35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35812B8E129B84170092AECD /* NBCreateNotebookView.xib */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -109,6 +111,9 @@
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		35812AF9129B73490092AECD /* NBEnginePython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePython.h; sourceTree = "<group>"; };
 		35812AFA129B73490092AECD /* NBEnginePython.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePython.m; sourceTree = "<group>"; };
+		35812B8B129B84030092AECD /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookView.h; path = NBCreateNotebookView/NBCreateNotebookView.h; sourceTree = "<group>"; };
+		35812B8C129B84030092AECD /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCreateNotebookView.m; path = NBCreateNotebookView/NBCreateNotebookView.m; sourceTree = "<group>"; };
+		35812B8E129B84170092AECD /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NBCreateNotebookView.xib; path = NBCreateNotebookView/NBCreateNotebookView.xib; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +198,7 @@
 		352F5979129B5E5300C34824 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				35812B89129B83BE0092AECD /* NBCreateNotebookView */,
 				352F597A129B5E5300C34824 /* main.m */,
 				352F597B129B5E5300C34824 /* NBCell */,
 				352F5985129B5E5300C34824 /* NBEngine */,
@@ -325,6 +331,16 @@
 			path = Source/NBTextView/NBSourceView;
 			sourceTree = SOURCE_ROOT;
 		};
+		35812B89129B83BE0092AECD /* NBCreateNotebookView */ = {
+			isa = PBXGroup;
+			children = (
+				35812B8B129B84030092AECD /* NBCreateNotebookView.h */,
+				35812B8C129B84030092AECD /* NBCreateNotebookView.m */,
+				35812B8E129B84170092AECD /* NBCreateNotebookView.xib */,
+			);
+			name = NBCreateNotebookView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +394,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +426,7 @@
 				352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */,
 				352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */,
 				35812AFB129B73490092AECD /* NBEnginePython.m in Sources */,
+				35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

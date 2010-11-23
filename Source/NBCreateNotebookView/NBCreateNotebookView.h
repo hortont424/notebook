@@ -25,17 +25,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBNotebookView.h"
-#import "NBNotebookViewController.h"
-#import "NBEngine.h"
-
-@interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
+@interface NBCreateNotebookView : NSWindowController<NSCollectionViewDelegate>
 {
-    NSWindow * window;
-    NBNotebookView * notebookView;
+    NSCollectionView * languageChooser;
 }
 
-@property (assign) IBOutlet NSWindow * window;
-@property (assign) IBOutlet NBNotebookView * notebookView;
+@property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
+
+- (IBAction)chooseNotebook:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end

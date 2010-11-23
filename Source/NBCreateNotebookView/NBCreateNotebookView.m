@@ -23,19 +23,25 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBCreateNotebookView.h"
 
-#import "NBNotebookView.h"
-#import "NBNotebookViewController.h"
-#import "NBEngine.h"
+@implementation NBCreateNotebookView
 
-@interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
+@synthesize languageChooser;
+
+- (void)awakeFromNib
 {
-    NSWindow * window;
-    NBNotebookView * notebookView;
+    [languageChooser setContent:[NSArray arrayWithObjects:[[NSObject alloc] init], [[NSObject alloc] init], nil]];
 }
 
-@property (assign) IBOutlet NSWindow * window;
-@property (assign) IBOutlet NBNotebookView * notebookView;
+- (IBAction)chooseNotebook:(id)sender
+{
+    
+}
+
+- (IBAction)cancel:(id)sender
+{
+    
+}
 
 @end

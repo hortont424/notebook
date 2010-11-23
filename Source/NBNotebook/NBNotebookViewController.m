@@ -36,7 +36,6 @@
     
     if(self != nil)
     {
-        engines = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -53,24 +52,9 @@
     return [notebookView addViewForCell:cell afterCellView:(NBCellView *)afterCellView withAnimation:animation];
 }
 
-- (NBEngine *)engineForNotebookView:(id)notebookView
+- (void)notebookView:(NBNotebookView *)notebookView evaluateCellView:(NBCellView *)cellView
 {
-    NBEngine * engine = nil;
-    
-    engine = [engines objectForKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
-    
-    if(!engine)
-    {
-        engine = [[NBEnginePython alloc] init]; // TODO: pluggable!
-        [engines setObject:engine forKey:[NSNumber numberWithLong:(long)notebookView]]; // TODO: HORRIBLE (prevents copy)
-    }
-    
-    return engine;
-}
-
-- (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView
-{
-    NBEngine * engine = [self engineForNotebookView:notebookView];
+    NBEngine * engine = notebookView.notebook.engine;
     
     if([cellView isKindOfClass:[NBSourceCellView class]])
     {
@@ -80,7 +64,7 @@
     }
 }
 
-- (NBCellView *)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView
+- (NBCellView *)notebookView:(NBNotebookView *)notebookView addNewCellAfterCell:(NBCellView *)cellView
 {
     NBCell * newCell = [[NBCell alloc] init];
     NBCellView * newCellView;

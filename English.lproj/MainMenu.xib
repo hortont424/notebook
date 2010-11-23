@@ -1399,12 +1399,6 @@
 			<object class="NSCustomObject" id="755631768">
 				<string key="NSClassName">NSFontManager</string>
 			</object>
-			<object class="NSCustomObject" id="960239321">
-				<string key="NSClassName">NBNotebook</string>
-			</object>
-			<object class="NSCustomObject" id="910490812">
-				<string key="NSClassName">NBNotebookViewController</string>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -2091,35 +2085,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">notebook</string>
-						<reference key="source" ref="111185114"/>
-						<reference key="destination" ref="960239321"/>
-					</object>
-					<int key="connectionID">568</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">notebookController</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="910490812"/>
-					</object>
-					<int key="connectionID">570</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">notebookView</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="111185114"/>
 					</object>
 					<int key="connectionID">571</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="111185114"/>
-						<reference key="destination" ref="910490812"/>
-					</object>
-					<int key="connectionID">573</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3194,16 +3164,6 @@
 						<reference key="object" ref="111185114"/>
 						<reference key="parent" ref="787332708"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">567</int>
-						<reference key="object" ref="960239321"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">569</int>
-						<reference key="object" ref="910490812"/>
-						<reference key="parent" ref="0"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -3433,8 +3393,6 @@
 					<string>562.IBPluginDependency</string>
 					<string>563.IBPluginDependency</string>
 					<string>564.IBPluginDependency</string>
-					<string>567.IBPluginDependency</string>
-					<string>569.IBPluginDependency</string>
 					<string>57.IBEditorWindowLastContentRect</string>
 					<string>57.IBPluginDependency</string>
 					<string>57.ImportedFromIB2</string>
@@ -3695,8 +3653,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{286, 129}, {275, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -3755,20 +3711,9 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">NBNotebook</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">engine</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">engine</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">engine</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NBNotebook/NBNotebook.h</string>
+						<string key="minorKey">Source/NBNotebook/NBNotebook.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3808,7 +3753,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NBNotebook/NBNotebookView.h</string>
+						<string key="minorKey">Source/NBNotebook/NBNotebookView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3816,7 +3761,7 @@
 					<string key="superclassName">NSViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NBNotebook/NBNotebookViewController.h</string>
+						<string key="minorKey">Source/NBNotebook/NBNotebookViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3826,14 +3771,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>engine</string>
 							<string>notebookController</string>
 							<string>notebookView</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>NBNotebookViewController</string>
 							<string>NBNotebookView</string>
 							<string>NSWindow</string>
@@ -3843,17 +3786,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>engine</string>
 							<string>notebookController</string>
 							<string>notebookView</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">engine</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">notebookController</string>
 								<string key="candidateClassName">NBNotebookViewController</string>
@@ -3870,7 +3808,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NotebookAppDelegate.h</string>
+						<string key="minorKey">Source/NotebookAppDelegate.h</string>
 					</object>
 				</object>
 			</object>
@@ -4372,6 +4310,13 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">QuartzCore.framework/Headers/CIImageProvider.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">RegexKit.framework/Headers/NSObject.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

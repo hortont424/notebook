@@ -29,9 +29,11 @@
 {
     NSString * content;
     NSString * output;
+    id notebook;
 }
 
-@property (nonatomic,retain) NSString * content;
-@property (nonatomic,retain) NSString * output;
+@property (nonatomic,assign) NSString * content;
+@property (nonatomic,assign) NSString * output;
+@property (nonatomic,assign) id notebook;
 
 @end

@@ -29,6 +29,9 @@
 
 @synthesize engine;
 
+// TODO: this is not written at all for loading a notebook and then populating a NBNotebookView from it...
+// rewrite with the notebookview observing the list of cells and outsiders adding to NBNotebook through the controller
+
 - (id)init
 {
     self = [super init];
@@ -43,6 +46,7 @@
 
 - (void)addCell:(NBCell *)cell
 {
+    cell.notebook = self;
     [cells addObject:cell];
 }
 

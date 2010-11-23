@@ -26,36 +26,53 @@
 #import "NotebookAppDelegate.h"
 
 #import "NBCell.h"
+#import "NBNotebook.h"
+#import "NBEnginePython.h"
+#import "NBCreateNotebookView.h"
 
 @implementation NotebookAppDelegate
 
 @synthesize window;
 @synthesize notebookView;
-@synthesize notebookController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NBCell * cell;
+    NBNotebookViewController * controller = [[NBNotebookViewController alloc] init];
+
+    notebookView.notebook = [[NBNotebook alloc] init];
+    notebookView.notebook.engine = [[NBEnginePython alloc] init];
+    notebookView.delegate = controller;
     
     cell = [[NBCell alloc] init];
     cell.content = @"import random";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [controller notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [controller notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [controller notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"for x in range(100000):\n    print x";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [controller notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [controller notebookView:notebookView addCell:cell afterCellView:nil];
+    
+    
+    
+    
+    
+    
+    NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
+    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
+    
+    
 }
 
 @end

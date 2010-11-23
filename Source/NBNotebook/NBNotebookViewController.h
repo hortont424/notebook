@@ -33,7 +33,6 @@
 
 @interface NBNotebookViewController : NSViewController<NBNotebookViewDelegate>
 {
-    NSMutableDictionary * engines;
 }
 
 - (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
