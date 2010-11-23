@@ -29,24 +29,16 @@
 
 @implementation NBCreateNotebookView
 
-@synthesize languageChooser;
+@synthesize languageChooser, delegate;
 
 - (void)awakeFromNib
 {
-    NBEngineLoader * loader = [NBEngineLoader sharedInstance];
-    NSMutableArray * engineTemplates = [[NSMutableArray alloc] init];
-    
-    for(Class engineClass in loader.engineClasses)
-    {
-        [engineTemplates addObject:[[engineClass alloc] init]];
-    }
-    
-    [languageChooser setContent:engineTemplates];
+    [languageChooser setContent:[[NBEngineLoader sharedInstance] engineClasses]];
 }
 
 - (IBAction)chooseNotebook:(id)sender
 {
-    
+    [delegate createNotebookWithEngineClass:[[[NBEngineLoader sharedInstance] engineClasses] objectAtIndex:[[languageChooser selectionIndexes] firstIndex]]];
 }
 
 - (IBAction)cancel:(id)sender

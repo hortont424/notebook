@@ -50,12 +50,12 @@
     volatile BOOL busy;
 }
 
-- (Class)backendClass;
-- (Class)highlighterClass;
++ (Class)backendClass;
++ (Class)highlighterClass;
 
-- (NSString *)name;
-- (NSString *)version;
-- (NSImage *)icon;
++ (NSString *)name;
++ (NSString *)version;
++ (NSImage *)icon;
 
 - (void)setBackend:(NBEngineBackend *)inBackend;
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;

@@ -28,14 +28,11 @@
 #import "NBNotebookView.h"
 #import "NBNotebookViewController.h"
 #import "NBEngine.h"
+#import "NBCreateNotebookViewDelegate.h"
 
-@interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
+@interface NotebookAppDelegate : NSObject <NSApplicationDelegate,NBCreateNotebookViewDelegate>
 {
-    NSWindow * window;
-    NBNotebookView * notebookView;
-}
 
-@property (assign) IBOutlet NSWindow * window;
-@property (assign) IBOutlet NBNotebookView * notebookView;
+}
 
 @end

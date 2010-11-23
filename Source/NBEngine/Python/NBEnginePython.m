@@ -32,29 +32,29 @@
 
 @implementation NBEnginePython
 
-- (Class)backendClass
++ (Class)backendClass
 {
     return [NBEnginePythonBackend class];
 }
 
-- (Class)highlighterClass
++ (Class)highlighterClass
 {
     return [NBEnginePythonHighlighter class];
 }
 
-- (NSString *)name
++ (NSString *)name
 {
     return @"Python";
 }
 
-- (NSString *)version
++ (NSString *)version
 {
     return [[[NSString stringWithUTF8String:Py_GetVersion()] componentsSeparatedByString:@" "] objectAtIndex:0];
 }
 
-- (NSImage *)icon
++ (NSImage *)icon
 {
-    return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"python.png"]];
+    return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"python.png"]];
 }
 
 @end

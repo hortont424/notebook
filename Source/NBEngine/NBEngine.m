@@ -54,7 +54,7 @@
         backend = nil;
         busy = NO;
         
-        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[self backendClass] withObject:ports];
+        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[[self class] backendClass] withObject:ports];
         
         while(!backend)
         {
@@ -65,14 +65,35 @@
     return self;
 }
 
-- (Class)backendClass
++ (Class)backendClass
 {
     [self doesNotRecognizeSelector:_cmd];
     
     return nil;
 }
 
-- (Class)highlighterClass
++ (Class)highlighterClass
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
++ (NSString *)name
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
++ (NSString *)version
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
++ (NSImage *)icon
 {
     [self doesNotRecognizeSelector:_cmd];
     
@@ -113,27 +134,6 @@
         
         [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
     }
-}
-
-- (NSString *)name
-{
-    [self doesNotRecognizeSelector:_cmd];
-    
-    return nil;
-}
-
-- (NSString *)version
-{
-    [self doesNotRecognizeSelector:_cmd];
-    
-    return nil;
-}
-
-- (NSImage *)icon
-{
-    [self doesNotRecognizeSelector:_cmd];
-    
-    return nil;
 }
 
 @end

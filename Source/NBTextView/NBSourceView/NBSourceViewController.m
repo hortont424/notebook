@@ -59,7 +59,7 @@
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:settings.editorFont range:wholeStringRange];
     
-    NBEngineHighlighter * highlighter = [[[[parent.cell.notebook engine] highlighterClass] alloc] init];
+    NBEngineHighlighter * highlighter = [[[[[parent.cell.notebook engine] class] highlighterClass] alloc] init];
     
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {

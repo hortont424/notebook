@@ -32,43 +32,45 @@
 
 @implementation NotebookAppDelegate
 
-@synthesize window;
-@synthesize notebookView;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NBCell * cell;
-    NBNotebookViewController * controller = [[NBNotebookViewController alloc] init];
+    NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
+    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
+    newNotebook.delegate = self;
+}
 
-    notebookView.notebook = [[NBNotebook alloc] init];
-    //notebookView.notebook.engine = [[NBEnginePython alloc] init];
-    notebookView.delegate = controller;
+// TODO: why in the world does it seem that different notebooks are sharing globals!?!
+
+- (void)createNotebookWithEngineClass:(Class)engineClass
+{
+    NBCell * cell;
+    NBNotebookViewController * notebookController = [[NBNotebookViewController alloc] init];
+    [NSBundle loadNibNamed:@"Notebook" owner:notebookController];
+    
+    NBNotebookView * notebookView = (NBNotebookView *)[notebookController view];
+    
+    [notebookView setNotebook:[[NBNotebook alloc] init]];
+    [[notebookView notebook] setEngine:[[engineClass alloc] init]];
     
     cell = [[NBCell alloc] init];
     cell.content = @"import random";
-    [controller notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [controller notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
-    [controller notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"for x in range(100000):\n    print x";
-    [controller notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
-    [controller notebookView:notebookView addCell:cell afterCellView:nil];
-    
-    
-    NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
-    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
-    
-    
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
 }
 
 @end

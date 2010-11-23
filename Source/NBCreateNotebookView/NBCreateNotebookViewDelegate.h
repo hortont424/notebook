@@ -25,19 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCreateNotebookViewDelegate.h"
+@protocol NBCreateNotebookViewDelegate
 
-@interface NBCreateNotebookView : NSWindowController<NSCollectionViewDelegate>
-{
-    id<NBCreateNotebookViewDelegate> delegate;
-    
-    NSCollectionView * languageChooser;
-}
-
-@property (nonatomic,assign) id<NBCreateNotebookViewDelegate> delegate;
-@property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
-
-- (IBAction)chooseNotebook:(id)sender;
-- (IBAction)cancel:(id)sender;
+- (void)createNotebookWithEngineClass:(Class)engineClass;
 
 @end
