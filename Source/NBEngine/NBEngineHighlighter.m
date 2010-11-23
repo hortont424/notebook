@@ -29,7 +29,7 @@
 
 @synthesize highlight, expression;
 
-+ (NBEngineHighlightContext *)contextWithHighlight:(NBHighlightSettings *)inHighlight expression:(NSString *)inExpression
++ (NBEngineHighlightContext *)contextWithClass:(NSString *)inHighlight expression:(NSString *)inExpression
 {
     NBEngineHighlightContext * context = [[NBEngineHighlightContext alloc] init];
     
@@ -37,7 +37,6 @@
     context.expression = inExpression;
     
     return context;
-    
 }
 
 @end

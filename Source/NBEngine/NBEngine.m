@@ -25,8 +25,6 @@
 
 #import "NBEngine.h"
 
-#import "NBEnginePythonBackend.h"
-
 @implementation NBException
 
 @synthesize line, column, message;
@@ -56,7 +54,7 @@
         backend = nil;
         busy = NO;
         
-        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[self getBackendClass] withObject:ports];
+        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[self backendClass] withObject:ports];
         
         while(!backend)
         {
@@ -67,14 +65,14 @@
     return self;
 }
 
-- (Class)getBackendClass
+- (Class)backendClass
 {
     [self doesNotRecognizeSelector:_cmd];
     
     return nil;
 }
 
-- (Class)getHighlighterClass
+- (Class)highlighterClass
 {
     [self doesNotRecognizeSelector:_cmd];
     
@@ -115,6 +113,27 @@
         
         [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
     }
+}
+
+- (NSString *)name
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
+- (NSString *)version
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
+}
+
+- (NSImage *)icon
+{
+    [self doesNotRecognizeSelector:_cmd];
+    
+    return nil;
 }
 
 @end

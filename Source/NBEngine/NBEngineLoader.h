@@ -25,40 +25,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngineBackend.h"
-
-@interface NBException : NSObject
+@interface NBEngineLoader : NSObject
 {
-    NSUInteger line, column;
-    NSString * message;
+    NSArray * engineClasses;
 }
 
-@property (nonatomic,assign) NSUInteger line;
-@property (nonatomic,assign) NSUInteger column;
-@property (nonatomic,retain) NSString * message;
+@property (nonatomic,assign) NSArray * engineClasses;
 
-@end
++ (NBEngineLoader *)sharedInstance;
 
-@interface NBEngine : NSObject
-{
-    NBEngineBackend * backend;
-    NSConnection * engineConnection;
-    
-    NSMutableArray * taskQueue;
-    
-    void (^lastCompletionCallback)(NBException * exception, NSString * output);
-    volatile BOOL busy;
-}
-
-- (Class)backendClass;
-- (Class)highlighterClass;
-
-- (NSString *)name;
-- (NSString *)version;
-- (NSImage *)icon;
-
-- (void)setBackend:(NBEngineBackend *)inBackend;
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
+- (NSArray *)loadPlugins;
 
 @end

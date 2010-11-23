@@ -48,8 +48,6 @@
 
 #import "NBEnginePythonHighlighter.h"
 
-#import "NBSettings.h"
-
 @implementation NBEnginePythonHighlighter
 
 - (id)init
@@ -58,7 +56,6 @@
     
     if (self != nil)
     {
-        NBSettings * settings = [NBSettings sharedInstance];
         NSMutableArray * initialPairs = [[NSMutableArray alloc] init];
         
         // TODO: eventually move these to a file
@@ -71,26 +68,26 @@
         
         for(NSString * keyword in keywords)
         {
-            [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorKeywordHighlight expression:[NSString stringWithFormat:@"\\b%@\\b", keyword, nil]]];
+            [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"keyword" expression:[NSString stringWithFormat:@"\\b%@\\b", keyword, nil]]];
         }
         
         // Highlight numbers of various formats
         
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorNumberHighlight expression:@"\\b([1-9]+[0-9]*|0)"]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorNumberHighlight expression:@"\\b(?i:([1-9]+[0-9]*|0)L)"]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorNumberHighlight expression:@"\\b(?i:(\\d+e[\\-\\+]?\\d+))"]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorNumberHighlight expression:@"(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))"]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorNumberHighlight expression:@"\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?=[^a-zA-Z_])"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"number" expression:@"\\b([1-9]+[0-9]*|0)"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"number" expression:@"\\b(?i:([1-9]+[0-9]*|0)L)"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"number" expression:@"\\b(?i:(\\d+e[\\-\\+]?\\d+))"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"number" expression:@"(?<=[^0-9a-zA-Z_])(?i:(\\.\\d+(e[\\-\\+]?\\d+)?))"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"number" expression:@"\\b(?i:(\\d+\\.\\d*(e[\\-\\+]?\\d+)?))(?=[^a-zA-Z_])"]];
         
         // Highlight strings
         // TODO: these should not match cross-line, and the triple-quoted string should
         
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorStringHighlight expression:@"\"([^\"\\\\]*(\\\\.[^\"\\\\]*)*)\""]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorStringHighlight expression:@"\'([^\'\\\\]*(\\\\.[^\'\\\\]*)*)\'"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\"([^\"\\\\]*(\\\\.[^\"\\\\]*)*)\""]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\'([^\'\\\\]*(\\\\.[^\'\\\\]*)*)\'"]];
         
         // Highlight comments last, as they should take over any other highlighting
         
-        [initialPairs addObject:[NBEngineHighlightContext contextWithHighlight:settings.editorCommentHighlight expression:@"#.*$"]];
+        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"comment" expression:@"#.*$"]];
         
         highlightingPairs = (NSArray *)initialPairs;
     }

@@ -25,19 +25,36 @@
 
 #import "NBEnginePython.h"
 
+#import <Python/Python.h>
+
 #import "NBEnginePythonBackend.h"
 #import "NBEnginePythonHighlighter.h"
 
 @implementation NBEnginePython
 
-- (Class)getBackendClass
+- (Class)backendClass
 {
     return [NBEnginePythonBackend class];
 }
 
-- (Class)getHighlighterClass
+- (Class)highlighterClass
 {
     return [NBEnginePythonHighlighter class];
+}
+
+- (NSString *)name
+{
+    return @"Python";
+}
+
+- (NSString *)version
+{
+    return [[[NSString stringWithUTF8String:Py_GetVersion()] componentsSeparatedByString:@" "] objectAtIndex:0];
+}
+
+- (NSImage *)icon
+{
+    return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"python.png"]];
 }
 
 @end

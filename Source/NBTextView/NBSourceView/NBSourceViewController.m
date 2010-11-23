@@ -59,11 +59,11 @@
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:settings.editorFont range:wholeStringRange];
     
-    NBEngineHighlighter * highlighter = [[NBEnginePythonHighlighter alloc] init]; // TODO: defined by notebook type!
+    NBEngineHighlighter * highlighter = [[[[parent.cell.notebook engine] highlighterClass] alloc] init];
     
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
-        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:context.highlight];
+        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightForContext:context.highlight]];
     }
 }
 

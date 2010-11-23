@@ -25,18 +25,16 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBSettings.h"
-
 @interface NBEngineHighlightContext : NSObject
 {
-    NBHighlightSettings * highlight;
+    NSString * highlight;
     NSString * expression;
 }
 
-@property (nonatomic,assign) NBHighlightSettings * highlight;
+@property (nonatomic,assign) NSString * highlight;
 @property (nonatomic,assign) NSString * expression;
 
-+ (NBEngineHighlightContext *)contextWithHighlight:(NBHighlightSettings *)inHighlight expression:(NSString *)inExpression;
++ (NBEngineHighlightContext *)contextWithClass:(NSString *)inHighlight expression:(NSString *)inExpression;
 
 @end
 

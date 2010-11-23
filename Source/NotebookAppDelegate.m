@@ -27,8 +27,8 @@
 
 #import "NBCell.h"
 #import "NBNotebook.h"
-#import "NBEnginePython.h"
 #import "NBCreateNotebookView.h"
+#import "NBEngineLoader.h"
 
 @implementation NotebookAppDelegate
 
@@ -41,7 +41,7 @@
     NBNotebookViewController * controller = [[NBNotebookViewController alloc] init];
 
     notebookView.notebook = [[NBNotebook alloc] init];
-    notebookView.notebook.engine = [[NBEnginePython alloc] init];
+    //notebookView.notebook.engine = [[NBEnginePython alloc] init];
     notebookView.delegate = controller;
     
     cell = [[NBCell alloc] init];
@@ -63,10 +63,6 @@
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
     [controller notebookView:notebookView addCell:cell afterCellView:nil];
-    
-    
-    
-    
     
     
     NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];

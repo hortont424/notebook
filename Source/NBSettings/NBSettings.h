@@ -43,6 +43,7 @@
     NSFont * editorFont, * editorBoldFont, * editorItalicFont;
     NSColor * editorColor;
     
+    NSDictionary * highlightSettings;
     NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight, * editorStringHighlight;
     
     NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor;
@@ -73,5 +74,7 @@
 @property (nonatomic,assign) NSNumber * cellSpacing;
 
 + (NBSettings *)sharedInstance;
+
+- (NBHighlightSettings *)highlightForContext:(NSString *)context;
 
 @end
