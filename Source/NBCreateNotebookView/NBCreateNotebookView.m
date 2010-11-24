@@ -33,17 +33,20 @@
 
 - (void)awakeFromNib
 {
-    [languageChooser setContent:[[NBEngineLoader sharedInstance] engineClasses]];
-}
-
-- (IBAction)chooseNotebook:(id)sender
-{
-    [delegate createNotebookWithEngineClass:[[[NBEngineLoader sharedInstance] engineClasses] objectAtIndex:[[languageChooser selectionIndexes] firstIndex]]];
-}
-
-- (IBAction)cancel:(id)sender
-{
+    NSArray * engineClasses = [[NBEngineLoader sharedInstance] engineClasses];
+    NSRect windowFrame = [[self window] frame];
     
+    [languageChooser setContent:engineClasses];
+    
+    // TODO: magic numbers
+    windowFrame.size.height = 64 + (([engineClasses count] > 3 ? 3 : [engineClasses count]) * 64);
+    
+    [[self window] setFrame:windowFrame display:YES];
+}
+
+- (IBAction)chooseNotebook:(id)engineClass
+{
+    [delegate createNotebookWithEngineClass:engineClass];
 }
 
 @end

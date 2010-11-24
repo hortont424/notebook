@@ -38,6 +38,5 @@
 @property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
 
 - (IBAction)chooseNotebook:(id)sender;
-- (IBAction)cancel:(id)sender;
 
 @end
