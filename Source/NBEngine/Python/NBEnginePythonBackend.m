@@ -36,7 +36,7 @@
         Py_Initialize();
         
         mainModule = PyImport_AddModule("__main__");
-        globals = PyModule_GetDict(mainModule);
+        globals = PyDict_Copy(PyModule_GetDict(mainModule));
     }
     
     return self;
