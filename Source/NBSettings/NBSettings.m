@@ -25,6 +25,8 @@
 
 #import "NBSettings.h"
 
+#import <JSON/JSON.h>
+
 static NBSettings * sharedInstance = nil;
 
 @implementation NBHighlightSettings
@@ -60,6 +62,16 @@ static NBSettings * sharedInstance = nil;
     
     if(self != nil)
     {
+        NSArray * themes = [[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"];
+        NSString * themeFilename = [themes lastObject];
+        NSString * themeString = [NSString stringWithContentsOfFile:themeFilename encoding:NSUTF8StringEncoding error:nil];
+        NSError * jsonError = nil;
+
+        NSDictionary * theme = [[[SBJsonParser alloc] init] objectWithString:themeString error:&jsonError];
+        
+        NSLog(@"%@", theme);
+        NSLog(@"%@", jsonError);
+        
         editorFont = [NSFont fontWithName:@"Menlo" size:12];
         editorBoldFont = [NSFont fontWithName:@"Menlo Bold" size:12];
         editorItalicFont = [NSFont fontWithName:@"Menlo Italic" size:12];
