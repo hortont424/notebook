@@ -32,6 +32,7 @@
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
 		35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35812B8E129B84170092AECD /* NBCreateNotebookView.xib */; };
+		358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */; };
 		359E37B7129B901300044B12 /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E378D129B8FC800044B12 /* NBEngine.m */; };
 		359E37B8129B901300044B12 /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E378F129B8FC800044B12 /* NBEngineBackend.m */; };
 		359E37B9129B901300044B12 /* NBEngineHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E3791129B8FC800044B12 /* NBEngineHighlighter.m */; };
@@ -148,6 +149,8 @@
 		35812B8B129B84030092AECD /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookView.h; path = NBCreateNotebookView/NBCreateNotebookView.h; sourceTree = "<group>"; };
 		35812B8C129B84030092AECD /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCreateNotebookView.m; path = NBCreateNotebookView/NBCreateNotebookView.m; sourceTree = "<group>"; };
 		35812B8E129B84170092AECD /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NBCreateNotebookView.xib; path = NBCreateNotebookView/NBCreateNotebookView.xib; sourceTree = "<group>"; };
+		358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBPassthroughTextField.h; path = NBCreateNotebookView/NBPassthroughTextField.h; sourceTree = "<group>"; };
+		358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBPassthroughTextField.m; path = NBCreateNotebookView/NBPassthroughTextField.m; sourceTree = "<group>"; };
 		359E378C129B8FC800044B12 /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngine.h; sourceTree = "<group>"; };
 		359E378D129B8FC800044B12 /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngine.m; sourceTree = "<group>"; };
 		359E378E129B8FC800044B12 /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineBackend.h; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				35812B8C129B84030092AECD /* NBCreateNotebookView.m */,
 				35812B8E129B84170092AECD /* NBCreateNotebookView.xib */,
 				35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */,
+				358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */,
+				358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */,
 			);
 			name = NBCreateNotebookView;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */,
 				351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */,
 				351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */,
+				358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
