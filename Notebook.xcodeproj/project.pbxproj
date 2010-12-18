@@ -33,6 +33,9 @@
 		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
 		35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35812B8E129B84170092AECD /* NBCreateNotebookView.xib */; };
 		358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */; };
+		358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358DDB0412BD4FFC00B9D70A /* JSON.framework */; };
+		358DDB2A12BD503100B9D70A /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 358DDB0412BD4FFC00B9D70A /* JSON.framework */; };
+		358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 358DDB3A12BD6A1500B9D70A /* tango.js */; };
 		359E37B7129B901300044B12 /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E378D129B8FC800044B12 /* NBEngine.m */; };
 		359E37B8129B901300044B12 /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E378F129B8FC800044B12 /* NBEngineBackend.m */; };
 		359E37B9129B901300044B12 /* NBEngineHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E3791129B8FC800044B12 /* NBEngineHighlighter.m */; };
@@ -73,6 +76,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		358DDB3812BD6A0B00B9D70A /* Copy Themes */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Themes;
+			dstSubfolderSpec = 7;
+			files = (
+				358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */,
+			);
+			name = "Copy Themes";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		359E383D129B92D800044B12 /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				358DDB2A12BD503100B9D70A /* JSON.framework in Copy Frameworks */,
 				35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -151,6 +166,8 @@
 		35812B8E129B84170092AECD /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NBCreateNotebookView.xib; path = NBCreateNotebookView/NBCreateNotebookView.xib; sourceTree = "<group>"; };
 		358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBPassthroughTextField.h; path = NBCreateNotebookView/NBPassthroughTextField.h; sourceTree = "<group>"; };
 		358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBPassthroughTextField.m; path = NBCreateNotebookView/NBPassthroughTextField.m; sourceTree = "<group>"; };
+		358DDB0412BD4FFC00B9D70A /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = External/JSON.framework; sourceTree = "<group>"; };
+		358DDB3A12BD6A1500B9D70A /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		359E378C129B8FC800044B12 /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngine.h; sourceTree = "<group>"; };
 		359E378D129B8FC800044B12 /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngine.m; sourceTree = "<group>"; };
 		359E378E129B8FC800044B12 /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineBackend.h; sourceTree = "<group>"; };
@@ -203,6 +220,7 @@
 				3555D3681296153000FBC06F /* Python.framework in Frameworks */,
 				357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */,
 				359E37CC129B905A00044B12 /* NBEngine.framework in Frameworks */,
+				358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +238,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				358DDB0412BD4FFC00B9D70A /* JSON.framework */,
 				357FF7391297A7D200A661E5 /* Carbon.framework */,
 				3555D3671296153000FBC06F /* Python.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
@@ -257,6 +276,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				358DDB3912BD6A1500B9D70A /* Themes */,
 				8D1107310486CEB800E47090 /* Notebook-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -411,6 +431,14 @@
 			name = NBCreateNotebookView;
 			sourceTree = "<group>";
 		};
+		358DDB3912BD6A1500B9D70A /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				358DDB3A12BD6A1500B9D70A /* tango.js */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		359E378B129B8FC800044B12 /* NBEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +530,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				35F5CF541298BE3B0032AB15 /* Copy Frameworks */,
 				359E383D129B92D800044B12 /* Copy Plugins */,
+				358DDB3812BD6A0B00B9D70A /* Copy Themes */,
 			);
 			buildRules = (
 			);
