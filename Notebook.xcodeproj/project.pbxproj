@@ -19,7 +19,6 @@
 		352F59BC129B5E5300C34824 /* NBNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5997129B5E5300C34824 /* NBNotebookViewController.m */; };
 		352F59BD129B5E5300C34824 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599B129B5E5300C34824 /* NBSettings.m */; };
 		352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599F129B5E5300C34824 /* NBOutputView.m */; };
-		352F59BF129B5E5300C34824 /* NBOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A1129B5E5300C34824 /* NBOutputViewController.m */; };
 		352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A5129B5E5300C34824 /* NBSourceView.m */; };
 		352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A7129B5E5300C34824 /* NBSourceViewController.m */; };
 		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
@@ -128,9 +127,6 @@
 		352F599B129B5E5300C34824 /* NBSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSettings.m; path = Source/NBSettings/NBSettings.m; sourceTree = SOURCE_ROOT; };
 		352F599E129B5E5300C34824 /* NBOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputView.h; path = Source/NBTextView/NBOutputView/NBOutputView.h; sourceTree = SOURCE_ROOT; };
 		352F599F129B5E5300C34824 /* NBOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputView.m; path = Source/NBTextView/NBOutputView/NBOutputView.m; sourceTree = SOURCE_ROOT; };
-		352F59A0129B5E5300C34824 /* NBOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewController.h; path = Source/NBTextView/NBOutputView/NBOutputViewController.h; sourceTree = SOURCE_ROOT; };
-		352F59A1129B5E5300C34824 /* NBOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputViewController.m; path = Source/NBTextView/NBOutputView/NBOutputViewController.m; sourceTree = SOURCE_ROOT; };
-		352F59A2129B5E5300C34824 /* NBOutputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputViewDelegate.h; path = Source/NBTextView/NBOutputView/NBOutputViewDelegate.h; sourceTree = SOURCE_ROOT; };
 		352F59A4129B5E5300C34824 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = Source/NBTextView/NBSourceView/NBSourceView.h; sourceTree = SOURCE_ROOT; };
 		352F59A5129B5E5300C34824 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = Source/NBTextView/NBSourceView/NBSourceView.m; sourceTree = SOURCE_ROOT; };
 		352F59A6129B5E5300C34824 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewController.h; path = Source/NBTextView/NBSourceView/NBSourceViewController.h; sourceTree = SOURCE_ROOT; };
@@ -381,9 +377,6 @@
 			children = (
 				352F599E129B5E5300C34824 /* NBOutputView.h */,
 				352F599F129B5E5300C34824 /* NBOutputView.m */,
-				352F59A0129B5E5300C34824 /* NBOutputViewController.h */,
-				352F59A1129B5E5300C34824 /* NBOutputViewController.m */,
-				352F59A2129B5E5300C34824 /* NBOutputViewDelegate.h */,
 			);
 			name = NBOutputView;
 			path = Source/NBTextView/NBOutputView;
@@ -608,7 +601,6 @@
 				352F59BC129B5E5300C34824 /* NBNotebookViewController.m in Sources */,
 				352F59BD129B5E5300C34824 /* NBSettings.m in Sources */,
 				352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */,
-				352F59BF129B5E5300C34824 /* NBOutputViewController.m in Sources */,
 				352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */,
 				352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */,
 				352F59C2129B5E5300C34824 /* NBTextView.m in Sources */,
