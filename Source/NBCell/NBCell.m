@@ -27,6 +27,6 @@
 
 @implementation NBCell
 
-@synthesize content, output, notebook;
+@synthesize content, output, notebook, type;
 
 @end

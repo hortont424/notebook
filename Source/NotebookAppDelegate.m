@@ -53,6 +53,11 @@
     [[notebookView notebook] setEngine:[[engineClass alloc] init]];
     
     cell = [[NBCell alloc] init];
+    cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";
+    cell.type = NBCellComment;
+    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    
+    cell = [[NBCell alloc] init];
     cell.content = @"import random";
     [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
     

@@ -48,7 +48,7 @@ static NBSettings * sharedInstance = nil;
 @synthesize editorFont, editorBoldFont, editorItalicFont, editorColor;
 @synthesize editorCommentHighlight, editorKeywordHighlight, editorNumberHighlight, editorStringHighlight;
 
-@synthesize sourceViewBackgroundColor, outputViewBackgroundColor;
+@synthesize sourceViewBackgroundColor, outputViewBackgroundColor, commentViewBackgroundColor;
 @synthesize statusSuccessColor, statusFailureColor, statusBusyColor, statusDefaultColor;
 
 @synthesize cellAnimationSpeed;
@@ -74,6 +74,7 @@ static NBSettings * sharedInstance = nil;
         
         sourceViewBackgroundColor = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
         outputViewBackgroundColor = [NSColor colorWithDeviceWhite:0.9 alpha:1.0];
+        commentViewBackgroundColor = [NSColor colorWithDeviceWhite:1.0 alpha:1.0];
         
         statusDefaultColor = [NSColor colorWithCalibratedRed:0.729 green:0.741 blue:0.714 alpha:1.0];
         statusBusyColor = [NSColor colorWithCalibratedRed:0.988 green:0.914 blue:0.310 alpha:1.0];

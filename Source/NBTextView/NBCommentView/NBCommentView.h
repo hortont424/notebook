@@ -25,23 +25,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef enum {
-    NBCellSnippet,
-    NBCellComment
-} NBCellType;
+#import "NBTextView.h"
 
-@interface NBCell : NSObject
+@interface NBCommentView : NBTextView
 {
-    NSString * content;
-    NSString * output;
-    id notebook;
-    
-    NBCellType type;
 }
 
-@property (nonatomic,assign) NSString * content;
-@property (nonatomic,assign) NSString * output;
-@property (nonatomic,assign) id notebook;
-@property (nonatomic,assign) NBCellType type;
+@property (nonatomic,retain) id<NSTextStorageDelegate> delegate;
 
 @end

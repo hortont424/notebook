@@ -26,6 +26,7 @@
 #import "NBNotebookView.h"
 
 #import "NBSourceCellView.h"
+#import "NBCommentCellView.h"
 #import "NBSettings.h"
 
 @implementation NBNotebookView
@@ -69,7 +70,21 @@
     
     // TODO: cells need to have a type to delegate to the NBCellView subclasses
     
-    NBSourceCellView * cellView = [[NBSourceCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
+    NBCellView * cellView;
+    
+    switch(cell.type)
+    {
+        case NBCellSnippet:
+            cellView = [[NBSourceCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
+            break;
+        case NBCellComment:
+            cellView = [[NBCommentCellView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, 12)];
+            break;
+        default:
+            NSLog(@"Unknown cell type %d", cell.type);
+            break;
+    }
+    
     cellView.cell = cell;
     cellView.delegate = self;
     

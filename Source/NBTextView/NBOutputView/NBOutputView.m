@@ -38,6 +38,7 @@
     if(self)
     {
         [self setBackgroundColor:[[NBSettings sharedInstance] outputViewBackgroundColor]];
+        [self setFont:[[NBSettings sharedInstance] editorFont]];
     }
     
     return self;

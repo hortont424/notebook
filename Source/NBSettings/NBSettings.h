@@ -46,7 +46,7 @@
     NSDictionary * highlightSettings;
     NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight, * editorStringHighlight;
     
-    NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor;
+    NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor, * commentViewBackgroundColor;
     NSColor * statusSuccessColor, * statusFailureColor, * statusBusyColor, * statusDefaultColor;
     
     NSNumber * cellAnimationSpeed;
@@ -65,6 +65,7 @@
 
 @property (nonatomic,assign) NSColor * sourceViewBackgroundColor;
 @property (nonatomic,assign) NSColor * outputViewBackgroundColor;
+@property (nonatomic,assign) NSColor * commentViewBackgroundColor;
 @property (nonatomic,assign) NSColor * statusSuccessColor;
 @property (nonatomic,assign) NSColor * statusFailureColor;
 @property (nonatomic,assign) NSColor * statusBusyColor;

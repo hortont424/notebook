@@ -29,6 +29,18 @@
 
 @synthesize delegate;
 
+- (id)initWithFrame:(NSRect)frame	 	
+{
+    self = [super initWithFrame:frame];
+    
+    if(self)
+    {
+        [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
+    }
+    
+    return self;
+}
+
 - (void)setDelegate:(id<NBTextViewDelegate,NSTextStorageDelegate>)inDelegate
 {
     delegate = inDelegate;
@@ -38,7 +50,10 @@
 
 - (BOOL)becomeFirstResponder
 {
-    [delegate textViewBecameFirstResponder:self];
+    if(delegate && [delegate respondsToSelector:@selector(textViewBecameFirstResponder:)])
+    {
+        [delegate textViewBecameFirstResponder:self];
+    }
     
     return [super becomeFirstResponder];
 }

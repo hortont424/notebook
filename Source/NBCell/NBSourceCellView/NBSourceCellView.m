@@ -56,15 +56,12 @@
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:sourceViewController];
-        [sourceView setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];
-        [outputView setFont:[[NBSettings sharedInstance] editorFont]];
-        [outputView setTextContainerInset:NSMakeSize(10, 10)];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [self enableContentResizeNotifications];

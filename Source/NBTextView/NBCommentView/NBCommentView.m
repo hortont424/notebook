@@ -23,25 +23,27 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBCommentView.h"
 
-typedef enum {
-    NBCellSnippet,
-    NBCellComment
-} NBCellType;
+#import "NBSettings.h"
 
-@interface NBCell : NSObject
+@implementation NBCommentView
+
+@dynamic delegate;
+
+- (id)initWithFrame:(NSRect)frame	 	
 {
-    NSString * content;
-    NSString * output;
-    id notebook;
+    self = [super initWithFrame:frame];
     
-    NBCellType type;
+    if(self)
+    {
+        NBSettings * settings = [NBSettings sharedInstance];
+        [self setBackgroundColor:[settings commentViewBackgroundColor]];
+        [self setTextColor:[settings highlightForContext:@"comment"].color];
+        [self setFont:[settings highlightForContext:@"comment"].font];
+    }
+    
+    return self;
 }
-
-@property (nonatomic,assign) NSString * content;
-@property (nonatomic,assign) NSString * output;
-@property (nonatomic,assign) id notebook;
-@property (nonatomic,assign) NBCellType type;
 
 @end

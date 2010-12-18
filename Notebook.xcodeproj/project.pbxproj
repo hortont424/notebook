@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
+		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
 		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
 		352F59B2129B5E5300C34824 /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597D129B5E5300C34824 /* NBCell.m */; };
 		352F59B3129B5E5300C34824 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597F129B5E5300C34824 /* NBCellView.m */; };
@@ -102,6 +104,10 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		351106AA12BC942B00FCCF7A /* NBCommentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentCellView.h; path = NBCommentCellView/NBCommentCellView.h; sourceTree = "<group>"; };
+		351106AB12BC942B00FCCF7A /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentCellView.m; path = NBCommentCellView/NBCommentCellView.m; sourceTree = "<group>"; };
+		351106F812BC98E900FCCF7A /* NBCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentView.h; path = NBCommentView/NBCommentView.h; sourceTree = "<group>"; };
+		351106F912BC98E900FCCF7A /* NBCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentView.m; path = NBCommentView/NBCommentView.m; sourceTree = "<group>"; };
 		352F597A129B5E5300C34824 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
 		352F597C129B5E5300C34824 /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = Source/NBCell/NBCell.h; sourceTree = SOURCE_ROOT; };
 		352F597D129B5E5300C34824 /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = Source/NBCell/NBCell.m; sourceTree = SOURCE_ROOT; };
@@ -269,6 +275,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		351106A912BC940500FCCF7A /* NBCommentCellView */ = {
+			isa = PBXGroup;
+			children = (
+				351106AA12BC942B00FCCF7A /* NBCommentCellView.h */,
+				351106AB12BC942B00FCCF7A /* NBCommentCellView.m */,
+			);
+			name = NBCommentCellView;
+			sourceTree = "<group>";
+		};
+		351106F712BC98A500FCCF7A /* NBCommentView */ = {
+			isa = PBXGroup;
+			children = (
+				351106F812BC98E900FCCF7A /* NBCommentView.h */,
+				351106F912BC98E900FCCF7A /* NBCommentView.m */,
+			);
+			name = NBCommentView;
+			sourceTree = "<group>";
+		};
 		352F5979129B5E5300C34824 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +317,7 @@
 				352F597E129B5E5300C34824 /* NBCellView.h */,
 				352F597F129B5E5300C34824 /* NBCellView.m */,
 				352F5980129B5E5300C34824 /* NBCellViewDelegate.h */,
+				351106A912BC940500FCCF7A /* NBCommentCellView */,
 				352F5981129B5E5300C34824 /* NBSourceCellView */,
 			);
 			name = NBCell;
@@ -338,6 +363,7 @@
 		352F599C129B5E5300C34824 /* NBTextView */ = {
 			isa = PBXGroup;
 			children = (
+				351106F712BC98A500FCCF7A /* NBCommentView */,
 				352F599D129B5E5300C34824 /* NBOutputView */,
 				352F59A3129B5E5300C34824 /* NBSourceView */,
 				352F59A9129B5E5300C34824 /* NBTextView.h */,
@@ -588,6 +614,8 @@
 				352F59C2129B5E5300C34824 /* NBTextView.m in Sources */,
 				352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */,
 				35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */,
+				351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */,
+				351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
