@@ -9,9 +9,9 @@
     "colors": {
         "normal": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
 
-        "background.source": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
-        "background.output": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
-        "background.comment": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
+        "background.source": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
+        "background.output": {"r": 0.9, "g": 0.9, "b": 0.9, "a": 1.0},
+        "background.comment": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
 
         "highlight.comment": {"r": 0.5, "g": 0.5, "b": 0.5, "a": 1.0},
         "highlight.keyword": {"r": 0.306, "g": 0.604, "b": 0.024, "a": 1.0},
@@ -23,7 +23,7 @@
         "status.failure": {"r": 0.788, "g": 0.0, "b": 0.0, "a": 1.0},
         "status.success": {"r": 0.451, "g": 0.824, "b": 0.086, "a": 1.0}
     },
-    "highlight":
+    "highlights":
     {
         "comment": {"color": "highlight.comment", "font": "italic"},
         "keyword": {"color": "highlight.keyword", "font": "bold"},
