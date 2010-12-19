@@ -25,7 +25,7 @@
 
 #import "NBSourceViewController.h"
 
-#import "NBEnginePythonHighlighter.h" // TODO: get rid of this
+#import "NBEngineHighlighter.h"
 
 @implementation NBSourceViewController
 
