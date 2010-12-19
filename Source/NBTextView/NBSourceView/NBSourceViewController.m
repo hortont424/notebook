@@ -57,13 +57,13 @@
     
     [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
-    [textStorage addAttribute:NSFontAttributeName value:settings.editorFont range:wholeStringRange];
+    [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
     
     NBEngineHighlighter * highlighter = [[[[[parent.cell.notebook engine] class] highlighterClass] alloc] init];
     
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
-        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightForContext:context.highlight]];
+        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithSelector:context.highlight]];
     }
 }
 

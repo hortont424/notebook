@@ -38,9 +38,9 @@
     if(self)
     {
         NBSettings * settings = [NBSettings sharedInstance];
-        [self setBackgroundColor:[settings commentViewBackgroundColor]];
-        [self setTextColor:[settings highlightForContext:@"comment"].color];
-        [self setFont:[settings highlightForContext:@"comment"].font];
+        [self setBackgroundColor:[settings colorWithSelector:@"background.comment"]];
+        [self setTextColor:[settings highlightWithSelector:@"comment"].color];
+        [self setFont:[settings highlightWithSelector:@"comment"].font];
     }
     
     return self;

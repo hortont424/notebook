@@ -109,16 +109,16 @@
     switch(self.state)
     {
         case NBCellViewChanged:
-            [settings.statusDefaultColor setFill];
+            [[settings colorWithSelector:@"status.default"] setFill];
             break;
         case NBCellViewEvaluating:
-            [settings.statusBusyColor setFill];
+            [[settings colorWithSelector:@"status.busy"] setFill];
             break;
         case NBCellViewFailed:
-            [settings.statusFailureColor setFill];
+            [[settings colorWithSelector:@"status.failure"] setFill];
             break;
         case NBCellViewSuccessful:
-            [settings.statusSuccessColor setFill];
+            [[settings colorWithSelector:@"status.success"] setFill];
             break;
     }
     

@@ -47,16 +47,7 @@ static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
 
-@synthesize editorFont, editorBoldFont, editorItalicFont, editorColor;
-@synthesize editorCommentHighlight, editorKeywordHighlight, editorNumberHighlight, editorStringHighlight;
-
-@synthesize sourceViewBackgroundColor, outputViewBackgroundColor, commentViewBackgroundColor;
-@synthesize statusSuccessColor, statusFailureColor, statusBusyColor, statusDefaultColor;
-
-@synthesize cellAnimationSpeed;
-@synthesize cellSpacing;
-
-- (id) init
+- (id)init
 {
     self = [super init];
     
@@ -68,41 +59,105 @@ static NBSettings * sharedInstance = nil;
         NSError * jsonError = nil;
 
         NSDictionary * theme = [[[SBJsonParser alloc] init] objectWithString:themeString error:&jsonError];
+        NSDictionary * themePart;
         
-        NSLog(@"%@", theme);
-        NSLog(@"%@", jsonError);
+        if(jsonError)
+        {
+            NSLog(@"%@", jsonError);
+        }
         
-        editorFont = [NSFont fontWithName:@"Menlo" size:12];
-        editorBoldFont = [NSFont fontWithName:@"Menlo Bold" size:12];
-        editorItalicFont = [NSFont fontWithName:@"Menlo Italic" size:12];
-        editorColor = [NSColor colorWithCalibratedWhite:0.0 alpha:1.0];
+        fonts = [[NSMutableDictionary alloc] init];
+        colors = [[NSMutableDictionary alloc] init];
+        highlights = [[NSMutableDictionary alloc] init];
+        settings = [[NSMutableDictionary alloc] init];
         
-        highlightSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-            [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0] font:editorItalicFont], @"comment",
-            [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedRed:0.306 green:0.604 blue:0.024 alpha:1.0] font:editorBoldFont], @"keyword",
-            [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedRed:0.125 green:0.290 blue:0.529 alpha:1.0] font:editorFont], @"number",
-            [NBHighlightSettings highlightWithColor:[NSColor colorWithCalibratedRed:0.804 green:0.361 blue:0.000 alpha:1.0] font:editorFont], @"string",
-            nil];
+        themePart = [theme objectForKey:@"fonts"];
         
-        sourceViewBackgroundColor = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
-        outputViewBackgroundColor = [NSColor colorWithDeviceWhite:0.9 alpha:1.0];
-        commentViewBackgroundColor = [NSColor colorWithDeviceWhite:1.0 alpha:1.0];
+        for(NSString * fontType in themePart)
+        {
+            NSDictionary * fontDict = [themePart objectForKey:fontType];
+            [fonts setObject:[NSFont fontWithName:[fontDict objectForKey:@"name"] size:[[fontDict objectForKey:@"size"] floatValue]] forKey:fontType];
+        }
         
-        statusDefaultColor = [NSColor colorWithCalibratedRed:0.729 green:0.741 blue:0.714 alpha:1.0];
-        statusBusyColor = [NSColor colorWithCalibratedRed:0.988 green:0.914 blue:0.310 alpha:1.0];
-        statusFailureColor = [NSColor colorWithCalibratedRed:0.788 green:0.000 blue:0.000 alpha:1.0];
-        statusSuccessColor = [NSColor colorWithCalibratedRed:0.451 green:0.824 blue:0.086 alpha:1.0];
+        themePart = [theme objectForKey:@"colors"];
         
-        cellAnimationSpeed = [NSNumber numberWithFloat:0.2];
-        cellSpacing = [NSNumber numberWithFloat:4.0];
+        for(NSString * colorType in themePart)
+        {
+            NSDictionary * colorDict = [themePart objectForKey:colorType];
+            [colors setObject:[NSColor colorWithCalibratedRed:[[colorDict objectForKey:@"r"] floatValue]
+                                                        green:[[colorDict objectForKey:@"g"] floatValue]
+                                                         blue:[[colorDict objectForKey:@"b"] floatValue]
+                                                        alpha:[[colorDict objectForKey:@"a"] floatValue]] forKey:colorType];
+        }
+        
+        themePart = [theme objectForKey:@"highlights"];
+        
+        for(NSString * highlightType in themePart)
+        {
+            NSDictionary * highlightDict = [themePart objectForKey:highlightType];
+            [highlights setObject:[NBHighlightSettings highlightWithColor:[self colorWithSelector:[highlightDict objectForKey:@"color"]]
+                                                                     font:[self fontWithSelector:[highlightDict objectForKey:@"font"]]] forKey:highlightType];
+        }
     }
     
     return self;
 }
 
-- (NBHighlightSettings *)highlightForContext:(NSString *)context
+- (NSFont *)fontWithSelector:(NSString *)sel
 {
-    return [highlightSettings objectForKey:context];
+    NSFont * font = [fonts objectForKey:sel];
+    
+    if(!font)
+    {
+        NSLog(@"Unknown font selector %@!", sel);
+        
+        font = [fonts objectForKey:@"normal"];
+        
+        if(!font)
+        {
+            font = [NSFont systemFontOfSize:12.0];
+        }
+    }
+    
+    return font;
+}
+
+- (NSColor *)colorWithSelector:(NSString *)sel
+{
+    NSColor * color = [colors objectForKey:sel];
+    
+    if(!color)
+    {
+        NSLog(@"Unknown color selector %@!", sel);
+        
+        color = [colors objectForKey:@"normal"];
+        
+        if(!color)
+        {
+            color = [NSColor colorWithDeviceWhite:0.0 alpha:1.0];
+        }
+    }
+    
+    return color;
+}
+
+- (NBHighlightSettings *)highlightWithSelector:(NSString *)sel
+{
+    NBHighlightSettings * highlight = [highlights objectForKey:sel];
+    
+    if(!highlight)
+    {
+        NSLog(@"Unknown highlight selector %@!", sel);
+        
+        highlight = [highlights objectForKey:@"normal"];
+        
+        if(!highlight)
+        {
+            highlight = [NBHighlightSettings highlightWithColor:[self colorWithSelector:@"normal"] font:[self fontWithSelector:@"normal"]];
+        }
+    }
+    
+    return highlight;
 }
 
 + (NBSettings *)sharedInstance

@@ -39,7 +39,7 @@
     
     if(self)
     {
-        [self setBackgroundColor:[[NBSettings sharedInstance] sourceViewBackgroundColor]];
+        [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.source"]];
     }
 
     return self;

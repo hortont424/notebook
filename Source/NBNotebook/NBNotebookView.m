@@ -147,8 +147,8 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
     
-    float cellSpacing = [settings.cellSpacing floatValue];
-    float cellAnimationSpeed = [settings.cellAnimationSpeed floatValue];
+    float cellSpacing = 4.0; //TODO: [settings.cellSpacing floatValue];
+    float cellAnimationSpeed = 0.2; //TODO:[settings.cellAnimationSpeed floatValue];
     
     NSSize totalSize = NSZeroSize;
     totalSize.width = self.frame.size.width;
@@ -176,7 +176,7 @@
             [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
         }
         
-        totalSize.height += requestedHeight + [settings.cellSpacing floatValue];
+        totalSize.height += requestedHeight + cellSpacing;
         
         trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
         trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect

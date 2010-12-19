@@ -40,42 +40,16 @@
 
 @interface NBSettings : NSObject
 {
-    NSFont * editorFont, * editorBoldFont, * editorItalicFont;
-    NSColor * editorColor;
-    
-    NSDictionary * highlightSettings;
-    NBHighlightSettings * editorCommentHighlight, * editorKeywordHighlight, * editorNumberHighlight, * editorStringHighlight;
-    
-    NSColor * sourceViewBackgroundColor, * outputViewBackgroundColor, * commentViewBackgroundColor;
-    NSColor * statusSuccessColor, * statusFailureColor, * statusBusyColor, * statusDefaultColor;
-    
-    NSNumber * cellAnimationSpeed;
-    NSNumber * cellSpacing;
+    NSMutableDictionary * fonts;
+    NSMutableDictionary * colors;
+    NSMutableDictionary * highlights;
+    NSMutableDictionary * settings;
 }
-
-@property (nonatomic,assign) NSFont * editorFont;
-@property (nonatomic,assign) NSFont * editorBoldFont;
-@property (nonatomic,assign) NSFont * editorItalicFont;
-@property (nonatomic,assign) NSColor * editorColor;
-
-@property (nonatomic,assign) NBHighlightSettings * editorCommentHighlight;
-@property (nonatomic,assign) NBHighlightSettings * editorKeywordHighlight;
-@property (nonatomic,assign) NBHighlightSettings * editorNumberHighlight;
-@property (nonatomic,assign) NBHighlightSettings * editorStringHighlight;
-
-@property (nonatomic,assign) NSColor * sourceViewBackgroundColor;
-@property (nonatomic,assign) NSColor * outputViewBackgroundColor;
-@property (nonatomic,assign) NSColor * commentViewBackgroundColor;
-@property (nonatomic,assign) NSColor * statusSuccessColor;
-@property (nonatomic,assign) NSColor * statusFailureColor;
-@property (nonatomic,assign) NSColor * statusBusyColor;
-@property (nonatomic,assign) NSColor * statusDefaultColor;
-
-@property (nonatomic,assign) NSNumber * cellAnimationSpeed;
-@property (nonatomic,assign) NSNumber * cellSpacing;
 
 + (NBSettings *)sharedInstance;
 
-- (NBHighlightSettings *)highlightForContext:(NSString *)context;
+- (NSFont *)fontWithSelector:(NSString *)sel;
+- (NSColor *)colorWithSelector:(NSString *)sel;
+- (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
 
 @end
