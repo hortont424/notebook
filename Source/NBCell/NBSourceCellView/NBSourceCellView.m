@@ -74,8 +74,8 @@
 - (BOOL)becomeFirstResponder
 {
     // If the NBCellView itself gets focus (someone clicks in the margin), give the contained NBSourceView focus instead
-    // TODO: ive the NBOutputView focus if the click is closer to that
-    
+    // TODO: give the NBOutputView focus if the click is closer to that
+
     [self.window makeFirstResponder:self.sourceView];
     
     return YES;
