@@ -25,6 +25,8 @@
 
 #import "NBTextView.h"
 
+#import "NBSettings.h"
+
 @implementation NBTextView
 
 @synthesize delegate;
@@ -36,6 +38,8 @@
     if(self)
     {
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
+        [self setTextColor:[[NBSettings sharedInstance] colorWithSelector:@"normal"]];
+        [self setFont:[[NBSettings sharedInstance] fontWithSelector:@"normal"]];
     }
     
     return self;

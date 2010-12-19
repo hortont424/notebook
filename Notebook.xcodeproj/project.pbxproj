@@ -11,6 +11,7 @@
 		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
 		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
 		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
+		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
 		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
 		352F59B2129B5E5300C34824 /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597D129B5E5300C34824 /* NBCell.m */; };
 		352F59B3129B5E5300C34824 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597F129B5E5300C34824 /* NBCellView.m */; };
@@ -83,6 +84,7 @@
 			dstPath = Themes;
 			dstSubfolderSpec = 7;
 			files = (
+				35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */,
 				358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */,
 			);
 			name = "Copy Themes";
@@ -126,6 +128,7 @@
 		351106F912BC98E900FCCF7A /* NBCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentView.m; path = NBCommentView/NBCommentView.m; sourceTree = "<group>"; };
 		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
 		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
+		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
 		352F597A129B5E5300C34824 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
 		352F597C129B5E5300C34824 /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = Source/NBCell/NBCell.h; sourceTree = SOURCE_ROOT; };
 		352F597D129B5E5300C34824 /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = Source/NBCell/NBCell.m; sourceTree = SOURCE_ROOT; };
@@ -439,6 +442,7 @@
 		358DDB3912BD6A1500B9D70A /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				35295A8512BDCF4C00BCAD1E /* morrowind.js */,
 				358DDB3A12BD6A1500B9D70A /* tango.js */,
 			);
 			path = Themes;

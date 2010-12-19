@@ -58,6 +58,7 @@
     [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
+    [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithSelector:@"normal"] range:wholeStringRange];
     
     NBEngineHighlighter * highlighter = [[[[[parent.cell.notebook engine] class] highlighterClass] alloc] init];
     

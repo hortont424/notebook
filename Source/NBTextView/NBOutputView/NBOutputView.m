@@ -38,7 +38,6 @@
     if(self)
     {
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.output"]];
-        [self setFont:[[NBSettings sharedInstance] fontWithSelector:@"normal"]];
     }
     
     return self;

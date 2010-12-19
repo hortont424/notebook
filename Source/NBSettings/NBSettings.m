@@ -53,7 +53,12 @@ static NBSettings * sharedInstance = nil;
         
         // TODO: this should be loaded from a Cocoa defaults file
         
-        currentTheme = @"Tango";
+        currentTheme = @"Morrowind";
+        
+        if([themes objectForKey:currentTheme] == nil)
+        {
+            NSLog(@"failed to find theme %@", currentTheme);
+        }
     }
     
     return self;
