@@ -29,10 +29,8 @@
 
 @interface NBSettings : NSObject
 {
-    NSMutableDictionary * fonts;
-    NSMutableDictionary * colors;
-    NSMutableDictionary * highlights;
-    NSMutableDictionary * settings;
+    NSString * currentTheme;
+    NSMutableDictionary * themes;
 }
 
 + (NBSettings *)sharedInstance;
@@ -41,5 +39,7 @@
 - (NSColor *)colorWithSelector:(NSString *)sel;
 - (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
 - (id)settingsWithSelector:(NSString *)sel;
+
+- (NSDictionary *)themeFromFile:(NSString *)filename;
 
 @end

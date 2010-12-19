@@ -68,6 +68,8 @@ static NBEngineLoader * sharedInstance = nil;
     return availablePlugins;
 }
 
+#pragma mark Singleton Methods
+
 + (NBEngineLoader *)sharedInstance
 {
     @synchronized(self)
