@@ -39,11 +39,19 @@ static NBSettings * sharedInstance = nil;
     {
         themes = [[NSMutableDictionary alloc] init];
         
+        // Load all of the themes in Resources/Themes directory
+        
         for(NSString * themeFilename in [[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"])
         {
             NSDictionary * theme = [self themeFromFile:themeFilename];
-            [themes setObject:theme forKey:[[theme objectForKey:@"settings"] objectForKey:@"name"]];
+            
+            if(theme)
+            {
+                [themes setObject:theme forKey:[[theme objectForKey:@"settings"] objectForKey:@"name"]];
+            }
         }
+        
+        // TODO: this should be loaded from a Cocoa defaults file
         
         currentTheme = @"Tango";
     }
@@ -53,60 +61,95 @@ static NBSettings * sharedInstance = nil;
 
 - (NSDictionary *)themeFromFile:(NSString *)filename
 {
-    NSString * themeString = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:nil];
+    NSString * themeString; 
     NSError * jsonError = nil;
+    NSDictionary * themeObject, * themePart;
+    NSMutableDictionary * fonts, * colors, * highlights, * settings, * theme;
     
-    NSDictionary * themeJSON = [[[SBJsonParser alloc] init] objectWithString:themeString error:&jsonError];
-    NSArray * skipThemeParts = [NSArray arrayWithObjects:@"fonts",@"colors",@"highlights",nil];
-    NSDictionary * themePart;
+    theme = [[NSMutableDictionary alloc] init];
+    
+    // Load theme from given JSON file, parse into Objective-C objects
+    
+    themeString = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:nil];
+    themeObject = [[[SBJsonParser alloc] init] objectWithString:themeString error:&jsonError];
     
     if(jsonError)
     {
+        // TODO: show proper error message in UI
+        
         NSLog(@"%@", jsonError);
+        return nil;
     }
     
-    NSMutableDictionary * fonts = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary * colors = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary * highlights = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary * settings = [[NSMutableDictionary alloc] init];
+    fonts = [[NSMutableDictionary alloc] init];
+    colors = [[NSMutableDictionary alloc] init];
+    highlights = [[NSMutableDictionary alloc] init];
+    settings = [[NSMutableDictionary alloc] init];
     
-    themePart = [themeJSON objectForKey:@"fonts"];
+    // Load fonts from theme
+    
+    themePart = [themeObject objectForKey:@"fonts"];
     
     for(NSString * fontType in themePart)
     {
         NSDictionary * fontDict = [themePart objectForKey:fontType];
+        
+        // Convert font descriptor from JSON (name/size pair) to NSFont
+        
         [fonts setObject:[NSFont fontWithName:[fontDict objectForKey:@"name"] size:[[fontDict objectForKey:@"size"] floatValue]] forKey:fontType];
     }
     
-    themePart = [themeJSON objectForKey:@"colors"];
+    [theme setObject:fonts forKey:@"fonts"];
+    
+    // Load colors from theme
+    
+    themePart = [themeObject objectForKey:@"colors"];
     
     for(NSString * colorType in themePart)
     {
         NSDictionary * colorDict = [themePart objectForKey:colorType];
+        
+        // Convert color descriptor from JSON (rgba dictionary) to NSColor
+        
         [colors setObject:[NSColor colorWithCalibratedRed:[[colorDict objectForKey:@"r"] floatValue]
                                                     green:[[colorDict objectForKey:@"g"] floatValue]
                                                      blue:[[colorDict objectForKey:@"b"] floatValue]
                                                     alpha:[[colorDict objectForKey:@"a"] floatValue]] forKey:colorType];
     }
     
-    themePart = [themeJSON objectForKey:@"highlights"];
+    [theme setObject:colors forKey:@"colors"];
+    
+    // Load highlight descriptors from theme (these refer to colors and fonts, so those need to be loaded first)
+    
+    themePart = [themeObject objectForKey:@"highlights"];
     
     for(NSString * highlightType in themePart)
     {
         NSDictionary * highlightDict = [themePart objectForKey:highlightType];
+        
+        // Convert highlight descriptor from JSON (reference to font/color) to NBHighlightSettings
+        
         [highlights setObject:[NBHighlightSettings highlightWithColor:[colors objectForKey:[highlightDict objectForKey:@"color"]]
                                                                  font:[fonts objectForKey:[highlightDict objectForKey:@"font"]]] forKey:highlightType];
     }
     
-    for(NSString * toplevelType in themeJSON)
+    [theme setObject:highlights forKey:@"highlights"];
+    
+    // Copy all toplevel theme entries we haven't already used into another dictionary of generic parameters
+    
+    NSArray * skipThemeParts = [theme allKeys];
+    
+    for(NSString * toplevelType in themeObject)
     {
         if([skipThemeParts containsObject:toplevelType])
             continue;
         
-        [settings setObject:[themeJSON objectForKey:toplevelType] forKey:toplevelType];
+        [settings setObject:[themeObject objectForKey:toplevelType] forKey:toplevelType];
     }
     
-    return [NSDictionary dictionaryWithObjectsAndKeys:fonts,@"fonts",colors,@"colors",highlights,@"highlights",settings,@"settings",nil];
+    [theme setObject:settings forKey:@"settings"];
+    
+    return theme;
 }
 
 - (NSFont *)fontWithSelector:(NSString *)sel
@@ -122,7 +165,7 @@ static NBSettings * sharedInstance = nil;
         
         if(!font)
         {
-            font = [NSFont systemFontOfSize:12.0];
+            font = [NSFont fontWithName:@"Courier New" size:12.0];
         }
     }
     
