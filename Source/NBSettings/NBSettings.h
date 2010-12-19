@@ -51,5 +51,6 @@
 - (NSFont *)fontWithSelector:(NSString *)sel;
 - (NSColor *)colorWithSelector:(NSString *)sel;
 - (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
+- (id)settingsWithSelector:(NSString *)sel;
 
 @end

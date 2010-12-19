@@ -59,6 +59,7 @@ static NBSettings * sharedInstance = nil;
         NSError * jsonError = nil;
 
         NSDictionary * theme = [[[SBJsonParser alloc] init] objectWithString:themeString error:&jsonError];
+        NSArray * skipThemeParts = [NSArray arrayWithObjects:@"fonts",@"colors",@"highlights",nil];
         NSDictionary * themePart;
         
         if(jsonError)
@@ -97,6 +98,14 @@ static NBSettings * sharedInstance = nil;
             NSDictionary * highlightDict = [themePart objectForKey:highlightType];
             [highlights setObject:[NBHighlightSettings highlightWithColor:[self colorWithSelector:[highlightDict objectForKey:@"color"]]
                                                                      font:[self fontWithSelector:[highlightDict objectForKey:@"font"]]] forKey:highlightType];
+        }
+        
+        for(NSString * toplevelType in theme)
+        {
+            if([skipThemeParts containsObject:toplevelType])
+                continue;
+            
+            [settings setObject:[theme objectForKey:toplevelType] forKey:toplevelType];
         }
     }
     
@@ -158,6 +167,11 @@ static NBSettings * sharedInstance = nil;
     }
     
     return highlight;
+}
+
+- (id)settingsWithSelector:(NSString *)sel
+{
+    return [settings objectForKey:sel];
 }
 
 + (NBSettings *)sharedInstance

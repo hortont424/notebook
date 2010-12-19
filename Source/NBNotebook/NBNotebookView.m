@@ -68,8 +68,6 @@
 {
     NSUInteger insertionIndex = NSNotFound;
     
-    // TODO: cells need to have a type to delegate to the NBCellView subclasses
-    
     NBCellView * cellView;
     
     switch(cell.type)
@@ -130,6 +128,8 @@
 
 - (float)yForView:(NBCellView *)cellView
 {
+    NBSettings * settings = [NBSettings sharedInstance];
+    float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
     float y = 0;
     
     for(NBCellView * v in cellViews)
@@ -137,7 +137,7 @@
         if(v == cellView)
             return y;
         
-        y += [v requestedHeight] + 4; // TODO: make 4 a parameter
+        y += [v requestedHeight] + cellSpacing;
     }
     
     return 0;
@@ -147,8 +147,8 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
     
-    float cellSpacing = 4.0; //TODO: [settings.cellSpacing floatValue];
-    float cellAnimationSpeed = 0.2; //TODO:[settings.cellAnimationSpeed floatValue];
+    float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
+    float cellAnimationSpeed = [[settings settingsWithSelector:@"cellAnimationSpeed"] floatValue];
     
     NSSize totalSize = NSZeroSize;
     totalSize.width = self.frame.size.width;
