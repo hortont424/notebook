@@ -32,6 +32,7 @@
 @synthesize cell;
 @synthesize delegate;
 @synthesize state;
+@synthesize selected;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -41,6 +42,7 @@
     {
         margin = NSMakeSize(4, 1); // TODO: make it a setting!
         state = NBCellViewChanged;
+        selected = NO;
     }
     return self;
 }
@@ -101,10 +103,10 @@
     // Draw the cell background
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
+    CGContextSetRGBFillColor(ctx, 0.8, 0.8, 0.8, 1.0); // TODO: make this a setting
     CGContextFillRect(ctx, [self bounds]);
     
-    // Draw the cell state indicator (right hand side of the cell)
+    // Draw the cell state indicator (left hand side of the cell)
     
     switch(self.state)
     {
@@ -123,6 +125,18 @@
     }
     
     CGContextFillRect(ctx, NSMakeRect(0, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
+    
+    // Draw the selection indicator (right hand side of the cell)
+    
+    if(self.selected)
+    {
+        [[settings colorWithSelector:@"cell.selected"] setFill];
+    }
+    else
+    {
+        [[settings colorWithSelector:@"cell.unselected"] setFill];
+    }
+
     CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
 }
 

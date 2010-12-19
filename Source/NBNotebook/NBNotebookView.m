@@ -41,7 +41,9 @@
     if(self)
     {
         cellViews = [[NSMutableArray alloc] init];
+        selectedCellViews = [[NSMutableArray alloc] init];
         addCellTrackingAreas = [[NSMutableArray alloc] init];
+        selectCellTrackingAreas = [[NSMutableArray alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
@@ -116,14 +118,38 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
-    appendingCellView = (NBCellView *)[(NSDictionary *)[theEvent userData] objectForKey:@"cellView"];
-    [[NSCursor resizeDownCursor] push];
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
+    {
+        appendingCellView = (NBCellView *)[userData objectForKey:@"cellView"];
+        [[NSCursor resizeDownCursor] push];
+    }
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"selectCell"])
+    {
+        NSLog(@"selectCell!!");
+        ((NBCellView *)[userData objectForKey:@"cellView"]).selected = YES;
+        [((NBCellView *)[userData objectForKey:@"cellView"]) setNeedsDisplay:YES];
+    }
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
-{   
-    appendingCellView = nil;
-    [NSCursor pop];
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
+    {
+        appendingCellView = nil;
+        [NSCursor pop];
+    }
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"selectCell"])
+    {
+        NSLog(@"unselectCell!!");
+        ((NBCellView *)[userData objectForKey:@"cellView"]).selected = NO;
+        [((NBCellView *)[userData objectForKey:@"cellView"]) setNeedsDisplay:YES];
+    }
 }
 
 - (float)yForView:(NBCellView *)cellView
@@ -158,6 +184,14 @@
         [self removeTrackingArea:trackingArea];
     }
     
+    for(NSTrackingArea * trackingArea in selectCellTrackingAreas)
+    {
+        [self removeTrackingArea:trackingArea];
+    }
+    
+    [addCellTrackingAreas removeAllObjects];
+    [selectCellTrackingAreas removeAllObjects];
+    
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:cellAnimationSpeed];
     
@@ -182,10 +216,21 @@
         trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                     options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                       owner:self
-                                                   userInfo:[NSDictionary dictionaryWithObject:cellView forKey:@"cellView"]];
+                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:cellView,@"cellView",@"addCell",@"reason",nil]];
         
         [self addTrackingArea:trackingArea];
         [addCellTrackingAreas addObject:trackingArea];
+        
+        // TODO: when we make margin a setting, this four will change
+        
+        trackingRect = NSMakeRect(totalSize.width - 4, totalSize.height - cellSpacing - requestedHeight, 4, requestedHeight);
+        trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
+                                                    options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                      owner:self
+                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:cellView,@"cellView",@"selectCell",@"reason",nil]];
+        
+        [self addTrackingArea:trackingArea];
+        [selectCellTrackingAreas addObject:trackingArea];
     }
     
     [NSAnimationContext endGrouping];

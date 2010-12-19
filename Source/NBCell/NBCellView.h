@@ -45,11 +45,13 @@ typedef enum _NBCellViewState
     NBCellViewState state;
     NSSize margin;
     id<NBCellViewDelegate> delegate;
+    bool selected;
 }
 
 @property (assign) NBCellViewState state;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) id<NBCellViewDelegate> delegate;
+@property (nonatomic,assign) bool selected;
 
 - (float)requestedHeight;
 
