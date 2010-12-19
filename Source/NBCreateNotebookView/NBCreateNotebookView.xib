@@ -149,7 +149,7 @@
 					<object class="NSButton" id="323246895">
 						<reference key="NSNextResponder" ref="39703776"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{0, -1}, {405, 66}}</string>
+						<string key="NSFrameSize">{405, 66}</string>
 						<reference key="NSSuperview" ref="39703776"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="503672313">
@@ -173,7 +173,7 @@
 					<object class="NSTextField" id="339149454">
 						<reference key="NSNextResponder" ref="39703776"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{69, 35}, {339, 17}}</string>
+						<string key="NSFrame">{{69, 37}, {339, 17}}</string>
 						<reference key="NSSuperview" ref="39703776"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="704956964">
@@ -201,7 +201,7 @@
 					<object class="NSTextField" id="40396562">
 						<reference key="NSNextResponder" ref="39703776"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{69, 16}, {339, 17}}</string>
+						<string key="NSFrame">{{69, 18}, {339, 17}}</string>
 						<reference key="NSSuperview" ref="39703776"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="828344674">
@@ -233,7 +233,7 @@
 								<string>NeXT TIFF v4.0 pasteboard type</string>
 							</object>
 						</object>
-						<string key="NSFrameSize">{64, 64}</string>
+						<string key="NSFrame">{{0, 2}, {64, 64}}</string>
 						<reference key="NSSuperview" ref="39703776"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSImageCell" key="NSCell" id="784734147">
@@ -247,7 +247,7 @@
 						<bool key="NSEditable">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{405, 64}</string>
+				<string key="NSFrameSize">{405, 65}</string>
 				<reference key="NSSuperview"/>
 			</object>
 			<object class="NSUserDefaultsController" id="164149683">
@@ -638,7 +638,7 @@
 					<reference ref="910444428"/>
 					<reference ref="460868983"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{453, 554}, {405, 64}}</string>
+					<string>{{453, 553}, {405, 65}}</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
