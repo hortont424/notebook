@@ -101,9 +101,10 @@
     PyObject * stringIOGetValueFunction = PyObject_GetAttrString(stringIOObject, "getvalue");
     PyObject * stdoutValue = PyObject_Call(stringIOGetValueFunction, PyTuple_New(0), NULL);
     NSString * stdoutString = [NSString stringWithUTF8String:PyString_AsString(stdoutValue)];
-    
-    // If the output string ends in a newline, strip it out (TODO: is this the right thing to do?)
-    
+
+    // If the output string ends in a newline, strip it out
+    // TODO: is this the right thing to do?
+
     if([stdoutString length] && ([stdoutString characterAtIndex:[stdoutString length] - 1] == '\n'))
         stdoutString = [stdoutString substringToIndex:[stdoutString length] - 1];
     
