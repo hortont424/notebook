@@ -23,23 +23,21 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <Cocoa/Cocoa.h>
-
 #import "NBHighlightSettings.h"
 
-@interface NBSettings : NSObject
+@implementation NBHighlightSettings
+
+@synthesize font, color;
+
++ (NBHighlightSettings *)highlightWithColor:(NSColor *)color font:(NSFont *)font
 {
-    NSMutableDictionary * fonts;
-    NSMutableDictionary * colors;
-    NSMutableDictionary * highlights;
-    NSMutableDictionary * settings;
+    NBHighlightSettings * settings = [[NBHighlightSettings alloc] init];
+    
+    settings.color = color;
+    settings.font = font;
+    
+    return settings;
 }
 
-+ (NBSettings *)sharedInstance;
-
-- (NSFont *)fontWithSelector:(NSString *)sel;
-- (NSColor *)colorWithSelector:(NSString *)sel;
-- (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
-- (id)settingsWithSelector:(NSString *)sel;
-
 @end
+

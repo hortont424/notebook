@@ -29,22 +29,6 @@
 
 static NBSettings * sharedInstance = nil;
 
-@implementation NBHighlightSettings
-
-@synthesize font, color;
-
-+ (NBHighlightSettings *)highlightWithColor:(NSColor *)color font:(NSFont *)font
-{
-    NBHighlightSettings * settings = [[NBHighlightSettings alloc] init];
-    
-    settings.color = color;
-    settings.font = font;
-    
-    return settings;
-}
-
-@end
-
 @implementation NBSettings
 
 - (id)init

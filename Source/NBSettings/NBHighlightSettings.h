@@ -25,21 +25,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBHighlightSettings.h"
-
-@interface NBSettings : NSObject
+@interface NBHighlightSettings : NSObject
 {
-    NSMutableDictionary * fonts;
-    NSMutableDictionary * colors;
-    NSMutableDictionary * highlights;
-    NSMutableDictionary * settings;
+    NSFont * font;
+    NSColor * color;
 }
 
-+ (NBSettings *)sharedInstance;
+@property (nonatomic,assign) NSFont * font;
+@property (nonatomic,assign) NSColor * color;
 
-- (NSFont *)fontWithSelector:(NSString *)sel;
-- (NSColor *)colorWithSelector:(NSString *)sel;
-- (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
-- (id)settingsWithSelector:(NSString *)sel;
++ (NBHighlightSettings *)highlightWithColor:(NSColor *)color font:(NSFont *)font;
 
 @end
