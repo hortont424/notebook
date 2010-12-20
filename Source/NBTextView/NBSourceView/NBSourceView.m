@@ -26,8 +26,10 @@
 #import "NBSourceView.h"
 
 #import <Carbon/Carbon.h>
+#import <RegexKit/RegexKit.h>
 
 #import "NBSettings.h"
+#import "NBEngineHighlighter.h"
 
 @implementation NBSourceView
 
@@ -54,7 +56,7 @@
         case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                [(id<NBSourceViewDelegate>)delegate evaluateSourceView:self];
+                [delegate evaluate];
                 handled = YES;
             }
             break;
@@ -63,6 +65,40 @@
     if(!handled)
     {
         [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
+    }
+}
+
+- (void)highlightRegex:(NSString *)regex onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
+{
+    RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline];
+    NSString * string = [[textStorage string] stringByAppendingString:@"\n"];
+    RKEnumerator * enumerator = [string matchEnumeratorWithRegex:expression];
+    
+    while([enumerator nextRanges] != NULL)
+    {
+        NSRange range = [enumerator currentRange];
+        
+        [textStorage addAttribute:NSForegroundColorAttributeName value:highlight.color range:range];
+        [textStorage addAttribute:NSFontAttributeName value:highlight.font range:range];
+    }
+}
+
+- (void)textStorageDidProcessEditing:(NSNotification *)notification
+{
+    NSTextStorage * textStorage = [notification object];
+    NBSettings * settings = [NBSettings sharedInstance];
+    NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
+    
+    [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
+    [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
+    [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
+    [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithSelector:@"normal"] range:wholeStringRange];
+    
+    NBEngineHighlighter * highlighter = [[[[[[[delegate cell] notebook] engine] class] highlighterClass] alloc] init];
+    
+    for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
+    {
+        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithSelector:context.highlight]];
     }
 }
 

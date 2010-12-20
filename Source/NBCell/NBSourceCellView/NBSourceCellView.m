@@ -25,7 +25,6 @@
 
 #import "NBSourceCellView.h"
 
-#import "NBSourceViewController.h"
 #import "NBSettings.h"
 
 @implementation NBSourceCellView
@@ -49,13 +48,10 @@
     
         controller = [[[NSObjectController alloc] init] autorelease];
         
-        NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
-        sourceViewController.parent = self; // TODO: wrong? should be on the view or something
-        
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
-        [sourceView setDelegate:sourceViewController];
+        [sourceView setDelegate:self];
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];

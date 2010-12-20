@@ -25,13 +25,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBTextViewDelegate.h"
-
 @interface NBTextView : NSTextView
 {
-    id<NBTextViewDelegate,NSTextStorageDelegate> delegate;
+    id<NSTextStorageDelegate> delegate;
 }
 
-@property (nonatomic,retain) id<NBTextViewDelegate,NSTextStorageDelegate> delegate;
+@property (nonatomic,retain) id<NSTextStorageDelegate> delegate;
 
 @end

@@ -44,6 +44,7 @@
         frameWithoutMargin.origin.y += margin.top;
         
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
+        [textView setDelegate:self];
         [textView setAutoresizingMask:NSViewWidthSizable];
         [textView setFieldEditor:NO];
         

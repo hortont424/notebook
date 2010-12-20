@@ -27,10 +27,9 @@
 
 #import "NBCell.h"
 #import "NBCellView.h"
-
 #import "NBCommentView.h"
 
-@interface NBCommentCellView : NBCellView
+@interface NBCommentCellView : NBCellView<NSTextViewDelegate>
 {
     NBCommentView * textView;
 }

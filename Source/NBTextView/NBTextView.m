@@ -45,18 +45,18 @@
     return self;
 }
 
-- (void)setDelegate:(id<NBTextViewDelegate,NSTextStorageDelegate>)inDelegate
+- (void)setDelegate:(id)inDelegate
 {
     delegate = inDelegate;
     
-    [[self textStorage] setDelegate:delegate];
+    [[self textStorage] setDelegate:self];
 }
 
 - (BOOL)becomeFirstResponder
 {
-    if(delegate && [delegate respondsToSelector:@selector(textViewBecameFirstResponder:)])
+    if(delegate && [delegate respondsToSelector:@selector(subviewBecameFirstResponder:)])
     {
-        [delegate textViewBecameFirstResponder:self];
+        [delegate subviewBecameFirstResponder:self];
     }
     
     return [super becomeFirstResponder];

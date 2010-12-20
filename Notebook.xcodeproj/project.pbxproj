@@ -22,9 +22,7 @@
 		352F59BD129B5E5300C34824 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599B129B5E5300C34824 /* NBSettings.m */; };
 		352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599F129B5E5300C34824 /* NBOutputView.m */; };
 		352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A5129B5E5300C34824 /* NBSourceView.m */; };
-		352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A7129B5E5300C34824 /* NBSourceViewController.m */; };
 		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
-		352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AC129B5E5300C34824 /* NBTextViewController.m */; };
 		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
@@ -151,14 +149,9 @@
 		352F599F129B5E5300C34824 /* NBOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputView.m; path = Source/NBTextView/NBOutputView/NBOutputView.m; sourceTree = SOURCE_ROOT; };
 		352F59A4129B5E5300C34824 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = Source/NBTextView/NBSourceView/NBSourceView.h; sourceTree = SOURCE_ROOT; };
 		352F59A5129B5E5300C34824 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = Source/NBTextView/NBSourceView/NBSourceView.m; sourceTree = SOURCE_ROOT; };
-		352F59A6129B5E5300C34824 /* NBSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewController.h; path = Source/NBTextView/NBSourceView/NBSourceViewController.h; sourceTree = SOURCE_ROOT; };
-		352F59A7129B5E5300C34824 /* NBSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewController.m; path = Source/NBTextView/NBSourceView/NBSourceViewController.m; sourceTree = SOURCE_ROOT; };
 		352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = Source/NBTextView/NBSourceView/NBSourceViewDelegate.h; sourceTree = SOURCE_ROOT; };
 		352F59A9129B5E5300C34824 /* NBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextView.h; path = Source/NBTextView/NBTextView.h; sourceTree = SOURCE_ROOT; };
 		352F59AA129B5E5300C34824 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = Source/NBTextView/NBTextView.m; sourceTree = SOURCE_ROOT; };
-		352F59AB129B5E5300C34824 /* NBTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewController.h; path = Source/NBTextView/NBTextViewController.h; sourceTree = SOURCE_ROOT; };
-		352F59AC129B5E5300C34824 /* NBTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextViewController.m; path = Source/NBTextView/NBTextViewController.m; sourceTree = SOURCE_ROOT; };
-		352F59AD129B5E5300C34824 /* NBTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextViewDelegate.h; path = Source/NBTextView/NBTextViewDelegate.h; sourceTree = SOURCE_ROOT; };
 		352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/NotebookAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/NotebookAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -395,9 +388,6 @@
 				352F59A3129B5E5300C34824 /* NBSourceView */,
 				352F59A9129B5E5300C34824 /* NBTextView.h */,
 				352F59AA129B5E5300C34824 /* NBTextView.m */,
-				352F59AB129B5E5300C34824 /* NBTextViewController.h */,
-				352F59AC129B5E5300C34824 /* NBTextViewController.m */,
-				352F59AD129B5E5300C34824 /* NBTextViewDelegate.h */,
 			);
 			name = NBTextView;
 			path = Source/NBTextView;
@@ -418,8 +408,6 @@
 			children = (
 				352F59A4129B5E5300C34824 /* NBSourceView.h */,
 				352F59A5129B5E5300C34824 /* NBSourceView.m */,
-				352F59A6129B5E5300C34824 /* NBSourceViewController.h */,
-				352F59A7129B5E5300C34824 /* NBSourceViewController.m */,
 				352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */,
 			);
 			name = NBSourceView;
@@ -645,9 +633,7 @@
 				352F59BD129B5E5300C34824 /* NBSettings.m in Sources */,
 				352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */,
 				352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */,
-				352F59C1129B5E5300C34824 /* NBSourceViewController.m in Sources */,
 				352F59C2129B5E5300C34824 /* NBTextView.m in Sources */,
-				352F59C3129B5E5300C34824 /* NBTextViewController.m in Sources */,
 				35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */,
 				351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */,
 				351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */,

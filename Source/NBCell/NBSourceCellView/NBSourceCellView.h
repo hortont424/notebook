@@ -32,7 +32,7 @@
 #import "NBOutputView.h"
 #import "NBEngine.h"
 
-@interface NBSourceCellView : NBCellView<NSTextViewDelegate>
+@interface NBSourceCellView : NBCellView<NSTextViewDelegate,NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
     NSTextView * outputView;

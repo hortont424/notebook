@@ -32,6 +32,6 @@
 {
 }
 
-@property (nonatomic,retain) id<NBSourceViewDelegate,NSTextStorageDelegate> delegate;
+@property (nonatomic,retain) id<NBSourceViewDelegate> delegate;
 
 @end
