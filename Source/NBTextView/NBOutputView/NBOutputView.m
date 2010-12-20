@@ -29,8 +29,6 @@
 
 @implementation NBOutputView
 
-@dynamic delegate;
-
 - (id)initWithFrame:(NSRect)frame	 	
 {
     self = [super initWithFrame:frame];

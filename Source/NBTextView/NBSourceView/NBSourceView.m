@@ -30,6 +30,7 @@
 
 #import "NBSettings.h"
 #import "NBEngineHighlighter.h"
+#import "NBNotebook.h"
 
 @implementation NBSourceView
 
@@ -56,7 +57,7 @@
         case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                [delegate evaluate];
+                [(id<NBSourceViewDelegate>)delegate evaluate];
                 handled = YES;
             }
             break;
@@ -94,7 +95,7 @@
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
     [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithSelector:@"normal"] range:wholeStringRange];
     
-    NBEngineHighlighter * highlighter = [[[[[[[delegate cell] notebook] engine] class] highlighterClass] alloc] init];
+    NBEngineHighlighter * highlighter = [[[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] alloc] init];
     
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
