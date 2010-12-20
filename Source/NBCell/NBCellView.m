@@ -117,12 +117,8 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    NSPoint mouseLoc = [self convertPoint:[[self window] mouseLocationOutsideOfEventStream] fromView:nil];
-    
-    if(mouseLoc.x > self.frame.size.width - margin.right)
+    if(selectionHandleHighlight)
     {
-        // We're in the selection box
-        
         self.selected = YES;
     }
     else
