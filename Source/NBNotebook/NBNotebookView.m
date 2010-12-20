@@ -248,7 +248,7 @@
         if(deselectView == cellView)
             continue;
         
-        [deselectView deselectCell];
+        deselectView.selected = NO;
     }
     
     [selectedCellViews removeAllObjects];

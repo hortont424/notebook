@@ -51,12 +51,16 @@ typedef struct _NBMargin
     NBMargin margin;
     id<NBCellViewDelegate> delegate;
     bool selected;
+    bool selectionHandleHiglight;
+    
+    NSTrackingArea * selectionHandleTrackingArea;
 }
 
 @property (assign) NBCellViewState state;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) id<NBCellViewDelegate> delegate;
 @property (nonatomic,assign) bool selected;
+@property (nonatomic,assign) bool selectionHandleHighlight;
 
 - (float)requestedHeight;
 
@@ -69,6 +73,5 @@ typedef struct _NBMargin
 - (void)evaluate;
 
 - (void)clearSelection;
-- (void)deselectCell;
 
 @end

@@ -33,6 +33,7 @@
 @synthesize delegate;
 @synthesize state;
 @synthesize selected;
+@synthesize selectionHandleHighlight;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -47,6 +48,11 @@
         
         state = NBCellViewChanged;
         selected = NO;
+        
+        selectionHandleTrackingArea = nil;
+        
+        [self setPostsFrameChangedNotifications:YES];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
     return self;
 }
@@ -69,6 +75,43 @@
     for(NSView * subview in [self subviews])
     {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:subview];
+    }
+}
+
+- (void)viewDidResize:(id)sender
+{
+    if(selectionHandleTrackingArea)
+    {
+        [self removeTrackingArea:selectionHandleTrackingArea];
+    }
+    
+    NSRect trackingRect = NSMakeRect(self.frame.size.width - margin.right, 0, margin.right, self.frame.size.height);
+    
+    selectionHandleTrackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
+                                                options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                  owner:self
+                                               userInfo:[NSDictionary dictionaryWithObject:@"selectionHandle" forKey:@"type"]];
+
+    [self addTrackingArea:selectionHandleTrackingArea];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
+    {
+        self.selectionHandleHighlight = YES;
+    }
+}
+
+- (void)mouseExited:(NSEvent *)theEvent
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
+    {
+        self.selectionHandleHighlight = NO;
     }
 }
 
@@ -117,6 +160,13 @@
     [self setNeedsDisplay:YES];
 }
 
+- (void)setSelectionHandleHighlight:(bool)inSelectionHandleHighlight
+{
+    selectionHandleHighlight = inSelectionHandleHighlight;
+    
+    [self setNeedsDisplay:YES];
+}
+
 - (void)evaluate
 {
     
@@ -129,7 +179,23 @@
     // Draw the cell background
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    CGContextSetRGBFillColor(ctx, 0.8, 0.8, 0.8, 1.0); // TODO: make this a setting
+    
+    if(self.selected)
+    {
+        [[settings colorWithSelector:@"cell.selected"] setFill];
+    }
+    else
+    {
+        if(self.selectionHandleHighlight)
+        {
+            [[[settings colorWithSelector:@"cell.selected"] colorWithAlphaComponent:0.5] setFill];
+        }
+        else
+        {
+            [[settings colorWithSelector:@"cell.unselected"] setFill];
+        }
+    }
+    
     CGContextFillRect(ctx, [self bounds]);
     
     // Draw the cell state indicator (left hand side of the cell)
@@ -151,19 +217,6 @@
     }
     
     CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
-    
-    // Draw the selection indicator (right hand side of the cell)
-    
-    if(self.selected)
-    {
-        [[settings colorWithSelector:@"cell.selected"] setFill];
-    }
-    else
-    {
-        [[settings colorWithSelector:@"cell.unselected"] setFill];
-    }
-
-    CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.right, margin.top, margin.right, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
 - (float)requestedHeight
@@ -206,11 +259,6 @@
 - (void)clearSelection
 {
     [self doesNotRecognizeSelector:_cmd];
-}
-
-- (void)deselectCell
-{
-    self.selected = NO;
 }
 
 @end
