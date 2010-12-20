@@ -220,8 +220,6 @@
 
 - (void)cellViewTookFocus:(NBCellView *)cellView
 {
-    NSLog(@"cellViewTookFocus:");
-    
     for(NBCellView * defocusView in cellViews)
     {
         if(defocusView == cellView)
@@ -235,14 +233,15 @@
 
 - (void)selectedCell:(NBCellView *)cellView
 {
-    NSLog(@"selectedCell:");
-    
     for(NBCellView * defocusView in cellViews)
     {
         [defocusView clearSelection];
     }
     
-    //[[self window] makeFirstResponder:self];
+    if(cellView)
+    {
+        [[self window] makeFirstResponder:self];
+    }
     
     for(NBCellView * deselectView in selectedCellViews)
     {
