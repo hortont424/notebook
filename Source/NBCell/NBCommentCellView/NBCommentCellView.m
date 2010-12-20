@@ -38,10 +38,10 @@
     if(self)
     {
         NSRect frameWithoutMargin = frame;
-        frameWithoutMargin.size.width -= (2 * margin.width);
-        frameWithoutMargin.size.height -= (2 * margin.height);
-        frameWithoutMargin.origin.x += margin.width;
-        frameWithoutMargin.origin.y += margin.height;
+        frameWithoutMargin.size.width -= (margin.left + margin.right);
+        frameWithoutMargin.size.height -= (margin.top + margin.bottom);
+        frameWithoutMargin.origin.x += margin.left;
+        frameWithoutMargin.origin.y += margin.top;
         
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
         [textView setAutoresizingMask:NSViewWidthSizable];

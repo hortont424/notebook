@@ -39,11 +39,16 @@ typedef enum _NBCellViewState
     NBCellViewSuccessful
 } NBCellViewState;
 
+typedef struct _NBMargin
+{
+    float left, right, top, bottom;
+} NBMargin;
+
 @interface NBCellView : NSView<NSTextViewDelegate>
 {
     NBCell * cell;    
     NBCellViewState state;
-    NSSize margin;
+    NBMargin margin;
     id<NBCellViewDelegate> delegate;
     bool selected;
 }
@@ -64,5 +69,6 @@ typedef enum _NBCellViewState
 - (void)evaluate;
 
 - (void)clearSelection;
+- (void)deselectCell;
 
 @end

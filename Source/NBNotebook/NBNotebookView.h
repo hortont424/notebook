@@ -39,7 +39,6 @@
     NSMutableArray * selectedCellViews;
     
     NSMutableArray * addCellTrackingAreas;
-    NSMutableArray * selectCellTrackingAreas;
     
     NBCellView * appendingCellView;
     

@@ -31,4 +31,6 @@
 - (void)evaluateCellView:(id)cellView;
 - (void)cellViewTookFocus:(id)cellView;
 
+- (void)selectedCell:(id)cellView;
+
 @end

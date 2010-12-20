@@ -1,7 +1,7 @@
 {
     "name": "Morrowind",
     "author": "Nate Stedman",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
@@ -24,7 +24,7 @@
         "status.failure": {"r": 0.788, "g": 0.0, "b": 0.0, "a": 1.0},
         "status.success": {"r": 0.451, "g": 0.824, "b": 0.086, "a": 1.0},
         
-        "cell.selected": {"r": 0.0, "g": 0.0, "b": 1.0, "a": 1.0},
+        "cell.selected": {"r": 0.447, "g": 0.624, "b": 0.812, "a": 1.0},
         "cell.unselected": {"r": 0.729, "g": 0.741, "b": 0.714, "a": 1.0}
     },
     "highlights":

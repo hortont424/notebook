@@ -40,7 +40,11 @@
     
     if(self)
     {
-        margin = NSMakeSize(4, 1); // TODO: make it a setting!
+        margin.left = 4; // TODO: make it a setting!
+        margin.right = 10;
+        margin.top = 1;
+        margin.bottom = 1;
+        
         state = NBCellViewChanged;
         selected = NO;
     }
@@ -70,7 +74,18 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    [self becomeFirstResponder];
+    NSPoint mouseLoc = [self convertPoint:[[self window] mouseLocationOutsideOfEventStream] fromView:nil];
+    
+    if(mouseLoc.x > self.frame.size.width - margin.right)
+    {
+        // We're in the selection box
+        
+        self.selected = YES;
+    }
+    else
+    {
+        [self becomeFirstResponder];
+    }
 }
 
 - (BOOL)becomeFirstResponder
@@ -78,6 +93,17 @@
     return YES;
 }
 
+- (void)setSelected:(bool)inSelected
+{
+    selected = inSelected;
+    
+    if(selected)
+    {
+        [delegate selectedCell:self];
+    }
+    
+    [self setNeedsDisplay:YES];
+}
 
 - (void)setCell:(NBCell *)inCell
 {
@@ -124,7 +150,7 @@
             break;
     }
     
-    CGContextFillRect(ctx, NSMakeRect(0, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
+    CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
     
     // Draw the selection indicator (right hand side of the cell)
     
@@ -137,16 +163,16 @@
         [[settings colorWithSelector:@"cell.unselected"] setFill];
     }
 
-    CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
+    CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.right, margin.top, margin.right, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
 - (float)requestedHeight
 {
-    float height = margin.height;
+    float height = margin.top;
     
     for(NSView * subview in [self subviews])
     {
-        height += subview.frame.size.height + margin.height;
+        height += subview.frame.size.height + margin.bottom;
     }
     
     return height;
@@ -155,14 +181,14 @@
 
 - (void)subviewDidResize:(NSNotification *)aNotification
 {
-    float currentY = margin.height;
+    float currentY = margin.top;
     
     [self disableContentResizeNotifications];
     
     for(NSView * subview in [self subviews])
     {
-        [subview setFrameOrigin:NSMakePoint(margin.width, currentY)];
-        currentY = subview.frame.origin.y + subview.frame.size.height + margin.height;
+        [subview setFrameOrigin:NSMakePoint(margin.left, currentY)];
+        currentY = subview.frame.origin.y + subview.frame.size.height + margin.bottom;
     }
     
     [self enableContentResizeNotifications];
@@ -180,6 +206,11 @@
 - (void)clearSelection
 {
     [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)deselectCell
+{
+    self.selected = NO;
 }
 
 @end
