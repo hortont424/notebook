@@ -32,6 +32,7 @@
 @synthesize sourceView;
 @synthesize outputView;
 @synthesize controller;
+@synthesize state;
 @dynamic delegate;
 
 - (id)initWithFrame:(NSRect)frame
@@ -45,6 +46,8 @@
         frameWithoutMargin.size.height -= (margin.top + margin.bottom);
         frameWithoutMargin.origin.x += margin.left;
         frameWithoutMargin.origin.y += margin.top;
+        
+        state = NBCellViewChanged;
     
         controller = [[[NSObjectController alloc] init] autorelease];
         
@@ -130,6 +133,13 @@
     [sourceView display]; // sourceView needs to determine its proper size!
     
     [self subviewDidResize:nil];
+}
+
+- (void)setState:(NBSourceCellViewState)inState
+{
+    state = inState;
+    
+    [self setNeedsDisplay:YES];
 }
 
 - (void)evaluate

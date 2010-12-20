@@ -31,14 +31,6 @@
 #import "NBOutputView.h"
 #import "NBEngine.h"
 
-typedef enum _NBCellViewState
-{
-    NBCellViewChanged = 0,
-    NBCellViewEvaluating,
-    NBCellViewFailed,
-    NBCellViewSuccessful
-} NBCellViewState;
-
 typedef struct _NBMargin
 {
     float left, right, top, bottom;
@@ -47,7 +39,6 @@ typedef struct _NBMargin
 @interface NBCellView : NSView<NSTextViewDelegate>
 {
     NBCell * cell;    
-    NBCellViewState state;
     NBMargin margin;
     id<NBCellViewDelegate> delegate;
     bool selected;
@@ -56,7 +47,6 @@ typedef struct _NBMargin
     NSTrackingArea * selectionHandleTrackingArea;
 }
 
-@property (assign) NBCellViewState state;
 @property (nonatomic,retain) NBCell * cell;
 @property (nonatomic,retain) id<NBCellViewDelegate> delegate;
 @property (nonatomic,assign) bool selected;

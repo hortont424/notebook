@@ -31,7 +31,6 @@
 
 @synthesize cell;
 @synthesize delegate;
-@synthesize state;
 @synthesize selected;
 @synthesize selectionHandleHighlight;
 
@@ -46,7 +45,6 @@
         margin.top = 1;
         margin.bottom = 1;
         
-        state = NBCellViewChanged;
         selected = NO;
         
         selectionHandleTrackingArea = nil;
@@ -147,13 +145,6 @@
 - (void)setCell:(NBCell *)inCell
 {
     cell = inCell;
-}
-
-- (void)setState:(NBCellViewState)inState
-{
-    state = inState;
-    
-    [self setNeedsDisplay:YES];
 }
 
 - (void)setSelectionHandleHighlight:(bool)inSelectionHandleHighlight
