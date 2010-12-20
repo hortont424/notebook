@@ -25,10 +25,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBTextViewDelegate.h"
+#import "NBCell.h"
 
-@protocol NBSourceViewDelegate<NBTextViewDelegate>
+@protocol NBSourceViewDelegate
 
-- (void)evaluateSourceView:(id)sourceView;
+- (NBCell *)cell;
+- (void)evaluate;
 
 @end

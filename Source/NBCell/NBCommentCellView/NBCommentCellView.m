@@ -38,12 +38,13 @@
     if(self)
     {
         NSRect frameWithoutMargin = frame;
-        frameWithoutMargin.size.width -= (2 * margin.width);
-        frameWithoutMargin.size.height -= (2 * margin.height);
-        frameWithoutMargin.origin.x += margin.width;
-        frameWithoutMargin.origin.y += margin.height;
+        frameWithoutMargin.size.width -= (margin.left + margin.right);
+        frameWithoutMargin.size.height -= (margin.top + margin.bottom);
+        frameWithoutMargin.origin.x += margin.left;
+        frameWithoutMargin.origin.y += margin.top;
         
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
+        [textView setDelegate:self];
         [textView setAutoresizingMask:NSViewWidthSizable];
         [textView setFieldEditor:NO];
         
@@ -53,6 +54,19 @@
         [self addSubview:textView];
     }
     return self;
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+    NBSettings * settings = [NBSettings sharedInstance];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+    
+    [super drawRect:dirtyRect];
+    
+    // Draw the background color over the left hand side of the cell
+    
+    [[settings colorWithSelector:@"background.comment"] setFill];
+    CGContextFillRect(ctx, NSMakeRect(1, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
 - (BOOL)becomeFirstResponder

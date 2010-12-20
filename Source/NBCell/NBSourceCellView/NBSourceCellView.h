@@ -32,13 +32,23 @@
 #import "NBOutputView.h"
 #import "NBEngine.h"
 
-@interface NBSourceCellView : NBCellView<NSTextViewDelegate>
+typedef enum _NBSourceCellViewState
+{
+    NBCellViewChanged = 0,
+    NBCellViewEvaluating,
+    NBCellViewFailed,
+    NBCellViewSuccessful
+} NBSourceCellViewState;
+
+@interface NBSourceCellView : NBCellView<NSTextViewDelegate,NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
     NSTextView * outputView;
     NSObjectController * controller; // TODO: pretty sure this is wrong
+    NBSourceCellViewState state;
 }
 
+@property (assign) NBSourceCellViewState state;
 @property (assign) NBSourceView * sourceView;
 @property (assign) NSTextView * outputView;
 @property (nonatomic,retain) NSObjectController * controller;

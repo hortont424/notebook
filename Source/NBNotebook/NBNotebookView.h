@@ -36,6 +36,8 @@
     IBOutlet NBNotebook * notebook;
     
     NSMutableArray * cellViews;
+    NSMutableArray * selectedCellViews;
+    
     NSMutableArray * addCellTrackingAreas;
     
     NBCellView * appendingCellView;

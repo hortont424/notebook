@@ -41,6 +41,7 @@
     if(self)
     {
         cellViews = [[NSMutableArray alloc] init];
+        selectedCellViews = [[NSMutableArray alloc] init];
         addCellTrackingAreas = [[NSMutableArray alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
@@ -116,14 +117,24 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
-    appendingCellView = (NBCellView *)[(NSDictionary *)[theEvent userData] objectForKey:@"cellView"];
-    [[NSCursor resizeDownCursor] push];
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
+    {
+        appendingCellView = (NBCellView *)[userData objectForKey:@"cellView"];
+        [[NSCursor resizeDownCursor] push];
+    }
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
-{   
-    appendingCellView = nil;
-    [NSCursor pop];
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
+    {
+        appendingCellView = nil;
+        [NSCursor pop];
+    }
 }
 
 - (float)yForView:(NBCellView *)cellView
@@ -158,6 +169,8 @@
         [self removeTrackingArea:trackingArea];
     }
     
+    [addCellTrackingAreas removeAllObjects];
+    
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:cellAnimationSpeed];
     
@@ -182,7 +195,7 @@
         trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                     options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                       owner:self
-                                                   userInfo:[NSDictionary dictionaryWithObject:cellView forKey:@"cellView"]];
+                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:cellView,@"cellView",@"addCell",@"reason",nil]];
         
         [self addTrackingArea:trackingArea];
         [addCellTrackingAreas addObject:trackingArea];
@@ -213,6 +226,36 @@
             continue;
     
         [defocusView clearSelection];
+    }
+    
+    [self selectedCell:nil];
+}
+
+- (void)selectedCell:(NBCellView *)cellView
+{
+    for(NBCellView * defocusView in cellViews)
+    {
+        [defocusView clearSelection];
+    }
+    
+    if(cellView)
+    {
+        [[self window] makeFirstResponder:self];
+    }
+    
+    for(NBCellView * deselectView in selectedCellViews)
+    {
+        if(deselectView == cellView)
+            continue;
+        
+        deselectView.selected = NO;
+    }
+    
+    [selectedCellViews removeAllObjects];
+    
+    if(cellView)
+    {
+        [selectedCellViews addObject:cellView];
     }
 }
 

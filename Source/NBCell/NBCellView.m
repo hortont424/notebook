@@ -31,7 +31,8 @@
 
 @synthesize cell;
 @synthesize delegate;
-@synthesize state;
+@synthesize selected;
+@synthesize selectionHandleHighlight;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -39,8 +40,17 @@
     
     if(self)
     {
-        margin = NSMakeSize(4, 1); // TODO: make it a setting!
-        state = NBCellViewChanged;
+        margin.left = 4; // TODO: make it a setting!
+        margin.right = 10;
+        margin.top = 1;
+        margin.bottom = 1;
+        
+        selected = NO;
+        
+        selectionHandleTrackingArea = nil;
+        
+        [self setPostsFrameChangedNotifications:YES];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
     return self;
 }
@@ -66,9 +76,53 @@
     }
 }
 
+- (void)viewDidResize:(id)sender
+{
+    if(selectionHandleTrackingArea)
+    {
+        [self removeTrackingArea:selectionHandleTrackingArea];
+    }
+    
+    NSRect trackingRect = NSMakeRect(self.frame.size.width - margin.right, 0, margin.right, self.frame.size.height);
+    
+    selectionHandleTrackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
+                                                options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                  owner:self
+                                               userInfo:[NSDictionary dictionaryWithObject:@"selectionHandle" forKey:@"type"]];
+
+    [self addTrackingArea:selectionHandleTrackingArea];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
+    {
+        self.selectionHandleHighlight = YES;
+    }
+}
+
+- (void)mouseExited:(NSEvent *)theEvent
+{
+    NSDictionary * userData = (NSDictionary *)[theEvent userData];
+    
+    if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
+    {
+        self.selectionHandleHighlight = NO;
+    }
+}
+
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    [self becomeFirstResponder];
+    if(selectionHandleHighlight)
+    {
+        self.selected = YES;
+    }
+    else
+    {
+        [self becomeFirstResponder];
+    }
 }
 
 - (BOOL)becomeFirstResponder
@@ -76,15 +130,26 @@
     return YES;
 }
 
+- (void)setSelected:(bool)inSelected
+{
+    selected = inSelected;
+    
+    if(selected)
+    {
+        [delegate selectedCell:self];
+    }
+    
+    [self setNeedsDisplay:YES];
+}
 
 - (void)setCell:(NBCell *)inCell
 {
     cell = inCell;
 }
 
-- (void)setState:(NBCellViewState)inState
+- (void)setSelectionHandleHighlight:(bool)inSelectionHandleHighlight
 {
-    state = inState;
+    selectionHandleHighlight = inSelectionHandleHighlight;
     
     [self setNeedsDisplay:YES];
 }
@@ -97,42 +162,36 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     
     // Draw the cell background
     
-    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.2);
-    CGContextFillRect(ctx, [self bounds]);
-    
-    // Draw the cell state indicator (right hand side of the cell)
-    
-    switch(self.state)
+    if(self.selected)
     {
-        case NBCellViewChanged:
-            [[settings colorWithSelector:@"status.default"] setFill];
-            break;
-        case NBCellViewEvaluating:
-            [[settings colorWithSelector:@"status.busy"] setFill];
-            break;
-        case NBCellViewFailed:
-            [[settings colorWithSelector:@"status.failure"] setFill];
-            break;
-        case NBCellViewSuccessful:
-            [[settings colorWithSelector:@"status.success"] setFill];
-            break;
+        [[settings colorWithSelector:@"cell.selected"] setFill];
+    }
+    else
+    {
+        if(self.selectionHandleHighlight)
+        {
+            [[[settings colorWithSelector:@"cell.selected"] colorWithAlphaComponent:0.5] setFill];
+        }
+        else
+        {
+            [[settings colorWithSelector:@"cell.unselected"] setFill];
+        }
     }
     
-    CGContextFillRect(ctx, NSMakeRect(0, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
-    CGContextFillRect(ctx, NSMakeRect(self.bounds.size.width - margin.width, margin.height, margin.width, self.bounds.size.height - (margin.height * 2)));
+    CGContextFillRect(ctx, [self bounds]);
 }
 
 - (float)requestedHeight
 {
-    float height = margin.height;
+    float height = margin.top;
     
     for(NSView * subview in [self subviews])
     {
-        height += subview.frame.size.height + margin.height;
+        height += subview.frame.size.height + margin.bottom;
     }
     
     return height;
@@ -141,14 +200,14 @@
 
 - (void)subviewDidResize:(NSNotification *)aNotification
 {
-    float currentY = margin.height;
+    float currentY = margin.top;
     
     [self disableContentResizeNotifications];
     
     for(NSView * subview in [self subviews])
     {
-        [subview setFrameOrigin:NSMakePoint(margin.width, currentY)];
-        currentY = subview.frame.origin.y + subview.frame.size.height + margin.height;
+        [subview setFrameOrigin:NSMakePoint(margin.left, currentY)];
+        currentY = subview.frame.origin.y + subview.frame.size.height + margin.bottom;
     }
     
     [self enableContentResizeNotifications];

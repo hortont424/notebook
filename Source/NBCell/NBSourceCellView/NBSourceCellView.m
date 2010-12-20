@@ -25,7 +25,6 @@
 
 #import "NBSourceCellView.h"
 
-#import "NBSourceViewController.h"
 #import "NBSettings.h"
 
 @implementation NBSourceCellView
@@ -33,6 +32,7 @@
 @synthesize sourceView;
 @synthesize outputView;
 @synthesize controller;
+@synthesize state;
 @dynamic delegate;
 
 - (id)initWithFrame:(NSRect)frame
@@ -42,20 +42,19 @@
     if(self)
     {
         NSRect frameWithoutMargin = frame;
-        frameWithoutMargin.size.width -= (2 * margin.width);
-        frameWithoutMargin.size.height -= (2 * margin.height);
-        frameWithoutMargin.origin.x += margin.width;
-        frameWithoutMargin.origin.y += margin.height;
+        frameWithoutMargin.size.width -= (margin.left + margin.right);
+        frameWithoutMargin.size.height -= (margin.top + margin.bottom);
+        frameWithoutMargin.origin.x += margin.left;
+        frameWithoutMargin.origin.y += margin.top;
+        
+        state = NBCellViewChanged;
     
         controller = [[[NSObjectController alloc] init] autorelease];
-        
-        NBSourceViewController * sourceViewController = [[NBSourceViewController alloc] init]; // TODO: wrong place
-        sourceViewController.parent = self; // TODO: wrong? should be on the view or something
         
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
-        [sourceView setDelegate:sourceViewController];
+        [sourceView setDelegate:self];
         [[sourceView textContainer] setHeightTracksTextView:NO];
         
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
@@ -71,11 +70,39 @@
     return self;
 }
 
+- (void)drawRect:(NSRect)dirtyRect
+{
+    NBSettings * settings = [NBSettings sharedInstance];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+    
+    [super drawRect:dirtyRect];
+    
+    // Draw the cell state indicator (left hand side of the cell)
+    
+    switch(self.state)
+    {
+        case NBCellViewChanged:
+            [[settings colorWithSelector:@"status.default"] setFill];
+            break;
+        case NBCellViewEvaluating:
+            [[settings colorWithSelector:@"status.busy"] setFill];
+            break;
+        case NBCellViewFailed:
+            [[settings colorWithSelector:@"status.failure"] setFill];
+            break;
+        case NBCellViewSuccessful:
+            [[settings colorWithSelector:@"status.success"] setFill];
+            break;
+    }
+    
+    CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
+}
+
 - (BOOL)becomeFirstResponder
 {
     // If the NBCellView itself gets focus (someone clicks in the margin), give the contained NBSourceView focus instead
-    // It might be better to give the NBOutputView focus if the click is closer to that (TODO?)
-    
+    // TODO: give the NBOutputView focus if the click is closer to that
+
     [self.window makeFirstResponder:self.sourceView];
     
     return YES;
@@ -106,6 +133,13 @@
     [sourceView display]; // sourceView needs to determine its proper size!
     
     [self subviewDidResize:nil];
+}
+
+- (void)setState:(NBSourceCellViewState)inState
+{
+    state = inState;
+    
+    [self setNeedsDisplay:YES];
 }
 
 - (void)evaluate

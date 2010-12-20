@@ -39,8 +39,6 @@
     newNotebook.delegate = self;
 }
 
-// TODO: why in the world does it seem that different notebooks are sharing globals!?!
-
 - (void)createNotebookWithEngineClass:(Class)engineClass
 {
     NBCell * cell;

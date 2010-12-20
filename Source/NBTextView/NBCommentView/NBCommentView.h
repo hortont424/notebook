@@ -31,6 +31,4 @@
 {
 }
 
-@property (nonatomic,retain) id<NSTextStorageDelegate> delegate;
-
 @end

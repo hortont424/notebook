@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -65,12 +65,12 @@
 										<object class="NSCustomView" id="654740908">
 											<reference key="NSNextResponder" ref="219177268"/>
 											<int key="NSvFlags">274</int>
-											<string key="NSFrameSize">{429, 534}</string>
+											<string key="NSFrameSize">{444, 549}</string>
 											<reference key="NSSuperview" ref="219177268"/>
 											<string key="NSClassName">NBNotebookView</string>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {429, 534}}</string>
+									<string key="NSFrame">{{1, 1}, {444, 549}}</string>
 									<reference key="NSSuperview" ref="198909812"/>
 									<reference key="NSNextKeyView" ref="654740908"/>
 									<reference key="NSDocView" ref="654740908"/>
@@ -87,7 +87,7 @@
 								</object>
 								<object class="NSScroller" id="906726641">
 									<reference key="NSNextResponder" ref="198909812"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{430, 1}, {15, 534}}</string>
 									<reference key="NSSuperview" ref="198909812"/>
 									<reference key="NSTarget" ref="198909812"/>
@@ -97,7 +97,7 @@
 								</object>
 								<object class="NSScroller" id="203514136">
 									<reference key="NSNextResponder" ref="198909812"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{1, 535}, {429, 15}}</string>
 									<reference key="NSSuperview" ref="198909812"/>
 									<int key="NSsFlags">1</int>
@@ -109,7 +109,7 @@
 							<string key="NSFrame">{{-1, -1}, {446, 551}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSNextKeyView" ref="219177268"/>
-							<int key="NSsFlags">50</int>
+							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="906726641"/>
 							<reference key="NSHScroller" ref="203514136"/>
 							<reference key="NSContentView" ref="219177268"/>
