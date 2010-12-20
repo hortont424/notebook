@@ -171,10 +171,9 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     
     // Draw the cell background
-    
-    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
     
     if(self.selected)
     {
@@ -193,26 +192,6 @@
     }
     
     CGContextFillRect(ctx, [self bounds]);
-    
-    // Draw the cell state indicator (left hand side of the cell)
-    
-    switch(self.state)
-    {
-        case NBCellViewChanged:
-            [[settings colorWithSelector:@"status.default"] setFill];
-            break;
-        case NBCellViewEvaluating:
-            [[settings colorWithSelector:@"status.busy"] setFill];
-            break;
-        case NBCellViewFailed:
-            [[settings colorWithSelector:@"status.failure"] setFill];
-            break;
-        case NBCellViewSuccessful:
-            [[settings colorWithSelector:@"status.success"] setFill];
-            break;
-    }
-    
-    CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
 - (float)requestedHeight

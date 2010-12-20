@@ -56,6 +56,19 @@
     return self;
 }
 
+- (void)drawRect:(NSRect)dirtyRect
+{
+    NBSettings * settings = [NBSettings sharedInstance];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+    
+    [super drawRect:dirtyRect];
+    
+    // Draw the background color over the left hand side of the cell
+    
+    [[settings colorWithSelector:@"background.comment"] setFill];
+    CGContextFillRect(ctx, NSMakeRect(1, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
+}
+
 - (BOOL)becomeFirstResponder
 {
     // If the NBCellView itself gets focus (someone clicks in the margin), give the contained text view focus instead
