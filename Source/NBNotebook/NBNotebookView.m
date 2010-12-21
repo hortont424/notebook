@@ -140,7 +140,14 @@
         NBCell * newCell = [[NBCell alloc] init];
         newCell.content = @"";
         
-        [notebook addCell:newCell afterCell:appendingCellView.cell];
+        if((NSNull *)appendingCellView == [NSNull null])
+        {
+            [notebook addCell:newCell atIndex:0];
+        }
+        else
+        {
+            [notebook addCell:newCell afterCell:appendingCellView.cell];
+        }
     }
 }
 
@@ -205,14 +212,14 @@
     
     [addCellTrackingAreas removeAllObjects];
     
-    /*trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
+    trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
     trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                 options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                   owner:self
-                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"",@"cellView",@"addCell",@"reason",nil]];
+                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNull null],@"cellView",@"addCell",@"reason",nil]];
     
     [self addTrackingArea:trackingArea];
-    [addCellTrackingAreas addObject:trackingArea];*/
+    [addCellTrackingAreas addObject:trackingArea];
     
     for(NBCell * cell in notebook.cells)
     {
