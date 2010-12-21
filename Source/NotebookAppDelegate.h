@@ -26,7 +26,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBNotebookView.h"
-#import "NBNotebookViewController.h"
 #import "NBEngine.h"
 #import "NBCreateNotebookViewDelegate.h"
 

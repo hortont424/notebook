@@ -42,38 +42,40 @@
 - (void)createNotebookWithEngineClass:(Class)engineClass
 {
     NBCell * cell;
-    NBNotebookViewController * notebookController = [[NBNotebookViewController alloc] init];
+    NBNotebook * notebook;
+    NSViewController * notebookController = [[NSViewController alloc] init];
     [NSBundle loadNibNamed:@"Notebook" owner:notebookController];
     
     NBNotebookView * notebookView = (NBNotebookView *)[notebookController view];
+    notebook = [[NBNotebook alloc] init];
     
-    [notebookView setNotebook:[[NBNotebook alloc] init]];
+    [notebookView setNotebook:notebook];
     [[notebookView notebook] setEngine:[[engineClass alloc] init]];
     
     cell = [[NBCell alloc] init];
     cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";
     cell.type = NBCellComment;
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
     
     cell = [[NBCell alloc] init];
     cell.content = @"import random";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
     
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
     
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
     
     cell = [[NBCell alloc] init];
     cell.content = @"for x in range(100000):\n    print x";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
     
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
-    [notebookController notebookView:notebookView addCell:cell afterCellView:nil];
+    [notebook addCell:cell];
 }
 
 @end

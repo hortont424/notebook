@@ -34,7 +34,6 @@
 @implementation NBNotebookView
 
 @synthesize notebook;
-@synthesize delegate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -42,7 +41,7 @@
     
     if(self)
     {
-        cellViews = [[NSMutableArray alloc] init];
+        cellViews = [NSMapTable mapTableWithStrongToStrongObjects];
         selectedCellViews = [[NSMutableArray alloc] init];
         addCellTrackingAreas = [[NSMutableArray alloc] init];
         
@@ -62,15 +61,30 @@
     return YES;
 }
 
-- (void)viewDidResize:(NSNotification *)aNotification
+- (void)setNotebook:(NBNotebook *)inNotebook
 {
-    [self relayoutViewsWithAnimation:NO];
+    notebook = inNotebook;
+    
+    notebook.delegate = self;
 }
 
-- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation
+- (void)viewDidResize:(NSNotification *)aNotification
 {
-    NSUInteger insertionIndex = NSNotFound;
-    
+    [self relayoutViews];
+}
+
+- (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index
+{
+    [self addViewForCell:cell atIndex:index];
+}
+
+- (void)cellRemoved:(NBCell *)cell
+{
+    [self removeCellView:[cellViews objectForKey:cell]];
+}
+
+- (NBCellView *)addViewForCell:(NBCell *)cell atIndex:(NSUInteger)insertionIndex
+{
     NBCellView * cellView;
     
     switch(cell.type)
@@ -89,26 +103,12 @@
     cellView.cell = cell;
     cellView.delegate = self;
     
-    if([afterCellView isEqual:@""]) // TODO: This is a very poor way to do this (using a string as a cellView)
-    {
-        insertionIndex = 0;
-    }
-    else if(afterCellView)
-    {
-        insertionIndex = [cellViews indexOfObject:afterCellView] + 1;
-    }
-    
-    if(insertionIndex == NSNotFound)
-    {
-        insertionIndex = [cellViews count];
-    }
-    
-    [cellViews insertObject:cellView atIndex:insertionIndex];
+    [cellViews setObject:cellView forKey:cell];
     
     [self addSubview:cellView];
     [cellView setFrameOrigin:NSMakePoint(0, [self yForView:cellView])];
     
-    [self relayoutViewsWithAnimation:animation];
+    [self relayoutViews];
     
     return cellView;
 }
@@ -116,8 +116,9 @@
 - (void)removeCellView:(NBCellView *)cellView
 {
     [cellView removeFromSuperview];
-    [cellViews removeObject:cellView];
-    [self relayoutViewsWithAnimation:YES];
+    [cellViews removeObjectForKey:cellView.cell];
+    
+    [self relayoutViews];
 }
 
 - (void)keyDown:(NSEvent *)theEvent
@@ -129,7 +130,7 @@
         case kVK_Delete:
             for(NBCellView * selectedCellView in selectedCellViews)
             {
-                [delegate notebookView:self removeCellView:selectedCellView];
+                [notebook removeCell:selectedCellView.cell];
             }
             
             handled = YES;
@@ -144,9 +145,14 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
+    // TODO: need to be able to add different kinds of cells
+    
     if(appendingCellView)
     {
-        [delegate notebookView:self addNewCellAfterCell:appendingCellView];
+        NBCell * newCell = [[NBCell alloc] init];
+        newCell.content = @"";
+        
+        [notebook addCell:newCell afterCell:appendingCellView.cell];
     }
 }
 
@@ -178,23 +184,24 @@
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
     float y = cellSpacing;
     
-    for(NBCellView * v in cellViews)
+    for(NBCell * cell in notebook.cells)
     {
-        if(v == cellView)
+        NBCellView * otherView = [cellViews objectForKey:cell];
+        
+        if(otherView == cellView)
             return y;
         
-        y += [v requestedHeight] + cellSpacing;
+        y += [otherView requestedHeight] + cellSpacing;
     }
     
     return 0;
 }
 
-- (void)relayoutViewsWithAnimation:(BOOL)animation
+- (void)relayoutViews
 {
     NBSettings * settings = [NBSettings sharedInstance];
     
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
-    float cellAnimationSpeed = [[settings settingsWithSelector:@"cellAnimationSpeed"] floatValue];
     
     NSTrackingArea * trackingArea;
     NSRect trackingRect;
@@ -210,30 +217,21 @@
     
     [addCellTrackingAreas removeAllObjects];
     
-    trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
+    /*trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
     trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                 options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                   owner:self
                                                userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"",@"cellView",@"addCell",@"reason",nil]];
     
     [self addTrackingArea:trackingArea];
-    [addCellTrackingAreas addObject:trackingArea];
+    [addCellTrackingAreas addObject:trackingArea];*/
     
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:cellAnimationSpeed];
-    
-    for(NBCellView * cellView in cellViews)
+    for(NBCell * cell in notebook.cells)
     {
+        NBCellView * cellView = [cellViews objectForKey:cell];
         float requestedHeight = [cellView requestedHeight];
         
-        if(animation)
-        {
-            [[cellView animator] setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
-        }
-        else
-        {
-            [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
-        }
+        [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
         
         totalSize.height += requestedHeight + cellSpacing;
         
@@ -247,8 +245,6 @@
         [addCellTrackingAreas addObject:trackingArea];
     }
     
-    [NSAnimationContext endGrouping];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
@@ -256,17 +252,22 @@
 
 - (void)cellViewResized:(NBCellView *)cellView
 {
-    [self relayoutViewsWithAnimation:NO];
+    [self relayoutViews];
 }
 
 - (void)evaluateCellView:(NBCellView *)cellView
 {
-    [delegate notebookView:self evaluateCellView:cellView];
+    if([cellView isKindOfClass:[NBSourceCellView class]])
+    {
+        [notebook.engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) {
+            [(NBSourceCellView *)cellView evaluationComplete:exception withOutput:output];
+        }];
+    }
 }
 
 - (void)cellViewTookFocus:(NBCellView *)cellView
 {
-    for(NBCellView * defocusView in cellViews)
+    for(NBCellView * defocusView in [cellViews objectEnumerator])
     {
         if(defocusView == cellView)
             continue;
@@ -279,7 +280,7 @@
 
 - (void)selectedCell:(NBCellView *)cellView
 {
-    for(NBCellView * defocusView in cellViews)
+    for(NBCellView * defocusView in [cellViews objectEnumerator])
     {
         [defocusView clearSelection];
     }

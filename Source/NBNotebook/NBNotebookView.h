@@ -27,31 +27,28 @@
 
 #import "NBNotebook.h"
 #import "NBCell.h"
+#import "NBCellView.h"
 #import "NBCellViewDelegate.h"
 #import "NBSourceCellViewDelegate.h"
-#import "NBNotebookViewDelegate.h"
 
-@interface NBNotebookView : NSView<NBSourceCellViewDelegate,NBCellViewDelegate>
+@interface NBNotebookView : NSView<NBSourceCellViewDelegate,NBCellViewDelegate,NBNotebookDelegate>
 {
     IBOutlet NBNotebook * notebook;
     
-    NSMutableArray * cellViews;
+    NSMapTable * cellViews;
     NSMutableArray * selectedCellViews;
     
     NSMutableArray * addCellTrackingAreas;
     
     NBCellView * appendingCellView;
-    
-    id<NBNotebookViewDelegate> delegate;
 }
 
 @property (assign) IBOutlet NBNotebook * notebook;
-@property (assign) id<NBNotebookViewDelegate> delegate;
 
-- (NBCellView *)addViewForCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation;
+- (NBCellView *)addViewForCell:(NBCell *)cell atIndex:(NSUInteger)insertionIndex;
 - (void)removeCellView:(NBCellView *)cellView;
 
-- (void)relayoutViewsWithAnimation:(BOOL)animation;
+- (void)relayoutViews;
 - (float)yForView:(NBCellView *)cellView;
 
 @end

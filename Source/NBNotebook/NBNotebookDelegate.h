@@ -25,17 +25,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBNotebookView.h"
 #import "NBCell.h"
-#import "NBCellView.h"
-#import "NBEngine.h"
-#import "NBNotebookViewDelegate.h"
 
-@interface NBNotebookViewController : NSViewController<NBNotebookViewDelegate>
-{
-}
+@protocol NBNotebookDelegate
 
-- (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView;
-- (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView withAnimation:(BOOL)animation;
+- (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index;
+- (void)cellRemoved:(NBCell *)cell;
 
 @end

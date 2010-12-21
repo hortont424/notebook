@@ -27,17 +27,24 @@
 
 #import "NBCell.h"
 #import "NBEngine.h"
+#import "NBNotebookDelegate.h"
 
 @interface NBNotebook : NSObject
 {
     NSMutableArray * cells;
-    
     NBEngine * engine;
+    
+    id<NBNotebookDelegate> delegate;
 }
 
+@property (nonatomic,retain) NSMutableArray * cells;
 @property (nonatomic,retain) NBEngine * engine;
+@property (nonatomic,assign) id<NBNotebookDelegate> delegate;
 
 - (void)addCell:(NBCell *)cell;
+- (void)addCell:(NBCell *)cell atIndex:(NSUInteger)index;
+- (void)addCell:(NBCell *)cell afterCell:(NBCell *)afterCell;
+
 - (void)removeCell:(NBCell *)cell;
 
 @end

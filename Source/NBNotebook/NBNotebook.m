@@ -27,10 +27,9 @@
 
 @implementation NBNotebook
 
+@synthesize cells;
 @synthesize engine;
-
-// TODO: this is not written at all for loading a notebook and then populating a NBNotebookView from it...
-// rewrite with the notebookview observing the list of cells and outsiders adding to NBNotebook through the controller
+@synthesize delegate;
 
 - (id)init
 {
@@ -39,21 +38,36 @@
     if(self != nil)
     {
         cells = [[NSMutableArray alloc] init];
+        delegate = nil;
     }
     
     return self;
 }
 
-- (void)addCell:(NBCell *)cell
+- (void)addCell:(NBCell *)cell atIndex:(NSUInteger)index
 {
     cell.notebook = self;
-    [cells addObject:cell];
+    [cells insertObject:cell atIndex:index];
+    
+    [delegate cellAdded:cell atIndex:index];
+}
+
+- (void)addCell:(NBCell *)cell afterCell:(NBCell *)afterCell
+{
+    [self addCell:cell atIndex:[cells indexOfObject:afterCell] + 1];
+}
+
+- (void)addCell:(NBCell *)cell
+{
+    [self addCell:cell atIndex:[cells count]];
 }
 
 - (void)removeCell:(NBCell *)cell
 {
     cell.notebook = nil;
     [cells removeObject:cell];
+    
+    [delegate cellRemoved:cell];
 }
 
 @end
