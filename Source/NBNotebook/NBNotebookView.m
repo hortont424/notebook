@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import <Carbon/Carbon.h>
@@ -38,22 +38,22 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         cellViews = [NSMapTable mapTableWithStrongToStrongObjects];
         selectedCellViews = [[NSMutableArray alloc] init];
         addCellTrackingAreas = [[NSMutableArray alloc] init];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
-    
+
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    
+
 }
 
 - (BOOL)isFlipped
@@ -64,7 +64,7 @@
 - (void)setNotebook:(NBNotebook *)inNotebook
 {
     notebook = inNotebook;
-    
+
     notebook.delegate = self;
 }
 
@@ -76,7 +76,7 @@
 - (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index
 {
     NBCellView * cellView;
-    
+
     switch(cell.type)
     {
         case NBCellSnippet:
@@ -89,15 +89,15 @@
             NSLog(@"Unknown cell type %d", cell.type);
             break;
     }
-    
+
     cellView.cell = cell;
     cellView.delegate = self;
-    
+
     [cellViews setObject:cellView forKey:cell];
-    
+
     [self addSubview:cellView];
     [cellView setFrameOrigin:NSMakePoint(0, [self yForView:cellView])];
-    
+
     [self relayoutViews];
 }
 
@@ -105,14 +105,14 @@
 {
     [[cellViews objectForKey:cell] removeFromSuperview];
     [cellViews removeObjectForKey:cell];
-    
+
     [self relayoutViews];
 }
 
 - (void)keyDown:(NSEvent *)theEvent
 {
     BOOL handled = NO;
-    
+
     switch([theEvent keyCode])
     {
         case kVK_Delete:
@@ -120,11 +120,11 @@
             {
                 [notebook removeCell:selectedCellView.cell];
             }
-            
+
             handled = YES;
             break;
     }
-    
+
     if(!handled)
     {
         [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
@@ -134,12 +134,12 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
     // TODO: need to be able to add different kinds of cells
-    
+
     if(appendingCellView)
     {
         NBCell * newCell = [[NBCell alloc] init];
         newCell.content = @"";
-        
+
         if((NSNull *)appendingCellView == [NSNull null])
         {
             [notebook addCell:newCell atIndex:0];
@@ -154,7 +154,7 @@
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     NSDictionary * userData = (NSDictionary *)[theEvent userData];
-    
+
     if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
     {
         appendingCellView = (NBCellView *)[userData objectForKey:@"cellView"];
@@ -165,7 +165,7 @@
 - (void)mouseExited:(NSEvent *)theEvent
 {
     NSDictionary * userData = (NSDictionary *)[theEvent userData];
-    
+
     if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
     {
         appendingCellView = nil;
@@ -178,68 +178,68 @@
     NBSettings * settings = [NBSettings sharedInstance];
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
     float y = cellSpacing;
-    
+
     for(NBCell * cell in notebook.cells)
     {
         NBCellView * otherView = [cellViews objectForKey:cell];
-        
+
         if(otherView == cellView)
             return y;
-        
+
         y += [otherView requestedHeight] + cellSpacing;
     }
-    
+
     return 0;
 }
 
 - (void)relayoutViews
 {
     NBSettings * settings = [NBSettings sharedInstance];
-    
+
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
-    
+
     NSTrackingArea * trackingArea;
     NSRect trackingRect;
-    
+
     NSSize totalSize = NSZeroSize;
     totalSize.height = cellSpacing; // TODO: use yForView for these
     totalSize.width = self.frame.size.width;
-    
+
     for(NSTrackingArea * trackingArea in addCellTrackingAreas)
     {
         [self removeTrackingArea:trackingArea];
     }
-    
+
     [addCellTrackingAreas removeAllObjects];
-    
+
     trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
     trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                 options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                   owner:self
                                                userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNull null],@"cellView",@"addCell",@"reason",nil]];
-    
+
     [self addTrackingArea:trackingArea];
     [addCellTrackingAreas addObject:trackingArea];
-    
+
     for(NBCell * cell in notebook.cells)
     {
         NBCellView * cellView = [cellViews objectForKey:cell];
         float requestedHeight = [cellView requestedHeight];
-        
+
         [cellView setFrame:NSMakeRect(0, totalSize.height, totalSize.width, requestedHeight)];
-        
+
         totalSize.height += requestedHeight + cellSpacing;
-        
+
         trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
         trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                     options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                       owner:self
                                                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys:cellView,@"cellView",@"addCell",@"reason",nil]];
-        
+
         [self addTrackingArea:trackingArea];
         [addCellTrackingAreas addObject:trackingArea];
     }
-    
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self];
     [self setFrameSize:totalSize];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
@@ -266,10 +266,10 @@
     {
         if(defocusView == cellView)
             continue;
-    
+
         [defocusView clearSelection];
     }
-    
+
     [self selectedCell:nil];
 }
 
@@ -279,22 +279,22 @@
     {
         [defocusView clearSelection];
     }
-    
+
     if(cellView)
     {
         [[self window] makeFirstResponder:self];
     }
-    
+
     for(NBCellView * deselectView in selectedCellViews)
     {
         if(deselectView == cellView)
             continue;
-        
+
         deselectView.selected = NO;
     }
-    
+
     [selectedCellViews removeAllObjects];
-    
+
     if(cellView)
     {
         [selectedCellViews addObject:cellView];

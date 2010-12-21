@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBEngineLoader.h"
@@ -35,7 +35,7 @@ static NBEngineLoader * sharedInstance = nil;
 - (id) init
 {
     self = [super init];
-    
+
     if (self != nil)
     {
         engineClasses = [self loadPlugins];
@@ -47,24 +47,24 @@ static NBEngineLoader * sharedInstance = nil;
 {
     NSBundle * main = [NSBundle mainBundle];
     NSArray * all = [main pathsForResourcesOfType:@"bundle" inDirectory:@"../PlugIns"];
-    
+
     NSMutableArray * availablePlugins = [[NSMutableArray alloc] init];
-    
+
     for(NSString * path in all)
     {
         NSBundle * pluginBundle = [NSBundle bundleWithPath:path];
         [pluginBundle load];
-        
+
         Class pluginClass = [pluginBundle principalClass];
-        
+
         if(![pluginClass isSubclassOfClass:[NBEngine class]])
         {
             continue;
         }
-        
+
         [availablePlugins addObject:pluginClass];
     }
-    
+
     return availablePlugins;
 }
 
@@ -75,11 +75,11 @@ static NBEngineLoader * sharedInstance = nil;
     @synchronized(self)
     {
         if (sharedInstance == nil)
-        {    
+        {
             sharedInstance = [[NBEngineLoader alloc] init];
         }
     }
-    
+
     return sharedInstance;
 }
 
@@ -93,7 +93,7 @@ static NBEngineLoader * sharedInstance = nil;
             return sharedInstance;
         }
     }
-    
+
     return nil;
 }
 

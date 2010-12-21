@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBCommentCellView.h"
@@ -34,7 +34,7 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         NSRect frameWithoutMargin = frame;
@@ -42,15 +42,15 @@
         frameWithoutMargin.size.height -= (margin.top + margin.bottom);
         frameWithoutMargin.origin.x += margin.left;
         frameWithoutMargin.origin.y += margin.top;
-        
+
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
         [textView setDelegate:self];
         [textView setAutoresizingMask:NSViewWidthSizable];
         [textView setFieldEditor:NO];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:textView];
         [self enableContentResizeNotifications];
-        
+
         [self addSubview:textView];
     }
     return self;
@@ -60,11 +60,11 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    
+
     [super drawRect:dirtyRect];
-    
+
     // Draw the background color over the left hand side of the cell
-    
+
     [[settings colorWithSelector:@"background.comment"] setFill];
     CGContextFillRect(ctx, NSMakeRect(1, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
@@ -72,27 +72,27 @@
 - (BOOL)becomeFirstResponder
 {
     // If the NBCellView itself gets focus (someone clicks in the margin), give the contained text view focus instead
-    
+
     [self.window makeFirstResponder:self.textView];
-    
+
     return YES;
 }
 
 - (void)setCell:(NBCell *)inCell
 {
     [super setCell:inCell];
-    
+
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
     [textView setString:cell.content];
     [textView display];
-    
+
     [self subviewDidResize:nil];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
     // Someone typed into the text view, so our NBCell needs to be updated
-    
+
     cell.content = [textView string];
 }
 

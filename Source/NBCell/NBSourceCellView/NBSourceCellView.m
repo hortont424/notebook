@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBSourceCellView.h"
@@ -38,7 +38,7 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         NSRect frameWithoutMargin = frame;
@@ -46,17 +46,17 @@
         frameWithoutMargin.size.height -= (margin.top + margin.bottom);
         frameWithoutMargin.origin.x += margin.left;
         frameWithoutMargin.origin.y += margin.top;
-        
+
         state = NBCellViewChanged;
-    
+
         controller = [[[NSObjectController alloc] init] autorelease];
-        
+
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:self];
         [[sourceView textContainer] setHeightTracksTextView:NO];
-        
+
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
@@ -64,7 +64,7 @@
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [self enableContentResizeNotifications];
-        
+
         [self addSubview:sourceView];
     }
     return self;
@@ -74,11 +74,11 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    
+
     [super drawRect:dirtyRect];
-    
+
     // Draw the cell state indicator (left hand side of the cell)
-    
+
     switch(self.state)
     {
         case NBCellViewChanged:
@@ -94,7 +94,7 @@
             [[settings colorWithSelector:@"status.success"] setFill];
             break;
     }
-    
+
     CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
@@ -104,16 +104,16 @@
     // TODO: give the NBOutputView focus if the click is closer to that
 
     [self.window makeFirstResponder:self.sourceView];
-    
+
     return YES;
 }
 
 - (void)subviewBecameFirstResponder:(id)subview
 {
     [super subviewBecameFirstResponder:subview];
-    
+
     // Clear selection in whichever view did *not* just get focus
-    
+
     if(subview == sourceView)
     {
         [outputView setSelectedRange:NSMakeRange(0, 0)];
@@ -127,25 +127,25 @@
 - (void)setCell:(NBCell *)inCell
 {
     [super setCell:inCell];
-    
+
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
     [sourceView setString:cell.content];
     [sourceView display]; // sourceView needs to determine its proper size!
-    
+
     [self subviewDidResize:nil];
 }
 
 - (void)setState:(NBSourceCellViewState)inState
 {
     state = inState;
-    
+
     [self setNeedsDisplay:YES];
 }
 
 - (void)evaluate
 {
     self.state = NBCellViewEvaluating;
-    
+
     [delegate evaluateCellView:self];
 }
 
@@ -153,13 +153,13 @@
 {
     // The backend finished evaluating our snippet, so update the NBCell's output string (which will propagate
     // through to the NBOutputView).
-    
+
     if(exception)
     {
         // TODO: highlight line/character where exception occurred
         // TODO: Make error more distinct in the case where we have both (bold it?!)
         cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
-        
+
         if(output && [output length])
         {
             cell.output = [cell.output stringByAppendingFormat:@"\n\n%@", output, nil];
@@ -176,14 +176,14 @@
             cell.output = nil;
         }
     }
-    
+
     self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
     // Someone typed into the NBSourceView, so our NBCell and evaluation are no longer valid
-    
+
     cell.content = [sourceView string];
     self.state = NBCellViewChanged;
 }
@@ -193,28 +193,28 @@
     if([keyPath isEqualToString:@"output"] && (object == cell))
     {
         // Our NBCell's output has changed, so we need to update our NBOutputView to correspond
-        
+
         if(cell.output && ([[self subviews] indexOfObject:outputView] == NSNotFound))
         {
             // There's output now, and there wasn't before: display our NBOutputView
-            
+
             [self addSubview:outputView];
         }
         else if(!cell.output && ([[self subviews] indexOfObject:outputView] != NSNotFound))
         {
             // There's no output now, and there was before: hide our NBOutputView
-            
+
             [outputView removeFromSuperview];
         }
-        
+
         if(cell.output)
         {
             // Update the NBOutputView's displayed string, and force it to redraw so that the size is updated
-            
+
             [outputView setString:cell.output];
             [outputView display];
         }
-        
+
         [self subviewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
     }
 }

@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBCellView.h"
@@ -37,18 +37,18 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         margin.left = 4; // TODO: make it a setting!
         margin.right = 10;
         margin.top = 1;
         margin.bottom = 1;
-        
+
         selected = NO;
-        
+
         selectionHandleTrackingArea = nil;
-        
+
         [self setPostsFrameChangedNotifications:YES];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
     }
@@ -82,9 +82,9 @@
     {
         [self removeTrackingArea:selectionHandleTrackingArea];
     }
-    
+
     NSRect trackingRect = NSMakeRect(self.frame.size.width - margin.right, 0, margin.right, self.frame.size.height);
-    
+
     selectionHandleTrackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
                                                 options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                   owner:self
@@ -96,7 +96,7 @@
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     NSDictionary * userData = (NSDictionary *)[theEvent userData];
-    
+
     if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
     {
         self.selectionHandleHighlight = YES;
@@ -106,7 +106,7 @@
 - (void)mouseExited:(NSEvent *)theEvent
 {
     NSDictionary * userData = (NSDictionary *)[theEvent userData];
-    
+
     if([[userData objectForKey:@"type"] isEqualToString:@"selectionHandle"])
     {
         self.selectionHandleHighlight = NO;
@@ -133,12 +133,12 @@
 - (void)setSelected:(bool)inSelected
 {
     selected = inSelected;
-    
+
     if(selected)
     {
         [delegate selectedCell:self];
     }
-    
+
     [self setNeedsDisplay:YES];
 }
 
@@ -150,22 +150,22 @@
 - (void)setSelectionHandleHighlight:(bool)inSelectionHandleHighlight
 {
     selectionHandleHighlight = inSelectionHandleHighlight;
-    
+
     [self setNeedsDisplay:YES];
 }
 
 - (void)evaluate
 {
-    
+
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    
+
     // Draw the cell background
-    
+
     if(self.selected)
     {
         [[settings colorWithSelector:@"cell.selected"] setFill];
@@ -181,44 +181,44 @@
             [[settings colorWithSelector:@"cell.unselected"] setFill];
         }
     }
-    
+
     CGContextFillRect(ctx, [self bounds]);
 }
 
 - (float)requestedHeight
 {
     float height = margin.top;
-    
+
     for(NSView * subview in [self subviews])
     {
         height += subview.frame.size.height + margin.bottom;
     }
-    
+
     return height;
-    
+
 }
 
 - (void)subviewDidResize:(NSNotification *)aNotification
 {
     float currentY = margin.top;
-    
+
     [self disableContentResizeNotifications];
-    
+
     for(NSView * subview in [self subviews])
     {
         [subview setFrameOrigin:NSMakePoint(margin.left, currentY)];
         currentY = subview.frame.origin.y + subview.frame.size.height + margin.bottom;
     }
-    
+
     [self enableContentResizeNotifications];
-    
+
     [delegate cellViewResized:self];
 }
 
 - (void)subviewBecameFirstResponder:(id)subview
 {
     // Clear selection in all the other cells
-    
+
     [delegate cellViewTookFocus:self];
 }
 

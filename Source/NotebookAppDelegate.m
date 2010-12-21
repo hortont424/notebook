@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NotebookAppDelegate.h"
@@ -45,38 +45,38 @@
     NBNotebook * notebook;
     NSViewController * notebookController = [[NSViewController alloc] init];
     [NSBundle loadNibNamed:@"Notebook" owner:notebookController];
-    
+
     NBNotebookView * notebookView = (NBNotebookView *)[notebookController view];
     notebook = [[NBNotebook alloc] init];
-    
+
     [notebookView setNotebook:notebook];
     [[notebookView notebook] setEngine:[[engineClass alloc] init]];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";
     cell.type = NBCellComment;
     [notebook addCell:cell];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"import random";
     [notebook addCell:cell];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
     [notebook addCell:cell];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"print doSomethingRandom()";
     [notebook addCell:cell];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"for x in range(100000):\n    print x";
     [notebook addCell:cell];
-    
+
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
     [notebook addCell:cell];
-    
+
     [[notebookView window] makeKeyAndOrderFront:self];
 }
 

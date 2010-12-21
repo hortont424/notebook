@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBTextView.h"
@@ -31,24 +31,24 @@
 
 @synthesize delegate;
 
-- (id)initWithFrame:(NSRect)frame	 	
+- (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [self setTextColor:[[NBSettings sharedInstance] colorWithSelector:@"normal"]];
         [self setFont:[[NBSettings sharedInstance] fontWithSelector:@"normal"]];
     }
-    
+
     return self;
 }
 
 - (void)setDelegate:(id)inDelegate
 {
     delegate = inDelegate;
-    
+
     [[self textStorage] setDelegate:self];
 }
 
@@ -58,7 +58,7 @@
     {
         [delegate subviewBecameFirstResponder:self];
     }
-    
+
     return [super becomeFirstResponder];
 }
 

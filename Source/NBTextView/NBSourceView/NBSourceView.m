@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBSourceView.h"
@@ -36,10 +36,10 @@
 
 @dynamic delegate;
 
-- (id)initWithFrame:(NSRect)frame	 	
+- (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     if(self)
     {
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.source"]];
@@ -51,7 +51,7 @@
 - (void)keyDown:(NSEvent *)theEvent
 {
     BOOL handled = NO;
-    
+
     switch([theEvent keyCode])
     {
         case kVK_Return:
@@ -62,7 +62,7 @@
             }
             break;
     }
-    
+
     if(!handled)
     {
         [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
@@ -74,11 +74,11 @@
     RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline];
     NSString * string = [[textStorage string] stringByAppendingString:@"\n"];
     RKEnumerator * enumerator = [string matchEnumeratorWithRegex:expression];
-    
+
     while([enumerator nextRanges] != NULL)
     {
         NSRange range = [enumerator currentRange];
-        
+
         [textStorage addAttribute:NSForegroundColorAttributeName value:highlight.color range:range];
         [textStorage addAttribute:NSFontAttributeName value:highlight.font range:range];
     }
@@ -89,14 +89,14 @@
     NSTextStorage * textStorage = [notification object];
     NBSettings * settings = [NBSettings sharedInstance];
     NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
-    
+
     [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
     [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithSelector:@"normal"] range:wholeStringRange];
-    
+
     NBEngineHighlighter * highlighter = [[[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] alloc] init];
-    
+
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
         [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithSelector:context.highlight]];

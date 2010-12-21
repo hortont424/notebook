@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBEngineBackend.h"
@@ -36,18 +36,18 @@
     NSAutoreleasePool * pool;
     NSConnection * classConnection;
     NBEngineBackend * backend;
-    
+
     pool = [[NSAutoreleasePool alloc] init];
     classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
     backend = [[self alloc] init];
-    
+
     backend.connection = classConnection;
     backend.engine = (NBEngine *)[classConnection rootProxy];
-    
+
     [backend.engine setBackend:(NBEngineBackend *)backend];
-    
+
     [[NSRunLoop currentRunLoop] run];
-    
+
     [pool drain];
 }
 

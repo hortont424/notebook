@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBEngine.h"
@@ -36,67 +36,67 @@
 - (id)init
 {
     self = [super init];
-    
+
     if(self != nil)
     {
         NSPort * input, * output;
         NSArray * ports;
-        
+
         input = [NSPort port];
         output = [NSPort port];
         ports = [NSArray arrayWithObjects:output, input, nil];
-        
+
         taskQueue = [[NSMutableArray alloc] init];
-        
+
         engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
         [engineConnection setRootObject:self];
-        
+
         backend = nil;
         busy = NO;
-        
+
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[[self class] backendClass] withObject:ports];
-        
+
         while(!backend)
         {
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
         }
     }
-    
+
     return self;
 }
 
 + (Class)backendClass
 {
     [self doesNotRecognizeSelector:_cmd];
-    
+
     return nil;
 }
 
 + (Class)highlighterClass
 {
     [self doesNotRecognizeSelector:_cmd];
-    
+
     return nil;
 }
 
 + (NSString *)name
 {
     [self doesNotRecognizeSelector:_cmd];
-    
+
     return nil;
 }
 
 + (NSString *)version
 {
     [self doesNotRecognizeSelector:_cmd];
-    
+
     return nil;
 }
 
 + (NSImage *)icon
 {
     [self doesNotRecognizeSelector:_cmd];
-    
+
     return nil;
 }
 
@@ -110,28 +110,28 @@
     if(busy)
     {
         [taskQueue insertObject:[NSDictionary dictionaryWithObjectsAndKeys:snippet,@"snippet",[completion copy],@"callback",nil] atIndex:0];
-        
+
         return;
     }
-    
+
     busy = YES;
     lastCompletionCallback = [completion copy];
-    
+
     [backend executeSnippet:snippet];
 }
 
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
 {
     lastCompletionCallback(exception, outputString);
-    
+
     busy = NO;
     lastCompletionCallback = nil;
-    
+
     if([taskQueue count])
     {
         NSDictionary * enqueuedTask = [taskQueue lastObject];
         [taskQueue removeLastObject];
-        
+
         [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
     }
 }

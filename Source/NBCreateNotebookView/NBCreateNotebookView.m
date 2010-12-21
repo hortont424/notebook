@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBCreateNotebookView.h"
@@ -35,12 +35,12 @@
 {
     NSArray * engineClasses = [[NBEngineLoader sharedInstance] engineClasses];
     NSRect windowFrame = [[self window] frame];
-    
+
     [languageChooser setContent:engineClasses];
-    
+
     // TODO: magic numbers
     windowFrame.size.height = 64 + (([engineClasses count] > 3 ? 3 : [engineClasses count]) * 64);
-    
+
     [[self window] setFrame:windowFrame display:YES];
 }
 

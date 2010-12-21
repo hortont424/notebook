@@ -20,7 +20,7 @@
  * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 #import "NBHighlightSettings.h"
@@ -32,10 +32,10 @@
 + (NBHighlightSettings *)highlightWithColor:(NSColor *)color font:(NSFont *)font
 {
     NBHighlightSettings * settings = [[NBHighlightSettings alloc] init];
-    
+
     settings.color = color;
     settings.font = font;
-    
+
     return settings;
 }
 
