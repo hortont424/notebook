@@ -75,16 +75,6 @@
 
 - (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index
 {
-    [self addViewForCell:cell atIndex:index];
-}
-
-- (void)cellRemoved:(NBCell *)cell
-{
-    [self removeCellView:[cellViews objectForKey:cell]];
-}
-
-- (NBCellView *)addViewForCell:(NBCell *)cell atIndex:(NSUInteger)insertionIndex
-{
     NBCellView * cellView;
     
     switch(cell.type)
@@ -109,14 +99,12 @@
     [cellView setFrameOrigin:NSMakePoint(0, [self yForView:cellView])];
     
     [self relayoutViews];
-    
-    return cellView;
 }
 
-- (void)removeCellView:(NBCellView *)cellView
+- (void)cellRemoved:(NBCell *)cell
 {
-    [cellView removeFromSuperview];
-    [cellViews removeObjectForKey:cellView.cell];
+    [[cellViews objectForKey:cell] removeFromSuperview];
+    [cellViews removeObjectForKey:cell];
     
     [self relayoutViews];
 }

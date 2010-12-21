@@ -45,9 +45,6 @@
 
 @property (assign) IBOutlet NBNotebook * notebook;
 
-- (NBCellView *)addViewForCell:(NBCell *)cell atIndex:(NSUInteger)insertionIndex;
-- (void)removeCellView:(NBCellView *)cellView;
-
 - (void)relayoutViews;
 - (float)yForView:(NBCellView *)cellView;
 
