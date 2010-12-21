@@ -76,6 +76,8 @@
     cell = [[NBCell alloc] init];
     cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
     [notebook addCell:cell];
+    
+    [[notebookView window] makeKeyAndOrderFront:self];
 }
 
 @end
