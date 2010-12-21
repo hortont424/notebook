@@ -89,7 +89,11 @@
     cellView.cell = cell;
     cellView.delegate = self;
     
-    if(afterCellView)
+    if([afterCellView isEqual:@""]) // TODO: This is a very poor way to do this (using a string as a cellView)
+    {
+        insertionIndex = 0;
+    }
+    else if(afterCellView)
     {
         insertionIndex = [cellViews indexOfObject:afterCellView] + 1;
     }
@@ -172,7 +176,7 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
-    float y = 0;
+    float y = cellSpacing;
     
     for(NBCellView * v in cellViews)
     {
@@ -192,7 +196,11 @@
     float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
     float cellAnimationSpeed = [[settings settingsWithSelector:@"cellAnimationSpeed"] floatValue];
     
+    NSTrackingArea * trackingArea;
+    NSRect trackingRect;
+    
     NSSize totalSize = NSZeroSize;
+    totalSize.height = cellSpacing; // TODO: use yForView for these
     totalSize.width = self.frame.size.width;
     
     for(NSTrackingArea * trackingArea in addCellTrackingAreas)
@@ -202,13 +210,20 @@
     
     [addCellTrackingAreas removeAllObjects];
     
+    trackingRect = NSMakeRect(0, totalSize.height - cellSpacing, totalSize.width, cellSpacing);
+    trackingArea = [[NSTrackingArea alloc] initWithRect:trackingRect
+                                                options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                  owner:self
+                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"",@"cellView",@"addCell",@"reason",nil]];
+    
+    [self addTrackingArea:trackingArea];
+    [addCellTrackingAreas addObject:trackingArea];
+    
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:cellAnimationSpeed];
     
     for(NBCellView * cellView in cellViews)
     {
-        NSTrackingArea * trackingArea;
-        NSRect trackingRect;
         float requestedHeight = [cellView requestedHeight];
         
         if(animation)
