@@ -41,6 +41,12 @@
     return self;
 }
 
+- (void)notebookView:(NBNotebookView *)notebookView removeCellView:(NBCellView *)cellView
+{
+    [cellView.cell.notebook removeCell:cellView.cell];
+    [notebookView removeCellView:cellView];
+}
+
 - (NBCellView *)notebookView:(NBNotebookView *)notebookView addCell:(NBCell *)cell afterCellView:(NBCellView *)afterCellView
 {
     return [self notebookView:notebookView addCell:cell afterCellView:afterCellView withAnimation:NO];

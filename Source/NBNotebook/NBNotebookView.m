@@ -23,6 +23,8 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
+#import <Carbon/Carbon.h>
+
 #import "NBNotebookView.h"
 
 #import "NBSourceCellView.h"
@@ -105,6 +107,35 @@
     [self relayoutViewsWithAnimation:animation];
     
     return cellView;
+}
+
+- (void)removeCellView:(NBCellView *)cellView
+{
+    [cellView removeFromSuperview];
+    [cellViews removeObject:cellView];
+    [self relayoutViewsWithAnimation:YES];
+}
+
+- (void)keyDown:(NSEvent *)theEvent
+{
+    BOOL handled = NO;
+    
+    switch([theEvent keyCode])
+    {
+        case kVK_Delete:
+            for(NBCellView * selectedCellView in selectedCellViews)
+            {
+                [delegate notebookView:self removeCellView:selectedCellView];
+            }
+            
+            handled = YES;
+            break;
+    }
+    
+    if(!handled)
+    {
+        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
+    }
 }
 
 - (void)mouseDown:(NSEvent *)theEvent

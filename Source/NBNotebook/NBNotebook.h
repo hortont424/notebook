@@ -38,5 +38,6 @@
 @property (nonatomic,retain) NBEngine * engine;
 
 - (void)addCell:(NBCell *)cell;
+- (void)removeCell:(NBCell *)cell;
 
 @end

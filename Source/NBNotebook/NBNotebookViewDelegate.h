@@ -33,4 +33,6 @@
 - (void)notebookView:(id)notebookView evaluateCellView:(NBCellView *)cellView;
 - (NBCellView *)notebookView:(id)notebookView addNewCellAfterCell:(NBCellView *)cellView;
 
+- (void)notebookView:(id)notebookView removeCellView:(NBCellView *)cellView;
+
 @end

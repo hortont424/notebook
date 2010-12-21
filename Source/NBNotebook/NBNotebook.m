@@ -50,4 +50,10 @@
     [cells addObject:cell];
 }
 
+- (void)removeCell:(NBCell *)cell
+{
+    cell.notebook = nil;
+    [cells removeObject:cell];
+}
+
 @end
