@@ -47,6 +47,8 @@
 - (IBAction)chooseNotebook:(id)engineClass
 {
     [delegate createNotebookWithEngineClass:engineClass];
+
+    [self close];
 }
 
 @end

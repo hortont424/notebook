@@ -34,4 +34,6 @@
 
 }
 
+- (IBAction)newNotebook:(id)sender;
+
 @end

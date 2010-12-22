@@ -34,9 +34,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self newNotebook:self];
+}
+
+- (IBAction)newNotebook:(id)sender
+{
     NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
     [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
     newNotebook.delegate = self;
+
+    [newNotebook.window makeKeyAndOrderFront:self];
 }
 
 - (void)createNotebookWithEngineClass:(Class)engineClass
