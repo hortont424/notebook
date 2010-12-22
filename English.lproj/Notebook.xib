@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="28"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -207,7 +207,7 @@
 													</object>
 												</object>
 											</object>
-											<string key="NSFrameSize">{427, 23}</string>
+											<string key="NSFrameSize">{428, 23}</string>
 											<reference key="NSSuperview" ref="518658062"/>
 											<bool key="BWABBIsResizable">YES</bool>
 											<bool key="BWABBIsAtBottom">YES</bool>
@@ -227,12 +227,12 @@
 														<object class="NSCustomView" id="874569302">
 															<reference key="NSNextResponder" ref="936204314"/>
 															<int key="NSvFlags">274</int>
-															<string key="NSFrameSize">{428, 688}</string>
+															<string key="NSFrameSize">{428, 685}</string>
 															<reference key="NSSuperview" ref="936204314"/>
 															<string key="NSClassName">NBNotebookView</string>
 														</object>
 													</object>
-													<string key="NSFrameSize">{428, 688}</string>
+													<string key="NSFrameSize">{428, 685}</string>
 													<reference key="NSSuperview" ref="562465488"/>
 													<reference key="NSNextKeyView" ref="874569302"/>
 													<reference key="NSDocView" ref="874569302"/>
@@ -268,7 +268,7 @@
 													<double key="NSPercent">0.50602412223815918</double>
 												</object>
 											</object>
-											<string key="NSFrame">{{0, 20}, {428, 688}}</string>
+											<string key="NSFrame">{{0, 23}, {428, 685}}</string>
 											<reference key="NSSuperview" ref="518658062"/>
 											<reference key="NSNextKeyView" ref="936204314"/>
 											<int key="NSsFlags">560</int>
@@ -427,8 +427,8 @@
 						<reference key="object" ref="518658062"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="562465488"/>
 							<reference ref="253716171"/>
+							<reference ref="562465488"/>
 						</object>
 						<reference key="parent" ref="193179086"/>
 					</object>
@@ -580,9 +580,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{387, 81}, {604, 708}}</string>
+					<string>{{285, 197}, {604, 708}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{387, 81}, {604, 708}}</string>
+					<string>{{285, 197}, {604, 708}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -596,7 +596,7 @@
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAADCKAAAxCaAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAxDBAAA</bytes>
 					</object>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<object class="NSAffineTransform">
