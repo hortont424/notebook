@@ -24,6 +24,8 @@
 		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
 		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
+		3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
+		3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
 		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		355753AB129BA35000F5A1CC /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 355753A9129BA34300F5A1CC /* python.png */; };
@@ -106,6 +108,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */,
 				358DDB2A12BD503100B9D70A /* JSON.framework in Copy Frameworks */,
 				35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */,
 			);
@@ -153,6 +156,7 @@
 		352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/NotebookAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/NotebookAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		355753A9129BA34300F5A1CC /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
 		35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookViewDelegate.h; path = NBCreateNotebookView/NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */,
 				359E37CC129B905A00044B12 /* NBEngine.framework in Frameworks */,
 				358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */,
+				3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +243,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */,
 				358DDB0412BD4FFC00B9D70A /* JSON.framework */,
 				357FF7391297A7D200A661E5 /* Carbon.framework */,
 				3555D3671296153000FBC06F /* Python.framework */,

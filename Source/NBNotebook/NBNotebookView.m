@@ -115,13 +115,24 @@
 
     switch([theEvent keyCode])
     {
-        case kVK_Delete:
+        case kVK_Delete: // TODO: all keyboard shortcuts should be adjustable
             for(NBCellView * selectedCellView in selectedCellViews)
             {
                 [notebook removeCell:selectedCellView.cell];
             }
 
             handled = YES;
+            break;
+        case kVK_Return:
+            if([theEvent modifierFlags] & NSShiftKeyMask)
+            {
+                for(NBCellView * selectedCellView in selectedCellViews)
+                {
+                    [selectedCellView evaluate];
+                }
+
+                handled = YES;
+            }
             break;
     }
 
