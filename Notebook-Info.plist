@@ -9,12 +9,12 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>nbk</string>
+				<string>py</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string></string>
 			<key>CFBundleTypeName</key>
-			<string>Notebook</string>
+			<string>Python Notebook</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
