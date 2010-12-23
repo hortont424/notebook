@@ -44,6 +44,7 @@
         NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
         [para setLineSpacing:2.0];
         [self setDefaultParagraphStyle:para];
+        [self setAllowsUndo:YES];
     }
 
     return self;
