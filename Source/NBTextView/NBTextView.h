@@ -27,7 +27,7 @@
 
 @interface NBTextView : NSTextView<NSTextStorageDelegate>
 {
-    id<NSTextStorageDelegate> delegate;
+    id delegate;
 }
 
 @property (nonatomic,retain) id delegate;

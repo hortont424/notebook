@@ -42,6 +42,8 @@
 
     if(self)
     {
+        exceptions = [[NSMutableDictionary alloc] init];
+
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.source"]];
     }
 
@@ -69,6 +71,70 @@
     }
 }
 
+- (void)drawRect:(NSRect)dirtyRect
+{
+    [super drawRect:dirtyRect];
+
+    NSLayoutManager * layout = [self layoutManager];
+    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+
+    // Highlight errors
+
+    if([exceptions count])
+    {
+        NSUInteger currentLocation = 0, lineNumber = 0;
+        NSArray * lines = [[self string] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+
+        for(NSString * line in lines)
+        {
+            NSUInteger nextLocation = currentLocation + [line length] + 1;
+            NBException * exception;
+
+            lineNumber++;
+
+            if(![line length])
+            {
+                currentLocation = nextLocation;
+                continue;
+            }
+
+            if((exception = [exceptions objectForKey:[NSNumber numberWithInt:lineNumber]]))
+            {
+                NSUInteger fromIndex = [layout glyphIndexForCharacterAtIndex:currentLocation] + exception.column; // TODO: check if column is glyphs or characters
+
+                if((fromIndex == [[self string] length]) ||
+                   ([[NSCharacterSet newlineCharacterSet] characterIsMember:[[self string] characterAtIndex:[layout characterIndexForGlyphAtIndex:fromIndex]]]))
+                {
+                    fromIndex--;
+                }
+
+                NSRect bounds = [layout boundingRectForGlyphRange:NSMakeRange(fromIndex, 1) inTextContainer:[self textContainer]];
+                bounds.origin.x += [self textContainerOrigin].x;
+                bounds.origin.y += [self textContainerOrigin].y;
+
+                [[[NSColor redColor] colorWithAlphaComponent:0.5] setFill]; // TODO: make this adjustable and prettier
+                CGContextFillRect(ctx, bounds);
+            }
+
+            currentLocation = nextLocation;
+        }
+    }
+}
+
+- (void)addException:(NBException *)exception
+{
+    [exceptions setObject:exception forKey:[NSNumber numberWithInt:exception.line]];
+
+    [self setNeedsDisplay:YES];
+}
+
+- (void)clearExceptions
+{
+    [exceptions removeAllObjects];
+
+    [self setNeedsDisplay:YES];
+}
+
 - (void)highlightRegex:(NSString *)regex onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
 {
     RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline];
@@ -90,10 +156,16 @@
     NBSettings * settings = [NBSettings sharedInstance];
     NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
 
+    // Remove all attributes, then reapply the defaults
+
     [textStorage removeAttribute:NSForegroundColorAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
+    [textStorage removeAttribute:NSUnderlineStyleAttributeName range:wholeStringRange];
+    [textStorage removeAttribute:NSUnderlineColorAttributeName range:wholeStringRange];
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithSelector:@"normal"] range:wholeStringRange];
     [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithSelector:@"normal"] range:wholeStringRange];
+
+    // Apply each syntax highlighting style
 
     NBEngineHighlighter * highlighter = [[[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] alloc] init];
 

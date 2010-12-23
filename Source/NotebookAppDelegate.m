@@ -72,6 +72,10 @@
     [notebook addCell:cell];
 
     cell = [[NBCell alloc] init];
+    cell.content = @"print ad 445((;;";
+    [notebook addCell:cell];
+
+    cell = [[NBCell alloc] init];
     cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
     [notebook addCell:cell];
 
@@ -80,7 +84,7 @@
     [notebook addCell:cell];
 
     cell = [[NBCell alloc] init];
-    cell.content = @"for x in range(100000):\n    print x";
+    cell.content = @"for x in range(1000):\n    print x";
     [notebook addCell:cell];
 
     cell = [[NBCell alloc] init];

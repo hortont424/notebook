@@ -27,11 +27,16 @@
 
 #import "NBTextView.h"
 #import "NBSourceViewDelegate.h"
+#import "NBEngine.h"
 
 @interface NBSourceView : NBTextView
 {
+    NSMutableDictionary * exceptions;
 }
 
 @property (nonatomic,retain) id<NBSourceViewDelegate> delegate;
+
+- (void)addException:(NBException *)exception;
+- (void)clearExceptions;
 
 @end

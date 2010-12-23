@@ -139,6 +139,8 @@
 {
     state = inState;
 
+    [sourceView clearExceptions];
+
     [self setNeedsDisplay:YES];
 }
 
@@ -154,11 +156,19 @@
     // The backend finished evaluating our snippet, so update the NBCell's output string (which will propagate
     // through to the NBOutputView).
 
+    self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
+
     if(exception)
     {
         // TODO: highlight line/character where exception occurred
         // TODO: Make error more distinct in the case where we have both (bold it?!)
+
         cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
+
+        if(exception.line)
+        {
+            [sourceView addException:exception];
+        }
 
         if(output && [output length])
         {
@@ -176,8 +186,6 @@
             cell.output = nil;
         }
     }
-
-    self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
