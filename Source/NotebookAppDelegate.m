@@ -29,7 +29,7 @@
 #import "NBNotebook.h"
 #import "NBCreateNotebookView.h"
 #import "NBEngineLoader.h"
-#import "NotebookController.h"
+#import "NotebookDocument.h"
 
 @implementation NotebookAppDelegate
 
@@ -51,16 +51,16 @@
 {
     NBCell * cell;
     NBNotebook * notebook;
-    NotebookController * notebookController = [[NotebookController alloc] init];
-    [NSBundle loadNibNamed:@"Notebook" owner:notebookController];
+    NotebookDocument * notebookDocument = [[NotebookDocument alloc] init];
+    [NSBundle loadNibNamed:@"Notebook" owner:notebookDocument];
 
-    NBNotebookView * notebookView = (NBNotebookView *)[notebookController notebookView];
+    NBNotebookView * notebookView = (NBNotebookView *)[notebookDocument notebookView];
     notebook = [[NBNotebook alloc] init];
 
     [notebookView setNotebook:notebook];
     [[notebookView notebook] setEngine:[[engineClass alloc] init]];
 
-    [notebookController setup];
+    [notebookDocument setup];
 
     cell = [[NBCell alloc] init];
     cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";

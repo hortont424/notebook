@@ -28,7 +28,7 @@
 
 #import "NBNotebookView.h"
 
-@interface NotebookController : NSWindowController
+@interface NotebookDocument : NSDocument
 {
     IBOutlet NBNotebookView * notebookView;
     IBOutlet BWAnchoredButton * languageButton;

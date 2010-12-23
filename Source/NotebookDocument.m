@@ -23,9 +23,9 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NotebookController.h"
+#import "NotebookDocument.h"
 
-@implementation NotebookController
+@implementation NotebookDocument
 
 @synthesize notebookView;
 @synthesize languageButton;

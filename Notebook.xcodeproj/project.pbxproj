@@ -26,7 +26,7 @@
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
 		3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
-		3547E01812C1BEC700B6C5F7 /* NotebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3547E01712C1BEC700B6C5F7 /* NotebookController.m */; };
+		3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */; };
 		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
 		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		355753AB129BA35000F5A1CC /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 355753A9129BA34300F5A1CC /* python.png */; };
@@ -158,8 +158,8 @@
 		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookAppDelegate.m; sourceTree = "<group>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
-		3547E01612C1BEC700B6C5F7 /* NotebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookController.h; sourceTree = "<group>"; };
-		3547E01712C1BEC700B6C5F7 /* NotebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookController.m; sourceTree = "<group>"; };
+		3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookDocument.h; sourceTree = "<group>"; };
+		3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookDocument.m; sourceTree = "<group>"; };
 		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		355753A9129BA34300F5A1CC /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
 		35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookViewDelegate.h; path = NBCreateNotebookView/NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
@@ -430,8 +430,8 @@
 			children = (
 				352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */,
 				352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */,
-				3547E01612C1BEC700B6C5F7 /* NotebookController.h */,
-				3547E01712C1BEC700B6C5F7 /* NotebookController.m */,
+				3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */,
+				3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */,
 			);
 			name = Notebook;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 				351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */,
 				358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */,
 				35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */,
-				3547E01812C1BEC700B6C5F7 /* NotebookController.m in Sources */,
+				3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
