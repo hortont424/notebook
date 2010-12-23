@@ -40,6 +40,10 @@
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [self setTextColor:[[NBSettings sharedInstance] colorWithSelector:@"normal"]];
         [self setFont:[[NBSettings sharedInstance] fontWithSelector:@"normal"]];
+
+        NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
+        [para setLineSpacing:2.0];
+        [self setDefaultParagraphStyle:para];
     }
 
     return self;

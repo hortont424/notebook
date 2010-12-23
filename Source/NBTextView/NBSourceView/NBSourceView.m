@@ -111,10 +111,9 @@
                 bounds.origin.x += [self textContainerOrigin].x;
                 bounds.origin.y += [self textContainerOrigin].y;
 
-                CGContextSetLineWidth(ctx, 2.0);
-                CGContextMoveToPoint(ctx, bounds.origin.x, bounds.origin.y + bounds.size.height + 1);
-                CGContextAddLineToPoint(ctx, bounds.origin.x + bounds.size.width, bounds.origin.y + bounds.size.height + 1);
-                CGContextAddLineToPoint(ctx, bounds.origin.x + (bounds.size.width / 2), bounds.origin.y + bounds.size.height - 2);
+                CGContextMoveToPoint(ctx, bounds.origin.x, bounds.origin.y + bounds.size.height);
+                CGContextAddLineToPoint(ctx, bounds.origin.x + bounds.size.width, bounds.origin.y + bounds.size.height);
+                CGContextAddLineToPoint(ctx, bounds.origin.x + (bounds.size.width / 2), bounds.origin.y + bounds.size.height - 3);
                 CGContextClosePath(ctx);
 
                 [[settings colorWithSelector:@"status.failure"] setFill]; // TODO: this should get its own selector
