@@ -35,63 +35,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [self newNotebook:self];
-}
 
-- (IBAction)newNotebook:(id)sender
-{
-    NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
-    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
-    newNotebook.delegate = self;
-
-    [newNotebook.window makeKeyAndOrderFront:self];
-}
-
-- (void)createNotebookWithEngineClass:(Class)engineClass
-{
-    NBCell * cell;
-    NBNotebook * notebook;
-    NotebookDocument * notebookDocument = [[NotebookDocument alloc] init];
-    [NSBundle loadNibNamed:@"Notebook" owner:notebookDocument];
-
-    NBNotebookView * notebookView = (NBNotebookView *)[notebookDocument notebookView];
-    notebook = [[NBNotebook alloc] init];
-
-    [notebookView setNotebook:notebook];
-    [[notebookView notebook] setEngine:[[engineClass alloc] init]];
-
-    [notebookDocument setup];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";
-    cell.type = NBCellComment;
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"import random";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"print [\n\n";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"print doSomethingRandom()";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"for x in range(1000):\n    print x";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
-    [notebook addCell:cell];
-
-    [[notebookView window] makeKeyAndOrderFront:self];
 }
 
 @end

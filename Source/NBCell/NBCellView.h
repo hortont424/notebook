@@ -54,6 +54,8 @@ typedef struct _NBMargin
 
 - (float)requestedHeight;
 
+- (void)viewDidResize:(id)sender;
+
 - (void)subviewDidResize:(NSNotification *)aNotification;
 - (void)subviewBecameFirstResponder:(id)subview;
 

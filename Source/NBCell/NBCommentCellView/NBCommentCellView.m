@@ -45,7 +45,6 @@
 
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
         [textView setDelegate:self];
-        [textView setAutoresizingMask:NSViewWidthSizable];
         [textView setFieldEditor:NO];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:textView];
@@ -67,6 +66,20 @@
 
     [[settings colorWithSelector:@"background.comment"] setFill];
     CGContextFillRect(ctx, NSMakeRect(1, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
+}
+
+- (void)viewDidResize:(id)sender
+{
+    [self disableContentResizeNotifications];
+
+    for(NSView * subview in [self subviews])
+    {
+        [subview setFrameSize:NSMakeSize((self.frame.size.width - (margin.left + margin.right)), subview.frame.size.height)];
+    }
+
+    [self enableContentResizeNotifications];
+
+    [super viewDidResize:sender];
 }
 
 - (BOOL)becomeFirstResponder

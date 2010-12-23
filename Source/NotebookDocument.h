@@ -37,6 +37,4 @@
 @property (nonatomic,assign) NBNotebookView * notebookView;
 @property (nonatomic,assign) BWAnchoredButton * languageButton;
 
-- (void)setup;
-
 @end

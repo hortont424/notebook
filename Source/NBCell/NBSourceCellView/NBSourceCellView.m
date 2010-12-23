@@ -52,15 +52,14 @@
         controller = [[[NSObjectController alloc] init] autorelease];
 
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
-        [sourceView setAutoresizingMask:NSViewWidthSizable];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:self];
         [[sourceView textContainer] setHeightTracksTextView:NO];
 
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
-        [outputView setAutoresizingMask:NSViewWidthSizable];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];
+        [[outputView textContainer] setHeightTracksTextView:NO];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];
         [self enableContentResizeNotifications];
@@ -96,6 +95,20 @@
     }
 
     CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
+}
+
+- (void)viewDidResize:(id)sender
+{
+    [self disableContentResizeNotifications];
+
+    for(NSView * subview in [self subviews])
+    {
+        [subview setFrameSize:NSMakeSize((self.frame.size.width - (margin.left + margin.right)), subview.frame.size.height)];
+    }
+
+    [self enableContentResizeNotifications];
+
+    [super viewDidResize:sender];
 }
 
 - (BOOL)becomeFirstResponder
