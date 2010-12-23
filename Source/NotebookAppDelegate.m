@@ -72,7 +72,7 @@
     [notebook addCell:cell];
 
     cell = [[NBCell alloc] init];
-    cell.content = @"print ad 445((;;";
+    cell.content = @"print [\n\n";
     [notebook addCell:cell];
 
     cell = [[NBCell alloc] init];

@@ -76,6 +76,7 @@
     [super drawRect:dirtyRect];
 
     NSLayoutManager * layout = [self layoutManager];
+    NBSettings * settings = [NBSettings sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
 
     // Highlight errors
@@ -92,18 +93,16 @@
 
             lineNumber++;
 
-            if(![line length])
-            {
-                currentLocation = nextLocation;
-                continue;
-            }
-
             if((exception = [exceptions objectForKey:[NSNumber numberWithInt:lineNumber]]))
             {
                 NSUInteger fromIndex = [layout glyphIndexForCharacterAtIndex:currentLocation] + exception.column; // TODO: check if column is glyphs or characters
 
-                if((fromIndex == [[self string] length]) ||
-                   ([[NSCharacterSet newlineCharacterSet] characterIsMember:[[self string] characterAtIndex:[layout characterIndexForGlyphAtIndex:fromIndex]]]))
+                if(fromIndex == [[self string] length])
+                {
+                    fromIndex--;
+                }
+
+                while([[NSCharacterSet newlineCharacterSet] characterIsMember:[[self string] characterAtIndex:[layout characterIndexForGlyphAtIndex:fromIndex]]] && fromIndex >= 0)
                 {
                     fromIndex--;
                 }
@@ -112,8 +111,15 @@
                 bounds.origin.x += [self textContainerOrigin].x;
                 bounds.origin.y += [self textContainerOrigin].y;
 
-                [[[NSColor redColor] colorWithAlphaComponent:0.5] setFill]; // TODO: make this adjustable and prettier
-                CGContextFillRect(ctx, bounds);
+                CGContextSetLineWidth(ctx, 2.0);
+                CGContextMoveToPoint(ctx, bounds.origin.x, bounds.origin.y + bounds.size.height + 1);
+                CGContextAddLineToPoint(ctx, bounds.origin.x + bounds.size.width, bounds.origin.y + bounds.size.height + 1);
+                CGContextAddLineToPoint(ctx, bounds.origin.x + (bounds.size.width / 2), bounds.origin.y + bounds.size.height - 2);
+                CGContextClosePath(ctx);
+
+                [[settings colorWithSelector:@"status.failure"] setFill]; // TODO: this should get its own selector
+
+                CGContextFillPath(ctx);
             }
 
             currentLocation = nextLocation;
