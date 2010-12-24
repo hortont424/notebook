@@ -27,7 +27,7 @@
 
 #import "NBCreateNotebookView.h"
 
-#import "NBEngineLoader.h" // TODO: this is obviously wrong, we need to reintroduce the language chooser
+#import "NBEngineLoader.h"
 
 #import "NotebookWindowController.h"
 
@@ -124,11 +124,6 @@
     }
 
     [languageButton setTitle:[[notebookView.notebook.engine class] name]];
-
-    // Queue up a redisplay for the next run through the main loop (by then, the window will be realized)
-    // This is a hack (why aren't we redisplaying properly?)
-
-    //[notebookView performSelector:@selector(setNeedsDisplay:) withObject:(id)YES afterDelay:0];
 }
 
 - (IBAction)doSomethingButton:(id)sender
