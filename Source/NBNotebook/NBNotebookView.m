@@ -63,9 +63,17 @@
 
 - (void)setNotebook:(NBNotebook *)inNotebook
 {
-    notebook = inNotebook;
+    NSUInteger index = 0;
 
+    notebook = inNotebook;
     notebook.delegate = self;
+
+    // Create NBCellViews for any NBCells that were added before this view was created
+
+    for(NBCell * cell in notebook.cells)
+    {
+        [self cellAdded:cell atIndex:index++];
+    }
 }
 
 - (void)viewDidResize:(NSNotification *)aNotification

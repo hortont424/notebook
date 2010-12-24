@@ -43,12 +43,12 @@ static NBEngineLoader * sharedInstance = nil;
     return self;
 }
 
-- (NSArray *)loadPlugins
+- (NSDictionary *)loadPlugins
 {
     NSBundle * main = [NSBundle mainBundle];
     NSArray * all = [main pathsForResourcesOfType:@"bundle" inDirectory:@"../PlugIns"];
 
-    NSMutableArray * availablePlugins = [[NSMutableArray alloc] init];
+    NSMutableDictionary * availablePlugins = [[NSMutableDictionary alloc] init];
 
     for(NSString * path in all)
     {
@@ -62,7 +62,7 @@ static NBEngineLoader * sharedInstance = nil;
             continue;
         }
 
-        [availablePlugins addObject:pluginClass];
+        [availablePlugins setObject:pluginClass forKey:[pluginClass uuid]];
     }
 
     return availablePlugins;

@@ -53,6 +53,7 @@
 + (Class)backendClass;
 + (Class)highlighterClass;
 
++ (NSString *)uuid;
 + (NSString *)name;
 + (NSString *)version;
 + (NSImage *)icon;

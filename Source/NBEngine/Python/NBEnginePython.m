@@ -42,6 +42,11 @@
     return [NBEnginePythonHighlighter class];
 }
 
++ (NSString *)uuid
+{
+    return @"com.hortont.notebook.python";
+}
+
 + (NSString *)name
 {
     return @"Python";

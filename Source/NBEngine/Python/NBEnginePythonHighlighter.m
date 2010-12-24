@@ -81,9 +81,10 @@
 
         // Highlight strings
         // TODO: these should not match cross-line, and the triple-quoted string should
+        // TODO: string highlighting doesn't work, it matches stuff in comments (for obvious reasons)
 
-        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\"([^\"\\\\]*(\\\\.[^\"\\\\]*)*)\""]];
-        [initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\'([^\'\\\\]*(\\\\.[^\'\\\\]*)*)\'"]];
+        //[initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\"([^\"\\\\]*(\\\\.[^\"\\\\]*)*)\""]];
+        //[initialPairs addObject:[NBEngineHighlightContext contextWithClass:@"string" expression:@"\'([^\'\\\\]*(\\\\.[^\'\\\\]*)*)\'"]];
 
         // Highlight comments last, as they should take over any other highlighting
 

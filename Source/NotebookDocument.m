@@ -36,6 +36,22 @@
 @synthesize notebookView;
 @synthesize languageButton;
 @synthesize splitView;
+@synthesize initializedFromFile;
+
+- (id)init
+{
+    self = [super init];
+
+    if(self != nil)
+    {
+        initializedFromFile = NO;
+
+        notebook = [[NBNotebook alloc] init];
+    }
+
+    return self;
+}
+
 
 - (void)makeWindowControllers
 {
@@ -46,6 +62,10 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
+
+    [notebookView setNotebook:notebook];
+
+    [languageButton setTitle:[[notebookView.notebook.engine class] name]]; // TODO: this should be bound properly
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
@@ -60,7 +80,17 @@
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-    NSLog(@"%@", typeName);
+    initializedFromFile = YES;
+
+    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead to the key used to get the right class somehow
+    {
+        [self initDocumentWithEngineClass:[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"] withTemplate:nil];
+
+        NBCell * cell = [[NBCell alloc] init];
+        cell.content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        cell.type = NBCellSnippet;
+        [notebook addCell:cell];
+    }
 
     if(outError != NULL)
     {
@@ -70,49 +100,24 @@
     return YES;
 }
 
-- (void)initDocumentWithEngineClass:(Class)engineClass
+- (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template
 {
-    NBCell * cell;
-    NBNotebook * notebook = [[NBNotebook alloc] init];
+    [notebook setEngine:[[engineClass alloc] init]];
 
-    [notebookView setNotebook:notebook];
-    [[notebookView notebook] setEngine:[[engineClass alloc] init]];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"This is a really long comment.\n\nIt can describe what code around it does,\nor how to use something.";
-    cell.type = NBCellComment;
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"import random";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"print [\n\n";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"def doSomethingRandom(max=5):\n    return random.uniform(0, max)";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"print doSomethingRandom()";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"for x in range(1000):\n    print x";
-    [notebook addCell:cell];
-
-    cell = [[NBCell alloc] init];
-    cell.content = @"asdf = lambda x : x + 2\n\ndef asdf2():\n    print asdf(2), \"some random string\" # 4, definitely\n\nasdf2()";
-    [notebook addCell:cell];
+    if([template isEqualToString:@"empty-cell"]) // TODO: these need to come from somewhere
+    {
+        NBCell * cell = [[NBCell alloc] init];
+        cell.content = @"";
+        cell.type = NBCellSnippet;
+        [notebook addCell:cell];
+    }
 
     [languageButton setTitle:[[notebookView.notebook.engine class] name]];
 
     // Queue up a redisplay for the next run through the main loop (by then, the window will be realized)
     // This is a hack (why aren't we redisplaying properly?)
 
-    [notebookView performSelector:@selector(setNeedsDisplay:) withObject:(id)YES afterDelay:0];
+    //[notebookView performSelector:@selector(setNeedsDisplay:) withObject:(id)YES afterDelay:0];
 }
 
 - (IBAction)doSomethingButton:(id)sender

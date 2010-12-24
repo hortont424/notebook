@@ -34,6 +34,9 @@
     IBOutlet BWAnchoredButton * languageButton;
 
     IBOutlet BWSplitView * splitView;
+
+    bool initializedFromFile;
+    NBNotebook * notebook;
 }
 
 @property (nonatomic,assign) NBNotebookView * notebookView;
@@ -41,7 +44,9 @@
 
 @property (nonatomic,assign) BWSplitView * splitView;
 
-- (void)initDocumentWithEngineClass:(Class)engineClass;
+@property (nonatomic,assign) bool initializedFromFile;
+
+- (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
 - (IBAction)doSomethingButton:(id)sender;
 

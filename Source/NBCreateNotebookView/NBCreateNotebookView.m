@@ -33,7 +33,7 @@
 
 - (void)awakeFromNib
 {
-    NSArray * engineClasses = [[NBEngineLoader sharedInstance] engineClasses];
+    NSArray * engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
     NSRect windowFrame = [mainView frame];
 
     [languageChooser setContent:engineClasses];
