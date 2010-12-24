@@ -36,13 +36,36 @@
 
     [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:createNotebookController];
 
+    createNotebookController.delegate = self;
+
     [[[self document] splitView] removeFromSuperview];
 
-    NSSize viewSize = [[createNotebookController mainView] bounds].size;
+    NSRect viewBounds = [[createNotebookController mainView] bounds];
+    NSRect winFrame = [[self window] frame];
 
-    [[self window] setFrame:NSMakeRect(0, 0, viewSize.width, viewSize.height) display:NO];
-    [[self window] center];
+    [[self window] setFrame:NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
+                                       winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
+                                       viewBounds.size.width,
+                                       viewBounds.size.height) display:NO];
+    [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 200)];
+    [[self window] setMaxSize:NSMakeSize([[self window] frame].size.width, 800)];
+
     [[self window] setContentView:[createNotebookController mainView]];
+}
+
+- (void)createNotebookWithEngineClass:(Class)engineClass
+{
+    NSRect viewBounds = [[[self document] splitView] bounds];
+    NSRect winFrame = [[self window] frame];
+
+    [[self document] initDocumentWithEngineClass:engineClass];
+
+    [[self window] setFrame:NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
+                                       winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
+                                       viewBounds.size.width,
+                                       viewBounds.size.height) display:YES animate:YES];
+
+    [[self window] setContentView:[[self document] splitView]]; // TODO: the view transition should be smooth too!
 }
 
 @end

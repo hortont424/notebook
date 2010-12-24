@@ -46,11 +46,7 @@
 
 - (IBAction)chooseNotebook:(id)engineClass
 {
-    //[delegate createNotebookWithEngineClass:engineClass];
-
-    //[self close];
-
-    NSLog(@"chose %@", [engineClass name]);
+    [delegate createNotebookWithEngineClass:engineClass];
 }
 
 @end

@@ -25,7 +25,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NotebookWindowController : NSWindowController
+#import "NBCreateNotebookViewDelegate.h"
+
+@interface NotebookWindowController : NSWindowController<NBCreateNotebookViewDelegate>
 {
 
 }

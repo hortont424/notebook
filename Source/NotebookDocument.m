@@ -46,10 +46,34 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
+}
 
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
+{
+    if(outError != NULL)
+    {
+		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+	}
+
+	return nil;
+}
+
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
+{
+    NSLog(@"%@", typeName);
+
+    if(outError != NULL)
+    {
+		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+	}
+
+    return YES;
+}
+
+- (void)initDocumentWithEngineClass:(Class)engineClass
+{
     NBCell * cell;
     NBNotebook * notebook = [[NBNotebook alloc] init];
-    Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] lastObject];
 
     [notebookView setNotebook:notebook];
     [[notebookView notebook] setEngine:[[engineClass alloc] init]];
@@ -89,28 +113,6 @@
     // This is a hack (why aren't we redisplaying properly?)
 
     [notebookView performSelector:@selector(setNeedsDisplay:) withObject:(id)YES afterDelay:0];
-}
-
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
-{
-    if(outError != NULL)
-    {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-	}
-
-	return nil;
-}
-
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
-{
-    NSLog(@"%@", typeName);
-
-    if(outError != NULL)
-    {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-	}
-
-    return YES;
 }
 
 - (IBAction)doSomethingButton:(id)sender

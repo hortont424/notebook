@@ -41,6 +41,8 @@
 
 @property (nonatomic,assign) BWSplitView * splitView;
 
+- (void)initDocumentWithEngineClass:(Class)engineClass;
+
 - (IBAction)doSomethingButton:(id)sender;
 
 @end
