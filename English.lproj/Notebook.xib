@@ -382,6 +382,22 @@
 					</object>
 					<int key="connectionID">72</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">doSomethingButton:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="383908693"/>
+					</object>
+					<int key="connectionID">73</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">splitView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="193179086"/>
+					</object>
+					<int key="connectionID">74</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -604,9 +620,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{343, 181}, {604, 708}}</string>
+					<string>{{51, 184}, {604, 708}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{343, 181}, {604, 708}}</string>
+					<string>{{51, 184}, {604, 708}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -660,7 +676,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">72</int>
+			<int key="maxID">74</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -706,17 +722,30 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">NotebookDocument</string>
 					<string key="superclassName">NSDocument</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">doSomethingButton:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">doSomethingButton:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">doSomethingButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>languageButton</string>
 							<string>notebookView</string>
+							<string>splitView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>BWAnchoredButton</string>
 							<string>NBNotebookView</string>
+							<string>BWSplitView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -725,6 +754,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>languageButton</string>
 							<string>notebookView</string>
+							<string>splitView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -735,6 +765,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">notebookView</string>
 								<string key="candidateClassName">NBNotebookView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">splitView</string>
+								<string key="candidateClassName">BWSplitView</string>
 							</object>
 						</object>
 					</object>

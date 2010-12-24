@@ -24,23 +24,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <BWToolkitFramework/BWToolkitFramework.h>
 
-#import "NBNotebookView.h"
-
-@interface NotebookDocument : NSDocument
+@interface NotebookWindowController : NSWindowController
 {
-    IBOutlet NBNotebookView * notebookView;
-    IBOutlet BWAnchoredButton * languageButton;
 
-    IBOutlet BWSplitView * splitView;
 }
-
-@property (nonatomic,assign) NBNotebookView * notebookView;
-@property (nonatomic,assign) BWAnchoredButton * languageButton;
-
-@property (nonatomic,assign) BWSplitView * splitView;
-
-- (IBAction)doSomethingButton:(id)sender;
 
 @end

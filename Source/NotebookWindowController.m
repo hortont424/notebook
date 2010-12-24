@@ -23,24 +23,26 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <BWToolkitFramework/BWToolkitFramework.h>
+#import "NotebookWindowController.h"
 
-#import "NBNotebookView.h"
+#import "NBCreateNotebookView.h"
+#import "NotebookDocument.h"
 
-@interface NotebookDocument : NSDocument
+@implementation NotebookWindowController
+
+- (void)windowDidLoad
 {
-    IBOutlet NBNotebookView * notebookView;
-    IBOutlet BWAnchoredButton * languageButton;
+    NBCreateNotebookView * createNotebookController = [[NBCreateNotebookView alloc] init];
 
-    IBOutlet BWSplitView * splitView;
+    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:createNotebookController];
+
+    [[[self document] splitView] removeFromSuperview];
+
+    NSSize viewSize = [[createNotebookController mainView] bounds].size;
+
+    [[self window] setFrame:NSMakeRect(0, 0, viewSize.width, viewSize.height) display:NO];
+    [[self window] center];
+    [[self window] setContentView:[createNotebookController mainView]];
 }
-
-@property (nonatomic,assign) NBNotebookView * notebookView;
-@property (nonatomic,assign) BWAnchoredButton * languageButton;
-
-@property (nonatomic,assign) BWSplitView * splitView;
-
-- (IBAction)doSomethingButton:(id)sender;
 
 @end

@@ -29,26 +29,23 @@
 
 #import "NBEngineLoader.h" // TODO: this is obviously wrong, we need to reintroduce the language chooser
 
+#import "NotebookWindowController.h"
+
 @implementation NotebookDocument
 
 @synthesize notebookView;
 @synthesize languageButton;
+@synthesize splitView;
 
-- (NSString *)windowNibName
+- (void)makeWindowControllers
 {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-    return @"Notebook";
+    NotebookWindowController * windowController = [[NotebookWindowController alloc] initWithWindowNibName:@"Notebook" owner:self];
+    [self addWindowController:windowController];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-
-    /*NBCreateNotebookView * newNotebook = [[NBCreateNotebookView alloc] init];
-    [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:newNotebook];
-
-    [NSApp beginSheet:newNotebook.window modalForWindow:[aController window] modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];*/
 
     NBCell * cell;
     NBNotebook * notebook = [[NBNotebook alloc] init];
@@ -96,30 +93,29 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to write your document to data of the specified type. If the given outError != NULL, ensure that you set *outError when returning nil.
-
-    // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-
-    // For applications targeted for Panther or earlier systems, you should use the deprecated API -dataRepresentationOfType:. In this case you can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
-
-    if ( outError != NULL ) {
+    if(outError != NULL)
+    {
 		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
 	}
+
 	return nil;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-    // Insert code here to read your document from the given data of the specified type.  If the given outError != NULL, ensure that you set *outError when returning NO.
+    NSLog(@"%@", typeName);
 
-    // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-
-    // For applications targeted for Panther or earlier systems, you should use the deprecated API -loadDataRepresentation:ofType. In this case you can also choose to override -readFromFile:ofType: or -loadFileWrapperRepresentation:ofType: instead.
-
-    if ( outError != NULL ) {
+    if(outError != NULL)
+    {
 		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
 	}
+
     return YES;
+}
+
+- (IBAction)doSomethingButton:(id)sender
+{
+    NSLog(@"something");
 }
 
 @end

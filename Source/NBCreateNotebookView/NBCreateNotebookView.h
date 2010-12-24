@@ -32,10 +32,12 @@
     id<NBCreateNotebookViewDelegate> delegate;
 
     NSCollectionView * languageChooser;
+    NSView * mainView;
 }
 
 @property (nonatomic,assign) id<NBCreateNotebookViewDelegate> delegate;
 @property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
+@property (nonatomic,assign) IBOutlet NSView * mainView;
 
 - (IBAction)chooseNotebook:(id)sender;
 

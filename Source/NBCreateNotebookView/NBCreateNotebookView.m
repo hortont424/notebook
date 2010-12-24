@@ -29,12 +29,12 @@
 
 @implementation NBCreateNotebookView
 
-@synthesize languageChooser, delegate;
+@synthesize languageChooser, delegate, mainView;
 
 - (void)awakeFromNib
 {
     NSArray * engineClasses = [[NBEngineLoader sharedInstance] engineClasses];
-    NSRect windowFrame = [[self window] frame];
+    NSRect windowFrame = [mainView frame];
 
     [languageChooser setContent:engineClasses];
 

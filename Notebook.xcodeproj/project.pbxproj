@@ -34,6 +34,7 @@
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
 		35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35812B8E129B84170092AECD /* NBCreateNotebookView.xib */; };
+		358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358D27AF12C40282000ACCB6 /* NotebookWindowController.m */; };
 		358D61DB12C0195C006A7A06 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 358D61D912C0195C006A7A06 /* LICENSE */; };
 		358D61DC12C0195C006A7A06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 358D61DA12C0195C006A7A06 /* README.md */; };
 		358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */; };
@@ -169,6 +170,8 @@
 		35812B8B129B84030092AECD /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookView.h; path = NBCreateNotebookView/NBCreateNotebookView.h; sourceTree = "<group>"; };
 		35812B8C129B84030092AECD /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCreateNotebookView.m; path = NBCreateNotebookView/NBCreateNotebookView.m; sourceTree = "<group>"; };
 		35812B8E129B84170092AECD /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NBCreateNotebookView.xib; path = NBCreateNotebookView/NBCreateNotebookView.xib; sourceTree = "<group>"; };
+		358D27AE12C40282000ACCB6 /* NotebookWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookWindowController.h; sourceTree = "<group>"; };
+		358D27AF12C40282000ACCB6 /* NotebookWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookWindowController.m; sourceTree = "<group>"; };
 		358D61D912C0195C006A7A06 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		358D61DA12C0195C006A7A06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBPassthroughTextField.h; path = NBCreateNotebookView/NBPassthroughTextField.h; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */,
 				3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */,
 				3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */,
+				358D27AE12C40282000ACCB6 /* NotebookWindowController.h */,
+				358D27AF12C40282000ACCB6 /* NotebookWindowController.m */,
 			);
 			name = Notebook;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 				358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */,
 				35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */,
 				3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */,
+				358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
