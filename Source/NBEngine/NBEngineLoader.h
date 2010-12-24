@@ -27,13 +27,13 @@
 
 @interface NBEngineLoader : NSObject
 {
-    NSArray * engineClasses;
+    NSDictionary * engineClasses;
 }
 
-@property (nonatomic,assign) NSArray * engineClasses;
+@property (nonatomic,assign) NSDictionary * engineClasses;
 
 + (NBEngineLoader *)sharedInstance;
 
-- (NSArray *)loadPlugins;
+- (NSDictionary *)loadPlugins;
 
 @end

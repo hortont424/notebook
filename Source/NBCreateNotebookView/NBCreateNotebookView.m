@@ -29,12 +29,12 @@
 
 @implementation NBCreateNotebookView
 
-@synthesize languageChooser, delegate;
+@synthesize languageChooser, delegate, mainView;
 
 - (void)awakeFromNib
 {
-    NSArray * engineClasses = [[NBEngineLoader sharedInstance] engineClasses];
-    NSRect windowFrame = [[self window] frame];
+    NSArray * engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
+    NSRect windowFrame = [mainView frame];
 
     [languageChooser setContent:engineClasses];
 
@@ -47,8 +47,6 @@
 - (IBAction)chooseNotebook:(id)engineClass
 {
     [delegate createNotebookWithEngineClass:engineClass];
-
-    [self close];
 }
 
 @end

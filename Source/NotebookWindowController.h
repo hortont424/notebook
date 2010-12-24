@@ -23,16 +23,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NotebookController.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation NotebookController
+#import "NBCreateNotebookViewDelegate.h"
 
-@synthesize notebookView;
-@synthesize languageButton;
-
-- (void)setup
+@interface NotebookWindowController : NSWindowController<NBCreateNotebookViewDelegate>
 {
-    [languageButton setTitle:[[notebookView.notebook.engine class] name]];
+
 }
 
 @end

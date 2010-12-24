@@ -28,15 +28,26 @@
 
 #import "NBNotebookView.h"
 
-@interface NotebookController : NSWindowController
+@interface NotebookDocument : NSDocument
 {
     IBOutlet NBNotebookView * notebookView;
     IBOutlet BWAnchoredButton * languageButton;
+
+    IBOutlet BWSplitView * splitView;
+
+    bool initializedFromFile;
+    NBNotebook * notebook;
 }
 
 @property (nonatomic,assign) NBNotebookView * notebookView;
 @property (nonatomic,assign) BWAnchoredButton * languageButton;
 
-- (void)setup;
+@property (nonatomic,assign) BWSplitView * splitView;
+
+@property (nonatomic,assign) bool initializedFromFile;
+
+- (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
+
+- (IBAction)doSomethingButton:(id)sender;
 
 @end

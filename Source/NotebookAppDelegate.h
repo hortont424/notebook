@@ -29,11 +29,9 @@
 #import "NBEngine.h"
 #import "NBCreateNotebookViewDelegate.h"
 
-@interface NotebookAppDelegate : NSObject <NSApplicationDelegate,NBCreateNotebookViewDelegate>
+@interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
 {
 
 }
-
-- (IBAction)newNotebook:(id)sender;
 
 @end

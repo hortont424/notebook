@@ -79,6 +79,13 @@
     return nil;
 }
 
++ (NSString *)uuid
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
 + (NSString *)name
 {
     [self doesNotRecognizeSelector:_cmd];
