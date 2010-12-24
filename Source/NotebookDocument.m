@@ -70,12 +70,21 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
+    NSMutableData * data = [[NSMutableData alloc] init];
+
+    // TODO: encoding needs to be delegated to the appropriate NBEngine subclass
+
+    for(NBCell * cell in notebook.cells)
+    {
+        [data appendData:[[cell.content stringByAppendingString:@"\n\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+
     if(outError != NULL)
     {
 		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
 	}
 
-	return nil;
+	return data;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
@@ -84,6 +93,8 @@
 
     if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead to the key used to get the right class somehow
     {
+        // TODO: decoding needs to be delegated to the appropriate NBEngine subclass
+
         [self initDocumentWithEngineClass:[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"] withTemplate:nil];
 
         NBCell * cell = [[NBCell alloc] init];
