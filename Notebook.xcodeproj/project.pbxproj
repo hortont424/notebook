@@ -10,6 +10,8 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
 		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
+		3519D75812C4556D00E389FE /* NBEngineEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3519D75612C4556D00E389FE /* NBEngineEncoder.h */; };
+		3519D75912C4556D00E389FE /* NBEngineEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3519D75712C4556D00E389FE /* NBEngineEncoder.m */; };
 		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
 		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
 		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
@@ -58,6 +60,7 @@
 		359E3807129B919400044B12 /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E3798129B8FC800044B12 /* NBEnginePythonBackend.m */; };
 		359E3808129B919400044B12 /* NBEnginePythonHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 359E379A129B8FC800044B12 /* NBEnginePythonHighlighter.m */; };
 		359E3838129B92B900044B12 /* NBEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBEngine.framework */; };
+		35BE441512CEFC0700357718 /* NBEnginePythonEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BE441412CEFC0700357718 /* NBEnginePythonEncoder.m */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -132,6 +135,8 @@
 		351106AB12BC942B00FCCF7A /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentCellView.m; path = NBCommentCellView/NBCommentCellView.m; sourceTree = "<group>"; };
 		351106F812BC98E900FCCF7A /* NBCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentView.h; path = NBCommentView/NBCommentView.h; sourceTree = "<group>"; };
 		351106F912BC98E900FCCF7A /* NBCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentView.m; path = NBCommentView/NBCommentView.m; sourceTree = "<group>"; };
+		3519D75612C4556D00E389FE /* NBEngineEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineEncoder.h; sourceTree = "<group>"; };
+		3519D75712C4556D00E389FE /* NBEngineEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineEncoder.m; sourceTree = "<group>"; };
 		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
 		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
 		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
@@ -198,6 +203,8 @@
 		359E37B3129B8FF000044B12 /* NBEngine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBEngine-Info.plist"; sourceTree = "<group>"; };
 		359E37FD129B917B00044B12 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
 		359E3889129B9A5F00044B12 /* Python.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Python.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		35BE441312CEFC0700357718 /* NBEnginePythonEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonEncoder.h; sourceTree = "<group>"; };
+		35BE441412CEFC0700357718 /* NBEnginePythonEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonEncoder.m; sourceTree = "<group>"; };
 		35C2092B12C087C4002B114A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookDelegate.h; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
@@ -489,6 +496,8 @@
 				359E378D129B8FC800044B12 /* NBEngine.m */,
 				359E378E129B8FC800044B12 /* NBEngineBackend.h */,
 				359E378F129B8FC800044B12 /* NBEngineBackend.m */,
+				3519D75612C4556D00E389FE /* NBEngineEncoder.h */,
+				3519D75712C4556D00E389FE /* NBEngineEncoder.m */,
 				359E3790129B8FC800044B12 /* NBEngineHighlighter.h */,
 				359E3791129B8FC800044B12 /* NBEngineHighlighter.m */,
 				359E3792129B8FC800044B12 /* NBEngineLoader.h */,
@@ -508,6 +517,8 @@
 				359E3798129B8FC800044B12 /* NBEnginePythonBackend.m */,
 				359E3799129B8FC800044B12 /* NBEnginePythonHighlighter.h */,
 				359E379A129B8FC800044B12 /* NBEnginePythonHighlighter.m */,
+				35BE441312CEFC0700357718 /* NBEnginePythonEncoder.h */,
+				35BE441412CEFC0700357718 /* NBEnginePythonEncoder.m */,
 			);
 			path = Python;
 			sourceTree = "<group>";
@@ -523,6 +534,7 @@
 				359E37BC129B902400044B12 /* NBEngineBackend.h in Headers */,
 				359E37BD129B902400044B12 /* NBEngineHighlighter.h in Headers */,
 				359E37BE129B902400044B12 /* NBEngineLoader.h in Headers */,
+				3519D75812C4556D00E389FE /* NBEngineEncoder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +665,7 @@
 				359E37B8129B901300044B12 /* NBEngineBackend.m in Sources */,
 				359E37B9129B901300044B12 /* NBEngineHighlighter.m in Sources */,
 				359E37BA129B901300044B12 /* NBEngineLoader.m in Sources */,
+				3519D75912C4556D00E389FE /* NBEngineEncoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +676,7 @@
 				359E3806129B919400044B12 /* NBEnginePython.m in Sources */,
 				359E3807129B919400044B12 /* NBEnginePythonBackend.m in Sources */,
 				359E3808129B919400044B12 /* NBEnginePythonHighlighter.m in Sources */,
+				35BE441512CEFC0700357718 /* NBEnginePythonEncoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
