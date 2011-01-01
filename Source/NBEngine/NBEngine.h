@@ -52,6 +52,7 @@
 
 + (Class)backendClass;
 + (Class)highlighterClass;
++ (Class)encoderClass;
 
 + (NSString *)uuid;
 + (NSString *)name;

@@ -25,14 +25,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBNotebook.h"
-
 @interface NBEngineEncoder : NSObject
 {
 
 }
 
-- (NSData *)dataForNotebook:(NBNotebook *)notebook;
-- (NBNotebook *)notebookFromData:(NSData *)data;
+- (NSData *)dataForCells:(NSArray *)cells;
+- (NSArray *)cellsFromData:(NSData *)data;
 
 @end

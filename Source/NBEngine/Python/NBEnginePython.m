@@ -29,6 +29,7 @@
 
 #import "NBEnginePythonBackend.h"
 #import "NBEnginePythonHighlighter.h"
+#import "NBEnginePythonEncoder.h"
 
 @implementation NBEnginePython
 
@@ -40,6 +41,11 @@
 + (Class)highlighterClass
 {
     return [NBEnginePythonHighlighter class];
+}
+
++ (Class)encoderClass
+{
+    return [NBEnginePythonEncoder class];
 }
 
 + (NSString *)uuid

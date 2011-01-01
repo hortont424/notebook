@@ -27,14 +27,14 @@
 
 @implementation NBEngineEncoder
 
-- (NSData *)dataForNotebook:(NBNotebook *)notebook
+- (NSData *)dataForCells:(NSArray *)cells
 {
     [self doesNotRecognizeSelector:_cmd];
 
     return nil;
 }
 
-- (NBNotebook *)notebookFromData:(NSData *)data
+- (NSArray *)cellsFromData:(NSData *)data
 {
     [self doesNotRecognizeSelector:_cmd];
 

@@ -25,16 +25,22 @@
 
 #import "NBEnginePythonEncoder.h"
 
+#import "NBCell.h" // TODO: we'll have to move the rest of notebook core (NBCell/Notebook/etc) into a framework
+
 @implementation NBEnginePythonEncoder
 
-- (NSData *)dataForNotebook:(NBNotebook *)notebook
+- (NSData *)dataForCells:(NSArray *)cells
 {
     return nil;
 }
 
-- (NBNotebook *)notebookFromData:(NSData *)data
+- (NSArray *)cellsFromData:(NSData *)data
 {
-    return nil;
+    NBCell * cell = [[NBCell alloc] init];
+    cell.content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    cell.type = NBCellSnippet;
+
+    return [NSArray arrayWithObject:cell];
 }
 
 @end

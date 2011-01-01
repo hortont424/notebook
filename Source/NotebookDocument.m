@@ -28,6 +28,7 @@
 #import "NBCreateNotebookView.h"
 
 #import "NBEngineLoader.h"
+#import "NBEngineEncoder.h"
 
 #import "NotebookWindowController.h"
 
@@ -91,16 +92,17 @@
 {
     initializedFromFile = YES;
 
-    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead to the key used to get the right class somehow
+    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead directly to the key used to get the right class somehow
     {
-        // TODO: decoding needs to be delegated to the appropriate NBEngine subclass
+        Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"];
+        NBEngineEncoder * encoder = [[[engineClass encoderClass] alloc] init];
 
-        [self initDocumentWithEngineClass:[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"] withTemplate:nil];
+        [self initDocumentWithEngineClass:engineClass withTemplate:nil];
 
-        NBCell * cell = [[NBCell alloc] init];
-        cell.content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        cell.type = NBCellSnippet;
-        [notebook addCell:cell];
+        for(NBCell * cell in [encoder cellsFromData:data])
+        {
+            [notebook addCell:cell];
+        }
     }
 
     if(outError != NULL)
