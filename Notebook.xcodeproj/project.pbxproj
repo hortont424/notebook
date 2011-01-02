@@ -204,7 +204,7 @@
 		358DDB0412BD4FFC00B9D70A /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = External/JSON.framework; sourceTree = "<group>"; };
 		358DDB3A12BD6A1500B9D70A /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		359E37B2129B8FF000044B12 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		359E37B3129B8FF000044B12 /* NBEngine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBEngine-Info.plist"; sourceTree = "<group>"; };
+		359E37B3129B8FF000044B12 /* NBCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBCore-Info.plist"; sourceTree = "<group>"; };
 		359E37FD129B917B00044B12 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
 		359E3889129B9A5F00044B12 /* Python.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Python.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C2092B12C087C4002B114A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookDelegate.h; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 				358D61DA12C0195C006A7A06 /* README.md */,
 				358DDB3912BD6A1500B9D70A /* Themes */,
 				8D1107310486CEB800E47090 /* Notebook-Info.plist */,
-				359E37B3129B8FF000044B12 /* NBEngine-Info.plist */,
+				359E37B3129B8FF000044B12 /* NBCore-Info.plist */,
 				359E37FD129B917B00044B12 /* NBEnginePython-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -766,7 +766,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBEngine-Info.plist";
+				INFOPLIST_FILE = "NBCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -792,7 +792,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBEngine-Info.plist";
+				INFOPLIST_FILE = "NBCore-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
