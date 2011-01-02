@@ -71,14 +71,16 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    NSMutableData * data = [[NSMutableData alloc] init];
+    NSData * data;
 
-    // TODO: encoding needs to be delegated to the appropriate NBEngine subclass
-
-    for(NBCell * cell in notebook.cells)
+    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead directly to the key used to get the right class somehow
     {
-        [data appendData:[[cell.content stringByAppendingString:@"\n\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"];
+        NBEngineEncoder * encoder = [[[engineClass encoderClass] alloc] init];
+
+        data = [encoder dataForCells:notebook.cells];
     }
+
 
     if(outError != NULL)
     {

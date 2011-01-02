@@ -49,6 +49,7 @@
                                            winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
                                            viewBounds.size.width,
                                            viewBounds.size.height) display:NO];
+
         [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 200)];
         [[self window] setMaxSize:NSMakeSize([[self window] frame].size.width, 800)];
 
@@ -67,6 +68,9 @@
                                        winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
                                        viewBounds.size.width,
                                        viewBounds.size.height) display:YES animate:YES];
+
+    [[self window] setMinSize:NSMakeSize(0, 0)];
+    [[self window] setMaxSize:NSMakeSize(10000, 10000)];
 
     [[self window] setContentView:[[self document] splitView]]; // TODO: the view transition should be smooth too!
 }
