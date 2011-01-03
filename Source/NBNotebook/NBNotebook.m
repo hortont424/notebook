@@ -52,6 +52,7 @@
     [delegate cellAdded:cell atIndex:index];
 
     [[delegate undoManager] registerUndoWithTarget:self selector:@selector(removeCell:) object:cell];
+    [[delegate undoManager] setActionName:NSLocalizedString(@"Add Cell", @"add-cell")]; // TODO: mark all strings for translation
 }
 
 - (void)addCell:(NBCell *)cell afterCell:(NBCell *)afterCell
@@ -82,6 +83,7 @@
                                             object:[NSDictionary dictionaryWithObjectsAndKeys:cell,@"cell",
                                                                                               [NSNumber numberWithUnsignedInt:index],@"index",
                                                                                               nil]];
+    [[delegate undoManager] setActionName:NSLocalizedString(@"Remove Cell", @"remove-cell")];
 }
 
 @end
