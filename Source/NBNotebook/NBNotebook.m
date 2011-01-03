@@ -50,6 +50,8 @@
     [cells insertObject:cell atIndex:index];
 
     [delegate cellAdded:cell atIndex:index];
+
+    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(removeCell:) object:cell];
 }
 
 - (void)addCell:(NBCell *)cell afterCell:(NBCell *)afterCell
@@ -62,12 +64,24 @@
     [self addCell:cell atIndex:[cells count]];
 }
 
+- (void)restoreCell:(NSDictionary *)cellInfo
+{
+    [self addCell:[cellInfo objectForKey:@"cell"] atIndex:[[cellInfo objectForKey:@"index"] unsignedIntValue]];
+}
+
 - (void)removeCell:(NBCell *)cell
 {
+    uint index = [cells indexOfObject:cell];
+
     cell.notebook = nil;
     [cells removeObject:cell];
 
     [delegate cellRemoved:cell];
+
+    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(restoreCell:)
+                                            object:[NSDictionary dictionaryWithObjectsAndKeys:cell,@"cell",
+                                                                                              [NSNumber numberWithUnsignedInt:index],@"index",
+                                                                                              nil]];
 }
 
 @end

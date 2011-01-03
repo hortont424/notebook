@@ -32,4 +32,6 @@
 - (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index;
 - (void)cellRemoved:(NBCell *)cell;
 
+- (id)undoManager;
+
 @end

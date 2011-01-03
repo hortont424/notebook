@@ -61,6 +61,11 @@
     return YES;
 }
 
+- (id)undoManager
+{
+    return [super undoManager];
+}
+
 - (void)setNotebook:(NBNotebook *)inNotebook
 {
     NSUInteger index = 0;
