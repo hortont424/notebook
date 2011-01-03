@@ -31,23 +31,44 @@
 
 - (NSData *)dataForCells:(NSArray *)cells
 {
-    NSMutableData * data = [[NSMutableData alloc] init];
+    NSMutableString * string = [[NSMutableString alloc] init];
 
     for(NBCell * cell in cells)
     {
-        [data appendData:[[cell.content stringByAppendingString:@"\n\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [string appendString:cell.content];
+
+        if(cell != [cells lastObject])
+            [string appendString:@"\n\n#--\n\n"];
     }
 
-    return data;
+    return [string dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSArray *)cellsFromData:(NSData *)data
 {
-    NBCell * cell = [[NBCell alloc] init];
-    cell.content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    cell.type = NBCellSnippet;
+    NSString * string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-    return [NSArray arrayWithObject:cell];
+    NSArray * cellStrings = [string componentsSeparatedByString:@"#--"];
+    NSMutableArray * cells = [[NSMutableArray alloc] init];
+
+    for(NSString * cellString in cellStrings)
+    {
+        NBCell * cell;
+
+        cellString = [cellString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+        if([cellString isEqualToString:@""])
+            continue;
+
+        cell = [[NBCell alloc] init];
+        cell.content = cellString;
+        cell.type = NBCellSnippet;
+
+        [cells addObject:cell];
+    }
+
+    return cells;
 }
 
 @end
