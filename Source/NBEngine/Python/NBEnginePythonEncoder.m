@@ -33,12 +33,17 @@
 {
     NSMutableString * string = [[NSMutableString alloc] init];
 
+    // Concatenate the contents of each cell into one big string to write to the file
+
     for(NBCell * cell in cells)
     {
         [string appendString:cell.content];
 
+        // Add a marker between all cells
+
         if(cell != [cells lastObject])
-            [string appendString:@"\n\n#--\n\n"];
+            [string appendString:@"\n\n#--\n\n"]; // TODO: this should probably be semi-adjustable (but then would
+                                                  // need to be encoded in the file, for portability)
     }
 
     return [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -49,8 +54,12 @@
     NSString * string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-    NSArray * cellStrings = [string componentsSeparatedByString:@"#--"];
+    // Split the file into sections delimited by the cell-division comment, stripping trailing whitespace and newlines
+
+    NSArray * cellStrings = [string componentsSeparatedByString:@"#--"]; // TODO: this will currently match anywhere (?)
     NSMutableArray * cells = [[NSMutableArray alloc] init];
+
+    // Create a cell for each section
 
     for(NSString * cellString in cellStrings)
     {
