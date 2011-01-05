@@ -10,6 +10,16 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
 		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
+		3525305C12D4738F00A1124E /* NBEngineRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305412D4738F00A1124E /* NBEngineRuby.m */; };
+		3525305D12D4738F00A1124E /* NBEngineRubyBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305612D4738F00A1124E /* NBEngineRubyBackend.m */; };
+		3525305E12D4738F00A1124E /* NBEngineRubyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */; };
+		3525305F12D4738F00A1124E /* NBEngineRubyHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */; };
+		3525306012D4738F00A1124E /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 3525305B12D4738F00A1124E /* ruby.png */; };
+		3525306512D473B000A1124E /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
+		3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		3525307F12D473EE00A1124E /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3525307712D473E300A1124E /* Python.framework */; };
+		3525308012D473F100A1124E /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3525307A12D473E900A1124E /* Ruby.framework */; };
+		352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 3525304B12D4737400A1124E /* Ruby.bundle */; };
 		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
 		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
 		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
@@ -45,7 +55,6 @@
 		3551B28812D040B9004A020C /* NBEngineLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B24712D0402C004A020C /* NBEngineLoader.h */; };
 		3551B28912D040B9004A020C /* NBNotebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352F5992129B5E5300C34824 /* NBNotebook.h */; };
 		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
-		3555D3681296153000FBC06F /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		355CE8B212C351F900EF19E7 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
 		35761587129C2417000B442B /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35761585129C2417000B442B /* Notebook.xib */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
@@ -60,7 +69,6 @@
 		358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 358DDB3A12BD6A1500B9D70A /* tango.js */; };
 		359E37C0129B903400044B12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
-		359E3803129B918400044B12 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3555D3671296153000FBC06F /* Python.framework */; };
 		359E3804129B918800044B12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		359E3838129B92B900044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
@@ -70,6 +78,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3525309512D473FE00A1124E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3525304A12D4737400A1124E;
+			remoteInfo = Ruby;
+		};
 		359E37CA129B905700044B12 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -105,6 +120,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */,
 				3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */,
 			);
 			name = "Copy Plugins";
@@ -137,6 +153,18 @@
 		351106AB12BC942B00FCCF7A /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentCellView.m; path = NBCommentCellView/NBCommentCellView.m; sourceTree = "<group>"; };
 		351106F812BC98E900FCCF7A /* NBCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentView.h; path = NBCommentView/NBCommentView.h; sourceTree = "<group>"; };
 		351106F912BC98E900FCCF7A /* NBCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentView.m; path = NBCommentView/NBCommentView.m; sourceTree = "<group>"; };
+		3525304B12D4737400A1124E /* Ruby.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ruby.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3525305312D4738F00A1124E /* NBEngineRuby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRuby.h; sourceTree = "<group>"; };
+		3525305412D4738F00A1124E /* NBEngineRuby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRuby.m; sourceTree = "<group>"; };
+		3525305512D4738F00A1124E /* NBEngineRubyBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyBackend.h; sourceTree = "<group>"; };
+		3525305612D4738F00A1124E /* NBEngineRubyBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyBackend.m; sourceTree = "<group>"; };
+		3525305712D4738F00A1124E /* NBEngineRubyEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyEncoder.h; sourceTree = "<group>"; };
+		3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyEncoder.m; sourceTree = "<group>"; };
+		3525305912D4738F00A1124E /* NBEngineRubyHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyHighlighter.h; sourceTree = "<group>"; };
+		3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyHighlighter.m; sourceTree = "<group>"; };
+		3525305B12D4738F00A1124E /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
+		3525307712D473E300A1124E /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		3525307A12D473E900A1124E /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
 		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
 		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
@@ -187,7 +215,6 @@
 		3551B25012D0402C004A020C /* NBEnginePythonHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonHighlighter.h; sourceTree = "<group>"; };
 		3551B25112D0402C004A020C /* NBEnginePythonHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonHighlighter.m; sourceTree = "<group>"; };
 		3551B25212D0402C004A020C /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
-		3555D3671296153000FBC06F /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookViewDelegate.h; path = NBCreateNotebookView/NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
 		355CE6A312C33FD000EF19E7 /* spelling.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = spelling.py; sourceTree = "<group>"; };
 		35761586129C2417000B442B /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Notebook.xib; sourceTree = "<group>"; };
@@ -205,15 +232,26 @@
 		358DDB3A12BD6A1500B9D70A /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		359E37B2129B8FF000044B12 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		359E37B3129B8FF000044B12 /* NBCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBCore-Info.plist"; sourceTree = "<group>"; };
-		359E37FD129B917B00044B12 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
 		359E3889129B9A5F00044B12 /* Python.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Python.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C2092B12C087C4002B114A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookDelegate.h; sourceTree = "<group>"; };
+		35E4404B12D474F6002197E8 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
+		35E4404D12D47500002197E8 /* NBEngineRuby-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEngineRuby-Info.plist"; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3525304912D4737400A1124E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3525308012D473F100A1124E /* Ruby.framework in Frameworks */,
+				3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */,
+				3525306512D473B000A1124E /* NBCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		359E37B0129B8FF000044B12 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,8 +264,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3525307F12D473EE00A1124E /* Python.framework in Frameworks */,
 				359E3804129B918800044B12 /* Cocoa.framework in Frameworks */,
-				359E3803129B918400044B12 /* Python.framework in Frameworks */,
 				359E3838129B92B900044B12 /* NBCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +277,6 @@
 				35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */,
-				3555D3681296153000FBC06F /* Python.framework in Frameworks */,
 				357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */,
 				359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */,
 				358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */,
@@ -264,12 +301,13 @@
 				3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */,
 				358DDB0412BD4FFC00B9D70A /* JSON.framework */,
 				357FF7391297A7D200A661E5 /* Carbon.framework */,
-				3555D3671296153000FBC06F /* Python.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
 				35F5CF831298C1490032AB15 /* RegexKit.framework */,
+				3525307712D473E300A1124E /* Python.framework */,
+				3525307A12D473E900A1124E /* Ruby.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -280,6 +318,7 @@
 				8D1107320486CEB800E47090 /* Notebook.app */,
 				359E37B2129B8FF000044B12 /* NBCore.framework */,
 				359E3889129B9A5F00044B12 /* Python.bundle */,
+				3525304B12D4737400A1124E /* Ruby.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,7 +343,6 @@
 				358DDB3912BD6A1500B9D70A /* Themes */,
 				8D1107310486CEB800E47090 /* Notebook-Info.plist */,
 				359E37B3129B8FF000044B12 /* NBCore-Info.plist */,
-				359E37FD129B917B00044B12 /* NBEnginePython-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				35761585129C2417000B442B /* Notebook.xib */,
@@ -337,6 +375,23 @@
 				351106F912BC98E900FCCF7A /* NBCommentView.m */,
 			);
 			name = NBCommentView;
+			sourceTree = "<group>";
+		};
+		3525305212D4738F00A1124E /* Ruby */ = {
+			isa = PBXGroup;
+			children = (
+				35E4404D12D47500002197E8 /* NBEngineRuby-Info.plist */,
+				3525305312D4738F00A1124E /* NBEngineRuby.h */,
+				3525305412D4738F00A1124E /* NBEngineRuby.m */,
+				3525305512D4738F00A1124E /* NBEngineRubyBackend.h */,
+				3525305612D4738F00A1124E /* NBEngineRubyBackend.m */,
+				3525305712D4738F00A1124E /* NBEngineRubyEncoder.h */,
+				3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */,
+				3525305912D4738F00A1124E /* NBEngineRubyHighlighter.h */,
+				3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */,
+				3525305B12D4738F00A1124E /* ruby.png */,
+			);
+			path = Ruby;
 			sourceTree = "<group>";
 		};
 		352F5979129B5E5300C34824 /* Source */ = {
@@ -465,6 +520,7 @@
 				3551B24612D0402C004A020C /* NBEngineHighlighter.m */,
 				3551B24712D0402C004A020C /* NBEngineLoader.h */,
 				3551B24812D0402C004A020C /* NBEngineLoader.m */,
+				3525305212D4738F00A1124E /* Ruby */,
 				3551B24912D0402C004A020C /* Python */,
 			);
 			path = NBEngine;
@@ -473,6 +529,7 @@
 		3551B24912D0402C004A020C /* Python */ = {
 			isa = PBXGroup;
 			children = (
+				35E4404B12D474F6002197E8 /* NBEnginePython-Info.plist */,
 				3551B24A12D0402C004A020C /* NBEnginePython.h */,
 				3551B24B12D0402C004A020C /* NBEnginePython.m */,
 				3551B24C12D0402C004A020C /* NBEnginePythonBackend.h */,
@@ -545,6 +602,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3525304A12D4737400A1124E /* Ruby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3525304F12D4737500A1124E /* Build configuration list for PBXNativeTarget "Ruby" */;
+			buildPhases = (
+				3525304712D4737400A1124E /* Resources */,
+				3525304812D4737400A1124E /* Sources */,
+				3525304912D4737400A1124E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ruby;
+			productName = Ruby;
+			productReference = 3525304B12D4737400A1124E /* Ruby.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		359E37B1129B8FF000044B12 /* NBCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 359E37B6129B8FF000044B12 /* Build configuration list for PBXNativeTarget "NBCore" */;
@@ -596,6 +670,7 @@
 			dependencies = (
 				359E37CB129B905700044B12 /* PBXTargetDependency */,
 				359E382D129B927600044B12 /* PBXTargetDependency */,
+				3525309612D473FE00A1124E /* PBXTargetDependency */,
 			);
 			name = Notebook;
 			productInstallPath = "$(HOME)/Applications";
@@ -625,11 +700,20 @@
 				8D1107260486CEB800E47090 /* Notebook */,
 				359E37B1129B8FF000044B12 /* NBCore */,
 				359E37FB129B917B00044B12 /* Python */,
+				3525304A12D4737400A1124E /* Ruby */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3525304712D4737400A1124E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3525306012D4738F00A1124E /* ruby.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		359E37AE129B8FF000044B12 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,6 +745,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3525304812D4737400A1124E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3525305C12D4738F00A1124E /* NBEngineRuby.m in Sources */,
+				3525305D12D4738F00A1124E /* NBEngineRubyBackend.m in Sources */,
+				3525305E12D4738F00A1124E /* NBEngineRubyEncoder.m in Sources */,
+				3525305F12D4738F00A1124E /* NBEngineRubyHighlighter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		359E37AF129B8FF000044B12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -712,6 +807,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3525309612D473FE00A1124E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3525304A12D4737400A1124E /* Ruby */;
+			targetProxy = 3525309512D473FE00A1124E /* PBXContainerItemProxy */;
+		};
 		359E37CB129B905700044B12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 359E37B1129B8FF000044B12 /* NBCore */;
@@ -752,6 +852,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3525304D12D4737500A1124E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Source/NBEngine/Ruby/NBEngineRuby-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Ruby;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		3525304E12D4737500A1124E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Source/NBEngine/Ruby/NBEngineRuby-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Ruby;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		359E37B4129B8FF000044B12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -817,7 +967,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBEnginePython-Info.plist";
+				INFOPLIST_FILE = "Source/NBEngine/Python/NBEnginePython-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -841,7 +991,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBEnginePython-Info.plist";
+				INFOPLIST_FILE = "Source/NBEngine/Python/NBEnginePython-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -930,6 +1080,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3525304F12D4737500A1124E /* Build configuration list for PBXNativeTarget "Ruby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3525304D12D4737500A1124E /* Debug */,
+				3525304E12D4737500A1124E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		359E37B6129B8FF000044B12 /* Build configuration list for PBXNativeTarget "NBCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

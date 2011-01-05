@@ -65,6 +65,13 @@
     return self;
 }
 
++ (Class)encoderClass
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
 + (Class)backendClass
 {
     [self doesNotRecognizeSelector:_cmd];

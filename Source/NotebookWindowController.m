@@ -50,7 +50,7 @@
                                            viewBounds.size.width,
                                            viewBounds.size.height) display:NO];
 
-        [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 220)];
+        [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 250)];
         [[self window] setMaxSize:NSMakeSize([[self window] frame].size.width, 800)];
 
         [[self window] setContentView:[createNotebookController mainView]];

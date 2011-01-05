@@ -21,8 +21,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="60"/>
 			<integer value="8"/>
-			<integer value="84"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -226,7 +226,7 @@
 							<object class="NSScroller" id="454084100">
 								<reference key="NSNextResponder" ref="824978230"/>
 								<int key="NSvFlags">-2147483392</int>
-								<string key="NSFrame">{{1, 144}, {233, 15}}</string>
+								<string key="NSFrame">{{-100, -100}, {233, 15}}</string>
 								<reference key="NSSuperview" ref="824978230"/>
 								<int key="NSsFlags">1</int>
 								<reference key="NSTarget" ref="824978230"/>
@@ -237,7 +237,7 @@
 						<string key="NSFrame">{{19, 65}, {405, 383}}</string>
 						<reference key="NSSuperview" ref="19503454"/>
 						<reference key="NSNextKeyView" ref="300769639"/>
-						<int key="NSsFlags">560</int>
+						<int key="NSsFlags">528</int>
 						<reference key="NSVScroller" ref="827606632"/>
 						<reference key="NSHScroller" ref="454084100"/>
 						<reference key="NSContentView" ref="300769639"/>
