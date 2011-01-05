@@ -27,10 +27,13 @@
 
 @protocol NBCellViewDelegate
 
+- (void)deselectAll;
+
 - (void)cellViewResized:(id)cellView;
 - (void)evaluateCellView:(id)cellView;
 - (void)cellViewTookFocus:(id)cellView;
 
 - (void)selectedCell:(id)cellView;
+- (void)deselectedCell:(id)cellView;
 
 @end

@@ -139,9 +139,17 @@
         case kVK_Return:
             if([theEvent modifierFlags] & NSShiftKeyMask)
             {
-                for(NBCellView * selectedCellView in selectedCellViews)
+                // Iterate through in the order that the cells are in the notebook so that evaluation
+                // is in display order and not in selection order
+
+                for(NBCell * cell in notebook.cells)
                 {
-                    [selectedCellView evaluate];
+                    NBCellView * cellView = [cellViews objectForKey:cell];
+
+                    if([selectedCellViews containsObject:cellView])
+                    {
+                        [cellView evaluate];
+                    }
                 }
 
                 handled = YES;
@@ -294,34 +302,44 @@
         [defocusView clearSelection];
     }
 
-    [self selectedCell:nil];
+    for(NBCellView * deselectView in [selectedCellViews copy])
+    {
+        deselectView.selected = NO;
+    }
+
+    [selectedCellViews removeAllObjects];
 }
 
-- (void)selectedCell:(NBCellView *)cellView
+- (void)deselectAll
 {
+    [[self window] makeFirstResponder:self];
+
     for(NBCellView * defocusView in [cellViews objectEnumerator])
     {
         [defocusView clearSelection];
     }
 
-    if(cellView)
+    for(NBCellView * deselectView in [selectedCellViews copy])
     {
-        [[self window] makeFirstResponder:self];
-    }
-
-    for(NBCellView * deselectView in selectedCellViews)
-    {
-        if(deselectView == cellView)
-            continue;
-
         deselectView.selected = NO;
     }
 
     [selectedCellViews removeAllObjects];
+}
 
+- (void)selectedCell:(NBCellView *)cellView
+{
     if(cellView)
     {
         [selectedCellViews addObject:cellView];
+    }
+}
+
+- (void)deselectedCell:(NBCellView *)cellView
+{
+    if(cellView)
+    {
+        [selectedCellViews removeObject:cellView];
     }
 }
 

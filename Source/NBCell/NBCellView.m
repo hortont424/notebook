@@ -117,7 +117,15 @@
 {
     if(selectionHandleHighlight)
     {
-        self.selected = YES;
+        if(!([theEvent modifierFlags] & NSCommandKeyMask || [theEvent modifierFlags] & NSShiftKeyMask))
+        {
+            [[self delegate] deselectAll];
+            self.selected = YES;
+        }
+        else
+        {
+            self.selected = !self.selected;
+        }
     }
     else
     {
@@ -138,6 +146,11 @@
     {
         [delegate selectedCell:self];
     }
+    else
+    {
+        [delegate deselectedCell:self];
+    }
+
 
     [self setNeedsDisplay:YES];
 }
