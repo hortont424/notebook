@@ -62,8 +62,6 @@
     NSRect viewBounds = [[[self document] splitView] bounds];
     NSRect winFrame = [[self window] frame];
 
-    [[self document] initDocumentWithEngineClass:engineClass withTemplate:@"empty-cell"];
-
     [[self window] setFrame:NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
                                        winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
                                        viewBounds.size.width,
@@ -73,6 +71,11 @@
     [[self window] setMaxSize:NSMakeSize(10000, 10000)];
 
     [[self window] setContentView:[[self document] splitView]]; // TODO: the view transition should be smooth too!
+
+    // If we initialize the document before the view is realized, the cells that are created during initialization
+    // will be broken until one resize occurs.
+
+    [[self document] initDocumentWithEngineClass:engineClass withTemplate:@"empty-cell"];
 }
 
 @end

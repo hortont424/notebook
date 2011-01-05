@@ -53,7 +53,6 @@
     return self;
 }
 
-
 - (void)makeWindowControllers
 {
     NotebookWindowController * windowController = [[NotebookWindowController alloc] initWithWindowNibName:@"Notebook" owner:self];
@@ -69,6 +68,16 @@
     [languageButton setTitle:[[notebookView.notebook.engine class] name]]; // TODO: this should be bound properly
 }
 
+- (void)finishLoadingFile:(NSDictionary *)userData
+{
+    [self initDocumentWithEngineClass:[userData objectForKey:@"engineClass"] withTemplate:nil];
+
+    for(NBCell * cell in [userData objectForKey:@"cells"])
+    {
+        [notebook addCell:cell];
+    }
+}
+
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
     NSData * data;
@@ -80,7 +89,6 @@
 
         data = [encoder dataForCells:notebook.cells];
     }
-
 
     if(outError != NULL)
     {
@@ -99,12 +107,11 @@
         Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"];
         NBEngineEncoder * encoder = [[[engineClass encoderClass] alloc] init];
 
-        [self initDocumentWithEngineClass:engineClass withTemplate:nil];
-
-        for(NBCell * cell in [encoder cellsFromData:data])
-        {
-            [notebook addCell:cell];
-        }
+        [[NSRunLoop mainRunLoop] performSelector:@selector(finishLoadingFile:)
+                                          target:self
+                                        argument:[NSDictionary dictionaryWithObjectsAndKeys:[encoder cellsFromData:data],@"cells",engineClass,@"engineClass",nil]
+                                           order:0
+                                           modes:[NSArray arrayWithObject:NSDefaultRunLoopMode]];
     }
 
     if(outError != NULL)
