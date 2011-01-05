@@ -80,13 +80,12 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    NSData * data;
+    Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
+    NSData * data = nil;
 
-    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead directly to the key used to get the right class somehow
+    if(engineClass)
     {
-        Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"];
         NBEngineEncoder * encoder = [[[engineClass encoderClass] alloc] init];
-
         data = [encoder dataForCells:notebook.cells];
     }
 
@@ -102,9 +101,10 @@
 {
     initializedFromFile = YES;
 
-    if([typeName isEqualToString:@"Python Notebook"]) // TODO: this should lead directly to the key used to get the right class somehow
+    Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
+
+    if(engineClass)
     {
-        Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:@"com.hortont.notebook.python"];
         NBEngineEncoder * encoder = [[[engineClass encoderClass] alloc] init];
 
         [[NSRunLoop mainRunLoop] performSelector:@selector(finishLoadingFile:)
