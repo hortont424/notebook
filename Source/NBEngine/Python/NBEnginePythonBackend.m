@@ -85,6 +85,7 @@
     // Install a StringIO object as sys.stdout so we can intercept Python's output
     // TODO: intercept stderr too!
 
+    // TODO: why do we reimport StringIO constantly?? we really only need one of these...
     PyObject * stringIOModule = PyImport_Import(PyString_FromString("StringIO"));
     PyObject * stringIOConstructor = PyObject_GetAttrString(stringIOModule, "StringIO");
     PyObject * stringIOObject = PyObject_Call(stringIOConstructor, PyTuple_New(0), NULL);

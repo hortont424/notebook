@@ -33,17 +33,45 @@
 
     if (self != nil)
     {
+        ruby_init();
+        ruby_init_loadpath();
 
+        rb_require("stringio");
+        stringIOModule = rb_const_get(rb_cObject, rb_intern("StringIO"));
     }
 
     return self;
 }
 
+- (VALUE)captureRubyStdout
+{
+    // Install a StringIO object as $stdout so we can intercept Ruby's output
+    // TODO: intercept stderr too!
+
+    VALUE stringIOObject = rb_funcall3(stringIOModule, rb_intern("new"), 0, 0);
+
+    rb_gv_set("$stdout", stringIOObject);
+
+    return stringIOObject;
+}
+
+- (NSString *)prepareCapturedRubyStdout:(VALUE)stringIOObject
+{
+    rb_funcall3(stringIOObject, rb_intern("rewind"), 0, 0);
+    VALUE stdoutValue = rb_funcall3(stringIOObject, rb_intern("read"), 0, 0);
+
+    return [NSString stringWithUTF8String:StringValueCStr(stdoutValue)];
+}
+
 - (oneway void)executeSnippet:(NSString *)snippet
 {
+    VALUE stringIOObject = [self captureRubyStdout];
+
+    rb_eval_string([snippet UTF8String]);
+
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
-    [engine snippetComplete:nil withOutput:nil];
+    [engine snippetComplete:nil withOutput:[self prepareCapturedRubyStdout:stringIOObject]];
 }
 
 @end

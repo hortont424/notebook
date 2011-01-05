@@ -31,7 +31,7 @@
 
 @interface NBEngineRubyBackend : NBEngineBackend
 {
-
+    VALUE stringIOModule;
 }
 
 @end
