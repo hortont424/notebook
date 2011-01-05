@@ -55,6 +55,12 @@
 
         [[self window] setContentView:[createNotebookController mainView]];
     }
+    else
+    {
+        [[self window] setMinSize:NSMakeSize(150, 150)];
+        [[self window] setMaxSize:NSMakeSize(10000, 10000)];
+    }
+
 }
 
 - (void)createNotebookWithEngineClass:(Class)engineClass
@@ -67,7 +73,7 @@
                                        viewBounds.size.width,
                                        viewBounds.size.height) display:YES animate:YES];
 
-    [[self window] setMinSize:NSMakeSize(0, 0)];
+    [[self window] setMinSize:NSMakeSize(150, 150)];
     [[self window] setMaxSize:NSMakeSize(10000, 10000)];
 
     [[self window] setContentView:[[self document] splitView]]; // TODO: the view transition should be smooth too!
