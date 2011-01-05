@@ -26,6 +26,7 @@
 #import "NBEngineRuby.h"
 
 #import <Ruby/Ruby.h>
+#import <Ruby/version.h>
 
 #import "NBEngineRubyBackend.h"
 #import "NBEngineRubyHighlighter.h"
@@ -60,7 +61,7 @@
 
 + (NSString *)version
 {
-    return @"1.2.3";
+    return [NSString stringWithUTF8String:RUBY_VERSION];
 }
 
 + (NSImage *)icon
