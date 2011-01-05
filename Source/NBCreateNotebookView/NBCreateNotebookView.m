@@ -49,4 +49,14 @@
     [delegate createNotebookWithEngineClass:engineClass];
 }
 
+- (IBAction)openExistingNotebook:(id)sender
+{
+    [delegate openExistingNotebook];
+}
+
+- (IBAction)cancelCreateNotebook:(id)sender
+{
+    [delegate cancelCreateNotebook];
+}
+
 @end

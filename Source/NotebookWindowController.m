@@ -50,7 +50,7 @@
                                            viewBounds.size.width,
                                            viewBounds.size.height) display:NO];
 
-        [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 200)];
+        [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 220)];
         [[self window] setMaxSize:NSMakeSize([[self window] frame].size.width, 800)];
 
         [[self window] setContentView:[createNotebookController mainView]];
@@ -82,6 +82,17 @@
     // will be broken until one resize occurs.
 
     [[self document] initDocumentWithEngineClass:engineClass withTemplate:@"empty-cell"];
+}
+
+- (void)openExistingNotebook
+{
+    [[self document] close];
+    [[NSDocumentController sharedDocumentController] openDocument:self];
+}
+
+- (void)cancelCreateNotebook
+{
+    [[self document] close];
 }
 
 @end

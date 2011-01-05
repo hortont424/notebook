@@ -28,5 +28,7 @@
 @protocol NBCreateNotebookViewDelegate
 
 - (void)createNotebookWithEngineClass:(Class)engineClass;
+- (void)openExistingNotebook;
+- (void)cancelCreateNotebook;
 
 @end

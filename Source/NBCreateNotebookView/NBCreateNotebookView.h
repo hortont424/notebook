@@ -39,6 +39,8 @@
 @property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
 @property (nonatomic,assign) IBOutlet NSView * mainView;
 
-- (IBAction)chooseNotebook:(id)sender;
+- (IBAction)chooseNotebook:(id)engineClass;
+- (IBAction)openExistingNotebook:(id)sender;
+- (IBAction)cancelCreateNotebook:(id)sender;
 
 @end
