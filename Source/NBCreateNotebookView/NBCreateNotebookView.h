@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 
 #import "NBCreateNotebookViewDelegate.h"
 
@@ -31,13 +32,15 @@
 {
     id<NBCreateNotebookViewDelegate> delegate;
 
-    NSCollectionView * languageChooser;
+    IKImageBrowserView * languageChooser;
     NSView * mainView;
+    NSArray * engineClasses;
 }
 
 @property (nonatomic,assign) id<NBCreateNotebookViewDelegate> delegate;
-@property (nonatomic,assign) IBOutlet NSCollectionView * languageChooser;
+@property (nonatomic,assign) IBOutlet IKImageBrowserView * languageChooser;
 @property (nonatomic,assign) IBOutlet NSView * mainView;
+@property (readonly) NSArray * engineClasses;
 
 - (IBAction)chooseNotebook:(id)engineClass;
 - (IBAction)openExistingNotebook:(id)sender;

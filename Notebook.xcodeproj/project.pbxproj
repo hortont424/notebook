@@ -73,6 +73,8 @@
 		359E3838129B92B900044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
+		4385972C12D57EBF003D2E8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
+		4385974112D580F1003D2E8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -237,6 +239,7 @@
 		35E4404B12D474F6002197E8 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
 		35E4404D12D47500002197E8 /* NBEngineRuby-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEngineRuby-Info.plist"; sourceTree = "<group>"; };
 		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
+		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -256,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4385974112D580F1003D2E8D /* Quartz.framework in Frameworks */,
 				359E37C0129B903400044B12 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +285,7 @@
 				359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */,
 				358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */,
 				3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */,
+				4385972C12D57EBF003D2E8D /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,8 +311,7 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
 				35F5CF831298C1490032AB15 /* RegexKit.framework */,
-				3525307712D473E300A1124E /* Python.framework */,
-				3525307A12D473E900A1124E /* Ruby.framework */,
+				4385972B12D57EBF003D2E8D /* Quartz.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -397,9 +401,9 @@
 		352F5979129B5E5300C34824 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				35812B89129B83BE0092AECD /* NBCreateNotebookView */,
 				352F597A129B5E5300C34824 /* main.m */,
 				352F597B129B5E5300C34824 /* NBCell */,
+				35812B89129B83BE0092AECD /* NBCreateNotebookView */,
 				3551B23D12D0402C004A020C /* NBEngine */,
 				352F5991129B5E5300C34824 /* NBNotebook */,
 				352F5999129B5E5300C34824 /* NBSettings */,
