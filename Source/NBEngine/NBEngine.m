@@ -41,7 +41,9 @@
 
     if(self != nil)
     {
-        NSPort * input, * output;
+        busy = NO;
+
+        /*NSPort * input, * output;
         NSArray * ports;
 
         input = [NSPort port];
@@ -54,16 +56,13 @@
         [engineConnection setRootObject:self];
 
         backend = nil;
-        busy = NO;
-
-        cachedIcon = nil;
 
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[[self class] backendClass] withObject:ports];
 
         while(!backend)
         {
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-        }
+        }*/
     }
 
     return self;
@@ -156,7 +155,7 @@
 
 + (NSString *)imageTitle
 {
-    return [[self class] name];
+    return [self name];
 }
 
 + (NSString *)imageSubtitle

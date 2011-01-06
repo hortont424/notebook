@@ -47,8 +47,6 @@
 
     NSMutableArray * taskQueue;
 
-    NSImage * cachedIcon;
-
     void (^lastCompletionCallback)(NBException * exception, NSString * output);
     volatile BOOL busy;
 }

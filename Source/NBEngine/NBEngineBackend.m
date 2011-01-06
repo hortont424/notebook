@@ -31,9 +31,24 @@
 
 @synthesize connection, engine;
 
-+ (void)connectWithPorts:(NSArray *)ports
++ (void)launchServer:(NSString *)port
 {
-    NSConnection * classConnection;
+    NSLog(@"Starting server on port %@...", port);
+
+    NSConnection * connection = [NSConnection new];
+	BOOL status;
+
+	[connection setRootObject:self];
+
+	status = [connection registerName:port];
+
+	if(status == NO)
+	{
+		NSLog(@"Couldn't register as %@", port);
+		exit(EXIT_FAILURE);
+	}
+
+    /*NSConnection * classConnection;
     NBEngineBackend * backend;
 
     classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
@@ -42,9 +57,15 @@
     backend.connection = classConnection;
     backend.engine = (NBEngine *)[classConnection rootProxy];
 
-    [backend.engine setBackend:(NBEngineBackend *)backend];
+    [backend.engine setBackend:(NBEngineBackend *)backend];*/
 
     [[NSRunLoop currentRunLoop] run];
+}
+
+- (NSNumber *)myPid
+{
+	NSLog(@"Vending out my pid...");
+	return [NSNumber numberWithInt:getpid()];
 }
 
 - (oneway void)executeSnippet:(NSString *)snippet

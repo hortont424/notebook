@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Tim Horton. All rights reserved.
+ * Copyright 2011 Tim Horton. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -25,19 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngineBackendProtocol.h"
+@protocol NBEngineBackendProtocol
 
-@interface NBEngineBackend : NSDistantObject<NBEngineBackendProtocol>
-{
-    NSConnection * connection;
-
-    id engine; // TODO: protocol
-}
-
-@property (nonatomic,assign) NSConnection * connection;
-@property (nonatomic,assign) id engine;
-
-+ (void)launchServer:(NSString *)port;
-- (oneway void)executeSnippet:(NSString *)snippet;
+- (NSNumber *)myPid;
 
 @end

@@ -25,7 +25,53 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NBEngine.h"
+#import "NBEngineBackend.h"
+#import "NBEngineLoader.h"
+
+#import "NBEngineBackendProtocol.h"
+
 int main(int argc, char *argv[])
 {
-    return NSApplicationMain(argc,  (const char **) argv);
+    NSUserDefaults * args = [NSUserDefaults standardUserDefaults];
+    NSString * serverLanguage, * serverPort;
+
+    serverLanguage = [args stringForKey:@"server-language"];
+    serverPort = [args stringForKey:@"server-port"];
+
+    if(serverLanguage)
+    {
+        Class serverClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:serverLanguage];
+
+        [[serverClass backendClass] launchServer:serverPort];
+    }
+    else
+    {
+        id<NBEngineBackendProtocol> clientObject;
+        NSNumber * serverPid;
+
+        clientObject=(id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.python.1234567" host:nil];
+        [clientObject setProtocolForProxy:@protocol(NBEngineBackendProtocol)];
+
+        if(clientObject==nil)
+        {
+            NSLog(@"Error: did not get a proxy object for VendingServer service");
+            exit(EXIT_FAILURE);
+        }
+        serverPid=[clientObject myPid];
+
+        if(serverPid!=nil)
+        {
+            NSLog(@"Remote server on pid %@",serverPid);
+        }
+        else
+        {
+            NSLog(@"Error, did not get the server's pid");
+            exit(EXIT_FAILURE);
+        }
+
+        //return NSApplicationMain(argc,  (const char **)argv);
+    }
+
+    return EXIT_SUCCESS;
 }
