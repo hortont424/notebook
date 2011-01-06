@@ -36,6 +36,8 @@
         ruby_init();
         ruby_init_loadpath();
 
+        rb_define_module([[[NSProcessInfo processInfo] globallyUniqueString] UTF8String]);
+
         rb_require("stringio");
         stringIOModule = rb_const_get(rb_cObject, rb_intern("StringIO"));
     }
@@ -84,12 +86,12 @@ static VALUE evaluateString(VALUE ary)
 
     //rb_catch("Exception",
 
-    rb_eval_string([snippet UTF8String]);
+    //rb_eval_string([snippet UTF8String]);
 
-    //VALUE ary = rb_ary_new2(1);
-    //rb_ary_store(ary, 0, rb_str_new2([snippet UTF8String]));
+    VALUE ary = rb_ary_new2(1);
+    rb_ary_store(ary, 0, rb_str_new2([snippet UTF8String]));
 
-    //rb_rescue(evaluateString, ary, exceptionHandler, Qnil);
+    rb_rescue(evaluateString, ary, exceptionHandler, Qnil);
 
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
