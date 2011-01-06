@@ -319,7 +319,6 @@
 												</object>
 												<string key="NSFrameSize">{444, 472}</string>
 												<reference key="NSSuperview" ref="609781111"/>
-												<bool key="NSViewIsLayerTreeHost">YES</bool>
 												<int key="NSViewLayerContentsRedrawPolicy">2</int>
 												<bool key="constrainsToOriginalSize">NO</bool>
 												<bool key="cellsHaveSubtitle">YES</bool>
@@ -337,7 +336,6 @@
 										</object>
 										<string key="NSFrameSize">{444, 472}</string>
 										<reference key="NSSuperview" ref="831436260"/>
-										<bool key="NSViewIsLayerTreeHost">YES</bool>
 										<int key="NSViewLayerContentsRedrawPolicy">2</int>
 										<string key="NSClassName">NSView</string>
 									</object>
@@ -384,7 +382,6 @@
 						<string key="NSFrame">{{0, 40}, {444, 472}}</string>
 						<reference key="NSSuperview" ref="19503454"/>
 						<reference key="NSNextKeyView" ref="831436260"/>
-						<bool key="NSViewIsLayerTreeHost">YES</bool>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<int key="NSsFlags">528</int>
 						<reference key="NSVScroller" ref="249700107"/>
@@ -398,9 +395,9 @@
 				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<object class="NSShadow" key="NSViewShadow">
 					<double key="NSShadowBlurRadius">25</double>
-					<object class="NSColor" key="NSShadowColor">
+					<object class="NSColor" key="NSShadowColor" id="186453131">
 						<int key="NSColorSpace">3</int>
-						<bytes key="NSWhite">MAA</bytes>
+						<bytes key="NSWhite">MCAwLjcyAA</bytes>
 					</object>
 				</object>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -611,6 +608,7 @@
 					<string>60.IBEditorWindowLastContentRect</string>
 					<string>60.IBPluginDependency</string>
 					<string>60.IBViewIntegration.shadowBlurRadius</string>
+					<string>60.IBViewIntegration.shadowColor</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -633,6 +631,7 @@
 					<string>{{360, 165}, {444, 512}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<real value="25"/>
+					<reference ref="186453131"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">

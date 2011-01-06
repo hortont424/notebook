@@ -63,7 +63,6 @@
 // image browser delegate methods
 - (void)imageBrowser:(IKImageBrowserView*)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index
 {
-    NSLog(@"ASDF");
     [self chooseNotebook:[engineClasses objectAtIndex:index]];
 }
 
