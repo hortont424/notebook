@@ -29,17 +29,18 @@
 
 @implementation NBCreateNotebookView
 
-@synthesize languageChooser, delegate, mainView;
+@synthesize languageChooser, delegate, mainView, engineClasses;
 
 - (void)awakeFromNib
 {
-    NSArray * engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
+    engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
     NSRect windowFrame = [mainView frame];
-
-    [languageChooser setContent:engineClasses];
 
     // TODO: magic numbers
     windowFrame.size.height = 64 + (([engineClasses count] > 3 ? 3 : [engineClasses count]) * 64);
+
+    // set up the language chooser
+    [languageChooser reloadData];
 
     [[self window] setFrame:windowFrame display:YES];
 }
@@ -57,6 +58,24 @@
 - (IBAction)cancelCreateNotebook:(id)sender
 {
     [delegate cancelCreateNotebook];
+}
+
+// image browser delegate methods
+- (void)imageBrowser:(IKImageBrowserView*)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index
+{
+    NSLog(@"ASDF");
+    [self chooseNotebook:[engineClasses objectAtIndex:index]];
+}
+
+// image browser data source methods
+- (NSUInteger)numberOfItemsInImageBrowser:(IKImageBrowserView *)aBrowser
+{
+	return [engineClasses count];
+}
+
+- (id)imageBrowser:(IKImageBrowserView *)aBrowser itemAtIndex:(NSUInteger)index
+{
+	return [engineClasses objectAtIndex:index];
 }
 
 @end

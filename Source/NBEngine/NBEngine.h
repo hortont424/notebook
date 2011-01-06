@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 
 #import "NBEngineBackend.h"
 
@@ -45,6 +46,8 @@
     NSConnection * engineConnection;
 
     NSMutableArray * taskQueue;
+
+    NSImage * cachedIcon;
 
     void (^lastCompletionCallback)(NBException * exception, NSString * output);
     volatile BOOL busy;

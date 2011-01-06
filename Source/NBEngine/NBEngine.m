@@ -23,6 +23,8 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <Quartz/Quartz.h>
+
 #import "NBEngine.h"
 
 @implementation NBException
@@ -53,6 +55,8 @@
 
         backend = nil;
         busy = NO;
+
+        cachedIcon = nil;
 
         [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[[self class] backendClass] withObject:ports];
 
@@ -141,6 +145,31 @@
 
         [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
     }
+}
+
++ (NSString *)imageTitle
+{
+    return [[self class] name];
+}
+
++ (NSString *)imageSubtitle
+{
+    return [NSString stringWithFormat:@"Version %@", [self version]];
+}
+
++ (NSString *)imageRepresentationType
+{
+    return IKImageBrowserNSImageRepresentationType;
+}
+
++ (id)imageRepresentation
+{
+    return [self icon];
+}
+
++ (id)imageUID
+{
+    return [self class];
 }
 
 @end
