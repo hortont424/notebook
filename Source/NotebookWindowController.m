@@ -23,9 +23,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <Quartz/Quartz.h>
+
 #import "NotebookWindowController.h"
 
-#import "NBCreateNotebookView.h"
 #import "NotebookDocument.h"
 
 @implementation NotebookWindowController
@@ -34,7 +35,7 @@
 {
     if(![[self document] initializedFromFile])
     {
-        NBCreateNotebookView * createNotebookController = [[NBCreateNotebookView alloc] init];
+        createNotebookController = [[NBCreateNotebookView alloc] init];
 
         [NSBundle loadNibNamed:@"NBCreateNotebookView" owner:createNotebookController];
 
@@ -53,7 +54,8 @@
         [[self window] setMinSize:NSMakeSize([[self window] frame].size.width, 220)];
         [[self window] setMaxSize:NSMakeSize([[self window] frame].size.width, 800)];
 
-        [[self window] setContentView:[createNotebookController mainView]];
+        [[createNotebookController mainView] setFrame:[[[self window] contentView] frame]];
+        [[[self window] contentView] addSubview:[createNotebookController mainView]];
     }
     else
     {
@@ -76,7 +78,28 @@
     [[self window] setMinSize:NSMakeSize(150, 150)];
     [[self window] setMaxSize:NSMakeSize(10000, 10000)];
 
-    [[self window] setContentView:[[self document] splitView]]; // TODO: the view transition should be smooth too!
+    [[[self document] splitView] setFrame:[[[self window] contentView] frame]];
+    [[[self window] contentView] addSubview:[[self document] splitView]
+                                 positioned:NSWindowBelow
+                                 relativeTo:[createNotebookController mainView]];
+
+    [CATransaction begin];
+    [CATransaction setValue:[NSNumber numberWithFloat:0.5f] forKey:kCATransactionAnimationDuration];
+
+    // slide animation
+    float ypos = [[createNotebookController mainView] frame].size.height -
+                 [[createNotebookController mainView] layer].shadowRadius;
+    [[createNotebookController mainView] setFrameOrigin:NSMakePoint(0, ypos)];
+
+    CALayer * layer = [[createNotebookController mainView] layer];
+    CABasicAnimation * anim = [CABasicAnimation animationWithKeyPath:@"position"];
+    [anim setFromValue:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
+    [anim setToValue:[NSValue valueWithPoint:NSPointFromCGPoint(layer.position)]];
+    [anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [anim setDelegate:self];
+    [layer addAnimation:anim forKey:@"position"];
+
+    [CATransaction commit];
 
     // If we initialize the document before the view is realized, the cells that are created during initialization
     // will be broken until one resize occurs.
@@ -93,6 +116,12 @@
 - (void)cancelCreateNotebook
 {
     [[self document] close];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    [[createNotebookController mainView] removeFromSuperview];
+    createNotebookController = nil;
 }
 
 @end
