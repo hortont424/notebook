@@ -17,8 +17,6 @@
 		3525306012D4738F00A1124E /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 3525305B12D4738F00A1124E /* ruby.png */; };
 		3525306512D473B000A1124E /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
 		3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		3525307F12D473EE00A1124E /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3525307712D473E300A1124E /* Python.framework */; };
-		3525308012D473F100A1124E /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3525307A12D473E900A1124E /* Ruby.framework */; };
 		352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 3525304B12D4737400A1124E /* Ruby.bundle */; };
 		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
 		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
@@ -56,6 +54,8 @@
 		3551B28912D040B9004A020C /* NBNotebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352F5992129B5E5300C34824 /* NBNotebook.h */; };
 		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
 		355CE8B212C351F900EF19E7 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
+		355FBB3A12D591C8002CF0DC /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355FBB3312D591BA002CF0DC /* Python.framework */; };
+		355FBB3C12D591CB002CF0DC /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355FBB3612D591C1002CF0DC /* Ruby.framework */; };
 		35761587129C2417000B442B /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35761585129C2417000B442B /* Notebook.xib */; };
 		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
 		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
@@ -165,8 +165,6 @@
 		3525305912D4738F00A1124E /* NBEngineRubyHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyHighlighter.h; sourceTree = "<group>"; };
 		3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyHighlighter.m; sourceTree = "<group>"; };
 		3525305B12D4738F00A1124E /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
-		3525307712D473E300A1124E /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
-		3525307A12D473E900A1124E /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
 		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
 		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
@@ -219,6 +217,8 @@
 		3551B25212D0402C004A020C /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
 		35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookViewDelegate.h; path = NBCreateNotebookView/NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
 		355CE6A312C33FD000EF19E7 /* spelling.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = spelling.py; sourceTree = "<group>"; };
+		355FBB3312D591BA002CF0DC /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		355FBB3612D591C1002CF0DC /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		35761586129C2417000B442B /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Notebook.xib; sourceTree = "<group>"; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		35812B8B129B84030092AECD /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookView.h; path = NBCreateNotebookView/NBCreateNotebookView.h; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3525308012D473F100A1124E /* Ruby.framework in Frameworks */,
+				355FBB3C12D591CB002CF0DC /* Ruby.framework in Frameworks */,
 				3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */,
 				3525306512D473B000A1124E /* NBCore.framework in Frameworks */,
 			);
@@ -268,7 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3525307F12D473EE00A1124E /* Python.framework in Frameworks */,
+				355FBB3A12D591C8002CF0DC /* Python.framework in Frameworks */,
 				359E3804129B918800044B12 /* Cocoa.framework in Frameworks */,
 				359E3838129B92B900044B12 /* NBCore.framework in Frameworks */,
 			);
@@ -312,6 +312,8 @@
 				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
 				35F5CF831298C1490032AB15 /* RegexKit.framework */,
 				4385972B12D57EBF003D2E8D /* Quartz.framework */,
+				355FBB3312D591BA002CF0DC /* Python.framework */,
+				355FBB3612D591C1002CF0DC /* Ruby.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
