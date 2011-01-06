@@ -117,11 +117,11 @@
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<object class="NSColor" key="BWGBFillStartingColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC42NzU3Njg1MjI3IDAuNzIxOTQ4MTMwNiAwLjc2NTMwNjEyMjQAA</bytes>
+							<bytes key="NSRGB">MC44MTE3NjQ3MDU5IDAuODExNzY0NzA1OSAwLjgxMTc2NDcwNTkAA</bytes>
 						</object>
 						<object class="NSColor" key="BWGBFillEndingColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC41MTM3NjcxODUyIDAuNTY4NDkwNTE3IDAuNjE3MzQ2OTM4OAA</bytes>
+							<bytes key="NSRGB">MC42MDIzNzIyNTI2IDAuNjA0MDk4MTI5NyAwLjYzMDQzNDc4MjYAA</bytes>
 						</object>
 						<object class="NSColor" key="BWGBFillColor">
 							<int key="NSColorSpace">1</int>
@@ -628,7 +628,7 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABDvgAAwfgAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{360, 165}, {444, 512}}</string>
+					<string>{{408, 223}, {444, 512}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<real value="25"/>
 					<reference ref="186453131"/>
