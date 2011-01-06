@@ -63,11 +63,33 @@
     return [NSString stringWithUTF8String:StringValueCStr(stdoutValue)];
 }
 
+static VALUE exceptionHandler(VALUE unused)
+{
+    NSLog(@"exceptionHandler");
+    return Qtrue;
+}
+
+static VALUE evaluateString(VALUE ary)
+{
+    VALUE str = rb_ary_entry(ary, 0);
+
+    rb_eval_string(StringValueCStr(str));
+
+    return Qtrue;
+}
+
 - (oneway void)executeSnippet:(NSString *)snippet
 {
     VALUE stringIOObject = [self captureRubyStdout];
 
+    //rb_catch("Exception",
+
     rb_eval_string([snippet UTF8String]);
+
+    //VALUE ary = rb_ary_new2(1);
+    //rb_ary_store(ary, 0, rb_str_new2([snippet UTF8String]));
+
+    //rb_rescue(evaluateString, ary, exceptionHandler, Qnil);
 
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
