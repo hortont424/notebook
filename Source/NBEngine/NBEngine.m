@@ -49,6 +49,7 @@ void sigusr1(int dummy)
     if(self != nil)
     {
         busy = NO;
+        taskQueue = [[NSMutableArray alloc] init];
 
         const char * binaryPath = [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] UTF8String];
         const char * serverLanguage = [[[self class] uuid] UTF8String];
