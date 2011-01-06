@@ -33,11 +33,9 @@
 
 + (void)connectWithPorts:(NSArray *)ports
 {
-    NSAutoreleasePool * pool;
     NSConnection * classConnection;
     NBEngineBackend * backend;
 
-    pool = [[NSAutoreleasePool alloc] init];
     classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
     backend = [[self alloc] init];
 
@@ -47,8 +45,6 @@
     [backend.engine setBackend:(NBEngineBackend *)backend];
 
     [[NSRunLoop currentRunLoop] run];
-
-    [pool drain];
 }
 
 - (oneway void)executeSnippet:(NSString *)snippet
