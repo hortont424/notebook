@@ -27,17 +27,13 @@
 
 #import "NBEngineBackendProtocol.h"
 
-@interface NBEngineBackend : NSDistantObject<NBEngineBackendProtocol>
+@interface NBEngineBackend : NSObject<NBEngineBackendProtocol>
 {
-    NSConnection * connection;
-
     id engine; // TODO: protocol
 }
 
-@property (nonatomic,assign) NSConnection * connection;
 @property (nonatomic,assign) id engine;
 
 + (void)launchServer:(NSString *)port;
-- (oneway void)executeSnippet:(NSString *)snippet;
 
 @end

@@ -33,6 +33,13 @@
 
 @end
 
+BOOL serverHasLaunched = NO;
+
+void sigusr1(int dummy)
+{
+    serverHasLaunched = YES;
+}
+
 @implementation NBEngine
 
 - (id)init
@@ -43,26 +50,60 @@
     {
         busy = NO;
 
-        /*NSPort * input, * output;
-        NSArray * ports;
+        const char * binaryPath = [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] UTF8String];
+        const char * serverLanguage = [[[self class] uuid] UTF8String];
 
-        input = [NSPort port];
-        output = [NSPort port];
-        ports = [NSArray arrayWithObjects:output, input, nil];
+        NSLog(@"%s %s", binaryPath, serverLanguage);
 
-        taskQueue = [[NSMutableArray alloc] init];
+        // TODO: CRITICAL: children aren't cleaned up when the parent dies
 
-        engineConnection = [[NSConnection alloc] initWithReceivePort:input sendPort:output];
-        [engineConnection setRootObject:self];
+        sigset_t mask, oldmask;
 
-        backend = nil;
+        sigemptyset (&mask);
+        sigaddset (&mask, SIGUSR1);
 
-        [NSThread detachNewThreadSelector:@selector(connectWithPorts:) toTarget:[[self class] backendClass] withObject:ports];
+        signal(SIGUSR1, sigusr1);
 
-        while(!backend)
+        sigprocmask (SIG_BLOCK, &mask, &oldmask);
+
+        serverHasLaunched = NO;
+
+        if(fork() == 0)
         {
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-        }*/
+            execl(binaryPath, binaryPath, "-server-language", serverLanguage, "-server-port", "com.hortont.notebook.asdf", NULL);
+
+            _exit(0);
+        }
+
+        while(!serverHasLaunched)
+            sigsuspend(&oldmask);
+
+        sigprocmask (SIG_UNBLOCK, &mask, NULL);
+
+        NSLog(@"hey we got the signal");
+
+        // TODO: instead of launching the server and trying to connect to it, launch the server, wait for it to connect to us
+        // on the global com.hortont.notebook object, then do the connection backwards
+
+        backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.asdf" host:nil];
+
+        if(backend == nil)
+        {
+            NSLog(@"Error: failed to spawn engine backend");
+            exit(EXIT_FAILURE);
+        }
+
+        NSNumber * serverPid = [backend myPid];
+
+        if(serverPid)
+        {
+            NSLog(@"Remote server on pid %@",serverPid);
+        }
+        else
+        {
+            NSLog(@"Error, did not get the server's pid");
+            exit(EXIT_FAILURE);
+        }
     }
 
     return self;

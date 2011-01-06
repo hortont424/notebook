@@ -31,7 +31,7 @@
 
 @interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
 {
-
+    id dispatcher;
 }
 
 @end

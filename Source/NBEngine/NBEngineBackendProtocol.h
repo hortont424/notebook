@@ -28,5 +28,6 @@
 @protocol NBEngineBackendProtocol
 
 - (NSNumber *)myPid;
+- (oneway void)executeSnippet:(NSString *)snippet;
 
 @end

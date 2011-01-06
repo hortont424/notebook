@@ -29,37 +29,34 @@
 
 @implementation NBEngineBackend
 
-@synthesize connection, engine;
+@synthesize engine;
+
+static NSMutableArray * servers = nil;
+static NSMutableArray * connections = nil;
 
 + (void)launchServer:(NSString *)port
 {
-    NSLog(@"Starting server on port %@...", port);
-
+    NBEngineBackend * backend = [[self alloc] init];
     NSConnection * connection = [NSConnection new];
-	BOOL status;
 
-	[connection setRootObject:self];
+    if(!servers)
+    {
+        servers = [[NSMutableArray alloc] init];
+        connections = [[NSMutableArray alloc] init];
+    }
 
-	status = [connection registerName:port];
+    [servers addObject:backend];
+    [connections addObject:connection];
 
-	if(status == NO)
-	{
-		NSLog(@"Couldn't register as %@", port);
-		exit(EXIT_FAILURE);
-	}
+    [connection setRootObject:backend];
 
-    /*NSConnection * classConnection;
-    NBEngineBackend * backend;
+    if([connection registerName:port] == NO)
+    {
+        NSLog(@"Couldn't register engine backend");
+        exit(EXIT_FAILURE);
+    }
 
-    classConnection = [NSConnection connectionWithReceivePort:[ports objectAtIndex:0] sendPort:[ports objectAtIndex:1]];
-    backend = [[self alloc] init];
-
-    backend.connection = classConnection;
-    backend.engine = (NBEngine *)[classConnection rootProxy];
-
-    [backend.engine setBackend:(NBEngineBackend *)backend];*/
-
-    [[NSRunLoop currentRunLoop] run];
+    NSLog(@"Successfully registered engine backend");
 }
 
 - (NSNumber *)myPid

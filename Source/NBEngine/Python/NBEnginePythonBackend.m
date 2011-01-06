@@ -42,7 +42,6 @@
     return self;
 }
 
-
 - (NBException *)retrievePythonException
 {
     NBException * err;

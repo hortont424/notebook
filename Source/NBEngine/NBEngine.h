@@ -42,8 +42,7 @@
 
 @interface NBEngine : NSObject
 {
-    NBEngineBackend * backend;
-    NSConnection * engineConnection;
+    id<NBEngineBackendProtocol> backend;
 
     NSMutableArray * taskQueue;
 

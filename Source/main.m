@@ -43,34 +43,40 @@ int main(int argc, char *argv[])
     {
         Class serverClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:serverLanguage];
 
+        NSLog(@"Starting server for %@ on port %@...", serverLanguage, serverPort);
+
         [[serverClass backendClass] launchServer:serverPort];
+
+        // Tell parent we're ready
+        // TODO: this whole signalling mechanism is incredibly dangerous
+
+        kill(getppid(), SIGUSR1);
+
+        /*id<NBEngineBackendProtocol> backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.enginedispatcher" host:nil];
+
+        if(backend == nil)
+        {
+            NSLog(@"Error: failed to connect to engine dispatcher");
+            exit(EXIT_FAILURE);
+        }
+
+        NSLog(@"%d", [backend myPid]);*/
+
+        /*NSConnection * connection = [NSConnection new];
+
+        [connection setRootObject:obj];
+
+        if([connection registerName:serverPort] == NO)
+        {
+            NSLog(@"Couldn't register as %@", serverPort);
+            exit(EXIT_FAILURE);
+        }*/
+
+        [[NSRunLoop currentRunLoop] run];
     }
     else
     {
-        id<NBEngineBackendProtocol> clientObject;
-        NSNumber * serverPid;
-
-        clientObject=(id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.python.1234567" host:nil];
-        [clientObject setProtocolForProxy:@protocol(NBEngineBackendProtocol)];
-
-        if(clientObject==nil)
-        {
-            NSLog(@"Error: did not get a proxy object for VendingServer service");
-            exit(EXIT_FAILURE);
-        }
-        serverPid=[clientObject myPid];
-
-        if(serverPid!=nil)
-        {
-            NSLog(@"Remote server on pid %@",serverPid);
-        }
-        else
-        {
-            NSLog(@"Error, did not get the server's pid");
-            exit(EXIT_FAILURE);
-        }
-
-        //return NSApplicationMain(argc,  (const char **)argv);
+        return NSApplicationMain(argc,  (const char **)argv);
     }
 
     return EXIT_SUCCESS;
