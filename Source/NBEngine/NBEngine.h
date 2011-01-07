@@ -26,7 +26,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-#import "NBEngineBackend.h"
+#import "NBEngineBackendProtocol.h"
 
 @interface NBException : NSObject
 {

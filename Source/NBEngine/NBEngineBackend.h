@@ -26,13 +26,14 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NBEngineBackendProtocol.h"
+#import "NBEngine.h"
 
 @interface NBEngineBackend : NSObject<NBEngineBackendProtocol>
 {
-    id engine; // TODO: protocol
+    NBEngine * engine;
 }
 
-@property (nonatomic,assign) id engine;
+@property (nonatomic,assign) NBEngine * engine;
 
 + (void)launchServer:(NSString *)port;
 

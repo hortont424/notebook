@@ -59,6 +59,7 @@
     NSString * serverPort = [NSString stringWithFormat:@"com.hortont.notebook.server.%@",[[NSProcessInfo processInfo] globallyUniqueString],nil];
 
     backendTask = [NSTask launchedTaskWithLaunchPath:binaryPath arguments:[NSArray arrayWithObjects:@"-server-language",serverLanguage,@"-server-port",serverPort,nil]];
+    backend = nil;
 
     // TODO: This should be done on a different thread and spaced out over time (or just in a timer here!)
 
@@ -77,6 +78,8 @@
         NSLog(@"Failed to launch backend.");
     }
 }
+
+#pragma mark Abstract Base Methods
 
 + (Class)encoderClass
 {
@@ -127,36 +130,7 @@
     return nil;
 }
 
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
-{
-    if(busy)
-    {
-        [taskQueue insertObject:[NSDictionary dictionaryWithObjectsAndKeys:snippet,@"snippet",[completion copy],@"callback",nil] atIndex:0];
-
-        return;
-    }
-
-    busy = YES;
-    lastCompletionCallback = [completion copy];
-
-    [backend executeSnippet:snippet];
-}
-
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
-{
-    lastCompletionCallback(exception, outputString);
-
-    busy = NO;
-    lastCompletionCallback = nil;
-
-    if([taskQueue count])
-    {
-        NSDictionary * enqueuedTask = [taskQueue lastObject];
-        [taskQueue removeLastObject];
-
-        [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
-    }
-}
+#pragma mark IKImageBrowser-related Methods
 
 + (NSString *)imageTitle
 {
@@ -181,6 +155,56 @@
 + (id)imageUID
 {
     return [self class];
+}
+
+#pragma mark Snippet Evaluation
+
+- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
+{
+    // If the backend process has died or was never started, try to launch it
+
+    if(!backendTask || ![backendTask isRunning])
+    {
+        [self launchBackend];
+    }
+
+    if(!backend)
+    {
+        NSLog(@"No backend! Cannot execute snippet"); // TODO: better errors
+    }
+
+    // If we're currently in the middle of evaluation, queue up the snippet
+
+    if(busy)
+    {
+        [taskQueue insertObject:[NSDictionary dictionaryWithObjectsAndKeys:snippet,@"snippet",[completion copy],@"callback",nil] atIndex:0];
+
+        return;
+    }
+
+    // Otherwise, execute the current snippet
+
+    busy = YES;
+    lastCompletionCallback = [completion copy];
+    [backend executeSnippet:snippet];
+}
+
+- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
+{
+    lastCompletionCallback(exception, outputString);
+
+    busy = NO;
+    lastCompletionCallback = nil;
+
+    // If there is another snippet on the queue, dequeue and evaluate it
+
+    if([taskQueue count])
+    {
+        NSDictionary * enqueuedTask = [taskQueue lastObject];
+        [taskQueue removeLastObject];
+
+        [self executeSnippet:[enqueuedTask objectForKey:@"snippet"] onCompletion:[enqueuedTask objectForKey:@"callback"]];
+    }
 }
 
 @end

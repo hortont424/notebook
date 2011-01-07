@@ -31,32 +31,25 @@
 
 @synthesize engine;
 
-static NSMutableArray * servers = nil;
-static NSMutableArray * connections = nil;
+static NBEngineBackend * backend = nil;
+static NSConnection * connection = nil;
 
 + (void)launchServer:(NSString *)port
 {
-    NBEngineBackend * backend = [[self alloc] init];
-    NSConnection * connection = [NSConnection new];
+    // Create an instance of our class and register it as a DO with the given global name
 
-    if(!servers)
-    {
-        servers = [[NSMutableArray alloc] init];
-        connections = [[NSMutableArray alloc] init];
-    }
-
-    [servers addObject:backend];
-    [connections addObject:connection];
+    backend = [[self alloc] init];
+    connection = [NSConnection new];
 
     [connection setRootObject:backend];
 
     if([connection registerName:port] == NO)
     {
-        NSLog(@"Couldn't register engine backend");
+        NSLog(@"Couldn't start server on %@.", port);
         exit(EXIT_FAILURE);
     }
 
-    NSLog(@"Successfully registered engine backend");
+    NSLog(@"Successfully started server on %@.", port);
 }
 
 - (oneway void)executeSnippet:(NSString *)snippet
