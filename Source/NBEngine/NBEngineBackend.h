@@ -34,6 +34,6 @@
 
 @property (nonatomic,assign) id engine;
 
-+ (void)launchServer:(NSString *)port forClient:(NSString *)clientPort;
++ (void)launchServer:(NSString *)port;
 
 @end

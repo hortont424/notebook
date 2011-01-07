@@ -34,7 +34,7 @@
 static NSMutableArray * servers = nil;
 static NSMutableArray * connections = nil;
 
-+ (void)launchServer:(NSString *)port forClient:(NSString *)clientPort
++ (void)launchServer:(NSString *)port
 {
     NBEngineBackend * backend = [[self alloc] init];
     NSConnection * connection = [NSConnection new];

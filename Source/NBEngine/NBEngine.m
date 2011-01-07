@@ -73,7 +73,6 @@ void sigusr1(int dummy)
         const char * binaryPath = [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] UTF8String];
         NSString * serverLanguage = [[self class] uuid];
         NSString * serverPort = [NSString stringWithFormat:@"com.hortont.notebook.server.%@",[[NSProcessInfo processInfo] globallyUniqueString],nil];
-        NSString * clientPort = [NSString stringWithFormat:@"com.hortont.notebook.client.%@",[[NSProcessInfo processInfo] globallyUniqueString],nil];
 
         NSLog(@"%s %s", binaryPath, serverLanguage);
 
@@ -95,8 +94,7 @@ void sigusr1(int dummy)
         {
             execl(binaryPath, binaryPath,
                   "-server-language", [serverLanguage UTF8String],
-                  "-server-port", [serverPort UTF8String],
-                  "-client-port", [clientPort UTF8String], NULL);
+                  "-server-port", [serverPort UTF8String], NULL);
 
             _exit(0);
         }

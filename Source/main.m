@@ -34,11 +34,10 @@
 int main(int argc, char *argv[])
 {
     NSUserDefaults * args = [NSUserDefaults standardUserDefaults];
-    NSString * serverLanguage, * serverPort, * clientPort;
+    NSString * serverLanguage, * serverPort;
 
     serverLanguage = [args stringForKey:@"server-language"];
     serverPort = [args stringForKey:@"server-port"];
-    clientPort = [args stringForKey:@"client-port"];
 
     if(serverLanguage)
     {
@@ -46,32 +45,12 @@ int main(int argc, char *argv[])
 
         NSLog(@"Starting server for %@ on port %@...", serverLanguage, serverPort);
 
-        [[serverClass backendClass] launchServer:serverPort forClient:clientPort];
+        [[serverClass backendClass] launchServer:serverPort];
 
         // Tell parent we're ready
         // TODO: this whole signalling mechanism is incredibly dangerous
 
         kill(getppid(), SIGUSR1);
-
-        /*id<NBEngineBackendProtocol> backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.enginedispatcher" host:nil];
-
-        if(backend == nil)
-        {
-            NSLog(@"Error: failed to connect to engine dispatcher");
-            exit(EXIT_FAILURE);
-        }
-
-        NSLog(@"%d", [backend myPid]);*/
-
-        /*NSConnection * connection = [NSConnection new];
-
-        [connection setRootObject:obj];
-
-        if([connection registerName:serverPort] == NO)
-        {
-            NSLog(@"Couldn't register as %@", serverPort);
-            exit(EXIT_FAILURE);
-        }*/
 
         [[NSRunLoop currentRunLoop] run];
     }
