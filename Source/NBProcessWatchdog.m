@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Tim Horton. All rights reserved.
+ * Copyright 2011 Tim Horton. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -23,51 +23,38 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <sysexits.h>
-
-#import "NBEngineBackend.h"
-#import "NBEngineLoader.h"
 #import "NBProcessWatchdog.h"
 
-int main(int argc, char *argv[])
+@implementation NBProcessWatchdog
+
+- (id)init
 {
-    NSUserDefaults * args = [NSUserDefaults standardUserDefaults];
-    NSString * serverLanguage, * serverPort;
+    self = [super init];
 
-    serverLanguage = [args stringForKey:@"server-language"];
-    serverPort = [args stringForKey:@"server-port"];
-
-    if(serverLanguage && serverPort)
+    if(self != nil)
     {
-        Class serverClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:serverLanguage];
+        parent = getppid();
 
-        if(serverClass)
-        {
-            NSLog(@"Starting server for %@ on port %@...", serverLanguage, serverPort);
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(watch:) userInfo:nil repeats:YES];
 
-            [NSThread detachNewThreadSelector:@selector(start) toTarget:[NBProcessWatchdog class] withObject:nil];
-
-            [[serverClass backendClass] launchServer:serverPort];
-        }
-        else
-        {
-            NSLog(@"Unknown language %@.", serverLanguage);
-
-            return EXIT_FAILURE;
-        }
-
+        [[NSRunLoop currentRunLoop] run];
     }
-    else if(serverLanguage || serverPort)
-    {
-        NSLog(@"Usage: %@ -server-lanuage LANGUAGE -server-port PORT", [[[NSProcessInfo processInfo] arguments] objectAtIndex:0]);
-
-        return EX_USAGE;
-    }
-    else
-    {
-        return NSApplicationMain(argc,  (const char **)argv);
-    }
-
-    return EXIT_SUCCESS;
+    return self;
 }
+
+- (void)watch:(NSTimer *)timer
+{
+    // If our original parent PID doesn't match the current one, our parent has died
+
+    if(getppid() != parent)
+    {
+        exit(EXIT_FAILURE);
+    }
+}
+
++ (void)start
+{
+    [[self alloc] init];
+}
+
+@end

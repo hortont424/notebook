@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 350A446712D70E2C007F6457 /* NBProcessWatchdog.m */; };
 		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
 		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
 		3525305C12D4738F00A1124E /* NBEngineRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305412D4738F00A1124E /* NBEngineRuby.m */; };
@@ -152,6 +153,8 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		350A446612D70E2C007F6457 /* NBProcessWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBProcessWatchdog.h; sourceTree = "<group>"; };
+		350A446712D70E2C007F6457 /* NBProcessWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBProcessWatchdog.m; sourceTree = "<group>"; };
 		351106AA12BC942B00FCCF7A /* NBCommentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentCellView.h; path = NBCommentCellView/NBCommentCellView.h; sourceTree = "<group>"; };
 		351106AB12BC942B00FCCF7A /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentCellView.m; path = NBCommentCellView/NBCommentCellView.m; sourceTree = "<group>"; };
 		351106F812BC98E900FCCF7A /* NBCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentView.h; path = NBCommentView/NBCommentView.h; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				352F597A129B5E5300C34824 /* main.m */,
+				350A446612D70E2C007F6457 /* NBProcessWatchdog.h */,
+				350A446712D70E2C007F6457 /* NBProcessWatchdog.m */,
 				352F597B129B5E5300C34824 /* NBCell */,
 				35812B89129B83BE0092AECD /* NBCreateNotebookView */,
 				3551B23D12D0402C004A020C /* NBEngine */,
@@ -811,6 +816,7 @@
 				35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */,
 				3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */,
 				358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */,
+				350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

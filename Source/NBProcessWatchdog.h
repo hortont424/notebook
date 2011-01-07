@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Tim Horton. All rights reserved.
+ * Copyright 2011 Tim Horton. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -23,40 +23,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBEngineBackend.h"
+#import <Cocoa/Cocoa.h>
 
-#import "NBEngine.h"
-
-@implementation NBEngineBackend
-
-@synthesize engine;
-
-static NBEngineBackend * backend = nil;
-static NSConnection * connection = nil;
-
-+ (void)launchServer:(NSString *)port
+@interface NBProcessWatchdog : NSObject
 {
-    // Create an instance of our class and register it as a DO with the given global name
-
-    backend = [[self alloc] init];
-    connection = [NSConnection new];
-
-    [connection setRootObject:backend];
-
-    if([connection registerName:port] == NO)
-    {
-        NSLog(@"Couldn't start server on %@.", port);
-        exit(EXIT_FAILURE);
-    }
-
-    NSLog(@"Successfully started server on %@.", port);
-
-    [[NSRunLoop currentRunLoop] run];
+    pid_t parent;
 }
 
-- (oneway void)executeSnippet:(NSString *)snippet
-{
-    [self doesNotRecognizeSelector:_cmd];
-}
++ (void)start;
 
 @end
