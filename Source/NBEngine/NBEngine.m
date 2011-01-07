@@ -89,7 +89,8 @@
     backend = nil;
     backendTask = nil;
 
-    lastCompletionCallback(abortException, nil);
+    if(lastCompletionCallback)
+        lastCompletionCallback(abortException, nil);
 
     lastCompletionCallback = nil;
 
