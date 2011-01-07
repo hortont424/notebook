@@ -62,12 +62,20 @@
 
     // TODO: This should be done on a different thread and spaced out over time (or just in a timer here!)
 
-    while(!backend)
+    while(!backend && [backendTask isRunning])
     {
         backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:serverPort host:nil];
     }
 
-    [backend setEngine:self];
+    if(backend)
+    {
+        [backend setEngine:self];
+    }
+    else
+    {
+        // TODO: better errors
+        NSLog(@"Failed to launch backend.");
+    }
 }
 
 + (Class)encoderClass
