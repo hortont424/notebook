@@ -30,6 +30,7 @@
 		352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A5129B5E5300C34824 /* NBSourceView.m */; };
 		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
 		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
+		35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35347C1912D7DA87009E8911 /* NBBackgroundView.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
 		3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
@@ -196,6 +197,8 @@
 		352F59AA129B5E5300C34824 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = Source/NBTextView/NBTextView.m; sourceTree = SOURCE_ROOT; };
 		352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookAppDelegate.h; sourceTree = "<group>"; };
 		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookAppDelegate.m; sourceTree = "<group>"; };
+		35347C1812D7DA87009E8911 /* NBBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBackgroundView.h; sourceTree = "<group>"; };
+		35347C1912D7DA87009E8911 /* NBBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBackgroundView.m; sourceTree = "<group>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookDocument.h; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 				35C2092B12C087C4002B114A /* NBNotebookDelegate.h */,
 				352F5994129B5E5300C34824 /* NBNotebookView.h */,
 				352F5995129B5E5300C34824 /* NBNotebookView.m */,
+				35347C1812D7DA87009E8911 /* NBBackgroundView.h */,
+				35347C1912D7DA87009E8911 /* NBBackgroundView.m */,
 			);
 			name = NBNotebook;
 			path = Source/NBNotebook;
@@ -817,6 +822,7 @@
 				3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */,
 				358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */,
 				350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */,
+				35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,11 +51,6 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-
-}
-
 - (BOOL)isFlipped
 {
     return YES;

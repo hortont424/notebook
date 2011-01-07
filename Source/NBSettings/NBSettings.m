@@ -112,14 +112,25 @@ static NBSettings * sharedInstance = nil;
 
     for(NSString * colorType in themePart)
     {
-        NSDictionary * colorDict = [themePart objectForKey:colorType];
+        id color = [themePart objectForKey:colorType];
 
-        // Convert color descriptor from JSON (rgba dictionary) to NSColor
+        if([color isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary * colorDict = color;
 
-        [colors setObject:[NSColor colorWithCalibratedRed:[[colorDict objectForKey:@"r"] floatValue]
-                                                    green:[[colorDict objectForKey:@"g"] floatValue]
-                                                     blue:[[colorDict objectForKey:@"b"] floatValue]
-                                                    alpha:[[colorDict objectForKey:@"a"] floatValue]] forKey:colorType];
+            // Convert color descriptor from JSON (rgba dictionary) to NSColor
+
+            [colors setObject:[NSColor colorWithCalibratedRed:[[colorDict objectForKey:@"r"] floatValue]
+                                                        green:[[colorDict objectForKey:@"g"] floatValue]
+                                                         blue:[[colorDict objectForKey:@"b"] floatValue]
+                                                        alpha:[[colorDict objectForKey:@"a"] floatValue]] forKey:colorType];
+        }
+        else if([color isKindOfClass:[NSString class]])
+        {
+            NSString * colorName = color;
+
+            [colors setObject:[[NSColorList colorListNamed:@"System"] colorWithKey:colorName] forKey:colorType];
+        }
     }
 
     [theme setObject:colors forKey:@"colors"];

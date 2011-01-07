@@ -1,7 +1,7 @@
 {
     "name": "Tango",
     "author": "Tim Horton",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
@@ -10,6 +10,7 @@
     "colors": {
         "normal": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
 
+        "background": "controlColor",
         "background.source": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
         "background.output": {"r": 0.9, "g": 0.9, "b": 0.9, "a": 1.0},
         "background.comment": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
