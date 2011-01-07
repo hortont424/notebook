@@ -9,6 +9,7 @@ Languages
 Notebook includes a plugin system to add support for a variety of languages. By default, it includes plugins for:
 
 * Python
+* Ruby (super pre-alpha)
 * Haskell (not yet implemented)
 
 License
