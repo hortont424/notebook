@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <sysexits.h>
 
 #import "NBEngineBackend.h"
 #import "NBEngineLoader.h"
@@ -49,6 +50,8 @@ int main(int argc, char *argv[])
     else if(serverLanguage || serverPort)
     {
         NSLog(@"Usage: %@ -server-lanuage LANGUAGE -server-port PORT", [[[NSProcessInfo processInfo] arguments] objectAtIndex:0]);
+
+        return EX_USAGE;
     }
     else
     {
