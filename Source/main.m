@@ -47,11 +47,6 @@ int main(int argc, char *argv[])
 
         [[serverClass backendClass] launchServer:serverPort];
 
-        // Tell parent we're ready
-        // TODO: this whole signalling mechanism is incredibly dangerous
-
-        kill(getppid(), SIGUSR1);
-
         [[NSRunLoop currentRunLoop] run];
     }
     else

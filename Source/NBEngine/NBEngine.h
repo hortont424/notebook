@@ -42,6 +42,7 @@
 
 @interface NBEngine : NSObject
 {
+    NSTask * backendTask;
     id<NBEngineBackendProtocol> backend;
 
     NSMutableArray * taskQueue;
@@ -49,6 +50,8 @@
     void (^lastCompletionCallback)(NBException * exception, NSString * output);
     volatile BOOL busy;
 }
+
+- (void)launchBackend;
 
 + (Class)backendClass;
 + (Class)highlighterClass;
@@ -59,7 +62,6 @@
 + (NSString *)version;
 + (NSImage *)icon;
 
-- (void)setBackend:(NBEngineBackend *)inBackend;
 - (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
