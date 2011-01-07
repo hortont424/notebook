@@ -142,4 +142,9 @@
     NSLog(@"something");
 }
 
+- (IBAction)abortEvaluation:(id)sender
+{
+    [[notebook engine] abortBackend];
+}
+
 @end

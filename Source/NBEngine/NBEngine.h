@@ -40,6 +40,8 @@
 
 @end
 
+typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
+
 @interface NBEngine : NSObject
 {
     NSTask * backendTask;
@@ -47,11 +49,12 @@
 
     NSMutableArray * taskQueue;
 
-    void (^lastCompletionCallback)(NBException * exception, NSString * output);
+    SnippetCompletionCallback lastCompletionCallback;
     volatile BOOL busy;
 }
 
 - (void)launchBackend;
+- (void)abortBackend;
 
 + (Class)backendClass;
 + (Class)highlighterClass;
@@ -62,7 +65,7 @@
 + (NSString *)version;
 + (NSImage *)icon;
 
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion;
+- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end

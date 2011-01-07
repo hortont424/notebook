@@ -79,6 +79,30 @@
     }
 }
 
+- (void)abortBackend
+{
+    NBException * abortException = [[NBException alloc] init];
+    abortException.message = @"Aborted";
+
+    [backendTask terminate];
+
+    backend = nil;
+    backendTask = nil;
+
+    lastCompletionCallback(abortException, nil);
+
+    lastCompletionCallback = nil;
+
+    for(NSDictionary * task in taskQueue)
+    {
+        SnippetCompletionCallback cb = [task objectForKey:@"callback"];
+
+        cb(abortException, nil);
+    }
+
+    [taskQueue removeAllObjects];
+}
+
 #pragma mark Abstract Base Methods
 
 + (Class)encoderClass
@@ -159,7 +183,7 @@
 
 #pragma mark Snippet Evaluation
 
-- (void)executeSnippet:(NSString *)snippet onCompletion:(void (^)(NBException * exception, NSString * output))completion
+- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion
 {
     // If the backend process has died or was never started, try to launch it
 

@@ -49,5 +49,6 @@
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
 - (IBAction)doSomethingButton:(id)sender;
+- (IBAction)abortEvaluation:(id)sender;
 
 @end
