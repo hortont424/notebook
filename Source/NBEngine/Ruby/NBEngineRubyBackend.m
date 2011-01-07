@@ -25,6 +25,8 @@
 
 #import "NBEngineRubyBackend.h"
 
+static NBException * exception;
+
 @implementation NBEngineRubyBackend
 
 - (id)init
@@ -67,7 +69,9 @@
 
 static VALUE exceptionHandler(VALUE unused)
 {
-    NSLog(@"exceptionHandler");
+    exception = [[NBException alloc] init];
+    exception.message = @"Ruby exception!";
+
     return Qtrue;
 }
 
@@ -84,18 +88,16 @@ static VALUE evaluateString(VALUE ary)
 {
     VALUE stringIOObject = [self captureRubyStdout];
 
-    //rb_catch("Exception",
-
-    //rb_eval_string([snippet UTF8String]);
-
     VALUE ary = rb_ary_new2(1);
     rb_ary_store(ary, 0, rb_str_new2([snippet UTF8String]));
+
+    exception = nil;
 
     rb_rescue(evaluateString, ary, exceptionHandler, Qnil);
 
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
-    [engine snippetComplete:nil withOutput:[self prepareCapturedRubyStdout:stringIOObject]];
+    [engine snippetComplete:exception withOutput:[self prepareCapturedRubyStdout:stringIOObject]];
 }
 
 @end
