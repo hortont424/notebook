@@ -34,7 +34,7 @@
 static NSMutableArray * servers = nil;
 static NSMutableArray * connections = nil;
 
-+ (void)launchServer:(NSString *)port
++ (void)launchServer:(NSString *)port forClient:(NSString *)clientPort
 {
     NBEngineBackend * backend = [[self alloc] init];
     NSConnection * connection = [NSConnection new];
@@ -57,12 +57,6 @@ static NSMutableArray * connections = nil;
     }
 
     NSLog(@"Successfully registered engine backend");
-}
-
-- (NSNumber *)myPid
-{
-	NSLog(@"Vending out my pid...");
-	return [NSNumber numberWithInt:getpid()];
 }
 
 - (oneway void)executeSnippet:(NSString *)snippet

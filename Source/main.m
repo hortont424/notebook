@@ -34,10 +34,11 @@
 int main(int argc, char *argv[])
 {
     NSUserDefaults * args = [NSUserDefaults standardUserDefaults];
-    NSString * serverLanguage, * serverPort;
+    NSString * serverLanguage, * serverPort, * clientPort;
 
     serverLanguage = [args stringForKey:@"server-language"];
     serverPort = [args stringForKey:@"server-port"];
+    clientPort = [args stringForKey:@"client-port"];
 
     if(serverLanguage)
     {
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
 
         NSLog(@"Starting server for %@ on port %@...", serverLanguage, serverPort);
 
-        [[serverClass backendClass] launchServer:serverPort];
+        [[serverClass backendClass] launchServer:serverPort forClient:clientPort];
 
         // Tell parent we're ready
         // TODO: this whole signalling mechanism is incredibly dangerous

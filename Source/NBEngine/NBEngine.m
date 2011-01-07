@@ -27,6 +27,25 @@
 
 #import "NBEngine.h"
 
+@interface asdf : NSObject
+{
+}
+
+- (void)hello;
+
+@end
+
+@implementation asdf
+
+- (void)hello
+{
+    NSLog(@"Hello!");
+}
+
+@end
+
+
+
 @implementation NBException
 
 @synthesize line, column, message;
@@ -52,11 +71,14 @@ void sigusr1(int dummy)
         taskQueue = [[NSMutableArray alloc] init];
 
         const char * binaryPath = [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] UTF8String];
-        const char * serverLanguage = [[[self class] uuid] UTF8String];
+        NSString * serverLanguage = [[self class] uuid];
+        NSString * serverPort = [NSString stringWithFormat:@"com.hortont.notebook.server.%@",[[NSProcessInfo processInfo] globallyUniqueString],nil];
+        NSString * clientPort = [NSString stringWithFormat:@"com.hortont.notebook.client.%@",[[NSProcessInfo processInfo] globallyUniqueString],nil];
 
         NSLog(@"%s %s", binaryPath, serverLanguage);
 
         // TODO: CRITICAL: children aren't cleaned up when the parent dies
+        // TODO: this signalling stuff is really delicate
 
         sigset_t mask, oldmask;
 
@@ -71,7 +93,10 @@ void sigusr1(int dummy)
 
         if(fork() == 0)
         {
-            execl(binaryPath, binaryPath, "-server-language", serverLanguage, "-server-port", "com.hortont.notebook.asdf", NULL);
+            execl(binaryPath, binaryPath,
+                  "-server-language", [serverLanguage UTF8String],
+                  "-server-port", [serverPort UTF8String],
+                  "-client-port", [clientPort UTF8String], NULL);
 
             _exit(0);
         }
@@ -81,28 +106,13 @@ void sigusr1(int dummy)
 
         sigprocmask (SIG_UNBLOCK, &mask, NULL);
 
-        NSLog(@"hey we got the signal");
+        backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:serverPort host:nil];
 
-        // TODO: instead of launching the server and trying to connect to it, launch the server, wait for it to connect to us
-        // on the global com.hortont.notebook object, then do the connection backwards
-
-        backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:@"com.hortont.notebook.asdf" host:nil];
+        [backend setEngine:self];
 
         if(backend == nil)
         {
             NSLog(@"Error: failed to spawn engine backend");
-            exit(EXIT_FAILURE);
-        }
-
-        NSNumber * serverPid = [backend myPid];
-
-        if(serverPid)
-        {
-            NSLog(@"Remote server on pid %@",serverPid);
-        }
-        else
-        {
-            NSLog(@"Error, did not get the server's pid");
             exit(EXIT_FAILURE);
         }
     }
@@ -173,6 +183,8 @@ void sigusr1(int dummy)
         return;
     }
 
+    NSLog(@"%@", snippet);
+
     busy = YES;
     lastCompletionCallback = [completion copy];
 
@@ -182,6 +194,8 @@ void sigusr1(int dummy)
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString
 {
     lastCompletionCallback(exception, outputString);
+
+    NSLog(@"snippetComplete");
 
     busy = NO;
     lastCompletionCallback = nil;

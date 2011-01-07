@@ -27,7 +27,7 @@
 
 @protocol NBEngineBackendProtocol
 
-- (NSNumber *)myPid;
 - (oneway void)executeSnippet:(NSString *)snippet;
+- (void)setEngine:(id)engine;
 
 @end
