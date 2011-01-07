@@ -25,11 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngine.h"
 #import "NBEngineBackend.h"
 #import "NBEngineLoader.h"
-
-#import "NBEngineBackendProtocol.h"
 
 int main(int argc, char *argv[])
 {
@@ -39,7 +36,7 @@ int main(int argc, char *argv[])
     serverLanguage = [args stringForKey:@"server-language"];
     serverPort = [args stringForKey:@"server-port"];
 
-    if(serverLanguage)
+    if(serverLanguage && serverPort)
     {
         Class serverClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:serverLanguage];
 
@@ -48,6 +45,10 @@ int main(int argc, char *argv[])
         [[serverClass backendClass] launchServer:serverPort];
 
         [[NSRunLoop currentRunLoop] run];
+    }
+    else if(serverLanguage || serverPort)
+    {
+        NSLog(@"Usage: %@ -server-lanuage LANGUAGE -server-port PORT", [[[NSProcessInfo processInfo] arguments] objectAtIndex:0]);
     }
     else
     {
