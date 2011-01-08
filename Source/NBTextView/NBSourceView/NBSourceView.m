@@ -26,7 +26,6 @@
 #import "NBSourceView.h"
 
 #import <Carbon/Carbon.h>
-#import <RegexKit/RegexKit.h>
 
 #import "NBSettings.h"
 #import "NBEngineHighlighter.h"
@@ -43,6 +42,7 @@
     if(self)
     {
         exceptions = [[NSMutableDictionary alloc] init];
+        leadingSpacesRegex = [RKRegex regexWithRegexString:@"^(\\s*)" options:RKCompileNoOptions];
 
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.source"]];
     }
@@ -69,6 +69,24 @@
     {
         [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
     }
+}
+
+- (void)insertNewline:(id)sender
+{
+    NSRange insertionPoint;
+    NSUInteger start, end;
+    NSString * lineSubstring, * leadingSpaces;
+    NSRange leadingSpacesRange;
+
+    insertionPoint = [[[self selectedRanges] lastObject] rangeValue];
+
+    [[self string] getLineStart:&start end:&end contentsEnd:NULL forRange:insertionPoint];
+
+    lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
+    leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
+    leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+
+    [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -142,7 +160,7 @@
 
 - (void)highlightRegex:(NSString *)regex onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
 {
-    RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline];
+    RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline]; // TODO: compile these once at the beginning
     NSString * string = [[textStorage string] stringByAppendingString:@"\n"];
     RKEnumerator * enumerator = [string matchEnumeratorWithRegex:expression];
 

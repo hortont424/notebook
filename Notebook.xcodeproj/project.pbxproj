@@ -364,7 +364,6 @@
 				359E37B3129B8FF000044B12 /* NBCore-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				35761585129C2417000B442B /* Notebook.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -523,6 +522,7 @@
 		3547E01512C1BEAD00B6C5F7 /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				35761585129C2417000B442B /* Notebook.xib */,
 				352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */,
 				352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */,
 				3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */,
@@ -879,6 +879,7 @@
 				35761586129C2417000B442B /* English */,
 			);
 			name = Notebook.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

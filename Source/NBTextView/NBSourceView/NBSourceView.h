@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <RegexKit/RegexKit.h>
 
 #import "NBTextView.h"
 #import "NBSourceViewDelegate.h"
@@ -32,6 +33,8 @@
 @interface NBSourceView : NBTextView
 {
     NSMutableDictionary * exceptions;
+
+    RKRegex * leadingSpacesRegex;
 }
 
 @property (nonatomic,retain) id<NBSourceViewDelegate> delegate;
