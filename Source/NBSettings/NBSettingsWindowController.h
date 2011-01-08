@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Tim Horton. All rights reserved.
+ * Copyright 2011 Tim Horton. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -23,18 +23,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NotebookAppDelegate.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation NotebookAppDelegate
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+@interface NBSettingsWindowController : NSWindowController
 {
-    settingsWindowController = [[NBSettingsWindowController alloc] initWithWindowNibName:@"NBSettingsWindow"];
-}
 
-- (IBAction)showPreferences:(id)sender
-{
-    [settingsWindowController showWindow:self];
 }
 
 @end

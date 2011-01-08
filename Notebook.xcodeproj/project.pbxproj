@@ -31,6 +31,8 @@
 		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
 		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
 		35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35347C1912D7DA87009E8911 /* NBBackgroundView.m */; };
+		35347D1C12D7EF44009E8911 /* NBSettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */; };
+		35347D3D12D7F12D009E8911 /* NBSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */; };
 		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
 		3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
@@ -199,6 +201,9 @@
 		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookAppDelegate.m; sourceTree = "<group>"; };
 		35347C1812D7DA87009E8911 /* NBBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBackgroundView.h; sourceTree = "<group>"; };
 		35347C1912D7DA87009E8911 /* NBBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBackgroundView.m; sourceTree = "<group>"; };
+		35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBSettingsWindow.xib; sourceTree = "<group>"; };
+		35347D3B12D7F12D009E8911 /* NBSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSettingsWindowController.h; sourceTree = "<group>"; };
+		35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSettingsWindowController.m; sourceTree = "<group>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookDocument.h; sourceTree = "<group>"; };
@@ -469,6 +474,9 @@
 		352F5999129B5E5300C34824 /* NBSettings */ = {
 			isa = PBXGroup;
 			children = (
+				35347D3B12D7F12D009E8911 /* NBSettingsWindowController.h */,
+				35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */,
+				35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */,
 				352F599A129B5E5300C34824 /* NBSettings.h */,
 				352F599B129B5E5300C34824 /* NBSettings.m */,
 				35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */,
@@ -759,6 +767,7 @@
 				35761587129C2417000B442B /* Notebook.xib in Resources */,
 				358D61DB12C0195C006A7A06 /* LICENSE in Resources */,
 				358D61DC12C0195C006A7A06 /* README.md in Resources */,
+				35347D1C12D7EF44009E8911 /* NBSettingsWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +832,7 @@
 				358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */,
 				350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */,
 				35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */,
+				35347D3D12D7F12D009E8911 /* NBSettingsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

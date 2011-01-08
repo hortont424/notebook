@@ -25,13 +25,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBNotebookView.h"
-#import "NBEngine.h"
-#import "NBCreateNotebookViewDelegate.h"
+#import "NBSettingsWindowController.h"
 
 @interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
 {
-    id dispatcher;
+    NBSettingsWindowController * settingsWindowController;
 }
+
+- (IBAction)showPreferences:(id)sender;
 
 @end
