@@ -42,7 +42,8 @@
 @property (nonatomic,assign) IBOutlet NSView * mainView;
 @property (readonly) NSArray * engineClasses;
 
-- (IBAction)chooseNotebook:(id)engineClass;
+- (IBAction)chooseSelectedLanguage:(id)sender;
+- (IBAction)chooseEngineClass:(id)engineClass;
 - (IBAction)openExistingNotebook:(id)sender;
 - (IBAction)cancelCreateNotebook:(id)sender;
 

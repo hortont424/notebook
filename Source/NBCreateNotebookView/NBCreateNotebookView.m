@@ -23,6 +23,8 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <Carbon/Carbon.h>
+
 #import "NBCreateNotebookView.h"
 
 #import "NBEngineLoader.h"
@@ -41,11 +43,23 @@
 
     // set up the language chooser
     [languageChooser reloadData];
+    [languageChooser setAllowsEmptySelection:NO];
+    [languageChooser setSelectionIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 
     [[self window] setFrame:windowFrame display:YES];
 }
 
-- (IBAction)chooseNotebook:(id)engineClass
+- (IBAction)chooseSelectedLanguage:(id)sender
+{
+    NSIndexSet * indices = [languageChooser selectionIndexes];
+
+    if([indices count])
+    {
+        [self chooseEngineClass:[engineClasses objectAtIndex:[indices firstIndex]]];
+    }
+}
+
+- (IBAction)chooseEngineClass:(id)engineClass
 {
     [delegate createNotebookWithEngineClass:engineClass];
 }
@@ -63,7 +77,7 @@
 // image browser delegate methods
 - (void)imageBrowser:(IKImageBrowserView*)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index
 {
-    [self chooseNotebook:[engineClasses objectAtIndex:index]];
+    [self chooseEngineClass:[engineClasses objectAtIndex:index]];
 }
 
 // image browser data source methods

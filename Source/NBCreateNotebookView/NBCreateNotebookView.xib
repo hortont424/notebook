@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">785</string>
-		<string key="IBDocument.AppKitVersion">1038.29</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
+		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
@@ -16,14 +16,14 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>785</string>
+				<string>823</string>
 				<string>1.1</string>
 				<string>1.2.5</string>
 			</object>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="60"/>
+			<integer value="112"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -92,16 +92,37 @@
 							<object class="NSButton" id="153757266">
 								<reference key="NSNextResponder" ref="471835274"/>
 								<int key="NSvFlags">265</int>
-								<string key="NSFrame">{{368, 8}, {56, 25}}</string>
+								<string key="NSFrame">{{363, 8}, {61, 25}}</string>
 								<reference key="NSSuperview" ref="471835274"/>
 								<int key="NSViewLayerContentsRedrawPolicy">2</int>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSButtonCell" key="NSCell" id="385739996">
 									<int key="NSCellFlags">-2080244224</int>
 									<int key="NSCellFlags2">134217728</int>
-									<string key="NSContents">Cancel</string>
+									<string key="NSContents">Choose</string>
 									<reference key="NSSupport" ref="847163145"/>
 									<reference key="NSControlView" ref="153757266"/>
+									<int key="NSButtonFlags">-2038152961</int>
+									<int key="NSButtonFlags2">163</int>
+									<string key="NSAlternateContents"/>
+									<string type="base64-UTF8" key="NSKeyEquivalent">DQ</string>
+									<int key="NSPeriodicDelay">400</int>
+									<int key="NSPeriodicInterval">75</int>
+								</object>
+							</object>
+							<object class="NSButton" id="40720135">
+								<reference key="NSNextResponder" ref="471835274"/>
+								<int key="NSvFlags">265</int>
+								<string key="NSFrame">{{299, 8}, {56, 25}}</string>
+								<reference key="NSSuperview" ref="471835274"/>
+								<int key="NSViewLayerContentsRedrawPolicy">2</int>
+								<bool key="NSEnabled">YES</bool>
+								<object class="NSButtonCell" key="NSCell" id="441038016">
+									<int key="NSCellFlags">-2080244224</int>
+									<int key="NSCellFlags2">134217728</int>
+									<string key="NSContents">Cancel</string>
+									<reference key="NSSupport" ref="847163145"/>
+									<reference key="NSControlView" ref="40720135"/>
 									<int key="NSButtonFlags">-2038152961</int>
 									<int key="NSButtonFlags2">163</int>
 									<string key="NSAlternateContents"/>
@@ -327,7 +348,7 @@
 												<bool key="shadowsCells">NO</bool>
 												<bool key="animates">YES</bool>
 												<bool key="allowsReordering">NO</bool>
-												<bool key="allowsMultipleSelection">YES</bool>
+												<bool key="allowsMultipleSelection">NO</bool>
 												<float key="cellWidth">135</float>
 												<float key="cellHeight">135</float>
 												<reference key="dataSource"/>
@@ -449,14 +470,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">cancelCreateNotebook:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="153757266"/>
-					</object>
-					<int key="connectionID">119</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">openExistingNotebook:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="956097855"/>
@@ -470,6 +483,22 @@
 						<reference key="destination" ref="19503454"/>
 					</object>
 					<int key="connectionID">121</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">cancelCreateNotebook:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="40720135"/>
+					</object>
+					<int key="connectionID">124</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">chooseSelectedLanguage:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="153757266"/>
+					</object>
+					<int key="connectionID">126</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -556,6 +585,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="956097855"/>
 							<reference ref="153757266"/>
+							<reference ref="40720135"/>
 						</object>
 						<reference key="parent" ref="19503454"/>
 					</object>
@@ -587,6 +617,20 @@
 						<reference key="object" ref="385739996"/>
 						<reference key="parent" ref="153757266"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">122</int>
+						<reference key="object" ref="40720135"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="441038016"/>
+						</object>
+						<reference key="parent" ref="471835274"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">123</int>
+						<reference key="object" ref="441038016"/>
+						<reference key="parent" ref="40720135"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -599,12 +643,16 @@
 					<string>103.IBPluginDependency</string>
 					<string>104.IBPluginDependency</string>
 					<string>112.IBPluginDependency</string>
+					<string>112.IBViewBoundsToFrameTransform</string>
 					<string>115.IBPluginDependency</string>
 					<string>115.IBViewBoundsToFrameTransform</string>
 					<string>116.IBPluginDependency</string>
 					<string>117.IBPluginDependency</string>
 					<string>117.IBViewBoundsToFrameTransform</string>
 					<string>118.IBPluginDependency</string>
+					<string>122.IBPluginDependency</string>
+					<string>122.IBViewBoundsToFrameTransform</string>
+					<string>123.IBPluginDependency</string>
 					<string>60.IBEditorWindowLastContentRect</string>
 					<string>60.IBPluginDependency</string>
 					<string>60.IBViewIntegration.shadowBlurRadius</string>
@@ -618,6 +666,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.imagekit.ibplugin</string>
 					<string>com.brandonwalkin.BWToolkit</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAwhgAAA</bytes>
+					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABBIAAAwfgAAA</bytes>
@@ -625,10 +676,15 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDvgAAwfgAAA</bytes>
+						<bytes key="NSTransformStruct">AUO4AABBAAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{408, 223}, {444, 512}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABDkYAAwfgAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{495, 130}, {444, 512}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<real value="25"/>
 					<reference ref="186453131"/>
@@ -650,7 +706,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">121</int>
+			<int key="maxID">126</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -663,11 +719,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>cancelCreateNotebook:</string>
-							<string>chooseNotebook:</string>
+							<string>chooseEngineClass:</string>
+							<string>chooseSelectedLanguage:</string>
 							<string>openExistingNotebook:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -678,7 +736,8 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>cancelCreateNotebook:</string>
-							<string>chooseNotebook:</string>
+							<string>chooseEngineClass:</string>
+							<string>chooseSelectedLanguage:</string>
 							<string>openExistingNotebook:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -688,7 +747,11 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">chooseNotebook:</string>
+								<string key="name">chooseEngineClass:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">chooseSelectedLanguage:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
