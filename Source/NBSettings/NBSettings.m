@@ -239,7 +239,7 @@ static NBSettings * sharedInstance = nil;
 {
     @synchronized(self)
     {
-        if (sharedInstance == nil)
+        if(sharedInstance == nil)
         {
             sharedInstance = [[NBSettings alloc] init];
         }
@@ -252,7 +252,7 @@ static NBSettings * sharedInstance = nil;
 {
     @synchronized(self)
     {
-        if (sharedInstance == nil)
+        if(sharedInstance == nil)
         {
             sharedInstance = [super allocWithZone:zone];
             return sharedInstance;

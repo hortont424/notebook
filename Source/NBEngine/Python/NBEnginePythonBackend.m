@@ -31,7 +31,7 @@
 {
     self = [super init];
 
-    if (self != nil)
+    if(self != nil)
     {
         Py_Initialize();
 

@@ -48,13 +48,15 @@
 
 #import "NBEnginePythonHighlighter.h"
 
+static NBEngineHighlighter * sharedInstance = nil;
+
 @implementation NBEnginePythonHighlighter
 
 - (id)init
 {
     self = [super init];
 
-    if (self != nil)
+    if(self != nil)
     {
         NSMutableArray * initialPairs = [[NSMutableArray alloc] init];
 
@@ -96,5 +98,17 @@
     return self;
 }
 
++ (NBEngineHighlighter *)sharedInstance
+{
+    @synchronized(self)
+    {
+        if(sharedInstance == nil)
+        {
+            sharedInstance = [[NBEnginePythonHighlighter alloc] init];
+        }
+    }
+
+    return sharedInstance;
+}
 
 @end

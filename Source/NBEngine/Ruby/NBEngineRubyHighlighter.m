@@ -48,13 +48,15 @@
 
 #import "NBEngineRubyHighlighter.h"
 
+static NBEngineHighlighter * sharedInstance = nil;
+
 @implementation NBEngineRubyHighlighter
 
 - (id)init
 {
     self = [super init];
 
-    if (self != nil)
+    if(self != nil)
     {
         NSMutableArray * initialPairs = [[NSMutableArray alloc] init];
 
@@ -96,5 +98,17 @@
     return self;
 }
 
++ (NBEngineHighlighter *)sharedInstance
+{
+    @synchronized(self)
+    {
+        if(sharedInstance == nil)
+        {
+            sharedInstance = [[NBEngineRubyHighlighter alloc] init];
+        }
+    }
+
+    return sharedInstance;
+}
 
 @end

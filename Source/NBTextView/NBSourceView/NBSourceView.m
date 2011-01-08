@@ -189,7 +189,7 @@
 
     // Apply each syntax highlighting style
 
-    NBEngineHighlighter * highlighter = [[[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] alloc] init];
+    NBEngineHighlighter * highlighter = [[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] sharedInstance];
 
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {

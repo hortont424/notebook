@@ -33,7 +33,7 @@ static NBException * exception;
 {
     self = [super init];
 
-    if (self != nil)
+    if(self != nil)
     {
         ruby_init();
         ruby_init_loadpath();

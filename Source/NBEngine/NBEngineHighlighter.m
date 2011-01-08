@@ -45,4 +45,30 @@
 
 @synthesize highlightingPairs;
 
+#pragma mark Singleton Methods
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain
+{
+    return self;
+}
+
+- (unsigned long)retainCount
+{
+    return ULONG_MAX;
+}
+
+- (void)release
+{
+}
+
+- (id)autorelease
+{
+    return self;
+}
+
 @end

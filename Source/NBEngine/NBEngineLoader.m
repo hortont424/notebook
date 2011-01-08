@@ -32,11 +32,11 @@ static NBEngineLoader * sharedInstance = nil;
 
 @synthesize engineClasses;
 
-- (id) init
+- (id)init
 {
     self = [super init];
 
-    if (self != nil)
+    if(self != nil)
     {
         engineClasses = [self loadPlugins];
     }
@@ -74,7 +74,7 @@ static NBEngineLoader * sharedInstance = nil;
 {
     @synchronized(self)
     {
-        if (sharedInstance == nil)
+        if(sharedInstance == nil)
         {
             sharedInstance = [[NBEngineLoader alloc] init];
         }
@@ -87,7 +87,7 @@ static NBEngineLoader * sharedInstance = nil;
 {
     @synchronized(self)
     {
-        if (sharedInstance == nil)
+        if(sharedInstance == nil)
         {
             sharedInstance = [super allocWithZone:zone];
             return sharedInstance;
@@ -120,6 +120,5 @@ static NBEngineLoader * sharedInstance = nil;
 {
     return self;
 }
-
 
 @end
