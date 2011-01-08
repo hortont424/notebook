@@ -21,6 +21,7 @@
 		352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 3525304B12D4737400A1124E /* Ruby.bundle */; };
 		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
 		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
+		352BCABD12D85EC9003DABA4 /* NBCellAutoheightProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */; };
 		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
 		352F59B3129B5E5300C34824 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597F129B5E5300C34824 /* NBCellView.m */; };
 		352F59B4129B5E5300C34824 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5983129B5E5300C34824 /* NBSourceCellView.m */; };
@@ -176,6 +177,7 @@
 		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
 		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
 		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
+		352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellAutoheightProtocol.h; sourceTree = "<group>"; };
 		352F597A129B5E5300C34824 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
 		352F597C129B5E5300C34824 /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = Source/NBCell/NBCell.h; sourceTree = SOURCE_ROOT; };
 		352F597D129B5E5300C34824 /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = Source/NBCell/NBCell.m; sourceTree = SOURCE_ROOT; };
@@ -439,6 +441,7 @@
 				352F597E129B5E5300C34824 /* NBCellView.h */,
 				352F597F129B5E5300C34824 /* NBCellView.m */,
 				352F5980129B5E5300C34824 /* NBCellViewDelegate.h */,
+				352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */,
 				351106A912BC940500FCCF7A /* NBCommentCellView */,
 				352F5981129B5E5300C34824 /* NBSourceCellView */,
 			);
@@ -626,6 +629,7 @@
 				3551B28812D040B9004A020C /* NBEngineLoader.h in Headers */,
 				3551B28912D040B9004A020C /* NBNotebook.h in Headers */,
 				355FBC1B12D5AEA1002CF0DC /* NBEngineBackendProtocol.h in Headers */,
+				352BCABD12D85EC9003DABA4 /* NBCellAutoheightProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

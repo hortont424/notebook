@@ -26,6 +26,7 @@
 #import "NBCellView.h"
 
 #import "NBSettings.h"
+#import "NBCellAutoheightProtocol.h"
 
 @implementation NBCellView
 
@@ -204,11 +205,17 @@
 
     for(NSView * subview in [self subviews])
     {
-        height += subview.frame.size.height + margin.bottom;
+        if([subview conformsToProtocol:@protocol(NBCellAutoheightProtocol)])
+        {
+            height += [(NSView<NBCellAutoheightProtocol> *)subview requestedHeight] + margin.bottom;
+        }
+        else
+        {
+            height += subview.frame.size.height + margin.bottom;
+        }
     }
 
     return height;
-
 }
 
 - (void)subviewDidResize:(NSNotification *)aNotification

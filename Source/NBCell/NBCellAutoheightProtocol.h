@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Tim Horton. All rights reserved.
+ * Copyright 2011 Tim Horton. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -25,13 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCellAutoheightProtocol.h"
+@protocol NBCellAutoheightProtocol
 
-@interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellAutoheightProtocol>
-{
-    id delegate;
-}
-
-@property (nonatomic,retain) id delegate;
+- (float)requestedHeight;
 
 @end
