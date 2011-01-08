@@ -158,9 +158,8 @@
     [self setNeedsDisplay:YES];
 }
 
-- (void)highlightRegex:(NSString *)regex onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
+- (void)highlightRegex:(RKRegex *)expression onTextStorage:(NSTextStorage *)textStorage withHighlight:(NBHighlightSettings *)highlight
 {
-    RKRegex * expression = [RKRegex regexWithRegexString:regex options:RKCompileMultiline]; // TODO: compile these once at the beginning
     NSString * string = [[textStorage string] stringByAppendingString:@"\n"];
     RKEnumerator * enumerator = [string matchEnumeratorWithRegex:expression];
 

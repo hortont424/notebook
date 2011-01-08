@@ -34,7 +34,7 @@
     NBEngineHighlightContext * context = [[NBEngineHighlightContext alloc] init];
 
     context.highlight = inHighlight;
-    context.expression = inExpression;
+    context.expression = [RKRegex regexWithRegexString:inExpression options:RKCompileMultiline];
 
     return context;
 }

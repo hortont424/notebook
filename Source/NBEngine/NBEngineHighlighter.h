@@ -24,15 +24,16 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <RegexKit/RegexKit.h>
 
 @interface NBEngineHighlightContext : NSObject
 {
     NSString * highlight;
-    NSString * expression;
+    RKRegex * expression;
 }
 
 @property (nonatomic,assign) NSString * highlight;
-@property (nonatomic,assign) NSString * expression;
+@property (nonatomic,assign) RKRegex * expression;
 
 + (NBEngineHighlightContext *)contextWithClass:(NSString *)inHighlight expression:(NSString *)inExpression;
 

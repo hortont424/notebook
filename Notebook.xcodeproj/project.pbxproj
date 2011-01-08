@@ -76,6 +76,7 @@
 		359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
 		359E3804129B918800044B12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		359E3838129B92B900044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
+		35B6401E12D84BED00204578 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
 		4385972C12D57EBF003D2E8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
@@ -272,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B6401E12D84BED00204578 /* RegexKit.framework in Frameworks */,
 				4385974112D580F1003D2E8D /* Quartz.framework in Frameworks */,
 				359E37C0129B903400044B12 /* Cocoa.framework in Frameworks */,
 			);
@@ -942,6 +944,7 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -970,6 +973,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
@@ -1044,11 +1048,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)/External\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -1064,11 +1064,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
-					"\"$(SRCROOT)/External\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "Notebook-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -1080,12 +1076,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/External\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External\"/**";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -1098,11 +1096,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/External\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External\"/**";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
