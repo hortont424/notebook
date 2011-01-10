@@ -7,312 +7,195 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = 350A446712D70E2C007F6457 /* NBProcessWatchdog.m */; };
-		351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106AB12BC942B00FCCF7A /* NBCommentCellView.m */; };
-		351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351106F912BC98E900FCCF7A /* NBCommentView.m */; };
-		3525305C12D4738F00A1124E /* NBEngineRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305412D4738F00A1124E /* NBEngineRuby.m */; };
-		3525305D12D4738F00A1124E /* NBEngineRubyBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305612D4738F00A1124E /* NBEngineRubyBackend.m */; };
-		3525305E12D4738F00A1124E /* NBEngineRubyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */; };
-		3525305F12D4738F00A1124E /* NBEngineRubyHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */; };
-		3525306012D4738F00A1124E /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 3525305B12D4738F00A1124E /* ruby.png */; };
-		3525306512D473B000A1124E /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
-		3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 3525304B12D4737400A1124E /* Ruby.bundle */; };
-		35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */; };
-		35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 35295A8512BDCF4C00BCAD1E /* morrowind.js */; };
-		352BCABD12D85EC9003DABA4 /* NBCellAutoheightProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */; };
-		352F59B1129B5E5300C34824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597A129B5E5300C34824 /* main.m */; };
-		352F59B3129B5E5300C34824 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597F129B5E5300C34824 /* NBCellView.m */; };
-		352F59B4129B5E5300C34824 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5983129B5E5300C34824 /* NBSourceCellView.m */; };
-		352F59BB129B5E5300C34824 /* NBNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5995129B5E5300C34824 /* NBNotebookView.m */; };
-		352F59BD129B5E5300C34824 /* NBSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599B129B5E5300C34824 /* NBSettings.m */; };
-		352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F599F129B5E5300C34824 /* NBOutputView.m */; };
-		352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59A5129B5E5300C34824 /* NBSourceView.m */; };
-		352F59C2129B5E5300C34824 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59AA129B5E5300C34824 /* NBTextView.m */; };
-		352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */; };
-		35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35347C1912D7DA87009E8911 /* NBBackgroundView.m */; };
-		35347D1C12D7EF44009E8911 /* NBSettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */; };
-		35347D3D12D7F12D009E8911 /* NBSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */; };
-		353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
-		3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
-		3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */; };
-		3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */; };
-		3551B25812D0402C004A020C /* NBEnginePython.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24B12D0402C004A020C /* NBEnginePython.m */; };
-		3551B25912D0402C004A020C /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24D12D0402C004A020C /* NBEnginePythonBackend.m */; };
-		3551B25A12D0402C004A020C /* NBEnginePythonEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24F12D0402C004A020C /* NBEnginePythonEncoder.m */; };
-		3551B25B12D0402C004A020C /* NBEnginePythonHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B25112D0402C004A020C /* NBEnginePythonHighlighter.m */; };
-		3551B25C12D0402C004A020C /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 3551B25212D0402C004A020C /* python.png */; };
-		3551B25D12D04041004A020C /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24012D0402C004A020C /* NBEngine.m */; };
-		3551B25E12D04041004A020C /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24212D0402C004A020C /* NBEngineBackend.m */; };
-		3551B25F12D04041004A020C /* NBEngineEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24412D0402C004A020C /* NBEngineEncoder.m */; };
-		3551B26012D04041004A020C /* NBEngineHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24612D0402C004A020C /* NBEngineHighlighter.m */; };
-		3551B26112D04041004A020C /* NBEngineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3551B24812D0402C004A020C /* NBEngineLoader.m */; };
-		3551B28112D0409C004A020C /* NBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F597D129B5E5300C34824 /* NBCell.m */; };
-		3551B28212D0409C004A020C /* NBNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 352F5993129B5E5300C34824 /* NBNotebook.m */; };
-		3551B28312D040B9004A020C /* NBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 352F597C129B5E5300C34824 /* NBCell.h */; };
-		3551B28412D040B9004A020C /* NBEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B23F12D0402C004A020C /* NBEngine.h */; };
-		3551B28512D040B9004A020C /* NBEngineBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B24112D0402C004A020C /* NBEngineBackend.h */; };
-		3551B28612D040B9004A020C /* NBEngineEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B24312D0402C004A020C /* NBEngineEncoder.h */; };
-		3551B28712D040B9004A020C /* NBEngineHighlighter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B24512D0402C004A020C /* NBEngineHighlighter.h */; };
-		3551B28812D040B9004A020C /* NBEngineLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3551B24712D0402C004A020C /* NBEngineLoader.h */; };
-		3551B28912D040B9004A020C /* NBNotebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352F5992129B5E5300C34824 /* NBNotebook.h */; };
-		3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 359E3889129B9A5F00044B12 /* Python.bundle */; };
-		355CE8B212C351F900EF19E7 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
-		355FBB3A12D591C8002CF0DC /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355FBB3312D591BA002CF0DC /* Python.framework */; };
-		355FBB3C12D591CB002CF0DC /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355FBB3612D591C1002CF0DC /* Ruby.framework */; };
-		355FBC1B12D5AEA1002CF0DC /* NBEngineBackendProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 355FBC1A12D5AEA1002CF0DC /* NBEngineBackendProtocol.h */; };
-		35761587129C2417000B442B /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35761585129C2417000B442B /* Notebook.xib */; };
-		357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FF7391297A7D200A661E5 /* Carbon.framework */; };
-		35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35812B8C129B84030092AECD /* NBCreateNotebookView.m */; };
-		35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35812B8E129B84170092AECD /* NBCreateNotebookView.xib */; };
-		358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358D27AF12C40282000ACCB6 /* NotebookWindowController.m */; };
-		358D61DB12C0195C006A7A06 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 358D61D912C0195C006A7A06 /* LICENSE */; };
-		358D61DC12C0195C006A7A06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 358D61DA12C0195C006A7A06 /* README.md */; };
-		358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */; };
-		358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358DDB0412BD4FFC00B9D70A /* JSON.framework */; };
-		358DDB2A12BD503100B9D70A /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 358DDB0412BD4FFC00B9D70A /* JSON.framework */; };
-		358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 358DDB3A12BD6A1500B9D70A /* tango.js */; };
-		359E37C0129B903400044B12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
-		359E3804129B918800044B12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		359E3838129B92B900044B12 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359E37B2129B8FF000044B12 /* NBCore.framework */; };
-		35B6401E12D84BED00204578 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
-		35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
-		35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35F5CF831298C1490032AB15 /* RegexKit.framework */; };
-		4385972C12D57EBF003D2E8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
-		4385974112D580F1003D2E8D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
-		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		355AACDA12DBB4D500A9FA54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACD912DBB4D500A9FA54 /* main.m */; };
+		355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */; };
+		355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */; };
+		355AACE312DBB4DC00A9FA54 /* NotebookWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */; };
+		355AACE812DBB4E700A9FA54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AACE512DBB4E700A9FA54 /* MainMenu.xib */; };
+		355AACE912DBB4E700A9FA54 /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AACE612DBB4E700A9FA54 /* Notebook.xib */; };
+		355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
+		355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
+		355AAD2A12DBB5CD00A9FA54 /* NBPython.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 355AAD0D12DBB50F00A9FA54 /* NBPython.bundle */; };
+		355AAD3312DBB62100A9FA54 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
+		355AAD3412DBB62100A9FA54 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
+		355AAD3512DBB62100A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
+		355AADC512DBB75300A9FA54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AADC412DBB75300A9FA54 /* QuartzCore.framework */; };
+		355AADD612DBB78300A9FA54 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
+		355AADD712DBB78300A9FA54 /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
+		355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
+		355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
+		355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
+		3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
+		3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF612DBC89000C2ED92 /* tango.js */; };
+		3576FE6412DBC9B600C2ED92 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3525309512D473FE00A1124E /* PBXContainerItemProxy */ = {
+		355AACF412DBB4FB00A9FA54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3525304A12D4737400A1124E;
-			remoteInfo = Ruby;
-		};
-		359E37CA129B905700044B12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 359E37B1129B8FF000044B12;
+			containerPortal = 355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = NBCore;
 		};
-		359E382C129B927600044B12 /* PBXContainerItemProxy */ = {
+		355AACFB12DBB4FB00A9FA54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			containerPortal = 355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54;
+			remoteInfo = NBUI;
+		};
+		355AAD0C12DBB50F00A9FA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D5B49B6048680CD000E48DA;
+			remoteInfo = NBPython;
+		};
+		355AAD1E12DBB58E00A9FA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 359E37FB129B917B00044B12;
-			remoteInfo = Python;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = NBPython;
+		};
+		355AAD2012DBB58E00A9FA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = NBCore;
+		};
+		355AAD2212DBB58E00A9FA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54;
+			remoteInfo = NBUI;
+		};
+		3576FE5312DBC9A600C2ED92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D5B49B6048680CD000E48DA /* NBRuby.bundle */;
+			remoteInfo = NBRuby;
+		};
+		3576FE6512DBC9BE00C2ED92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA /* NBRuby */;
+			remoteInfo = NBRuby;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		358DDB3812BD6A0B00B9D70A /* Copy Themes */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Themes;
-			dstSubfolderSpec = 7;
-			files = (
-				35295A8D12BDCF6600BCAD1E /* morrowind.js in Copy Themes */,
-				358DDB4112BD6A1800B9D70A /* tango.js in Copy Themes */,
-			);
-			name = "Copy Themes";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E383D129B92D800044B12 /* Copy Plugins */ = {
+		355AAD2F12DBB60300A9FA54 /* Copy Language PlugIns */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				352530B212D4742E00A1124E /* Ruby.bundle in Copy Plugins */,
-				3555392C129B9AD600C4E048 /* Python.bundle in Copy Plugins */,
+				3576FE6412DBC9B600C2ED92 /* NBRuby.bundle in Copy Language PlugIns */,
+				355AAD2A12DBB5CD00A9FA54 /* NBPython.bundle in Copy Language PlugIns */,
 			);
-			name = "Copy Plugins";
+			name = "Copy Language PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35F5CF541298BE3B0032AB15 /* Copy Frameworks */ = {
+		355AADE712DBB7BA00A9FA54 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				355CE8B212C351F900EF19E7 /* NBCore.framework in Copy Frameworks */,
-				3547DF0712C1917300B6C5F7 /* BWToolkitFramework.framework in Copy Frameworks */,
-				358DDB2A12BD503100B9D70A /* JSON.framework in Copy Frameworks */,
-				35F5CF871298C14C0032AB15 /* RegexKit.framework in Copy Frameworks */,
+				355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */,
+				355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */,
+				355AADD612DBB78300A9FA54 /* BWToolkitFramework.framework in Copy Frameworks */,
+				355AADD712DBB78300A9FA54 /* JSON.framework in Copy Frameworks */,
+				355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3576FE0A12DBC8C500C2ED92 /* Copy Themes */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Themes;
+			dstSubfolderSpec = 7;
+			files = (
+				3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */,
+				3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */,
+			);
+			name = "Copy Themes";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		350A446612D70E2C007F6457 /* NBProcessWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBProcessWatchdog.h; sourceTree = "<group>"; };
-		350A446712D70E2C007F6457 /* NBProcessWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBProcessWatchdog.m; sourceTree = "<group>"; };
-		351106AA12BC942B00FCCF7A /* NBCommentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentCellView.h; path = NBCommentCellView/NBCommentCellView.h; sourceTree = "<group>"; };
-		351106AB12BC942B00FCCF7A /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentCellView.m; path = NBCommentCellView/NBCommentCellView.m; sourceTree = "<group>"; };
-		351106F812BC98E900FCCF7A /* NBCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCommentView.h; path = NBCommentView/NBCommentView.h; sourceTree = "<group>"; };
-		351106F912BC98E900FCCF7A /* NBCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCommentView.m; path = NBCommentView/NBCommentView.m; sourceTree = "<group>"; };
-		3525304B12D4737400A1124E /* Ruby.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ruby.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		3525305312D4738F00A1124E /* NBEngineRuby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRuby.h; sourceTree = "<group>"; };
-		3525305412D4738F00A1124E /* NBEngineRuby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRuby.m; sourceTree = "<group>"; };
-		3525305512D4738F00A1124E /* NBEngineRubyBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyBackend.h; sourceTree = "<group>"; };
-		3525305612D4738F00A1124E /* NBEngineRubyBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyBackend.m; sourceTree = "<group>"; };
-		3525305712D4738F00A1124E /* NBEngineRubyEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyEncoder.h; sourceTree = "<group>"; };
-		3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyEncoder.m; sourceTree = "<group>"; };
-		3525305912D4738F00A1124E /* NBEngineRubyHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineRubyHighlighter.h; sourceTree = "<group>"; };
-		3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineRubyHighlighter.m; sourceTree = "<group>"; };
-		3525305B12D4738F00A1124E /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruby.png; sourceTree = "<group>"; };
-		35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBHighlightSettings.h; sourceTree = "<group>"; };
-		35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBHighlightSettings.m; sourceTree = "<group>"; };
-		35295A8512BDCF4C00BCAD1E /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
-		352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellAutoheightProtocol.h; sourceTree = "<group>"; };
-		352F597A129B5E5300C34824 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
-		352F597C129B5E5300C34824 /* NBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCell.h; path = Source/NBCell/NBCell.h; sourceTree = SOURCE_ROOT; };
-		352F597D129B5E5300C34824 /* NBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCell.m; path = Source/NBCell/NBCell.m; sourceTree = SOURCE_ROOT; };
-		352F597E129B5E5300C34824 /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellView.h; path = Source/NBCell/NBCellView.h; sourceTree = SOURCE_ROOT; };
-		352F597F129B5E5300C34824 /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCellView.m; path = Source/NBCell/NBCellView.m; sourceTree = SOURCE_ROOT; };
-		352F5980129B5E5300C34824 /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCellViewDelegate.h; path = Source/NBCell/NBCellViewDelegate.h; sourceTree = SOURCE_ROOT; };
-		352F5982129B5E5300C34824 /* NBSourceCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellView.h; path = Source/NBCell/NBSourceCellView/NBSourceCellView.h; sourceTree = SOURCE_ROOT; };
-		352F5983129B5E5300C34824 /* NBSourceCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceCellView.m; path = Source/NBCell/NBSourceCellView/NBSourceCellView.m; sourceTree = SOURCE_ROOT; };
-		352F5984129B5E5300C34824 /* NBSourceCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceCellViewDelegate.h; path = Source/NBCell/NBSourceCellView/NBSourceCellViewDelegate.h; sourceTree = SOURCE_ROOT; };
-		352F5992129B5E5300C34824 /* NBNotebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebook.h; path = Source/NBNotebook/NBNotebook.h; sourceTree = SOURCE_ROOT; };
-		352F5993129B5E5300C34824 /* NBNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebook.m; path = Source/NBNotebook/NBNotebook.m; sourceTree = SOURCE_ROOT; };
-		352F5994129B5E5300C34824 /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookView.h; path = Source/NBNotebook/NBNotebookView.h; sourceTree = SOURCE_ROOT; };
-		352F5995129B5E5300C34824 /* NBNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookView.m; path = Source/NBNotebook/NBNotebookView.m; sourceTree = SOURCE_ROOT; };
-		352F599A129B5E5300C34824 /* NBSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSettings.h; path = Source/NBSettings/NBSettings.h; sourceTree = SOURCE_ROOT; };
-		352F599B129B5E5300C34824 /* NBSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSettings.m; path = Source/NBSettings/NBSettings.m; sourceTree = SOURCE_ROOT; };
-		352F599E129B5E5300C34824 /* NBOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBOutputView.h; path = Source/NBTextView/NBOutputView/NBOutputView.h; sourceTree = SOURCE_ROOT; };
-		352F599F129B5E5300C34824 /* NBOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBOutputView.m; path = Source/NBTextView/NBOutputView/NBOutputView.m; sourceTree = SOURCE_ROOT; };
-		352F59A4129B5E5300C34824 /* NBSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceView.h; path = Source/NBTextView/NBSourceView/NBSourceView.h; sourceTree = SOURCE_ROOT; };
-		352F59A5129B5E5300C34824 /* NBSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceView.m; path = Source/NBTextView/NBSourceView/NBSourceView.m; sourceTree = SOURCE_ROOT; };
-		352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBSourceViewDelegate.h; path = Source/NBTextView/NBSourceView/NBSourceViewDelegate.h; sourceTree = SOURCE_ROOT; };
-		352F59A9129B5E5300C34824 /* NBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBTextView.h; path = Source/NBTextView/NBTextView.h; sourceTree = SOURCE_ROOT; };
-		352F59AA129B5E5300C34824 /* NBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBTextView.m; path = Source/NBTextView/NBTextView.m; sourceTree = SOURCE_ROOT; };
-		352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookAppDelegate.h; sourceTree = "<group>"; };
-		352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookAppDelegate.m; sourceTree = "<group>"; };
-		35347C1812D7DA87009E8911 /* NBBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBackgroundView.h; sourceTree = "<group>"; };
-		35347C1912D7DA87009E8911 /* NBBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBackgroundView.m; sourceTree = "<group>"; };
-		35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBSettingsWindow.xib; sourceTree = "<group>"; };
-		35347D3B12D7F12D009E8911 /* NBSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSettingsWindowController.h; sourceTree = "<group>"; };
-		35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSettingsWindowController.m; sourceTree = "<group>"; };
-		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
-		3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookDocument.h; sourceTree = "<group>"; };
-		3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookDocument.m; sourceTree = "<group>"; };
-		3551B23F12D0402C004A020C /* NBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngine.h; sourceTree = "<group>"; };
-		3551B24012D0402C004A020C /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngine.m; sourceTree = "<group>"; };
-		3551B24112D0402C004A020C /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineBackend.h; sourceTree = "<group>"; };
-		3551B24212D0402C004A020C /* NBEngineBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineBackend.m; sourceTree = "<group>"; };
-		3551B24312D0402C004A020C /* NBEngineEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineEncoder.h; sourceTree = "<group>"; };
-		3551B24412D0402C004A020C /* NBEngineEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineEncoder.m; sourceTree = "<group>"; };
-		3551B24512D0402C004A020C /* NBEngineHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineHighlighter.h; sourceTree = "<group>"; };
-		3551B24612D0402C004A020C /* NBEngineHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineHighlighter.m; sourceTree = "<group>"; };
-		3551B24712D0402C004A020C /* NBEngineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineLoader.h; sourceTree = "<group>"; };
-		3551B24812D0402C004A020C /* NBEngineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEngineLoader.m; sourceTree = "<group>"; };
-		3551B24A12D0402C004A020C /* NBEnginePython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePython.h; sourceTree = "<group>"; };
-		3551B24B12D0402C004A020C /* NBEnginePython.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePython.m; sourceTree = "<group>"; };
-		3551B24C12D0402C004A020C /* NBEnginePythonBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonBackend.h; sourceTree = "<group>"; };
-		3551B24D12D0402C004A020C /* NBEnginePythonBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonBackend.m; sourceTree = "<group>"; };
-		3551B24E12D0402C004A020C /* NBEnginePythonEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonEncoder.h; sourceTree = "<group>"; };
-		3551B24F12D0402C004A020C /* NBEnginePythonEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonEncoder.m; sourceTree = "<group>"; };
-		3551B25012D0402C004A020C /* NBEnginePythonHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEnginePythonHighlighter.h; sourceTree = "<group>"; };
-		3551B25112D0402C004A020C /* NBEnginePythonHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBEnginePythonHighlighter.m; sourceTree = "<group>"; };
-		3551B25212D0402C004A020C /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = python.png; sourceTree = "<group>"; };
-		35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookViewDelegate.h; path = NBCreateNotebookView/NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
-		355CE6A312C33FD000EF19E7 /* spelling.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = spelling.py; sourceTree = "<group>"; };
-		355FBB3312D591BA002CF0DC /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
-		355FBB3612D591C1002CF0DC /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
-		355FBC1A12D5AEA1002CF0DC /* NBEngineBackendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBEngineBackendProtocol.h; sourceTree = "<group>"; };
-		35761586129C2417000B442B /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Notebook.xib; sourceTree = "<group>"; };
-		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		35812B8B129B84030092AECD /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCreateNotebookView.h; path = NBCreateNotebookView/NBCreateNotebookView.h; sourceTree = "<group>"; };
-		35812B8C129B84030092AECD /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBCreateNotebookView.m; path = NBCreateNotebookView/NBCreateNotebookView.m; sourceTree = "<group>"; };
-		35812B8E129B84170092AECD /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NBCreateNotebookView.xib; path = NBCreateNotebookView/NBCreateNotebookView.xib; sourceTree = "<group>"; };
-		358D27AE12C40282000ACCB6 /* NotebookWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookWindowController.h; sourceTree = "<group>"; };
-		358D27AF12C40282000ACCB6 /* NotebookWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookWindowController.m; sourceTree = "<group>"; };
-		358D61D912C0195C006A7A06 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		358D61DA12C0195C006A7A06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBPassthroughTextField.h; path = NBCreateNotebookView/NBPassthroughTextField.h; sourceTree = "<group>"; };
-		358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBPassthroughTextField.m; path = NBCreateNotebookView/NBPassthroughTextField.m; sourceTree = "<group>"; };
-		358DDB0412BD4FFC00B9D70A /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = External/JSON.framework; sourceTree = "<group>"; };
-		358DDB3A12BD6A1500B9D70A /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
-		359E37B2129B8FF000044B12 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		359E37B3129B8FF000044B12 /* NBCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBCore-Info.plist"; sourceTree = "<group>"; };
-		359E3889129B9A5F00044B12 /* Python.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Python.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		35C2092B12C087C4002B114A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookDelegate.h; sourceTree = "<group>"; };
-		35E4404B12D474F6002197E8 /* NBEnginePython-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEnginePython-Info.plist"; sourceTree = "<group>"; };
-		35E4404D12D47500002197E8 /* NBEngineRuby-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NBEngineRuby-Info.plist"; sourceTree = "<group>"; };
-		35F5CF831298C1490032AB15 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
-		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		8D1107310486CEB800E47090 /* Notebook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Notebook-Info.plist"; sourceTree = "<group>"; };
+		355AACD912DBB4D500A9FA54 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Notebook/main.m; sourceTree = "<group>"; };
+		355AACDB12DBB4DC00A9FA54 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/Notebook/NotebookAppDelegate.h; sourceTree = "<group>"; };
+		355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/Notebook/NotebookAppDelegate.m; sourceTree = "<group>"; };
+		355AACDD12DBB4DC00A9FA54 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookDocument.h; path = Source/Notebook/NotebookDocument.h; sourceTree = "<group>"; };
+		355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookDocument.m; path = Source/Notebook/NotebookDocument.m; sourceTree = "<group>"; };
+		355AACDF12DBB4DC00A9FA54 /* NotebookWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookWindowController.h; path = Source/Notebook/NotebookWindowController.h; sourceTree = "<group>"; };
+		355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookWindowController.m; path = Source/Notebook/NotebookWindowController.m; sourceTree = "<group>"; };
+		355AACE412DBB4E700A9FA54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Notebook/Info.plist; sourceTree = "<group>"; };
+		355AACE512DBB4E700A9FA54 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainMenu.xib; path = Source/Notebook/MainMenu.xib; sourceTree = "<group>"; };
+		355AACE612DBB4E700A9FA54 /* Notebook.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Notebook.xib; path = Source/Notebook/Notebook.xib; sourceTree = "<group>"; };
+		355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = Source/NBCore.xcodeproj; sourceTree = "<group>"; };
+		355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBUI.xcodeproj; path = Source/NBUI.xcodeproj; sourceTree = "<group>"; };
+		355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBPython.xcodeproj; path = Source/Languages/NBPython.xcodeproj; sourceTree = "<group>"; };
+		355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		355AAD3112DBB62100A9FA54 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = External/JSON.framework; sourceTree = "<group>"; };
+		355AAD3212DBB62100A9FA54 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
+		355AADC412DBB75300A9FA54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3576FDF512DBC89000C2ED92 /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
+		3576FDF612DBC89000C2ED92 /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
+		3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBRuby.xcodeproj; path = Source/Languages/NBRuby.xcodeproj; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3525304912D4737400A1124E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				355FBB3C12D591CB002CF0DC /* Ruby.framework in Frameworks */,
-				3525307412D473CF00A1124E /* Cocoa.framework in Frameworks */,
-				3525306512D473B000A1124E /* NBCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37B0129B8FF000044B12 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				35B6401E12D84BED00204578 /* RegexKit.framework in Frameworks */,
-				4385974112D580F1003D2E8D /* Quartz.framework in Frameworks */,
-				359E37C0129B903400044B12 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37FA129B917B00044B12 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				355FBB3A12D591C8002CF0DC /* Python.framework in Frameworks */,
-				359E3804129B918800044B12 /* Cocoa.framework in Frameworks */,
-				359E3838129B92B900044B12 /* NBCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F5CF841298C1490032AB15 /* RegexKit.framework in Frameworks */,
+				355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */,
+				355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				353E2B851295F2B8001A40B6 /* QuartzCore.framework in Frameworks */,
-				357FF73A1297A7D200A661E5 /* Carbon.framework in Frameworks */,
-				359E37CC129B905A00044B12 /* NBCore.framework in Frameworks */,
-				358DDB0512BD4FFC00B9D70A /* JSON.framework in Frameworks */,
-				3547DEB912C1907700B6C5F7 /* BWToolkitFramework.framework in Frameworks */,
-				4385972C12D57EBF003D2E8D /* Quartz.framework in Frameworks */,
+				355AAD3312DBB62100A9FA54 /* BWToolkitFramework.framework in Frameworks */,
+				355AAD3412DBB62100A9FA54 /* JSON.framework in Frameworks */,
+				355AAD3512DBB62100A9FA54 /* RegexKit.framework in Frameworks */,
+				355AADC512DBB75300A9FA54 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				355AACDB12DBB4DC00A9FA54 /* NotebookAppDelegate.h */,
+				355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */,
+				355AACDD12DBB4DC00A9FA54 /* NotebookDocument.h */,
+				355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */,
+				355AACDF12DBB4DC00A9FA54 /* NotebookWindowController.h */,
+				355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				355AADC412DBB75300A9FA54 /* QuartzCore.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -320,17 +203,12 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3547DEB812C1907700B6C5F7 /* BWToolkitFramework.framework */,
-				358DDB0412BD4FFC00B9D70A /* JSON.framework */,
-				357FF7391297A7D200A661E5 /* Carbon.framework */,
+				355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */,
+				355AAD3112DBB62100A9FA54 /* JSON.framework */,
+				355AAD3212DBB62100A9FA54 /* RegexKit.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
-				35F5CF831298C1490032AB15 /* RegexKit.framework */,
-				4385972B12D57EBF003D2E8D /* Quartz.framework */,
-				355FBB3312D591BA002CF0DC /* Python.framework */,
-				355FBB3612D591C1002CF0DC /* Ruby.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -339,9 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Notebook.app */,
-				359E37B2129B8FF000044B12 /* NBCore.framework */,
-				359E3889129B9A5F00044B12 /* Python.bundle */,
-				3525304B12D4737400A1124E /* Ruby.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,7 +224,11 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
-				352F5979129B5E5300C34824 /* Source */,
+				355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */,
+				355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */,
+				355AACFE12DBB50300A9FA54 /* Languages */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -357,17 +236,21 @@
 			name = Notebook;
 			sourceTree = "<group>";
 		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				355AACD912DBB4D500A9FA54 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				355CE6A112C33FD000EF19E7 /* Samples */,
-				358D61D912C0195C006A7A06 /* LICENSE */,
-				358D61DA12C0195C006A7A06 /* README.md */,
-				358DDB3912BD6A1500B9D70A /* Themes */,
-				8D1107310486CEB800E47090 /* Notebook-Info.plist */,
-				359E37B3129B8FF000044B12 /* NBCore-Info.plist */,
-				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				3576FDF412DBC89000C2ED92 /* Themes */,
+				355AACE412DBB4E700A9FA54 /* Info.plist */,
+				355AACE512DBB4E700A9FA54 /* MainMenu.xib */,
+				355AACE612DBB4E700A9FA54 /* Notebook.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -381,313 +264,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		351106A912BC940500FCCF7A /* NBCommentCellView */ = {
+		355AACEB12DBB4FB00A9FA54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				351106AA12BC942B00FCCF7A /* NBCommentCellView.h */,
-				351106AB12BC942B00FCCF7A /* NBCommentCellView.m */,
+				355AACF512DBB4FB00A9FA54 /* NBCore.framework */,
 			);
-			name = NBCommentCellView;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		351106F712BC98A500FCCF7A /* NBCommentView */ = {
+		355AACEE12DBB4FB00A9FA54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				351106F812BC98E900FCCF7A /* NBCommentView.h */,
-				351106F912BC98E900FCCF7A /* NBCommentView.m */,
+				355AACFC12DBB4FB00A9FA54 /* NBUI.framework */,
 			);
-			name = NBCommentView;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		3525305212D4738F00A1124E /* Ruby */ = {
+		355AACFE12DBB50300A9FA54 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
-				35E4404D12D47500002197E8 /* NBEngineRuby-Info.plist */,
-				3525305312D4738F00A1124E /* NBEngineRuby.h */,
-				3525305412D4738F00A1124E /* NBEngineRuby.m */,
-				3525305512D4738F00A1124E /* NBEngineRubyBackend.h */,
-				3525305612D4738F00A1124E /* NBEngineRubyBackend.m */,
-				3525305712D4738F00A1124E /* NBEngineRubyEncoder.h */,
-				3525305812D4738F00A1124E /* NBEngineRubyEncoder.m */,
-				3525305912D4738F00A1124E /* NBEngineRubyHighlighter.h */,
-				3525305A12D4738F00A1124E /* NBEngineRubyHighlighter.m */,
-				3525305B12D4738F00A1124E /* ruby.png */,
+				3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */,
+				355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */,
 			);
-			path = Ruby;
+			name = Languages;
 			sourceTree = "<group>";
 		};
-		352F5979129B5E5300C34824 /* Source */ = {
+		355AAD0512DBB50F00A9FA54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				352F597A129B5E5300C34824 /* main.m */,
-				350A446612D70E2C007F6457 /* NBProcessWatchdog.h */,
-				350A446712D70E2C007F6457 /* NBProcessWatchdog.m */,
-				352F597B129B5E5300C34824 /* NBCell */,
-				35812B89129B83BE0092AECD /* NBCreateNotebookView */,
-				3551B23D12D0402C004A020C /* NBEngine */,
-				352F5991129B5E5300C34824 /* NBNotebook */,
-				352F5999129B5E5300C34824 /* NBSettings */,
-				352F599C129B5E5300C34824 /* NBTextView */,
-				3547E01512C1BEAD00B6C5F7 /* Notebook */,
+				355AAD0D12DBB50F00A9FA54 /* NBPython.bundle */,
 			);
-			path = Source;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F597B129B5E5300C34824 /* NBCell */ = {
-			isa = PBXGroup;
-			children = (
-				352F597C129B5E5300C34824 /* NBCell.h */,
-				352F597D129B5E5300C34824 /* NBCell.m */,
-				352F597E129B5E5300C34824 /* NBCellView.h */,
-				352F597F129B5E5300C34824 /* NBCellView.m */,
-				352F5980129B5E5300C34824 /* NBCellViewDelegate.h */,
-				352BCABC12D85EC9003DABA4 /* NBCellAutoheightProtocol.h */,
-				351106A912BC940500FCCF7A /* NBCommentCellView */,
-				352F5981129B5E5300C34824 /* NBSourceCellView */,
-			);
-			name = NBCell;
-			path = Source/NBCell;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F5981129B5E5300C34824 /* NBSourceCellView */ = {
-			isa = PBXGroup;
-			children = (
-				352F5982129B5E5300C34824 /* NBSourceCellView.h */,
-				352F5983129B5E5300C34824 /* NBSourceCellView.m */,
-				352F5984129B5E5300C34824 /* NBSourceCellViewDelegate.h */,
-			);
-			name = NBSourceCellView;
-			path = Source/NBCell/NBSourceCellView;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F5991129B5E5300C34824 /* NBNotebook */ = {
-			isa = PBXGroup;
-			children = (
-				352F5992129B5E5300C34824 /* NBNotebook.h */,
-				352F5993129B5E5300C34824 /* NBNotebook.m */,
-				35C2092B12C087C4002B114A /* NBNotebookDelegate.h */,
-				352F5994129B5E5300C34824 /* NBNotebookView.h */,
-				352F5995129B5E5300C34824 /* NBNotebookView.m */,
-				35347C1812D7DA87009E8911 /* NBBackgroundView.h */,
-				35347C1912D7DA87009E8911 /* NBBackgroundView.m */,
-			);
-			name = NBNotebook;
-			path = Source/NBNotebook;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F5999129B5E5300C34824 /* NBSettings */ = {
-			isa = PBXGroup;
-			children = (
-				35347D3B12D7F12D009E8911 /* NBSettingsWindowController.h */,
-				35347D3C12D7F12D009E8911 /* NBSettingsWindowController.m */,
-				35347D1B12D7EF44009E8911 /* NBSettingsWindow.xib */,
-				352F599A129B5E5300C34824 /* NBSettings.h */,
-				352F599B129B5E5300C34824 /* NBSettings.m */,
-				35295A1C12BDBAB100BCAD1E /* NBHighlightSettings.h */,
-				35295A1D12BDBAB100BCAD1E /* NBHighlightSettings.m */,
-			);
-			name = NBSettings;
-			path = Source/NBSettings;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F599C129B5E5300C34824 /* NBTextView */ = {
-			isa = PBXGroup;
-			children = (
-				351106F712BC98A500FCCF7A /* NBCommentView */,
-				352F599D129B5E5300C34824 /* NBOutputView */,
-				352F59A3129B5E5300C34824 /* NBSourceView */,
-				352F59A9129B5E5300C34824 /* NBTextView.h */,
-				352F59AA129B5E5300C34824 /* NBTextView.m */,
-			);
-			name = NBTextView;
-			path = Source/NBTextView;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F599D129B5E5300C34824 /* NBOutputView */ = {
-			isa = PBXGroup;
-			children = (
-				352F599E129B5E5300C34824 /* NBOutputView.h */,
-				352F599F129B5E5300C34824 /* NBOutputView.m */,
-			);
-			name = NBOutputView;
-			path = Source/NBTextView/NBOutputView;
-			sourceTree = SOURCE_ROOT;
-		};
-		352F59A3129B5E5300C34824 /* NBSourceView */ = {
-			isa = PBXGroup;
-			children = (
-				352F59A4129B5E5300C34824 /* NBSourceView.h */,
-				352F59A5129B5E5300C34824 /* NBSourceView.m */,
-				352F59A8129B5E5300C34824 /* NBSourceViewDelegate.h */,
-			);
-			name = NBSourceView;
-			path = Source/NBTextView/NBSourceView;
-			sourceTree = SOURCE_ROOT;
-		};
-		3547E01512C1BEAD00B6C5F7 /* Notebook */ = {
-			isa = PBXGroup;
-			children = (
-				35761585129C2417000B442B /* Notebook.xib */,
-				352F59AF129B5E5300C34824 /* NotebookAppDelegate.h */,
-				352F59B0129B5E5300C34824 /* NotebookAppDelegate.m */,
-				3547E01612C1BEC700B6C5F7 /* NotebookDocument.h */,
-				3547E01712C1BEC700B6C5F7 /* NotebookDocument.m */,
-				358D27AE12C40282000ACCB6 /* NotebookWindowController.h */,
-				358D27AF12C40282000ACCB6 /* NotebookWindowController.m */,
-			);
-			name = Notebook;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		3551B23D12D0402C004A020C /* NBEngine */ = {
+		3576FDF412DBC89000C2ED92 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				3551B23F12D0402C004A020C /* NBEngine.h */,
-				3551B24012D0402C004A020C /* NBEngine.m */,
-				355FBC1A12D5AEA1002CF0DC /* NBEngineBackendProtocol.h */,
-				3551B24112D0402C004A020C /* NBEngineBackend.h */,
-				3551B24212D0402C004A020C /* NBEngineBackend.m */,
-				3551B24312D0402C004A020C /* NBEngineEncoder.h */,
-				3551B24412D0402C004A020C /* NBEngineEncoder.m */,
-				3551B24512D0402C004A020C /* NBEngineHighlighter.h */,
-				3551B24612D0402C004A020C /* NBEngineHighlighter.m */,
-				3551B24712D0402C004A020C /* NBEngineLoader.h */,
-				3551B24812D0402C004A020C /* NBEngineLoader.m */,
-				3525305212D4738F00A1124E /* Ruby */,
-				3551B24912D0402C004A020C /* Python */,
-			);
-			path = NBEngine;
-			sourceTree = "<group>";
-		};
-		3551B24912D0402C004A020C /* Python */ = {
-			isa = PBXGroup;
-			children = (
-				35E4404B12D474F6002197E8 /* NBEnginePython-Info.plist */,
-				3551B24A12D0402C004A020C /* NBEnginePython.h */,
-				3551B24B12D0402C004A020C /* NBEnginePython.m */,
-				3551B24C12D0402C004A020C /* NBEnginePythonBackend.h */,
-				3551B24D12D0402C004A020C /* NBEnginePythonBackend.m */,
-				3551B24E12D0402C004A020C /* NBEnginePythonEncoder.h */,
-				3551B24F12D0402C004A020C /* NBEnginePythonEncoder.m */,
-				3551B25012D0402C004A020C /* NBEnginePythonHighlighter.h */,
-				3551B25112D0402C004A020C /* NBEnginePythonHighlighter.m */,
-				3551B25212D0402C004A020C /* python.png */,
-			);
-			path = Python;
-			sourceTree = "<group>";
-		};
-		355CE6A112C33FD000EF19E7 /* Samples */ = {
-			isa = PBXGroup;
-			children = (
-				355CE6A212C33FD000EF19E7 /* Norvig */,
-			);
-			path = Samples;
-			sourceTree = "<group>";
-		};
-		355CE6A212C33FD000EF19E7 /* Norvig */ = {
-			isa = PBXGroup;
-			children = (
-				355CE6A312C33FD000EF19E7 /* spelling.py */,
-			);
-			name = Norvig;
-			path = norvig;
-			sourceTree = "<group>";
-		};
-		35812B89129B83BE0092AECD /* NBCreateNotebookView */ = {
-			isa = PBXGroup;
-			children = (
-				35812B8B129B84030092AECD /* NBCreateNotebookView.h */,
-				35812B8C129B84030092AECD /* NBCreateNotebookView.m */,
-				35812B8E129B84170092AECD /* NBCreateNotebookView.xib */,
-				35575487129BB57E00F5A1CC /* NBCreateNotebookViewDelegate.h */,
-				358DDA8712BD436400B9D70A /* NBPassthroughTextField.h */,
-				358DDA8812BD436400B9D70A /* NBPassthroughTextField.m */,
-			);
-			name = NBCreateNotebookView;
-			sourceTree = "<group>";
-		};
-		358DDB3912BD6A1500B9D70A /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				35295A8512BDCF4C00BCAD1E /* morrowind.js */,
-				358DDB3A12BD6A1500B9D70A /* tango.js */,
+				3576FDF512DBC89000C2ED92 /* morrowind.js */,
+				3576FDF612DBC89000C2ED92 /* tango.js */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		3576FE4C12DBC9A600C2ED92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		359E37AD129B8FF000044B12 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3551B28312D040B9004A020C /* NBCell.h in Headers */,
-				3551B28412D040B9004A020C /* NBEngine.h in Headers */,
-				3551B28512D040B9004A020C /* NBEngineBackend.h in Headers */,
-				3551B28612D040B9004A020C /* NBEngineEncoder.h in Headers */,
-				3551B28712D040B9004A020C /* NBEngineHighlighter.h in Headers */,
-				3551B28812D040B9004A020C /* NBEngineLoader.h in Headers */,
-				3551B28912D040B9004A020C /* NBNotebook.h in Headers */,
-				355FBC1B12D5AEA1002CF0DC /* NBEngineBackendProtocol.h in Headers */,
-				352BCABD12D85EC9003DABA4 /* NBCellAutoheightProtocol.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		3525304A12D4737400A1124E /* Ruby */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3525304F12D4737500A1124E /* Build configuration list for PBXNativeTarget "Ruby" */;
-			buildPhases = (
-				3525304712D4737400A1124E /* Resources */,
-				3525304812D4737400A1124E /* Sources */,
-				3525304912D4737400A1124E /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Ruby;
-			productName = Ruby;
-			productReference = 3525304B12D4737400A1124E /* Ruby.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		359E37B1129B8FF000044B12 /* NBCore */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 359E37B6129B8FF000044B12 /* Build configuration list for PBXNativeTarget "NBCore" */;
-			buildPhases = (
-				359E37AD129B8FF000044B12 /* Headers */,
-				359E37AE129B8FF000044B12 /* Resources */,
-				359E37AF129B8FF000044B12 /* Sources */,
-				359E37B0129B8FF000044B12 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NBCore;
-			productName = NBCore;
-			productReference = 359E37B2129B8FF000044B12 /* NBCore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		359E37FB129B917B00044B12 /* Python */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 359E3801129B917B00044B12 /* Build configuration list for PBXNativeTarget "Python" */;
-			buildPhases = (
-				359E37F8129B917B00044B12 /* Resources */,
-				359E37F9129B917B00044B12 /* Sources */,
-				359E37FA129B917B00044B12 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Python;
-			productName = Python;
-			productReference = 359E3889129B9A5F00044B12 /* Python.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		8D1107260486CEB800E47090 /* Notebook */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Notebook" */;
@@ -695,16 +324,17 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				35F5CF541298BE3B0032AB15 /* Copy Frameworks */,
-				359E383D129B92D800044B12 /* Copy Plugins */,
-				358DDB3812BD6A0B00B9D70A /* Copy Themes */,
+				355AAD2F12DBB60300A9FA54 /* Copy Language PlugIns */,
+				355AADE712DBB7BA00A9FA54 /* Copy Frameworks */,
+				3576FE0A12DBC8C500C2ED92 /* Copy Themes */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				359E37CB129B905700044B12 /* PBXTargetDependency */,
-				359E382D129B927600044B12 /* PBXTargetDependency */,
-				3525309612D473FE00A1124E /* PBXTargetDependency */,
+				355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */,
+				355AAD2112DBB58E00A9FA54 /* PBXTargetDependency */,
+				355AAD2312DBB58E00A9FA54 /* PBXTargetDependency */,
+				3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */,
 			);
 			name = Notebook;
 			productInstallPath = "$(HOME)/Applications";
@@ -729,335 +359,127 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Notebook */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 355AACEB12DBB4FB00A9FA54 /* Products */;
+					ProjectRef = 355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 355AAD0512DBB50F00A9FA54 /* Products */;
+					ProjectRef = 355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */;
+				},
+				{
+					ProductGroup = 3576FE4C12DBC9A600C2ED92 /* Products */;
+					ProjectRef = 3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */;
+				},
+				{
+					ProductGroup = 355AACEE12DBB4FB00A9FA54 /* Products */;
+					ProjectRef = 355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Notebook */,
-				359E37B1129B8FF000044B12 /* NBCore */,
-				359E37FB129B917B00044B12 /* Python */,
-				3525304A12D4737400A1124E /* Ruby */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		355AACF512DBB4FB00A9FA54 /* NBCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NBCore.framework;
+			remoteRef = 355AACF412DBB4FB00A9FA54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		355AACFC12DBB4FB00A9FA54 /* NBUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NBUI.framework;
+			remoteRef = 355AACFB12DBB4FB00A9FA54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		355AAD0D12DBB50F00A9FA54 /* NBPython.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NBPython.bundle;
+			remoteRef = 355AAD0C12DBB50F00A9FA54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NBRuby.bundle;
+			remoteRef = 3576FE5312DBC9A600C2ED92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
-		3525304712D4737400A1124E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3525306012D4738F00A1124E /* ruby.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37AE129B8FF000044B12 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37F8129B917B00044B12 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3551B25C12D0402C004A020C /* python.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				35812B8F129B84170092AECD /* NBCreateNotebookView.xib in Resources */,
-				35761587129C2417000B442B /* Notebook.xib in Resources */,
-				358D61DB12C0195C006A7A06 /* LICENSE in Resources */,
-				358D61DC12C0195C006A7A06 /* README.md in Resources */,
-				35347D1C12D7EF44009E8911 /* NBSettingsWindow.xib in Resources */,
+				355AACE812DBB4E700A9FA54 /* MainMenu.xib in Resources */,
+				355AACE912DBB4E700A9FA54 /* Notebook.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3525304812D4737400A1124E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3525305C12D4738F00A1124E /* NBEngineRuby.m in Sources */,
-				3525305D12D4738F00A1124E /* NBEngineRubyBackend.m in Sources */,
-				3525305E12D4738F00A1124E /* NBEngineRubyEncoder.m in Sources */,
-				3525305F12D4738F00A1124E /* NBEngineRubyHighlighter.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37AF129B8FF000044B12 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3551B28112D0409C004A020C /* NBCell.m in Sources */,
-				3551B28212D0409C004A020C /* NBNotebook.m in Sources */,
-				3551B25D12D04041004A020C /* NBEngine.m in Sources */,
-				3551B25E12D04041004A020C /* NBEngineBackend.m in Sources */,
-				3551B25F12D04041004A020C /* NBEngineEncoder.m in Sources */,
-				3551B26012D04041004A020C /* NBEngineHighlighter.m in Sources */,
-				3551B26112D04041004A020C /* NBEngineLoader.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		359E37F9129B917B00044B12 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3551B25812D0402C004A020C /* NBEnginePython.m in Sources */,
-				3551B25912D0402C004A020C /* NBEnginePythonBackend.m in Sources */,
-				3551B25A12D0402C004A020C /* NBEnginePythonEncoder.m in Sources */,
-				3551B25B12D0402C004A020C /* NBEnginePythonHighlighter.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352F59B1129B5E5300C34824 /* main.m in Sources */,
-				352F59C4129B5E5300C34824 /* NotebookAppDelegate.m in Sources */,
-				352F59B3129B5E5300C34824 /* NBCellView.m in Sources */,
-				352F59B4129B5E5300C34824 /* NBSourceCellView.m in Sources */,
-				352F59BB129B5E5300C34824 /* NBNotebookView.m in Sources */,
-				352F59BD129B5E5300C34824 /* NBSettings.m in Sources */,
-				352F59BE129B5E5300C34824 /* NBOutputView.m in Sources */,
-				352F59C0129B5E5300C34824 /* NBSourceView.m in Sources */,
-				352F59C2129B5E5300C34824 /* NBTextView.m in Sources */,
-				35812B8D129B84030092AECD /* NBCreateNotebookView.m in Sources */,
-				351106AC12BC942B00FCCF7A /* NBCommentCellView.m in Sources */,
-				351106FA12BC98E900FCCF7A /* NBCommentView.m in Sources */,
-				358DDA8912BD436400B9D70A /* NBPassthroughTextField.m in Sources */,
-				35295A1E12BDBAB100BCAD1E /* NBHighlightSettings.m in Sources */,
-				3547E01812C1BEC700B6C5F7 /* NotebookDocument.m in Sources */,
-				358D27B012C40282000ACCB6 /* NotebookWindowController.m in Sources */,
-				350A446812D70E2C007F6457 /* NBProcessWatchdog.m in Sources */,
-				35347C1A12D7DA87009E8911 /* NBBackgroundView.m in Sources */,
-				35347D3D12D7F12D009E8911 /* NBSettingsWindowController.m in Sources */,
+				355AACDA12DBB4D500A9FA54 /* main.m in Sources */,
+				355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */,
+				355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */,
+				355AACE312DBB4DC00A9FA54 /* NotebookWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3525309612D473FE00A1124E /* PBXTargetDependency */ = {
+		355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3525304A12D4737400A1124E /* Ruby */;
-			targetProxy = 3525309512D473FE00A1124E /* PBXContainerItemProxy */;
+			name = NBPython;
+			targetProxy = 355AAD1E12DBB58E00A9FA54 /* PBXContainerItemProxy */;
 		};
-		359E37CB129B905700044B12 /* PBXTargetDependency */ = {
+		355AAD2112DBB58E00A9FA54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 359E37B1129B8FF000044B12 /* NBCore */;
-			targetProxy = 359E37CA129B905700044B12 /* PBXContainerItemProxy */;
+			name = NBCore;
+			targetProxy = 355AAD2012DBB58E00A9FA54 /* PBXContainerItemProxy */;
 		};
-		359E382D129B927600044B12 /* PBXTargetDependency */ = {
+		355AAD2312DBB58E00A9FA54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 359E37FB129B917B00044B12 /* Python */;
-			targetProxy = 359E382C129B927600044B12 /* PBXContainerItemProxy */;
+			name = NBUI;
+			targetProxy = 355AAD2212DBB58E00A9FA54 /* PBXContainerItemProxy */;
+		};
+		3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NBRuby;
+			targetProxy = 3576FE6512DBC9BE00C2ED92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C165DFE840E0CC02AAC07 /* English */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DDD58150DA1D0A300B32029 /* English */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		35761585129C2417000B442B /* Notebook.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35761586129C2417000B442B /* English */,
-			);
-			name = Notebook.xib;
-			path = ..;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		3525304D12D4737500A1124E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Source/NBEngine/Ruby/NBEngineRuby-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Ruby;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		3525304E12D4737500A1124E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Source/NBEngine/Ruby/NBEngineRuby-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Ruby;
-				WRAPPER_EXTENSION = bundle;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		359E37B4129B8FF000044B12 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBCore-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = NBCore;
-			};
-			name = Debug;
-		};
-		359E37B5129B8FF000044B12 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				FRAMEWORK_VERSION = A;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NBCore-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = NBCore;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		359E37FF129B917B00044B12 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Source/NBEngine/Python/NBEnginePython-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Python;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		359E3800129B917B00044B12 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "Source/NBEngine/Python/NBEnginePython-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Python;
-				WRAPPER_EXTENSION = bundle;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "Notebook-Info.plist";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = Source/Notebook/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Notebook;
 			};
@@ -1068,9 +490,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/External\"",
+				);
 				GCC_MODEL_TUNING = G5;
-				INFOPLIST_FILE = "Notebook-Info.plist";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = Source/Notebook/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Notebook;
 			};
@@ -1080,18 +506,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/External\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External\"/**";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -1100,16 +521,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/External\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External\"/**";
 				PREBINDING = NO;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx10.6;
 			};
 			name = Release;
@@ -1117,33 +533,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3525304F12D4737500A1124E /* Build configuration list for PBXNativeTarget "Ruby" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3525304D12D4737500A1124E /* Debug */,
-				3525304E12D4737500A1124E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		359E37B6129B8FF000044B12 /* Build configuration list for PBXNativeTarget "NBCore" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				359E37B4129B8FF000044B12 /* Debug */,
-				359E37B5129B8FF000044B12 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		359E3801129B917B00044B12 /* Build configuration list for PBXNativeTarget "Python" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				359E37FF129B917B00044B12 /* Debug */,
-				359E3800129B917B00044B12 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Notebook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

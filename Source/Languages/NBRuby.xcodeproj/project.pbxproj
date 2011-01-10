@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		356CBAD112DB238800E07E46 /* NBEngineRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACA12DB238800E07E46 /* NBEngineRuby.m */; };
+		356CBAD212DB238800E07E46 /* NBEngineRubyBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACC12DB238800E07E46 /* NBEngineRubyBackend.m */; };
+		356CBAD312DB238800E07E46 /* NBEngineRubyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACE12DB238800E07E46 /* NBEngineRubyEncoder.m */; };
+		356CBAD412DB238800E07E46 /* NBEngineRubyHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBAD012DB238800E07E46 /* NBEngineRubyHighlighter.m */; };
+		356CBAE112DB23C300E07E46 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAE012DB23C300E07E46 /* Ruby.framework */; };
+		356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAEF12DB23EB00E07E46 /* NBCore.framework */; };
+		356CBB5712DB271000E07E46 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBB5612DB271000E07E46 /* RegexKit.framework */; };
+		3576FE1E12DBC96400C2ED92 /* ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 3576FE1D12DBC96400C2ED92 /* ruby.png */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = NBCore;
+		};
+		356CBAF212DB241B00E07E46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = NBCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		356CBAC912DB238800E07E46 /* NBEngineRuby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRuby.h; path = Ruby/NBEngineRuby.h; sourceTree = "<group>"; };
+		356CBACA12DB238800E07E46 /* NBEngineRuby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRuby.m; path = Ruby/NBEngineRuby.m; sourceTree = "<group>"; };
+		356CBACB12DB238800E07E46 /* NBEngineRubyBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRubyBackend.h; path = Ruby/NBEngineRubyBackend.h; sourceTree = "<group>"; };
+		356CBACC12DB238800E07E46 /* NBEngineRubyBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRubyBackend.m; path = Ruby/NBEngineRubyBackend.m; sourceTree = "<group>"; };
+		356CBACD12DB238800E07E46 /* NBEngineRubyEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRubyEncoder.h; path = Ruby/NBEngineRubyEncoder.h; sourceTree = "<group>"; };
+		356CBACE12DB238800E07E46 /* NBEngineRubyEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRubyEncoder.m; path = Ruby/NBEngineRubyEncoder.m; sourceTree = "<group>"; };
+		356CBACF12DB238800E07E46 /* NBEngineRubyHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRubyHighlighter.h; path = Ruby/NBEngineRubyHighlighter.h; sourceTree = "<group>"; };
+		356CBAD012DB238800E07E46 /* NBEngineRubyHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRubyHighlighter.m; path = Ruby/NBEngineRubyHighlighter.m; sourceTree = "<group>"; };
+		356CBAD512DB239000E07E46 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Ruby/Info.plist; sourceTree = "<group>"; };
+		356CBAE012DB23C300E07E46 /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
+		356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = ../NBCore.xcodeproj; sourceTree = SOURCE_ROOT; };
+		356CBB5612DB271000E07E46 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
+		3576FE1D12DBC96400C2ED92 /* ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ruby.png; path = Ruby/ruby.png; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* NBRuby.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBRuby.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */,
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				356CBAE112DB23C300E07E46 /* Ruby.framework in Frameworks */,
+				356CBB5712DB271000E07E46 /* RegexKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* NBRuby */ = {
+			isa = PBXGroup;
+			children = (
+				356CBAE512DB23E300E07E46 /* Dependencies */,
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = NBRuby;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				356CBAD512DB239000E07E46 /* Info.plist */,
+				3576FE1D12DBC96400C2ED92 /* ruby.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				356CBAC912DB238800E07E46 /* NBEngineRuby.h */,
+				356CBACA12DB238800E07E46 /* NBEngineRuby.m */,
+				356CBACB12DB238800E07E46 /* NBEngineRubyBackend.h */,
+				356CBACC12DB238800E07E46 /* NBEngineRubyBackend.m */,
+				356CBACD12DB238800E07E46 /* NBEngineRubyEncoder.h */,
+				356CBACE12DB238800E07E46 /* NBEngineRubyEncoder.m */,
+				356CBACF12DB238800E07E46 /* NBEngineRubyHighlighter.h */,
+				356CBAD012DB238800E07E46 /* NBEngineRubyHighlighter.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				356CBB5612DB271000E07E46 /* RegexKit.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				356CBAE012DB23C300E07E46 /* Ruby.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* NBRuby.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		356CBAE512DB23E300E07E46 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		356CBAE812DB23EB00E07E46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				356CBAEF12DB23EB00E07E46 /* NBCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* NBRuby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "NBRuby" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				356CBAF312DB241B00E07E46 /* PBXTargetDependency */,
+			);
+			name = NBRuby;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = NBRuby;
+			productReference = 8D5B49B6048680CD000E48DA /* NBRuby.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "NBRuby" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* NBRuby */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 356CBAE812DB23EB00E07E46 /* Products */;
+					ProjectRef = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* NBRuby */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		356CBAEF12DB23EB00E07E46 /* NBCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NBCore.framework;
+			remoteRef = 356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3576FE1E12DBC96400C2ED92 /* ruby.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				356CBAD112DB238800E07E46 /* NBEngineRuby.m in Sources */,
+				356CBAD212DB238800E07E46 /* NBEngineRubyBackend.m in Sources */,
+				356CBAD312DB238800E07E46 /* NBEngineRubyEncoder.m in Sources */,
+				356CBAD412DB238800E07E46 /* NBEngineRubyHighlighter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		356CBAF312DB241B00E07E46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NBCore;
+			targetProxy = 356CBAF212DB241B00E07E46 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../External\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Ruby/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = NBRuby;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../External\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Ruby/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = NBRuby;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+				SYMROOT = Ruby/build;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+				SYMROOT = Ruby/build;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "NBRuby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "NBRuby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
