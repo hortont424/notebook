@@ -1,2 +1,2 @@
-Tim Horton
-Nate Stedman
+* Tim Horton
+* Nate Stedman
