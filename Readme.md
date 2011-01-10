@@ -15,7 +15,9 @@ Notebook includes a plugin system to add support for a variety of languages. By 
 License
 -------
 
-Notebook is distributed under the two-clause BSD license, which can be found in its entirety in the LICENSE file.
+Notebook is distributed under the two-clause BSD license, which can be found in its entirety in the License.md file.
+
+Authors.md includes the names of all contributors of code.
 
 Code
 ----
