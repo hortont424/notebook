@@ -160,6 +160,7 @@
 - (void)evaluate
 {
     self.state = NBCellViewEvaluating;
+    cell.output = nil;
 
     [delegate evaluateCellView:self];
 }

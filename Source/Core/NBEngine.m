@@ -52,6 +52,11 @@
     return self;
 }
 
+- (void)backendCrashed:(id)sender
+{
+    [self cleanupBackend:@"Backend Crashed."];
+}
+
 - (void)launchBackend
 {
     NSString * binaryPath = [[[NSProcessInfo processInfo] arguments] objectAtIndex:0];
@@ -60,6 +65,9 @@
 
     backendTask = [NSTask launchedTaskWithLaunchPath:binaryPath arguments:[NSArray arrayWithObjects:@"-server-language",serverLanguage,@"-server-port",serverPort,nil]];
     backend = nil;
+    busy = NO;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backendCrashed:) name:NSTaskDidTerminateNotification object:backendTask];
 
     // TODO: This should be done on a different thread and spaced out over time (or just in a timer here!)
 
@@ -79,12 +87,13 @@
     }
 }
 
-- (void)abortBackend
+- (void)cleanupBackend:(NSString *)cleanupMessage
 {
     NBException * abortException = [[NBException alloc] init];
-    abortException.message = @"Aborted";
+    abortException.message = cleanupMessage;
 
-    [backendTask terminate];
+    if(backendTask)
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:NSTaskDidTerminateNotification object:backendTask];
 
     backend = nil;
     backendTask = nil;
@@ -102,6 +111,14 @@
     }
 
     [taskQueue removeAllObjects];
+}
+
+- (void)abortBackend
+{
+    if(backendTask && [backendTask isRunning])
+        [backendTask terminate];
+
+    [self cleanupBackend:@"Aborted"];
 }
 
 #pragma mark Abstract Base Methods
