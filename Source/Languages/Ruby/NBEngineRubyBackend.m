@@ -25,8 +25,6 @@
 
 #import "NBEngineRubyBackend.h"
 
-static NBException * exception;
-
 @implementation NBEngineRubyBackend
 
 - (id)init
@@ -67,37 +65,31 @@ static NBException * exception;
     return [NSString stringWithUTF8String:StringValueCStr(stdoutValue)];
 }
 
-static VALUE exceptionHandler(VALUE unused)
+- (NBException *)decodeRubyException:(int)error
 {
-    exception = [[NBException alloc] init];
-    exception.message = @"Ruby exception!";
+    if(error == 0)
+        return nil;
 
-    return Qtrue;
-}
+    VALUE rubyException = rb_gv_get("$!");
+    //VALUE rubyClass = rb_class_path(CLASS_OF(rubyException));
+    VALUE rubyMessage = rb_obj_as_string(rubyException);
 
-static VALUE evaluateString(VALUE ary)
-{
-    VALUE str = rb_ary_entry(ary, 0);
+    NBException * exception = [[NBException alloc] init];
+    exception.message = [NSString stringWithUTF8String:StringValueCStr(rubyMessage)];
 
-    rb_eval_string(StringValueCStr(str));
-
-    return Qtrue;
+    return exception;
 }
 
 - (oneway void)executeSnippet:(NSString *)snippet
 {
+    int state = 0;
     VALUE stringIOObject = [self captureRubyStdout];
 
-    VALUE ary = rb_ary_new2(1);
-    rb_ary_store(ary, 0, rb_str_new2([snippet UTF8String]));
-
-    exception = nil;
-
-    rb_rescue(evaluateString, ary, exceptionHandler, Qnil);
+    rb_eval_string_wrap([snippet UTF8String], &state);
 
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
-    [engine snippetComplete:exception withOutput:[self prepareCapturedRubyStdout:stringIOObject]];
+    [engine snippetComplete:[self decodeRubyException:state] withOutput:[self prepareCapturedRubyStdout:stringIOObject]];
 }
 
 @end
