@@ -78,14 +78,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8D5B49B6048680CD000E48DA /* NBRuby.bundle */;
+			remoteGlobalIDString = 8D5B49B6048680CD000E48DA;
 			remoteInfo = NBRuby;
 		};
 		3576FE6512DBC9BE00C2ED92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D5B49AC048680CD000E48DA /* NBRuby */;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = NBRuby;
 		};
 /* End PBXContainerItemProxy section */
@@ -481,6 +481,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Source/Notebook/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = Notebook;
 			};
 			name = Debug;
@@ -498,6 +499,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Source/Notebook/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = Notebook;
 			};
 			name = Release;
