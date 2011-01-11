@@ -331,9 +331,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */,
 				355AAD2112DBB58E00A9FA54 /* PBXTargetDependency */,
 				355AAD2312DBB58E00A9FA54 /* PBXTargetDependency */,
+				355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */,
 				3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */,
 			);
 			name = Notebook;
@@ -516,6 +516,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				SYMROOT = Build;
 			};
 			name = Debug;
 		};
@@ -529,6 +530,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				SYMROOT = Build;
 			};
 			name = Release;
 		};
