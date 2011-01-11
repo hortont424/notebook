@@ -1,7 +1,7 @@
 {
     "name": "Morrowind",
     "author": "Nate Stedman",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
@@ -10,7 +10,7 @@
     "colors": {
         "normal": {"r": 0.827, "g": 0.843, "b": 0.812, "a": 1.0},
 
-        "background": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
+        "background": {"r": 0.235, "g": 0.267, "b": 0.275, "a": 1.0},
         "background.source": {"r": 0.180, "g": 0.204, "b": 0.212, "a": 1.0},
         "background.output": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
         "background.comment": {"r": 0.180, "g": 0.204, "b": 0.212, "a": 1.0},
@@ -25,8 +25,8 @@
         "status.failure": {"r": 0.788, "g": 0.0, "b": 0.0, "a": 1.0},
         "status.success": {"r": 0.451, "g": 0.824, "b": 0.086, "a": 1.0},
 
-        "cell.selected": {"r": 0.447, "g": 0.624, "b": 0.812, "a": 1.0},
-        "cell.unselected": {"r": 0.729, "g": 0.741, "b": 0.714, "a": 1.0}
+        "cell.selected": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
+        "cell.unselected": {"r": 0.5, "g": 0.5, "b": 0.5, "a": 1.0}
     },
     "highlights":
     {
