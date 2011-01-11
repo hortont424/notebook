@@ -35,6 +35,10 @@
 - (void)awakeFromNib
 {
     engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
+    engineClasses = [engineClasses sortedArrayUsingComparator:^(id a, id b)
+                     {
+                         return [[a name] compare:[b name]];
+                     }];
     NSRect windowFrame = [mainView frame];
 
     // TODO: magic numbers
