@@ -28,6 +28,12 @@
 		3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
 		3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF612DBC89000C2ED92 /* tango.js */; };
 		3576FE6412DBC9B600C2ED92 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */; };
+		35B8CC6212DDBD0200F0CE4F /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
+		35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
+		35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */; };
+		35B8CCD912DDBFE000F0CE4F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
+		35B8CCDA12DDBFE000F0CE4F /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
+		35B8CCDB12DDBFE000F0CE4F /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +93,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = NBRuby;
+		};
+		35B8CC5812DDBCB000F0CE4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Notebook */;
+			remoteInfo = Notebook;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -157,10 +170,25 @@
 		3576FDF512DBC89000C2ED92 /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
 		3576FDF612DBC89000C2ED92 /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBRuby.xcodeproj; path = Source/Languages/NBRuby.xcodeproj; sourceTree = "<group>"; };
+		35B8CC4D12DDBC7000F0CE4F /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewTest.m; path = Tests/NBSourceViewTest.m; sourceTree = "<group>"; };
+		35B8CCFA12DDC1B400F0CE4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		35B8CC4A12DDBC7000F0CE4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35B8CCD912DDBFE000F0CE4F /* BWToolkitFramework.framework in Frameworks */,
+				35B8CCDA12DDBFE000F0CE4F /* JSON.framework in Frameworks */,
+				35B8CCDB12DDBFE000F0CE4F /* RegexKit.framework in Frameworks */,
+				35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */,
+				35B8CC6212DDBD0200F0CE4F /* NBCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Notebook.app */,
+				35B8CC4D12DDBC7000F0CE4F /* Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +257,7 @@
 				355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */,
 				355AACFE12DBB50300A9FA54 /* Languages */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				35B8CC3E12DDBC4700F0CE4F /* Tests */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -314,9 +344,37 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		35B8CC3E12DDBC4700F0CE4F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				35B8CCFA12DDC1B400F0CE4F /* Info.plist */,
+				35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		35B8CC4C12DDBC7000F0CE4F /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35B8CC5112DDBC7000F0CE4F /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				35B8CC4812DDBC7000F0CE4F /* Resources */,
+				35B8CC4912DDBC7000F0CE4F /* Sources */,
+				35B8CC4A12DDBC7000F0CE4F /* Frameworks */,
+				35B8CC4B12DDBC7000F0CE4F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35B8CC5912DDBCB000F0CE4F /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 35B8CC4D12DDBC7000F0CE4F /* Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D1107260486CEB800E47090 /* Notebook */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Notebook" */;
@@ -380,6 +438,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Notebook */,
+				35B8CC4C12DDBC7000F0CE4F /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,6 +475,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		35B8CC4812DDBC7000F0CE4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,7 +493,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35B8CC4B12DDBC7000F0CE4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		35B8CC4912DDBC7000F0CE4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,9 +552,78 @@
 			name = NBRuby;
 			targetProxy = 3576FE6512DBC9BE00C2ED92 /* PBXContainerItemProxy */;
 		};
+		35B8CC5912DDBCB000F0CE4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Notebook */;
+			targetProxy = 35B8CC5812DDBCB000F0CE4F /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		35B8CC4F12DDBC7000F0CE4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Notebook.app/Contents/MacOS/Notebook";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/External\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = Tests/Info.plist;
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notebook.app/Contents/MacOS/Notebook";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		35B8CC5012DDBC7000F0CE4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Notebook.app/Contents/MacOS/Notebook";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/External\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = Tests/Info.plist;
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notebook.app/Contents/MacOS/Notebook";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -537,6 +696,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35B8CC5112DDBC7000F0CE4F /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35B8CC4F12DDBC7000F0CE4F /* Debug */,
+				35B8CC5012DDBC7000F0CE4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Notebook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
