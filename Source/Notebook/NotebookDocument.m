@@ -67,10 +67,17 @@
 {
     [self initDocumentWithEngineClass:[userData objectForKey:@"engineClass"] withTemplate:nil];
 
+    // We need to disable undo registration while creating the cells, otherwise a document will
+    // appear as edited immediately after being loaded
+
+    [[self undoManager] disableUndoRegistration];
+
     for(NBCell * cell in [userData objectForKey:@"cells"])
     {
         [notebook addCell:cell];
     }
+
+    [[self undoManager] enableUndoRegistration];
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
@@ -121,6 +128,11 @@
 {
     [notebook setEngine:[[engineClass alloc] init]];
 
+    // We need to disable undo registration while creating the cells, otherwise a document will
+    // appear as edited immediately after being loaded
+
+    [[self undoManager] disableUndoRegistration];
+
     if([template isEqualToString:@"empty-cell"]) // TODO: these need to come from somewhere
     {
         NBCell * cell = [[NBCell alloc] init];
@@ -128,6 +140,8 @@
         cell.type = NBCellSnippet;
         [notebook addCell:cell];
     }
+
+    [[self undoManager] enableUndoRegistration];
 
     [languageButton setTitle:[[notebookView.notebook.engine class] name]];
 }
