@@ -83,9 +83,18 @@
 
     lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
     leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
-    leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+
+    if(leadingSpacesRange.location != NSNotFound)
+    {
+        leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+    }
+    else
+    {
+        leadingSpaces = @"";
+    }
 
     [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
+
 }
 
 - (void)drawRect:(NSRect)dirtyRect
