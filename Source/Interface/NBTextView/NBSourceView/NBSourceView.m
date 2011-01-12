@@ -41,7 +41,7 @@
     if(self)
     {
         exceptions = [[NSMutableDictionary alloc] init];
-        leadingSpacesRegex = [RKRegex regexWithRegexString:@"^(\\s*)" options:RKCompileNoOptions];
+        leadingSpacesRegex = [RKRegex regexWithRegexString:@"^([[:blank:]]*)" options:RKCompileNoOptions];
 
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithSelector:@"background.source"]];
     }
