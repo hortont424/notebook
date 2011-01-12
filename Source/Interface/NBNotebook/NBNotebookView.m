@@ -106,6 +106,8 @@
     [self addSubview:cellView];
     [cellView setFrameOrigin:NSMakePoint(0, [self yForView:cellView])];
 
+    [[cellView window] makeFirstResponder:cellView];
+
     [self relayoutViews];
 }
 
