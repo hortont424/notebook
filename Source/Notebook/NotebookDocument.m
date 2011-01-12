@@ -129,7 +129,7 @@
     [notebook setEngine:[[engineClass alloc] init]];
 
     // We need to disable undo registration while creating the cells, otherwise a document will
-    // appear as edited immediately after being loaded
+    // appear as edited immediately after being created
 
     [[self undoManager] disableUndoRegistration];
 
