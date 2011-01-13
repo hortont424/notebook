@@ -34,6 +34,8 @@
 @implementation NBNotebookView
 
 @synthesize notebook;
+@synthesize selectedCellViews;
+@synthesize cellViews;
 
 - (id)initWithFrame:(NSRect)frame
 {

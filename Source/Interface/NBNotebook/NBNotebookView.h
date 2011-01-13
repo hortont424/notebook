@@ -42,9 +42,13 @@
     NBCellView * appendingCellView;
 }
 
-@property (assign) IBOutlet NBNotebook * notebook;
+@property (nonatomic,assign) IBOutlet NBNotebook * notebook;
+@property (nonatomic,readonly) NSMutableArray * selectedCellViews; // TODO: obviously should be nonmutable
+@property (nonatomic,readonly) NSMapTable * cellViews;
 
 - (void)relayoutViews;
 - (float)yForView:(NBCellView *)cellView;
+
+// TODO: there are a lot of methods missing here, this class's API needs a lot of cleanup and public/privateness
 
 @end

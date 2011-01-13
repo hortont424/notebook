@@ -151,6 +151,39 @@
     NSLog(@"something");
 }
 
+- (IBAction)insertCell:(id)sender
+{
+    NBCellView * lastSelectedView = [notebookView.selectedCellViews lastObject];
+
+    NBCell * newCell = [[NBCell alloc] init];
+    newCell.content = @"";
+    newCell.type = NBCellSnippet;
+
+    if(lastSelectedView)
+    {
+        [notebook addCell:newCell afterCell:[lastSelectedView cell]];
+    }
+    else
+    {
+        NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+        if([firstResponder respondsToSelector:@selector(parentCellView)]) // TODO: put parentCellView into a protocol
+        {
+            [notebook addCell:newCell afterCell:[[firstResponder parentCellView] cell]];
+        }
+        else
+        {
+            [notebook addCell:newCell];
+        }
+    }
+
+}
+
+- (IBAction)deleteCell:(id)sender
+{
+    NSLog(@"delete");
+}
+
 - (IBAction)abortEvaluation:(id)sender
 {
     [[notebook engine] abortBackend];

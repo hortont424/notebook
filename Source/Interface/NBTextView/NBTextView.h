@@ -34,4 +34,6 @@
 
 @property (nonatomic,retain) id delegate;
 
+- (NSView *)parentCellView;
+
 @end

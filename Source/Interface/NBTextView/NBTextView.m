@@ -24,7 +24,6 @@
  */
 
 #import "NBTextView.h"
-
 #import "NBSettings.h"
 
 @implementation NBTextView
@@ -77,6 +76,11 @@
     // TODO: the 20 = 2*10 (the text view inset) and will come from there when that's made a setting
 
     return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
+}
+
+- (NSView *)parentCellView
+{
+    return (NSView *)delegate;
 }
 
 @end
