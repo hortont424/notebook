@@ -68,11 +68,18 @@
 {
     NSRect viewBounds = [[[self document] splitView] bounds];
     NSRect winFrame = [[self window] frame];
+    NSRect screenFrame = [[[self window] screen] visibleFrame];
 
-    [[self window] setFrame:NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
-                                       winFrame.origin.y - ((viewBounds.size.height - winFrame.size.height) / 2.0),
-                                       viewBounds.size.width,
-                                       viewBounds.size.height) display:YES animate:YES];
+    NSRect newViewFrame = NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
+                                     screenFrame.origin.y,
+                                     viewBounds.size.width,
+                                     screenFrame.size.height);
+
+    [[self window] setFrame:[[self window] constrainFrameRect:newViewFrame
+                                                     toScreen:[[self window] screen]]
+                    display:YES
+                    animate:YES];
+
 
     [[self window] setMinSize:NSMakeSize(150, 150)];
     [[self window] setMaxSize:NSMakeSize(10000, 10000)];
