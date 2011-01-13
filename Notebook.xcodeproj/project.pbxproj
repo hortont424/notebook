@@ -41,29 +41,43 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D229810C96121600276605 /* JSON.framework */;
+			remoteGlobalIDString = 53D229810C96121600276605;
 			remoteInfo = JSON;
 		};
 		351BE5E612DED9FA0010FD5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D2298D0C96122A00276605 /* Tests.octest */;
+			remoteGlobalIDString = 53D2298D0C96122A00276605;
 			remoteInfo = Tests;
 		};
 		351BE5E812DED9FA0010FD5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBD800D8B0D3900184787 /* libjson.a */;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
 			remoteInfo = libjson;
 		};
 		351BE5EA12DED9FA0010FD5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787 /* libjsontests.octest */;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
 			remoteInfo = libjsontests;
+		};
+		3541C4C912DEDFCA005136EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53D229800C96121600276605 /* JSON */;
+			remoteInfo = JSON;
+		};
+		3541C4CB12DEDFCA005136EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */;
+			remoteInfo = BWToolkitFramework;
 		};
 		355AACF412DBB4FB00A9FA54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -445,6 +459,8 @@
 				355AAD2312DBB58E00A9FA54 /* PBXTargetDependency */,
 				355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */,
 				3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */,
+				3541C4CA12DEDFCA005136EF /* PBXTargetDependency */,
+				3541C4CC12DEDFCA005136EF /* PBXTargetDependency */,
 			);
 			name = Notebook;
 			productInstallPath = "$(HOME)/Applications";
@@ -641,6 +657,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3541C4CA12DEDFCA005136EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSON;
+			targetProxy = 3541C4C912DEDFCA005136EF /* PBXContainerItemProxy */;
+		};
+		3541C4CC12DEDFCA005136EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BWToolkitFramework;
+			targetProxy = 3541C4CB12DEDFCA005136EF /* PBXContainerItemProxy */;
+		};
 		355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NBPython;
