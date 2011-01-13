@@ -40,10 +40,37 @@
 - (void)testInsertNewline
 {
     NBSourceView * sourceView = [[NBSourceView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+
     [sourceView setString:@""];
     [sourceView insertNewline:self];
 
     STAssertEqualObjects([sourceView string], @"\n", @"Insert newline with empty string failed.");
+
+    [sourceView setString:@"asdf"];
+    [sourceView insertNewline:self];
+
+    STAssertEqualObjects([sourceView string], @"asdf\n", @"Insert newline with single line string failed.");
+
+    [sourceView setString:@"asdf\n"];
+    [sourceView insertNewline:self];
+
+    STAssertEqualObjects([sourceView string], @"asdf\n\n", @"Insert newline with single line string and newline failed.");
+
+    [sourceView setString:@"asdf\n    "];
+    [sourceView insertNewline:self];
+
+    STAssertEqualObjects([sourceView string], @"asdf\n    \n    ", @"Insert newline with indentation failed.");
+
+    [sourceView setString:@"\n\n\n"];
+    [sourceView insertNewline:self];
+
+    STAssertEqualObjects([sourceView string], @"\n\n\n\n", @"Insert newline with multiple newlines failed.");
+
+    [sourceView setString:@"asdf\n    \n"];
+    [sourceView setSelectedRange:NSMakeRange(4,0)];
+    [sourceView insertNewline:self];
+
+    STAssertEqualObjects([sourceView string], @"asdf\n\n    \n", @"Insert newline in middle of content failed.");
 }
 
 @end

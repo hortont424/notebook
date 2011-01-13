@@ -69,14 +69,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 53D229800C96121600276605 /* JSON */;
+			remoteGlobalIDString = 53D229800C96121600276605;
 			remoteInfo = JSON;
 		};
 		3541C4CB12DEDFCA005136EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
 			remoteInfo = BWToolkitFramework;
 		};
 		355AACF412DBB4FB00A9FA54 /* PBXContainerItemProxy */ = {
