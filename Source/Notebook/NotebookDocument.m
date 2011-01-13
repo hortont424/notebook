@@ -151,9 +151,43 @@
     NSLog(@"something");
 }
 
+- (NBCellView *)keyCellView
+{
+    NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+    if([firstResponder conformsToProtocol:@protocol(NBCellSubview)])
+    {
+        return [(id<NBCellSubview>)firstResponder parentCellView];
+    }
+
+    return nil;
+}
+
+- (NSArray *)selectedCellViews
+{
+    NSArray * selectedViews = notebookView.selectedCellViews;
+
+    if([selectedViews count])
+    {
+        return [NSArray arrayWithArray:selectedViews];
+    }
+    else
+    {
+        NBCellView * currentView = [self keyCellView];
+
+        if(currentView)
+        {
+            return [NSArray arrayWithObject:currentView];
+        }
+    }
+
+    return nil;
+
+}
+
 - (IBAction)insertCell:(id)sender
 {
-    NBCellView * lastSelectedView = [notebookView.selectedCellViews lastObject];
+    NBCellView * lastSelectedView = [[self selectedCellViews] lastObject];
 
     NBCell * newCell = [[NBCell alloc] init];
     newCell.content = @"";
@@ -165,38 +199,20 @@
     }
     else
     {
-        NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
-
-        if([firstResponder conformsToProtocol:@protocol(NBCellSubview)])
-        {
-            [notebook addCell:newCell afterCell:[[(id<NBCellSubview>)firstResponder parentCellView] cell]];
-        }
-        else
-        {
-            [notebook addCell:newCell];
-        }
+        [notebook addCell:newCell];
     }
 
 }
 
 - (IBAction)deleteCell:(id)sender
 {
-    NSArray * selectedViews = notebookView.selectedCellViews;
+    NSArray * selectedViews = [self selectedCellViews];
 
     if([selectedViews count])
     {
         for(NBCellView * cellView in selectedViews)
         {
             [notebook removeCell:[cellView cell]];
-        }
-    }
-    else
-    {
-        NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
-
-        if([firstResponder conformsToProtocol:@protocol(NBCellSubview)])
-        {
-            [notebook removeCell:[[(id<NBCellSubview>)firstResponder parentCellView] cell]];
         }
     }
 
