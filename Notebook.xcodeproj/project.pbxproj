@@ -16,11 +16,9 @@
 		355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		355AAD2A12DBB5CD00A9FA54 /* NBPython.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 355AAD0D12DBB50F00A9FA54 /* NBPython.bundle */; };
-		355AAD3312DBB62100A9FA54 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
 		355AAD3412DBB62100A9FA54 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
 		355AAD3512DBB62100A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
 		355AADC512DBB75300A9FA54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AADC412DBB75300A9FA54 /* QuartzCore.framework */; };
-		355AADD612DBB78300A9FA54 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
 		355AADD712DBB78300A9FA54 /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
 		355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
 		355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
@@ -31,9 +29,11 @@
 		35B8CC6212DDBD0200F0CE4F /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */; };
-		35B8CCD912DDBFE000F0CE4F /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */; };
 		35B8CCDA12DDBFE000F0CE4F /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3112DBB62100A9FA54 /* JSON.framework */; };
 		35B8CCDB12DDBFE000F0CE4F /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
+		35D31A5512DEA083001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
+		35E4823912DEA2A200B5EB91 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
+		35E4823A12DEA2AA00B5EB91 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +101,27 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = Notebook;
 		};
+		35D31A4F12DEA073001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1AC9740486D14A00FE50C9;
+			remoteInfo = BWToolkit;
+		};
+		35D31A5112DEA073001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0;
+			remoteInfo = BWToolkitFramework;
+		};
+		35D31A5312DEA073001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7D4AD1612C939E8000FD3F9;
+			remoteInfo = BWToolkitFrameworkMAS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,9 +143,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				35E4823A12DEA2AA00B5EB91 /* BWToolkitFramework.framework in Copy Frameworks */,
 				355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */,
 				355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */,
-				355AADD612DBB78300A9FA54 /* BWToolkitFramework.framework in Copy Frameworks */,
 				355AADD712DBB78300A9FA54 /* JSON.framework in Copy Frameworks */,
 				355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */,
 			);
@@ -163,7 +184,6 @@
 		355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = Source/NBCore.xcodeproj; sourceTree = "<group>"; };
 		355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBUI.xcodeproj; path = Source/NBUI.xcodeproj; sourceTree = "<group>"; };
 		355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBPython.xcodeproj; path = Source/Languages/NBPython.xcodeproj; sourceTree = "<group>"; };
-		355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = External/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		355AAD3112DBB62100A9FA54 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = External/JSON.framework; sourceTree = "<group>"; };
 		355AAD3212DBB62100A9FA54 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		355AADC412DBB75300A9FA54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -173,6 +193,7 @@
 		35B8CC4D12DDBC7000F0CE4F /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewTest.m; path = Tests/NBSourceViewTest.m; sourceTree = "<group>"; };
 		35B8CCFA12DDC1B400F0CE4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BWToolkit.xcodeproj; path = External/BWToolkit/BWToolkit.xcodeproj; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,7 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35B8CCD912DDBFE000F0CE4F /* BWToolkitFramework.framework in Frameworks */,
+				35E4823912DEA2A200B5EB91 /* BWToolkitFramework.framework in Frameworks */,
 				35B8CCDA12DDBFE000F0CE4F /* JSON.framework in Frameworks */,
 				35B8CCDB12DDBFE000F0CE4F /* RegexKit.framework in Frameworks */,
 				35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */,
@@ -193,10 +214,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D31A5512DEA083001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */,
 				355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				355AAD3312DBB62100A9FA54 /* BWToolkitFramework.framework in Frameworks */,
 				355AAD3412DBB62100A9FA54 /* JSON.framework in Frameworks */,
 				355AAD3512DBB62100A9FA54 /* RegexKit.framework in Frameworks */,
 				355AADC512DBB75300A9FA54 /* QuartzCore.framework in Frameworks */,
@@ -219,28 +240,6 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				355AADC412DBB75300A9FA54 /* QuartzCore.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				355AAD3012DBB62100A9FA54 /* BWToolkitFramework.framework */,
-				355AAD3112DBB62100A9FA54 /* JSON.framework */,
-				355AAD3212DBB62100A9FA54 /* RegexKit.framework */,
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +252,7 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */,
 				355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */,
 				355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */,
 				355AACFE12DBB50300A9FA54 /* Languages */,
@@ -288,8 +288,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				355AADC412DBB75300A9FA54 /* QuartzCore.framework */,
+				355AAD3112DBB62100A9FA54 /* JSON.framework */,
+				355AAD3212DBB62100A9FA54 /* RegexKit.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -351,6 +356,16 @@
 				35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		35D31A4912DEA073001A5F50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35D31A5012DEA073001A5F50 /* BWToolkit.ibplugin */,
+				35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */,
+				35D31A5412DEA073001A5F50 /* BWToolkitFrameworkMAS.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +434,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 35D31A4912DEA073001A5F50 /* Products */;
+					ProjectRef = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+				},
+				{
 					ProductGroup = 355AACEB12DBB4FB00A9FA54 /* Products */;
 					ProjectRef = 355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */;
 				},
@@ -470,6 +489,27 @@
 			fileType = wrapper.cfbundle;
 			path = NBRuby.bundle;
 			remoteRef = 3576FE5312DBC9A600C2ED92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D31A5012DEA073001A5F50 /* BWToolkit.ibplugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BWToolkit.ibplugin;
+			remoteRef = 35D31A4F12DEA073001A5F50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BWToolkitFramework.framework;
+			remoteRef = 35D31A5112DEA073001A5F50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D31A5412DEA073001A5F50 /* BWToolkitFrameworkMAS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BWToolkitFrameworkMAS.framework;
+			remoteRef = 35D31A5312DEA073001A5F50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

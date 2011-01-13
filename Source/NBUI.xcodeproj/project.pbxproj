@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		355AAB7412DBB09D00A9FA54 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAB7112DBB09D00A9FA54 /* BWToolkitFramework.framework */; };
 		355AAB7512DBB09D00A9FA54 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAB7212DBB09D00A9FA54 /* JSON.framework */; };
 		355AAC0012DBB13F00A9FA54 /* NBCellAutoheightProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD312DBB13F00A9FA54 /* NBCellAutoheightProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0112DBB13F00A9FA54 /* NBCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD412DBB13F00A9FA54 /* NBCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +46,7 @@
 		355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAC2B12DBB1A700A9FA54 /* NBCore.framework */; };
 		355AADA812DBB67000A9FA54 /* NBUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AADA712DBB67000A9FA54 /* NBUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAE3412DBC2C700A9FA54 /* RegexKit.framework */; };
+		35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,34 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = NBCore;
 		};
+		35D315A812DE9FCB001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1AC9740486D14A00FE50C9 /* BWToolkit.ibplugin */;
+			remoteInfo = BWToolkit;
+		};
+		35D315AA12DE9FCB001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */;
+			remoteInfo = BWToolkitFramework;
+		};
+		35D315AC12DE9FCB001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */;
+			remoteInfo = BWToolkitFrameworkMAS;
+		};
+		35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */;
+			remoteInfo = BWToolkitFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +101,6 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		355AAB6C12DBB07D00A9FA54 /* NBUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		355AAB7112DBB09D00A9FA54 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../External/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		355AAB7212DBB09D00A9FA54 /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = ../External/JSON.framework; sourceTree = SOURCE_ROOT; };
 		355AABC612DBB12D00A9FA54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Interface/Info.plist; sourceTree = "<group>"; };
 		355AABD312DBB13F00A9FA54 /* NBCellAutoheightProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellAutoheightProtocol.h; sourceTree = "<group>"; };
@@ -117,6 +144,7 @@
 		355FBB3312D591BA002CF0DC /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		355FBB3612D591C1002CF0DC /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BWToolkit.xcodeproj; path = ../External/BWToolkit/BWToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -125,8 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */,
-				355AAB7412DBB09D00A9FA54 /* BWToolkitFramework.framework in Frameworks */,
 				355AAB7512DBB09D00A9FA54 /* JSON.framework in Frameworks */,
 				355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */,
 			);
@@ -135,32 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				355AAE3412DBC2C700A9FA54 /* RegexKit.framework */,
-				355AAB7112DBB09D00A9FA54 /* BWToolkitFramework.framework */,
-				355AAB7212DBB09D00A9FA54 /* JSON.framework */,
-				357FF7391297A7D200A661E5 /* Carbon.framework */,
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
-				4385972B12D57EBF003D2E8D /* Quartz.framework */,
-				355FBB3312D591BA002CF0DC /* Python.framework */,
-				355FBB3612D591C1002CF0DC /* Ruby.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +174,7 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */,
 				355AAC2312DBB1A700A9FA54 /* NBCore.xcodeproj */,
 				355AADA712DBB67000A9FA54 /* NBUI.h */,
 				355AABC912DBB13200A9FA54 /* Classes */,
@@ -193,8 +196,17 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				355AAE3412DBC2C700A9FA54 /* RegexKit.framework */,
+				355AAB7212DBB09D00A9FA54 /* JSON.framework */,
+				357FF7391297A7D200A661E5 /* Carbon.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				353E2B841295F2B8001A40B6 /* QuartzCore.framework */,
+				4385972B12D57EBF003D2E8D /* Quartz.framework */,
+				355FBB3312D591BA002CF0DC /* Python.framework */,
+				355FBB3612D591C1002CF0DC /* Ruby.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +346,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		35D3159F12DE9FCB001A5F50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35D315A912DE9FCB001A5F50 /* BWToolkit.ibplugin */,
+				35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */,
+				35D315AD12DE9FCB001A5F50 /* BWToolkitFrameworkMAS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -380,6 +402,7 @@
 			);
 			dependencies = (
 				355AAC2E12DBB1B600A9FA54 /* PBXTargetDependency */,
+				35D3187012DEA008001A5F50 /* PBXTargetDependency */,
 			);
 			name = NBUI;
 			productName = NBUI;
@@ -405,6 +428,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 35D3159F12DE9FCB001A5F50 /* Products */;
+					ProjectRef = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+				},
+				{
 					ProductGroup = 355AAC2412DBB1A700A9FA54 /* Products */;
 					ProjectRef = 355AAC2312DBB1A700A9FA54 /* NBCore.xcodeproj */;
 				},
@@ -422,6 +449,27 @@
 			fileType = wrapper.framework;
 			path = NBCore.framework;
 			remoteRef = 355AAC2A12DBB1A700A9FA54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D315A912DE9FCB001A5F50 /* BWToolkit.ibplugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BWToolkit.ibplugin;
+			remoteRef = 35D315A812DE9FCB001A5F50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BWToolkitFramework.framework;
+			remoteRef = 35D315AA12DE9FCB001A5F50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		35D315AD12DE9FCB001A5F50 /* BWToolkitFrameworkMAS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BWToolkitFrameworkMAS.framework;
+			remoteRef = 35D315AC12DE9FCB001A5F50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -467,6 +515,11 @@
 			isa = PBXTargetDependency;
 			name = NBCore;
 			targetProxy = 355AAC2D12DBB1B600A9FA54 /* PBXContainerItemProxy */;
+		};
+		35D3187012DEA008001A5F50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BWToolkitFramework;
+			targetProxy = 35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
