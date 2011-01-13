@@ -181,7 +181,25 @@
 
 - (IBAction)deleteCell:(id)sender
 {
-    NSLog(@"delete");
+    NSArray * selectedViews = notebookView.selectedCellViews;
+
+    if([selectedViews count])
+    {
+        for(NBCellView * cellView in selectedViews)
+        {
+            [notebook removeCell:[cellView cell]];
+        }
+    }
+    else
+    {
+        NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+        if([firstResponder conformsToProtocol:@protocol(NBCellSubview)])
+        {
+            [notebook removeCell:[[(id<NBCellSubview>)firstResponder parentCellView] cell]];
+        }
+    }
+
 }
 
 - (IBAction)abortEvaluation:(id)sender
