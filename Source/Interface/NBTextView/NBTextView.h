@@ -25,15 +25,17 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCellAutoheightProtocol.h"
+#import "NBCellSubview.h"
 
-@interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellAutoheightProtocol>
+@class NBCellView;
+
+@interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellSubview>
 {
     id delegate;
+    NBCellView * parentCellView;
 }
 
 @property (nonatomic,retain) id delegate;
-
-- (NSView *)parentCellView;
+@property (nonatomic,assign) NBCellView * parentCellView;
 
 @end

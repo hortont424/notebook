@@ -29,6 +29,7 @@
 @implementation NBTextView
 
 @synthesize delegate;
+@synthesize parentCellView;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -76,11 +77,6 @@
     // TODO: the 20 = 2*10 (the text view inset) and will come from there when that's made a setting
 
     return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
-}
-
-- (NSView *)parentCellView
-{
-    return (NSView *)delegate;
 }
 
 @end

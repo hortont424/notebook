@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3541C4B212DEDFA5005136EF /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3541C4AB12DEDF97005136EF /* JSON.framework */; };
-		355AAC0012DBB13F00A9FA54 /* NBCellAutoheightProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD312DBB13F00A9FA54 /* NBCellAutoheightProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		355AAC0012DBB13F00A9FA54 /* NBCellSubview.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD312DBB13F00A9FA54 /* NBCellSubview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0112DBB13F00A9FA54 /* NBCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD412DBB13F00A9FA54 /* NBCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0212DBB13F00A9FA54 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABD512DBB13F00A9FA54 /* NBCellView.m */; };
 		355AAC0312DBB13F00A9FA54 /* NBCellViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD612DBB13F00A9FA54 /* NBCellViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -138,7 +138,7 @@
 		3541C4A212DEDF97005136EF /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = ../External/JSON/JSON.xcodeproj; sourceTree = SOURCE_ROOT; };
 		355AAB6C12DBB07D00A9FA54 /* NBUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		355AABC612DBB12D00A9FA54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Interface/Info.plist; sourceTree = "<group>"; };
-		355AABD312DBB13F00A9FA54 /* NBCellAutoheightProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellAutoheightProtocol.h; sourceTree = "<group>"; };
+		355AABD312DBB13F00A9FA54 /* NBCellSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellSubview.h; sourceTree = "<group>"; };
 		355AABD412DBB13F00A9FA54 /* NBCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellView.h; sourceTree = "<group>"; };
 		355AABD512DBB13F00A9FA54 /* NBCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellView.m; sourceTree = "<group>"; };
 		355AABD612DBB13F00A9FA54 /* NBCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellViewDelegate.h; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		355AABD212DBB13F00A9FA54 /* NBCell */ = {
 			isa = PBXGroup;
 			children = (
-				355AABD312DBB13F00A9FA54 /* NBCellAutoheightProtocol.h */,
+				355AABD312DBB13F00A9FA54 /* NBCellSubview.h */,
 				355AABD412DBB13F00A9FA54 /* NBCellView.h */,
 				355AABD512DBB13F00A9FA54 /* NBCellView.m */,
 				355AABD612DBB13F00A9FA54 /* NBCellViewDelegate.h */,
@@ -409,7 +409,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				355AAC0012DBB13F00A9FA54 /* NBCellAutoheightProtocol.h in Headers */,
+				355AAC0012DBB13F00A9FA54 /* NBCellSubview.h in Headers */,
 				355AAC0112DBB13F00A9FA54 /* NBCellView.h in Headers */,
 				355AAC0312DBB13F00A9FA54 /* NBCellViewDelegate.h in Headers */,
 				355AAC0412DBB13F00A9FA54 /* NBCommentCellView.h in Headers */,

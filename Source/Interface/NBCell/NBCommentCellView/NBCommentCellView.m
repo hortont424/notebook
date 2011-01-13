@@ -45,6 +45,7 @@
 
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
         [textView setDelegate:self];
+        [textView setParentCellView:self];
         [textView setFieldEditor:NO];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:textView];

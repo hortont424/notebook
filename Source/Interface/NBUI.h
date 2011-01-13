@@ -23,7 +23,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <NBUI/NBCellAutoheightProtocol.h>
+#import <NBUI/NBCellSubview.h>
 #import <NBUI/NBCellView.h>
 #import <NBUI/NBCellViewDelegate.h>
 #import <NBUI/NBCommentCellView.h>

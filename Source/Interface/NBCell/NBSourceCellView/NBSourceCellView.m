@@ -31,7 +31,6 @@
 
 @synthesize sourceView;
 @synthesize outputView;
-@synthesize controller;
 @synthesize state;
 @dynamic delegate;
 
@@ -49,16 +48,16 @@
 
         state = NBCellViewChanged;
 
-        controller = [[[NSObjectController alloc] init] autorelease];
-
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setFieldEditor:NO];
         [sourceView setDelegate:self];
+        [sourceView setParentCellView:self];
         [[sourceView textContainer] setHeightTracksTextView:NO];
 
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setFieldEditor:NO];
         [outputView setDelegate:self];
+        [outputView setParentCellView:self];
         [[outputView textContainer] setHeightTracksTextView:NO];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:NSTextDidChangeNotification object:sourceView];

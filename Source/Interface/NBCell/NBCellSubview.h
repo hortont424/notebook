@@ -25,8 +25,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBCellAutoheightProtocol
+@class NBCellView;
+
+@protocol NBCellSubview
 
 - (float)requestedHeight;
+
+- (NSView *)setParentCellView:(NSView *)parent;
+- (NBCellView *)parentCellView;
 
 @end

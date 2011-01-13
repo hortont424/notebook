@@ -42,15 +42,13 @@ typedef enum _NBSourceCellViewState
 @interface NBSourceCellView : NBCellView<NSTextViewDelegate,NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
-    NSTextView * outputView;
-    NSObjectController * controller; // TODO: pretty sure this is wrong
+    NBOutputView * outputView;
     NBSourceCellViewState state;
 }
 
 @property (assign) NBSourceCellViewState state;
 @property (assign) NBSourceView * sourceView;
-@property (assign) NSTextView * outputView;
-@property (nonatomic,retain) NSObjectController * controller;
+@property (assign) NBOutputView * outputView;
 @property (nonatomic,retain) id<NBSourceCellViewDelegate> delegate;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;

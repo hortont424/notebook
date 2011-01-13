@@ -167,9 +167,9 @@
     {
         NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
 
-        if([firstResponder respondsToSelector:@selector(parentCellView)]) // TODO: put parentCellView into a protocol
+        if([firstResponder conformsToProtocol:@protocol(NBCellSubview)])
         {
-            [notebook addCell:newCell afterCell:[[firstResponder parentCellView] cell]];
+            [notebook addCell:newCell afterCell:[[(id<NBCellSubview>)firstResponder parentCellView] cell]];
         }
         else
         {
