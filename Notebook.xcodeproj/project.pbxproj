@@ -23,6 +23,7 @@
 		355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
 		355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
+		356A37D412E0250900FC2932 /* NBNotebookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A37D312E0250900FC2932 /* NBNotebookTest.m */; };
 		3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
 		3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF612DBC89000C2ED92 /* tango.js */; };
 		3576FE6412DBC9B600C2ED92 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */; };
@@ -228,6 +229,7 @@
 		355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBPython.xcodeproj; path = Source/Languages/NBPython.xcodeproj; sourceTree = "<group>"; };
 		355AAD3212DBB62100A9FA54 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = External/RegexKit.framework; sourceTree = "<group>"; };
 		355AADC412DBB75300A9FA54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		356A37D312E0250900FC2932 /* NBNotebookTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBNotebookTest.m; path = Tests/NBNotebookTest.m; sourceTree = "<group>"; };
 		3576FDF512DBC89000C2ED92 /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
 		3576FDF612DBC89000C2ED92 /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBRuby.xcodeproj; path = Source/Languages/NBRuby.xcodeproj; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			children = (
 				35B8CCFA12DDC1B400F0CE4F /* Info.plist */,
 				35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */,
+				356A37D312E0250900FC2932 /* NBNotebookTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */,
+				356A37D412E0250900FC2932 /* NBNotebookTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
