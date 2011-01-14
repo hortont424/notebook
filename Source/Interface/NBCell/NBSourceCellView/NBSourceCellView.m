@@ -219,7 +219,15 @@
 
         if(cell.content)
         {
+            NSRange currentSelection = [sourceView selectedRange];
+
             [sourceView setString:cell.content];
+
+            if(currentSelection.location + currentSelection.length < [cell.content length])
+            {
+                [sourceView setSelectedRange:currentSelection];
+            }
+
             [sourceView display];
         }
 
