@@ -119,9 +119,7 @@
 
         if(cell.content)
         {
-            NSRange currentSelection = [textView selectedRange];
             [textView setString:cell.content];
-            [textView setSelectedRange:currentSelection];
             [textView display];
         }
 

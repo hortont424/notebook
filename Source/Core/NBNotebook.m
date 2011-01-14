@@ -85,10 +85,7 @@
 
     [delegate cellRemoved:cell];
 
-    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(restoreCell:)
-                                            object:[NSDictionary dictionaryWithObjectsAndKeys:cell,@"cell",
-                                                                                              [NSNumber numberWithUnsignedInt:index],@"index",
-                                                                                              nil]];
+    [[[delegate undoManager] prepareWithInvocationTarget:self] addCell:cell atIndex:index];
     [[delegate undoManager] setActionName:NSLocalizedString(@"Remove Cell", @"remove-cell")];
 }
 
@@ -114,9 +111,9 @@
         return;
     }
 
-    // We need to disable undo registration, otherwise we'll record the addCell calls
+    // Merge all undoable operations into one big group
 
-    [[delegate undoManager] disableUndoRegistration];
+    [[delegate undoManager] beginUndoGrouping];
 
     // At each split index, make a new cell (unless it's the first one) and split the string up
 
@@ -154,10 +151,7 @@
     [allCells addObject:currentCell];
     [self addCell:currentCell afterCell:previousCell];
 
-    [[delegate undoManager] enableUndoRegistration];
-
-    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(mergeCells:)
-                                            object:allCells];
+    [[delegate undoManager] endUndoGrouping];
     [[delegate undoManager] setActionName:NSLocalizedString(@"Split Cell", @"split-cell")];
 }
 
@@ -168,6 +162,8 @@
     NBCellType mergeType = NBCellNone;
     NBCell * firstCell = nil;
     NSInteger currentLength = 0;
+
+    [[delegate undoManager] beginUndoGrouping];
 
     // There's nothing to merge if we have less than two cells
 
@@ -216,14 +212,9 @@
 
     [mergeLocations removeLastObject];
 
-    if(!firstCell)
-    {
-        return;
-    }
+    // Remove all but the first cell (which is the one we're going to put all of the content into)
 
-    [[delegate undoManager] disableUndoRegistration];
-
-    for(NBCell * cell in cells)
+    for(NBCell * cell in cellList)
     {
         if(cell != firstCell)
         {
@@ -231,28 +222,11 @@
         }
     }
 
-    [[delegate undoManager] enableUndoRegistration];
-
     firstCell.output = nil;
     firstCell.content = entireString;
 
-    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(unmergeCell:)
-                                            object:[NSDictionary dictionaryWithObjectsAndKeys:firstCell,@"cell",
-                                                                                              mergeLocations,@"locations",
-                                                                                              nil]];
+    [[delegate undoManager] endUndoGrouping];
     [[delegate undoManager] setActionName:NSLocalizedString(@"Merge Cells", @"merge-cells")];
-}
-
-#pragma mark Undo Methods
-
-- (void)restoreCell:(NSDictionary *)cellInfo
-{
-    [self addCell:[cellInfo objectForKey:@"cell"] atIndex:[[cellInfo objectForKey:@"index"] unsignedIntValue]];
-}
-
-- (void)unmergeCell:(NSDictionary *)cellInfo
-{
-    [self splitCell:[cellInfo objectForKey:@"cell"] atLocations:[cellInfo objectForKey:@"locations"]];
 }
 
 @end

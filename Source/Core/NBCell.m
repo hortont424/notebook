@@ -27,6 +27,33 @@
 
 @implementation NBCell
 
-@synthesize content, output, notebook, type;
+@synthesize content, output, type;
+@synthesize notebook;
+
+- (id)init
+{
+    self = [super init];
+
+    if(self != nil)
+    {
+        content = @"";
+        output = @"";
+    }
+
+    return self;
+}
+
+- (void)setContent:(NSString *)aContent
+{
+    if(![content isEqualToString:aContent])
+    {
+        [[[notebook delegate] undoManager] registerUndoWithTarget:self
+                                                         selector:@selector(setContent:)
+                                                           object:[content copy]];
+        [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
+
+        content = [aContent copy];
+    }
+}
 
 @end
