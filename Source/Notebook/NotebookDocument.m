@@ -136,7 +136,6 @@
     if([template isEqualToString:@"empty-cell"]) // TODO: these need to come from somewhere
     {
         NBCell * cell = [[NBCell alloc] init];
-        cell.content = @"";
         cell.type = NBCellSnippet;
         [notebook addCell:cell];
     }
@@ -190,7 +189,6 @@
     NBCellView * lastSelectedView = [[self selectedCellViews] lastObject];
 
     NBCell * newCell = [[NBCell alloc] init];
-    newCell.content = @"";
     newCell.type = NBCellSnippet;
 
     if(lastSelectedView)
