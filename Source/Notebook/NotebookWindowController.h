@@ -30,6 +30,8 @@
 @interface NotebookWindowController : NSWindowController<NBCreateNotebookViewDelegate>
 {
     NBCreateNotebookView * createNotebookController;
+
+    CABasicAnimation * slideAnimation;
 }
 
 @end

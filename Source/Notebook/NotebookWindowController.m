@@ -98,12 +98,12 @@
     [[createNotebookController mainView] setFrameOrigin:NSMakePoint(0, ypos)];
 
     CALayer * layer = [[createNotebookController mainView] layer];
-    CABasicAnimation * anim = [CABasicAnimation animationWithKeyPath:@"position"];
-    [anim setFromValue:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
-    [anim setToValue:[NSValue valueWithPoint:NSPointFromCGPoint(layer.position)]];
-    [anim setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
-    [anim setDelegate:self];
-    [layer addAnimation:anim forKey:@"position"];
+    slideAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    [slideAnimation setFromValue:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
+    [slideAnimation setToValue:[NSValue valueWithPoint:NSPointFromCGPoint(layer.position)]];
+    [slideAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [slideAnimation setDelegate:self];
+    [layer addAnimation:slideAnimation forKey:@"position"];
 
     [CATransaction commit];
 
@@ -124,9 +124,11 @@
     [[self document] close];
 }
 
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)finished
 {
     [[createNotebookController mainView] removeFromSuperview];
+    [[[self document] splitView] setWantsLayer:NO];
+    [[[self window] contentView] setWantsLayer:NO];
     createNotebookController = nil;
 }
 
