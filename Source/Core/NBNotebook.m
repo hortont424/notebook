@@ -158,10 +158,8 @@
 - (void)mergeCells:(NSArray *)cellList
 {
     NSMutableString * entireString = [[NSMutableString alloc] init];
-    NSMutableArray * mergeLocations = [[NSMutableArray alloc] init];
     NBCellType mergeType = NBCellNone;
     NBCell * firstCell = nil;
-    NSInteger currentLength = 0;
 
     [[delegate undoManager] beginUndoGrouping];
 
@@ -197,20 +195,21 @@
             }
 
             [entireString appendString:cell.content];
-            currentLength += [cell.content length];
-            [mergeLocations addObject:[NSNumber numberWithInt:currentLength]];
+            [entireString appendString:@"\n\n"];
         }
     }
+
+    // Trim off the last pair of newlines
+    // We can't do this by conditionally adding them above because that would fail in the case
+    // where the last cell is of a different type and is skipped
+
+    entireString = [[entireString substringWithRange:NSMakeRange(0, [entireString length] - 2)] mutableCopy];
 
     if(!firstCell)
     {
         NSLog(@"Selected cells not found in notebook"); // TODO: better errors
         return;
     }
-
-    // Pop off the last location, as it's the end of the string, not technically a split location
-
-    [mergeLocations removeLastObject];
 
     // Remove all but the first cell (which is the one we're going to put all of the content into)
 
