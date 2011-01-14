@@ -26,6 +26,7 @@
 #import <Cocoa/Cocoa.h>
 
 typedef enum {
+    NBCellNone,
     NBCellSnippet,
     NBCellComment
 } NBCellType;

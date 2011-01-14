@@ -242,6 +242,11 @@
     [delegate cellViewTookFocus:self];
 }
 
+- (NSRange)editableCursorLocation
+{
+    return NSMakeRange(NSNotFound, 0);
+}
+
 - (void)clearSelection
 {
     [self doesNotRecognizeSelector:_cmd];

@@ -201,7 +201,6 @@
     {
         [notebook addCell:newCell];
     }
-
 }
 
 - (IBAction)deleteCell:(id)sender
@@ -215,7 +214,40 @@
             [notebook removeCell:[cellView cell]];
         }
     }
+}
 
+- (IBAction)splitCell:(id)sender
+{
+    NBCellView * keyView;
+    NSRange splitLocation;
+
+    keyView = [self keyCellView];
+
+    if(!keyView)
+    {
+        return;
+    }
+
+    splitLocation = [keyView editableCursorLocation];
+
+    if(splitLocation.location == NSNotFound)
+    {
+        return;
+    }
+
+    [notebook splitCell:[keyView cell] atLocation:splitLocation.location];
+}
+
+- (IBAction)mergeCells:(id)sender
+{
+    NSMutableArray * cells = [[NSMutableArray alloc] init];
+
+    for(NBCellView * cellView in [self selectedCellViews])
+    {
+        [cells addObject:[cellView cell]];
+    }
+
+    [notebook mergeCells:cells];
 }
 
 - (IBAction)abortEvaluation:(id)sender

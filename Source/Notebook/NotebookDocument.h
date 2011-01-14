@@ -52,6 +52,8 @@
 
 - (IBAction)insertCell:(id)sender;
 - (IBAction)deleteCell:(id)sender;
+- (IBAction)splitCell:(id)sender;
+- (IBAction)mergeCells:(id)sender;
 
 - (IBAction)abortEvaluation:(id)sender;
 

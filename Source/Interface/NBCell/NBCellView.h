@@ -63,6 +63,8 @@ typedef struct _NBMargin
 
 - (void)evaluate;
 
+- (NSRange)editableCursorLocation;
+
 - (void)clearSelection;
 
 @end

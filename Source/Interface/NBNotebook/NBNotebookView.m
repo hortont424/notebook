@@ -170,6 +170,7 @@
     {
         NBCell * newCell = [[NBCell alloc] init];
         newCell.content = @"";
+        newCell.type = NBCellSnippet;
 
         if((NSNull *)appendingCellView == [NSNull null])
         {

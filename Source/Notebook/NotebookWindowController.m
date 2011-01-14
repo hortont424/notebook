@@ -71,9 +71,9 @@
     NSRect screenFrame = [[[self window] screen] visibleFrame];
 
     NSRect newViewFrame = NSMakeRect(winFrame.origin.x - ((viewBounds.size.width - winFrame.size.width) / 2.0),
-                                     screenFrame.origin.y,
+                                     screenFrame.origin.y + (screenFrame.size.height * 0.1),
                                      viewBounds.size.width,
-                                     screenFrame.size.height);
+                                     screenFrame.size.height * 0.8);
 
     [[self window] setFrame:[[self window] constrainFrameRect:newViewFrame
                                                      toScreen:[[self window] screen]]

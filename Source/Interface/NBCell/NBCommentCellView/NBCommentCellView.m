@@ -96,6 +96,7 @@
 {
     [super setCell:inCell];
 
+    [cell addObserver:self forKeyPath:@"content" options:0 context:nil];
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
     [textView setString:cell.content];
     [textView display];
@@ -108,6 +109,36 @@
     // Someone typed into the text view, so our NBCell needs to be updated
 
     cell.content = [textView string];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"content"] && (object == cell))
+    {
+        // Our NBCell's content has changed, so we need to update our NBCommentView to correspond
+
+        if(cell.content)
+        {
+            NSRange currentSelection = [textView selectedRange];
+            [textView setString:cell.content];
+            [textView setSelectedRange:currentSelection];
+            [textView display];
+        }
+
+        [self subviewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
+    }
+}
+
+- (NSRange)editableCursorLocation
+{
+    NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+    if(firstResponder == textView)
+    {
+        return [textView selectedRange];
+    }
+
+    return [super editableCursorLocation];
 }
 
 - (void)clearSelection

@@ -44,6 +44,8 @@
     return self;
 }
 
+#pragma mark Add/Remove Cells
+
 - (void)addCell:(NBCell *)cell atIndex:(NSUInteger)index
 {
     cell.notebook = self;
@@ -57,17 +59,21 @@
 
 - (void)addCell:(NBCell *)cell afterCell:(NBCell *)afterCell
 {
-    [self addCell:cell atIndex:[cells indexOfObject:afterCell] + 1];
+    NSInteger idx = [cells indexOfObject:afterCell];
+
+    if(idx == NSNotFound)
+    {
+        [self addCell:cell];
+    }
+    else
+    {
+        [self addCell:cell atIndex:idx + 1];
+    }
 }
 
 - (void)addCell:(NBCell *)cell
 {
     [self addCell:cell atIndex:[cells count]];
-}
-
-- (void)restoreCell:(NSDictionary *)cellInfo
-{
-    [self addCell:[cellInfo objectForKey:@"cell"] atIndex:[[cellInfo objectForKey:@"index"] unsignedIntValue]];
 }
 
 - (void)removeCell:(NBCell *)cell
@@ -84,6 +90,169 @@
                                                                                               [NSNumber numberWithUnsignedInt:index],@"index",
                                                                                               nil]];
     [[delegate undoManager] setActionName:NSLocalizedString(@"Remove Cell", @"remove-cell")];
+}
+
+#pragma mark Split/Merge Cells
+
+- (void)splitCell:(NBCell *)firstCell atLocation:(NSInteger)splitLocation
+{
+    [self splitCell:firstCell atLocations:[NSArray arrayWithObject:[NSNumber numberWithInt:splitLocation]]];
+}
+
+- (void)splitCell:(NBCell *)firstCell atLocations:(NSArray *)locations
+{
+    NSMutableArray * allCells = [[NSMutableArray alloc] init];
+    NSString * originalContent = [firstCell.content copy];
+    NSInteger currentLocation = 0;
+    NBCell * currentCell = firstCell;
+    NBCell * previousCell = nil;
+
+    // If we don't have any locations, there's no splitting to perform
+
+    if([locations count] == 0)
+    {
+        return;
+    }
+
+    // We need to disable undo registration, otherwise we'll record the addCell calls
+
+    [[delegate undoManager] disableUndoRegistration];
+
+    // At each split index, make a new cell (unless it's the first one) and split the string up
+
+    for(NSNumber * splitLocation in locations)
+    {
+        if(previousCell)
+        {
+            currentCell = [[NBCell alloc] init];
+        }
+
+        // Clear the cell's output, assign its content to its portion of the string, and copy the cell type
+
+        currentCell.output = nil;
+        currentCell.content = [originalContent substringWithRange:NSMakeRange(currentLocation, [splitLocation intValue])];
+        currentCell.type = firstCell.type;
+
+        [allCells addObject:currentCell];
+
+        if(previousCell)
+        {
+            [self addCell:currentCell afterCell:previousCell];
+        }
+
+        currentLocation += [splitLocation intValue];
+        previousCell = currentCell;
+    }
+
+    // Add the last one
+    // TODO: this fails dry
+
+    currentCell = [[NBCell alloc] init];
+    currentCell.output = nil;
+    currentCell.content = [originalContent substringWithRange:NSMakeRange(currentLocation, [originalContent length] - currentLocation)];
+    currentCell.type = firstCell.type;
+    [allCells addObject:currentCell];
+    [self addCell:currentCell afterCell:previousCell];
+
+    [[delegate undoManager] enableUndoRegistration];
+
+    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(mergeCells:)
+                                            object:allCells];
+    [[delegate undoManager] setActionName:NSLocalizedString(@"Split Cell", @"split-cell")];
+}
+
+- (void)mergeCells:(NSArray *)cellList
+{
+    NSMutableString * entireString = [[NSMutableString alloc] init];
+    NSMutableArray * mergeLocations = [[NSMutableArray alloc] init];
+    NBCellType mergeType = NBCellNone;
+    NBCell * firstCell = nil;
+    NSInteger currentLength = 0;
+
+    // There's nothing to merge if we have less than two cells
+
+    if([cellList count] < 2)
+    {
+        return;
+    }
+
+    // Combine the contents of all of the selected cells, keeping track of where we are when we merge them in case
+    // we need to re-split them
+
+    // Note: We iterate through NBNotebook's list of cells instead of the cellList array so that we
+    // will combine them in the correct order
+
+    for(NBCell * cell in cells)
+    {
+        if([cellList containsObject:cell])
+        {
+            // If this is the first cell, save the type, and only accept cells of this type later
+            // TODO: there's no reason we can't support merging comment and code cells, but that's going
+            // to require more intelligence
+
+            if(mergeType == NBCellNone)
+            {
+                mergeType = cell.type;
+                firstCell = cell;
+            }
+            else if(cell.type != mergeType)
+            {
+                continue;
+            }
+
+            [entireString appendString:cell.content];
+            currentLength += [cell.content length];
+            [mergeLocations addObject:[NSNumber numberWithInt:currentLength]];
+        }
+    }
+
+    if(!firstCell)
+    {
+        NSLog(@"Selected cells not found in notebook"); // TODO: better errors
+        return;
+    }
+
+    // Pop off the last location, as it's the end of the string, not technically a split location
+
+    [mergeLocations removeLastObject];
+
+    if(!firstCell)
+    {
+        return;
+    }
+
+    [[delegate undoManager] disableUndoRegistration];
+
+    for(NBCell * cell in cells)
+    {
+        if(cell != firstCell)
+        {
+            [self removeCell:cell];
+        }
+    }
+
+    [[delegate undoManager] enableUndoRegistration];
+
+    firstCell.output = nil;
+    firstCell.content = entireString;
+
+    [[delegate undoManager] registerUndoWithTarget:self selector:@selector(unmergeCell:)
+                                            object:[NSDictionary dictionaryWithObjectsAndKeys:firstCell,@"cell",
+                                                                                              mergeLocations,@"locations",
+                                                                                              nil]];
+    [[delegate undoManager] setActionName:NSLocalizedString(@"Merge Cells", @"merge-cells")];
+}
+
+#pragma mark Undo Methods
+
+- (void)restoreCell:(NSDictionary *)cellInfo
+{
+    [self addCell:[cellInfo objectForKey:@"cell"] atIndex:[[cellInfo objectForKey:@"index"] unsignedIntValue]];
+}
+
+- (void)unmergeCell:(NSDictionary *)cellInfo
+{
+    [self splitCell:[cellInfo objectForKey:@"cell"] atLocations:[cellInfo objectForKey:@"locations"]];
 }
 
 @end

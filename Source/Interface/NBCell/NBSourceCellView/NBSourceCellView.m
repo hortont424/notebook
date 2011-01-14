@@ -56,6 +56,7 @@
 
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setFieldEditor:NO];
+        [outputView setEditable:NO];
         [outputView setDelegate:self];
         [outputView setParentCellView:self];
         [[outputView textContainer] setHeightTracksTextView:NO];
@@ -140,6 +141,7 @@
 {
     [super setCell:inCell];
 
+    [cell addObserver:self forKeyPath:@"content" options:0 context:nil];
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
     [sourceView setString:cell.content];
     [sourceView display]; // sourceView needs to determine its proper size!
@@ -211,7 +213,21 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if([keyPath isEqualToString:@"output"] && (object == cell))
+    if([keyPath isEqualToString:@"content"] && (object == cell))
+    {
+        // Our NBCell's content has changed, so we need to update our NBSourceView to correspond
+
+        if(cell.content)
+        {
+            NSRange currentSelection = [sourceView selectedRange];
+            [sourceView setString:cell.content];
+            [sourceView setSelectedRange:currentSelection];
+            [sourceView display];
+        }
+
+        [self subviewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
+    }
+    else if([keyPath isEqualToString:@"output"] && (object == cell))
     {
         // Our NBCell's output has changed, so we need to update our NBOutputView to correspond
 
@@ -238,6 +254,23 @@
 
         [self subviewDidResize:nil]; // TODO: this function should probably be renamed/abstracted into two
     }
+}
+
+- (NSRange)editableCursorLocation
+{
+    NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+    if(firstResponder == sourceView)
+    {
+        return [sourceView selectedRange];
+    }
+    else if(firstResponder == outputView)
+    {
+        return NSMakeRange(NSNotFound, 0);
+    }
+
+
+    return [super editableCursorLocation];
 }
 
 - (void)clearSelection

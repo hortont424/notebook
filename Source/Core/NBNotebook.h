@@ -47,4 +47,9 @@
 
 - (void)removeCell:(NBCell *)cell;
 
+- (void)splitCell:(NBCell *)firstCell atLocation:(NSInteger)splitLocation;
+- (void)splitCell:(NBCell *)firstCell atLocations:(NSArray *)locations;
+
+- (void)mergeCells:(NSArray *)cellList;
+
 @end
