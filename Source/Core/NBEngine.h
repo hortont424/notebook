@@ -24,33 +24,21 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
 
-#import "NBEngineBackendProtocol.h"
-
-@interface NBException : NSObject
-{
-    NSUInteger line, column;
-    NSString * message;
-}
-
-@property (nonatomic,assign) NSUInteger line;
-@property (nonatomic,assign) NSUInteger column;
-@property (nonatomic,retain) NSString * message;
-
-@end
+@class NBEngineBackend;
+@class NBException;
 
 typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
 
 @interface NBEngine : NSObject
 {
     NSTask * backendTask;
-    id<NBEngineBackendProtocol> backend;
+    NBEngineBackend * backend;
 
     NSMutableArray * taskQueue;
 
     SnippetCompletionCallback lastCompletionCallback;
-    volatile BOOL busy;
+    BOOL busy;
 }
 
 - (void)launchBackend;

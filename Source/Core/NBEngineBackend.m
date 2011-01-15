@@ -27,12 +27,12 @@
 
 #import "NBEngine.h"
 
+static NBEngineBackend * backend = nil;
+static NSConnection * connection = nil;
+
 @implementation NBEngineBackend
 
 @synthesize engine;
-
-static NBEngineBackend * backend = nil;
-static NSConnection * connection = nil;
 
 + (void)launchServer:(NSString *)port
 {

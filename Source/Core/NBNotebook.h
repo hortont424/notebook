@@ -25,9 +25,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCell.h"
-#import "NBEngine.h"
 #import "NBNotebookDelegate.h"
+
+@class NBCell;
+@class NBEngine;
 
 @interface NBNotebook : NSObject
 {

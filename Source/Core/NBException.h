@@ -25,9 +25,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol NBEngineBackendProtocol
+@interface NBException : NSObject
+{
+    NSUInteger line, column;
+    NSString * message;
+}
 
-- (oneway void)executeSnippet:(NSString *)snippet;
-- (void)setEngine:(id)engine;
+@property (nonatomic,assign) NSUInteger line;
+@property (nonatomic,assign) NSUInteger column;
+@property (nonatomic,retain) NSString * message;
 
 @end

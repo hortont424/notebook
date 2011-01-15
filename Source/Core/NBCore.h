@@ -26,10 +26,10 @@
 #import <NBCore/NBCell.h>
 #import <NBCore/NBEngine.h>
 #import <NBCore/NBEngineBackend.h>
-#import <NBCore/NBEngineBackendProtocol.h>
 #import <NBCore/NBEngineEncoder.h>
 #import <NBCore/NBEngineHighlighter.h>
 #import <NBCore/NBEngineLoader.h>
+#import <NBCore/NBException.h>
 #import <NBCore/NBNotebook.h>
 #import <NBCore/NBNotebookDelegate.h>
 #import <NBCore/NBProcessWatchdog.h>

@@ -25,6 +25,8 @@
 
 #import "NBEngineHighlighter.h"
 
+#import <RegexKit/RegexKit.h>
+
 @implementation NBEngineHighlightContext
 
 @synthesize highlight, expression;

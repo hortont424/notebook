@@ -25,7 +25,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBCell.h"
+@class NBCell;
 
 @protocol NBNotebookDelegate
 

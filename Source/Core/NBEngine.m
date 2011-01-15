@@ -23,13 +23,16 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Quartz/Quartz.h>
-
 #import "NBEngine.h"
 
-@implementation NBException
+#import <Quartz/Quartz.h>
 
-@synthesize line, column, message;
+#import "NBException.h"
+#import "NBEngineBackend.h"
+
+@interface NBEngine ()
+
+- (void)cleanupBackend:(NSString *)cleanupMessage;
 
 @end
 
@@ -73,7 +76,7 @@
 
     while(!backend && [backendTask isRunning])
     {
-        backend = (id<NBEngineBackendProtocol>)[NSConnection rootProxyForConnectionWithRegisteredName:serverPort host:nil];
+        backend = (NBEngineBackend *)[NSConnection rootProxyForConnectionWithRegisteredName:serverPort host:nil];
     }
 
     if(backend)

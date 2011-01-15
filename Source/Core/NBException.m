@@ -23,28 +23,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBException.h"
 
-@class RKRegex;
+@implementation NBException
 
-@interface NBEngineHighlightContext : NSObject
-{
-    NSString * highlight;
-    RKRegex * expression;
-}
-
-@property (nonatomic,assign) NSString * highlight;
-@property (nonatomic,assign) RKRegex * expression;
-
-+ (NBEngineHighlightContext *)contextWithClass:(NSString *)inHighlight expression:(NSString *)inExpression;
-
-@end
-
-@interface NBEngineHighlighter : NSObject
-{
-    NSArray * highlightingPairs;
-}
-
-@property (nonatomic,assign) NSArray * highlightingPairs;
+@synthesize line, column, message;
 
 @end

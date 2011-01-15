@@ -25,10 +25,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBEngineBackendProtocol.h"
-#import "NBEngine.h"
+@class NBEngine;
 
-@interface NBEngineBackend : NSObject<NBEngineBackendProtocol>
+@interface NBEngineBackend : NSObject
 {
     NBEngine * engine;
 }
@@ -36,5 +35,7 @@
 @property (nonatomic,assign) NBEngine * engine;
 
 + (void)launchServer:(NSString *)port;
+
+- (oneway void)executeSnippet:(NSString *)snippet;
 
 @end

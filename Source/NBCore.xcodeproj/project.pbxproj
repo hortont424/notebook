@@ -13,7 +13,6 @@
 		3522372112DB219C007DDF2A /* NBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3522371012DB219C007DDF2A /* NBEngine.m */; };
 		3522372212DB219C007DDF2A /* NBEngineBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522371112DB219C007DDF2A /* NBEngineBackend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3522372312DB219C007DDF2A /* NBEngineBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3522371212DB219C007DDF2A /* NBEngineBackend.m */; };
-		3522372412DB219C007DDF2A /* NBEngineBackendProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522371312DB219C007DDF2A /* NBEngineBackendProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3522372512DB219C007DDF2A /* NBEngineEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522371412DB219C007DDF2A /* NBEngineEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3522372612DB219C007DDF2A /* NBEngineEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3522371512DB219C007DDF2A /* NBEngineEncoder.m */; };
 		3522372712DB219C007DDF2A /* NBEngineHighlighter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522371612DB219C007DDF2A /* NBEngineHighlighter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +26,8 @@
 		3522373B12DB21F4007DDF2A /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3522373A12DB21F4007DDF2A /* RegexKit.framework */; };
 		3522375612DB222C007DDF2A /* NBNotebookDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522375512DB222C007DDF2A /* NBNotebookDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3522379B12DB228D007DDF2A /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3522379A12DB228D007DDF2A /* Quartz.framework */; };
+		353C260812E173B6007A6F40 /* NBException.h in Headers */ = {isa = PBXBuildFile; fileRef = 353C260612E173B6007A6F40 /* NBException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		353C260912E173B6007A6F40 /* NBException.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C260712E173B6007A6F40 /* NBException.m */; };
 		356CBB3012DB25FA00E07E46 /* NBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 356CBB2F12DB25FA00E07E46 /* NBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +43,6 @@
 		3522371012DB219C007DDF2A /* NBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngine.m; path = Core/NBEngine.m; sourceTree = "<group>"; };
 		3522371112DB219C007DDF2A /* NBEngineBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineBackend.h; path = Core/NBEngineBackend.h; sourceTree = "<group>"; };
 		3522371212DB219C007DDF2A /* NBEngineBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineBackend.m; path = Core/NBEngineBackend.m; sourceTree = "<group>"; };
-		3522371312DB219C007DDF2A /* NBEngineBackendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineBackendProtocol.h; path = Core/NBEngineBackendProtocol.h; sourceTree = "<group>"; };
 		3522371412DB219C007DDF2A /* NBEngineEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineEncoder.h; path = Core/NBEngineEncoder.h; sourceTree = "<group>"; };
 		3522371512DB219C007DDF2A /* NBEngineEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineEncoder.m; path = Core/NBEngineEncoder.m; sourceTree = "<group>"; };
 		3522371612DB219C007DDF2A /* NBEngineHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineHighlighter.h; path = Core/NBEngineHighlighter.h; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		3522373A12DB21F4007DDF2A /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
 		3522375512DB222C007DDF2A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookDelegate.h; path = Core/NBNotebookDelegate.h; sourceTree = "<group>"; };
 		3522379A12DB228D007DDF2A /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		353C260612E173B6007A6F40 /* NBException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBException.h; path = Core/NBException.h; sourceTree = "<group>"; };
+		353C260712E173B6007A6F40 /* NBException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBException.m; path = Core/NBException.m; sourceTree = "<group>"; };
 		356CBB2F12DB25FA00E07E46 /* NBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCore.h; path = Core/NBCore.h; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -121,13 +123,14 @@
 				3522371012DB219C007DDF2A /* NBEngine.m */,
 				3522371112DB219C007DDF2A /* NBEngineBackend.h */,
 				3522371212DB219C007DDF2A /* NBEngineBackend.m */,
-				3522371312DB219C007DDF2A /* NBEngineBackendProtocol.h */,
 				3522371412DB219C007DDF2A /* NBEngineEncoder.h */,
 				3522371512DB219C007DDF2A /* NBEngineEncoder.m */,
 				3522371612DB219C007DDF2A /* NBEngineHighlighter.h */,
 				3522371712DB219C007DDF2A /* NBEngineHighlighter.m */,
 				3522371812DB219C007DDF2A /* NBEngineLoader.h */,
 				3522371912DB219C007DDF2A /* NBEngineLoader.m */,
+				353C260612E173B6007A6F40 /* NBException.h */,
+				353C260712E173B6007A6F40 /* NBException.m */,
 				3522371A12DB219C007DDF2A /* NBNotebook.h */,
 				3522371B12DB219C007DDF2A /* NBNotebook.m */,
 				3522375512DB222C007DDF2A /* NBNotebookDelegate.h */,
@@ -167,7 +170,6 @@
 				3522371E12DB219C007DDF2A /* NBCell.h in Headers */,
 				3522372012DB219C007DDF2A /* NBEngine.h in Headers */,
 				3522372212DB219C007DDF2A /* NBEngineBackend.h in Headers */,
-				3522372412DB219C007DDF2A /* NBEngineBackendProtocol.h in Headers */,
 				3522372512DB219C007DDF2A /* NBEngineEncoder.h in Headers */,
 				3522372712DB219C007DDF2A /* NBEngineHighlighter.h in Headers */,
 				3522372912DB219C007DDF2A /* NBEngineLoader.h in Headers */,
@@ -175,6 +177,7 @@
 				3522372D12DB219C007DDF2A /* NBProcessWatchdog.h in Headers */,
 				3522375612DB222C007DDF2A /* NBNotebookDelegate.h in Headers */,
 				356CBB3012DB25FA00E07E46 /* NBCore.h in Headers */,
+				353C260812E173B6007A6F40 /* NBException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +251,7 @@
 				3522372A12DB219C007DDF2A /* NBEngineLoader.m in Sources */,
 				3522372C12DB219C007DDF2A /* NBNotebook.m in Sources */,
 				3522372E12DB219C007DDF2A /* NBProcessWatchdog.m in Sources */,
+				353C260912E173B6007A6F40 /* NBException.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

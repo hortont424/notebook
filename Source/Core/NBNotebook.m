@@ -25,6 +25,9 @@
 
 #import "NBNotebook.h"
 
+#import "NBCell.h"
+#import "NBEngine.h"
+
 @implementation NBNotebook
 
 @synthesize cells;

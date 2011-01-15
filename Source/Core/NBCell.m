@@ -26,6 +26,7 @@
 #import "NBCell.h"
 #import "NBEngine.h"
 #import "NBNotebook.h"
+#import "NBException.h"
 
 @interface NBCell ()
 
