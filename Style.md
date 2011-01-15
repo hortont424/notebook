@@ -16,6 +16,8 @@ Spacing
 * No spaces immediately inside parentheses
 * Spaces on both sides of the pointer asterisk
 * Braces go on their own line
+* Spaces on both sides of operators
+* Braces for all blocks
 
 Private Methods
 ===============
