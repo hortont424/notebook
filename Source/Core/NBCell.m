@@ -31,6 +31,7 @@
 @interface NBCell ()
 
 - (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)outputString;
+- (void)undoTimerExpired:(NSTimer *)timer;
 
 @end
 
@@ -48,6 +49,8 @@
     {
         content = @"";
         output = @"";
+
+        undoTimer = nil;
     }
 
     return self;
@@ -57,15 +60,30 @@
 {
     if(![content isEqualToString:aContent])
     {
-        [[[notebook delegate] undoManager] registerUndoWithTarget:self
-                                                         selector:@selector(setContent:)
-                                                           object:[content copy]];
-        [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
+        if(!undoTimer || [[[notebook delegate] undoManager] isUndoing] || [[[notebook delegate] undoManager] isRedoing])
+        {
+            [[[notebook delegate] undoManager] registerUndoWithTarget:self
+                                                             selector:@selector(setContent:)
+                                                               object:[content copy]];
+            [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
+
+            undoTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(undoTimerExpired:) userInfo:nil repeats:NO];
+        }
 
         content = [aContent copy];
 
         self.state = NBCellChangedState;
     }
+}
+
+- (void)undoTimerExpired:(NSTimer *)timer
+{
+    [[[notebook delegate] undoManager] registerUndoWithTarget:self
+                                                     selector:@selector(setContent:)
+                                                       object:[content copy]];
+    [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
+
+    undoTimer = nil;
 }
 
 - (void)evaluate

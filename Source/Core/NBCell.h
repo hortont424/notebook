@@ -50,6 +50,8 @@ typedef enum
     NBNotebook * notebook;
     NBException * exception;
 
+    NSTimer * undoTimer;
+
     NBCellType type;
     NBCellState state;
 }
