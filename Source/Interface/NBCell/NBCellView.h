@@ -54,10 +54,7 @@ typedef struct _NBMargin
 
 - (float)requestedHeight;
 
-- (void)viewDidResize:(id)sender;
-
-- (void)subviewDidResize:(NSNotification *)aNotification;
-- (void)subviewBecameFirstResponder:(id)subview;
+- (void)viewDidResize:(id)sender; // TODO: notification
 
 - (void)enableContentResizeNotifications;
 - (void)disableContentResizeNotifications;
@@ -65,5 +62,14 @@ typedef struct _NBMargin
 - (NSRange)editableCursorLocation;
 
 - (void)clearSelection;
+
+@end
+
+// TODO: figure out how to keep these private while still allowing subclasses to find them?
+
+@interface NBCellView ()
+
+- (void)subviewDidResize:(NSNotification *)aNotification;
+- (void)subviewBecameFirstResponder:(NSNotification *)aNotification;
 
 @end

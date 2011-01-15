@@ -32,7 +32,7 @@
 
 @implementation NBSourceView
 
-@dynamic delegate;
+@synthesize delegate;
 
 - (id)initWithFrame:(NSRect)frame
 {

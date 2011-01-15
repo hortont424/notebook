@@ -289,7 +289,7 @@
 
 - (IBAction)abortEvaluation:(id)sender
 {
-    [[notebook engine] abortBackend];
+    [[notebook engine] abort];
 }
 
 @end

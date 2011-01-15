@@ -32,8 +32,9 @@
 
 @interface NBSourceView : NBTextView
 {
+    id<NBSourceViewDelegate> delegate;
+    
     NSMutableDictionary * exceptions;
-
     RKRegex * leadingSpacesRegex;
 }
 

@@ -32,6 +32,8 @@
 
 @interface NBEngine ()
 
+- (void)backendCrashed:(id)sender;
+- (void)launchBackend;
 - (void)cleanupBackend:(NSString *)cleanupMessage;
 
 @end
@@ -174,6 +176,8 @@
 
     return nil;
 }
+
+// TODO: it seems weird to have the IKImageBrowser stuff in NBCore
 
 #pragma mark IKImageBrowser-related Methods
 

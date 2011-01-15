@@ -41,8 +41,7 @@ typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * ou
     BOOL busy;
 }
 
-- (void)launchBackend;
-- (void)abortBackend;
+- (void)abort;
 
 + (Class)backendClass;
 + (Class)highlighterClass;

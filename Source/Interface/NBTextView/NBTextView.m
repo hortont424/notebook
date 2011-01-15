@@ -28,7 +28,6 @@
 
 @implementation NBTextView
 
-@synthesize delegate;
 @synthesize parentCellView;
 
 - (id)initWithFrame:(NSRect)frame
@@ -37,6 +36,7 @@
 
     if(self)
     {
+        [[self textStorage] setDelegate:self];
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [self setTextColor:[[NBSettings sharedInstance] colorWithSelector:@"normal"]];
         [self setFont:[[NBSettings sharedInstance] fontWithSelector:@"normal"]];
@@ -50,19 +50,9 @@
     return self;
 }
 
-- (void)setDelegate:(id)inDelegate
-{
-    delegate = inDelegate;
-
-    [[self textStorage] setDelegate:self];
-}
-
 - (BOOL)becomeFirstResponder
 {
-    if(delegate && [delegate respondsToSelector:@selector(subviewBecameFirstResponder:)])
-    {
-        [delegate subviewBecameFirstResponder:self];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NBCellSubviewBecameFirstResponder" object:self];
 
     return [super becomeFirstResponder];
 }

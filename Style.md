@@ -16,3 +16,8 @@ Spacing
 * No spaces immediately inside parentheses
 * Spaces on both sides of the pointer asterisk
 * Braces go on their own line
+
+Private Methods
+===============
+
+* Private methods are declared on an anonymous category

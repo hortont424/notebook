@@ -25,6 +25,13 @@
 
 #import "NBProcessWatchdog.h"
 
+@interface NBProcessWatchdog ()
+
+- (void)watch:(NSTimer *)timer;
+
+@end
+
+
 @implementation NBProcessWatchdog
 
 - (id)init

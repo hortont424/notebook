@@ -63,6 +63,13 @@
     return YES;
 }
 
+- (void)addSubview:(NSView *)aView
+{
+    [super addSubview:aView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subviewBecameFirstResponder:) name:@"NBCellSubviewBecameFirstResponder" object:aView];
+}
+
 - (void)enableContentResizeNotifications
 {
     for(NSView * subview in [self subviews])
@@ -232,7 +239,7 @@
     [delegate cellViewResized:self];
 }
 
-- (void)subviewBecameFirstResponder:(id)subview
+- (void)subviewBecameFirstResponder:(NSNotification *)aNotification
 {
     // Clear selection in all the other cells
 

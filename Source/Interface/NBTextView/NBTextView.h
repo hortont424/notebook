@@ -31,11 +31,9 @@
 
 @interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellSubview>
 {
-    id delegate;
     NBCellView * parentCellView;
 }
 
-@property (nonatomic,retain) id delegate;
 @property (nonatomic,assign) NBCellView * parentCellView;
 
 @end

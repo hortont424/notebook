@@ -45,7 +45,6 @@
         frameWithoutMargin.origin.y += margin.top;
 
         textView = [[NBCommentView alloc] initWithFrame:frameWithoutMargin];
-        [textView setDelegate:self];
         [textView setParentCellView:self];
         [textView setFieldEditor:NO];
 

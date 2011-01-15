@@ -34,6 +34,4 @@
 
 + (NBEngineLoader *)sharedInstance;
 
-- (NSDictionary *)loadPlugins;
-
 @end

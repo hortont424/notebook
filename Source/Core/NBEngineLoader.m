@@ -28,6 +28,12 @@
 
 static NBEngineLoader * sharedInstance = nil;
 
+@interface NBEngineLoader ()
+
+- (NSDictionary *)loadPlugins;
+
+@end
+
 @implementation NBEngineLoader
 
 @synthesize engineClasses;

@@ -55,7 +55,6 @@
         outputView = [[NBOutputView alloc] initWithFrame:frameWithoutMargin];
         [outputView setFieldEditor:NO];
         [outputView setEditable:NO];
-        [outputView setDelegate:self];
         [outputView setParentCellView:self];
         [[outputView textContainer] setHeightTracksTextView:NO];
 
@@ -119,17 +118,17 @@
     return YES;
 }
 
-- (void)subviewBecameFirstResponder:(id)subview
+- (void)subviewBecameFirstResponder:(NSNotification *)aNotification
 {
-    [super subviewBecameFirstResponder:subview];
+    [super subviewBecameFirstResponder:aNotification];
 
     // Clear selection in whichever view did *not* just get focus
 
-    if(subview == sourceView)
+    if([aNotification object] == sourceView)
     {
         [outputView setSelectedRange:NSMakeRange(0, 0)];
     }
-    else if(subview == outputView)
+    else if([aNotification object] == outputView)
     {
         [sourceView setSelectedRange:NSMakeRange(0, 0)];
     }
