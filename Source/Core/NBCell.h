@@ -62,4 +62,6 @@ typedef enum
 @property (nonatomic,assign) NBCellType type;
 @property (nonatomic,assign) NBCellState state;
 
+- (void)evaluate;
+
 @end
