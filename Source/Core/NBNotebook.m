@@ -127,7 +127,8 @@
         // Clear the cell's output, assign its content to its portion of the string, and copy the cell type
 
         currentCell.output = nil;
-        currentCell.content = [originalContent substringWithRange:NSMakeRange(currentLocation, [splitLocation intValue])];
+        currentCell.content = [[originalContent substringWithRange:NSMakeRange(currentLocation, [splitLocation intValue])]
+                               stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         currentCell.type = firstCell.type;
 
         [allCells addObject:currentCell];
@@ -146,7 +147,8 @@
 
     currentCell = [[NBCell alloc] init];
     currentCell.output = nil;
-    currentCell.content = [originalContent substringWithRange:NSMakeRange(currentLocation, [originalContent length] - currentLocation)];
+    currentCell.content = [[originalContent substringWithRange:NSMakeRange(currentLocation, [originalContent length] - currentLocation)]
+                           stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     currentCell.type = firstCell.type;
     [allCells addObject:currentCell];
     [self addCell:currentCell afterCell:previousCell];
@@ -170,8 +172,7 @@
         return;
     }
 
-    // Combine the contents of all of the selected cells, keeping track of where we are when we merge them in case
-    // we need to re-split them
+    // Combine the contents of all of the selected cells
 
     // Note: We iterate through NBNotebook's list of cells instead of the cellList array so that we
     // will combine them in the correct order
