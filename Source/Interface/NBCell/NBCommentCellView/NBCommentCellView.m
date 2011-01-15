@@ -26,6 +26,7 @@
 #import "NBCommentCellView.h"
 
 #import "NBSettings.h"
+#import "NBCommentView.h"
 
 @implementation NBCommentCellView
 

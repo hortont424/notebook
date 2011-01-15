@@ -26,8 +26,9 @@
 #import <Cocoa/Cocoa.h>
 #import <NBCore/NBCore.h>
 
-#import "NBCellView.h"
 #import "NBCellViewDelegate.h"
+
+@class NBCellView;
 
 @interface NBNotebookView : NSView<NBCellViewDelegate,NBNotebookDelegate>
 {

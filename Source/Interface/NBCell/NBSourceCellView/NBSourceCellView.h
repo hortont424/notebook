@@ -27,8 +27,10 @@
 #import <NBCore/NBCore.h>
 
 #import "NBCellView.h"
-#import "NBSourceView.h"
-#import "NBOutputView.h"
+#import "NBSourceViewDelegate.h"
+
+@class NBSourceView;
+@class NBOutputView;
 
 @interface NBSourceCellView : NBCellView<NSTextViewDelegate,NBSourceViewDelegate>
 {

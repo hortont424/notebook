@@ -26,6 +26,8 @@
 #import "NBSourceCellView.h"
 
 #import "NBSettings.h"
+#import "NBSourceView.h"
+#import "NBOutputView.h"
 
 @implementation NBSourceCellView
 

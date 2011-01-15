@@ -30,7 +30,6 @@
 #import <NBUI/NBSourceCellView.h>
 #import <NBUI/NBCreateNotebookView.h>
 #import <NBUI/NBCreateNotebookViewDelegate.h>
-#import <NBUI/NBPassthroughTextField.h>
 #import <NBUI/NBBackgroundView.h>
 #import <NBUI/NBNotebookView.h>
 #import <NBUI/NBHighlightSettings.h>

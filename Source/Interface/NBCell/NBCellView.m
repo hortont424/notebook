@@ -25,6 +25,8 @@
 
 #import "NBCellView.h"
 
+#import "NBSourceView.h"
+#import "NBOutputView.h"
 #import "NBSettings.h"
 #import "NBCellSubview.h"
 

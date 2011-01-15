@@ -27,6 +27,8 @@
 
 #import <JSON/JSON.h>
 
+#import "NBHighlightSettings.h"
+
 static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings

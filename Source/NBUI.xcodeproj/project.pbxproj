@@ -20,8 +20,6 @@
 		355AAC0A12DBB13F00A9FA54 /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABE012DBB13F00A9FA54 /* NBCreateNotebookView.m */; };
 		355AAC0B12DBB13F00A9FA54 /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AABE112DBB13F00A9FA54 /* NBCreateNotebookView.xib */; };
 		355AAC0C12DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABE212DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		355AAC0D12DBB13F00A9FA54 /* NBPassthroughTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABE312DBB13F00A9FA54 /* NBPassthroughTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		355AAC0E12DBB13F00A9FA54 /* NBPassthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABE412DBB13F00A9FA54 /* NBPassthroughTextField.m */; };
 		355AAC0F12DBB13F00A9FA54 /* NBBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABE612DBB13F00A9FA54 /* NBBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC1012DBB13F00A9FA54 /* NBBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABE712DBB13F00A9FA54 /* NBBackgroundView.m */; };
 		355AAC1112DBB13F00A9FA54 /* NBNotebookView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABE812DBB13F00A9FA54 /* NBNotebookView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,8 +147,6 @@
 		355AABE012DBB13F00A9FA54 /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCreateNotebookView.m; sourceTree = "<group>"; };
 		355AABE112DBB13F00A9FA54 /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBCreateNotebookView.xib; sourceTree = "<group>"; };
 		355AABE212DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCreateNotebookViewDelegate.h; sourceTree = "<group>"; };
-		355AABE312DBB13F00A9FA54 /* NBPassthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPassthroughTextField.h; sourceTree = "<group>"; };
-		355AABE412DBB13F00A9FA54 /* NBPassthroughTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPassthroughTextField.m; sourceTree = "<group>"; };
 		355AABE612DBB13F00A9FA54 /* NBBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBackgroundView.h; sourceTree = "<group>"; };
 		355AABE712DBB13F00A9FA54 /* NBBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBackgroundView.m; sourceTree = "<group>"; };
 		355AABE812DBB13F00A9FA54 /* NBNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBNotebookView.h; sourceTree = "<group>"; };
@@ -306,8 +302,6 @@
 				355AABE012DBB13F00A9FA54 /* NBCreateNotebookView.m */,
 				355AABE112DBB13F00A9FA54 /* NBCreateNotebookView.xib */,
 				355AABE212DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h */,
-				355AABE312DBB13F00A9FA54 /* NBPassthroughTextField.h */,
-				355AABE412DBB13F00A9FA54 /* NBPassthroughTextField.m */,
 			);
 			name = NBCreateNotebookView;
 			path = Interface/NBCreateNotebookView;
@@ -413,7 +407,6 @@
 				355AAC0612DBB13F00A9FA54 /* NBSourceCellView.h in Headers */,
 				355AAC0912DBB13F00A9FA54 /* NBCreateNotebookView.h in Headers */,
 				355AAC0C12DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h in Headers */,
-				355AAC0D12DBB13F00A9FA54 /* NBPassthroughTextField.h in Headers */,
 				355AAC0F12DBB13F00A9FA54 /* NBBackgroundView.h in Headers */,
 				355AAC1112DBB13F00A9FA54 /* NBNotebookView.h in Headers */,
 				355AAC1312DBB13F00A9FA54 /* NBHighlightSettings.h in Headers */,
@@ -570,7 +563,6 @@
 				355AAC0512DBB13F00A9FA54 /* NBCommentCellView.m in Sources */,
 				355AAC0712DBB13F00A9FA54 /* NBSourceCellView.m in Sources */,
 				355AAC0A12DBB13F00A9FA54 /* NBCreateNotebookView.m in Sources */,
-				355AAC0E12DBB13F00A9FA54 /* NBPassthroughTextField.m in Sources */,
 				355AAC1012DBB13F00A9FA54 /* NBBackgroundView.m in Sources */,
 				355AAC1212DBB13F00A9FA54 /* NBNotebookView.m in Sources */,
 				355AAC1412DBB13F00A9FA54 /* NBHighlightSettings.m in Sources */,

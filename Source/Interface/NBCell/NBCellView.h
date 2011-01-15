@@ -27,8 +27,9 @@
 #import <NBCore/NBCore.h>
 
 #import "NBCellViewDelegate.h"
-#import "NBSourceView.h"
-#import "NBOutputView.h"
+
+@class NBSourceView;
+@class NBOutputView;
 
 typedef struct _NBMargin
 {

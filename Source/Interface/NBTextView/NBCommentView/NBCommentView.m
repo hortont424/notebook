@@ -26,6 +26,7 @@
 #import "NBCommentView.h"
 
 #import "NBSettings.h"
+#import "NBHighlightSettings.h"
 
 @implementation NBCommentView
 

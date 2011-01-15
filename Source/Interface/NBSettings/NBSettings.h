@@ -25,7 +25,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBHighlightSettings.h"
+@class NBHighlightSettings;
 
 @interface NBSettings : NSObject
 {

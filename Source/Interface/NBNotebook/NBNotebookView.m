@@ -30,6 +30,7 @@
 #import "NBSourceCellView.h"
 #import "NBCommentCellView.h"
 #import "NBSettings.h"
+#import "NBCellView.h"
 
 @implementation NBNotebookView
 

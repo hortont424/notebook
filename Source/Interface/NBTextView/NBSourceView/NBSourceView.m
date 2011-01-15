@@ -28,6 +28,7 @@
 #import <NBCore/NBCore.h>
 
 #import "NBSettings.h"
+#import "NBHighlightSettings.h"
 
 @implementation NBSourceView
 
