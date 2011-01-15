@@ -25,9 +25,12 @@
 
 #import "NotebookAppDelegate.h"
 
+#import "NotebookDocument.h"
+
 @implementation NotebookAppDelegate
 
 @synthesize languageMenuItem;
+@synthesize currentDocument;
 
 - (void)loadThemes
 {
@@ -46,10 +49,12 @@
     [settingsWindowController showWindow:self];
 }
 
-- (void)setLanguageMenuTitle:(NSString *)name
+- (void)setCurrentDocument:(NotebookDocument *)inDocument
 {
-    [[languageMenuItem submenu] setTitle:name];
-    [languageMenuItem setHidden:NO];
+    currentDocument = inDocument;
+
+    [languageMenuItem setSubmenu:[currentDocument languageMenu]];
+    [languageMenuItem setHidden:!currentDocument.initialized];
 }
 
 @end

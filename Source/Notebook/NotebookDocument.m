@@ -36,6 +36,7 @@
 @synthesize initialized;
 @synthesize initializedFromFile;
 @synthesize notebook;
+@synthesize languageMenu;
 
 - (id)init
 {
@@ -46,6 +47,8 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
+        languageMenu = [[NSMenu alloc] initWithTitle:@"whyDoesHideNotWork"];
+        [languageMenu addItem:[[NSMenuItem alloc] initWithTitle:@"asd" action:@selector(nothing:) keyEquivalent:@""]];
     }
 
     return self;
@@ -143,6 +146,9 @@
 {
     [notebook setEngine:[[engineClass alloc] init]];
 
+    [languageButton setTitle:[engineClass name]];
+    [languageMenu setTitle:[engineClass name]];
+
     self.initialized = YES;
 
     // We need to disable undo registration while creating the cells, otherwise a document will
@@ -158,9 +164,6 @@
     }
 
     [[self undoManager] enableUndoRegistration];
-
-    [languageButton setTitle:[[notebookView.notebook.engine class] name]];
-    [[NSApp delegate] setLanguageMenuTitle:[[notebookView.notebook.engine class] name]];
 }
 
 - (IBAction)doSomethingButton:(id)sender
@@ -170,10 +173,7 @@
 
 - (void)windowDidBecomeMain:(NSNotification *)notification
 {
-    if(notebookView.notebook.engine)
-    {
-        [[NSApp delegate] setLanguageMenuTitle:[[notebookView.notebook.engine class] name]];
-    }
+    [[NSApp delegate] setCurrentDocument:self];
 }
 
 #pragma mark Selection
