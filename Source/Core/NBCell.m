@@ -24,10 +24,19 @@
  */
 
 #import "NBCell.h"
+#import "NBEngine.h"
+#import "NBNotebook.h"
+
+@interface NBCell ()
+
+- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)outputString;
+
+@end
+
 
 @implementation NBCell
 
-@synthesize content, output, type;
+@synthesize content, output, exception, type, state;
 @synthesize notebook;
 
 - (id)init
@@ -53,6 +62,50 @@
         [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
 
         content = [aContent copy];
+
+        self.state = NBCellChangedState;
+    }
+}
+
+- (void)evaluate
+{
+    self.state = NBCellBusyState;
+    self.output = nil;
+
+    [[notebook engine] executeSnippet:content onCompletion:^(NBException * newException, NSString * outputString) {
+        [self evaluationComplete:newException withOutput:outputString];
+    }];
+}
+
+- (void)evaluationComplete:(NBException *)newException withOutput:(NSString *)outputString
+{
+    // The backend finished evaluating our snippet, so update our output string.
+
+    self.state = newException ? NBCellFailureState : NBCellSuccessState;
+    self.exception = newException;
+
+    if(newException)
+    {
+        // TODO: Make error more distinct in the case where we have both (bold it?!)
+        // TODO: the way the exception is merged into the message is display-side stuff and shouldn't be here
+
+        self.output = [NSString stringWithFormat:@"%@", newException.message, nil];
+
+        if(outputString && [outputString length])
+        {
+            self.output = [self.output stringByAppendingFormat:@"\n\n%@", outputString, nil];
+        }
+    }
+    else
+    {
+        if(outputString && [outputString length])
+        {
+            self.output = [NSString stringWithFormat:@"%@", outputString, nil];
+        }
+        else
+        {
+            self.output = nil;
+        }
     }
 }
 

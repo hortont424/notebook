@@ -31,8 +31,6 @@
 
 @synthesize sourceView;
 @synthesize outputView;
-@synthesize state;
-@dynamic delegate;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -45,8 +43,6 @@
         frameWithoutMargin.size.height -= (margin.top + margin.bottom);
         frameWithoutMargin.origin.x += margin.left;
         frameWithoutMargin.origin.y += margin.top;
-
-        state = NBCellViewChanged;
 
         sourceView = [[NBSourceView alloc] initWithFrame:frameWithoutMargin];
         [sourceView setFieldEditor:NO];
@@ -78,18 +74,18 @@
 
     // Draw the cell state indicator (left hand side of the cell)
 
-    switch(self.state)
+    switch(cell.state)
     {
-        case NBCellViewChanged:
+        case NBCellChangedState:
             [[settings colorWithSelector:@"status.default"] setFill];
             break;
-        case NBCellViewEvaluating:
+        case NBCellBusyState:
             [[settings colorWithSelector:@"status.busy"] setFill];
             break;
-        case NBCellViewFailed:
+        case NBCellFailureState:
             [[settings colorWithSelector:@"status.failure"] setFill];
             break;
-        case NBCellViewSuccessful:
+        case NBCellSuccessState:
             [[settings colorWithSelector:@"status.success"] setFill];
             break;
     }
@@ -143,64 +139,13 @@
 
     [cell addObserver:self forKeyPath:@"content" options:0 context:nil];
     [cell addObserver:self forKeyPath:@"output" options:0 context:nil];
+    [cell addObserver:self forKeyPath:@"state" options:0 context:nil];
+    [cell addObserver:self forKeyPath:@"exception" options:0 context:nil];
+
     [sourceView setString:cell.content];
     [sourceView display]; // sourceView needs to determine its proper size!
 
     [self subviewDidResize:nil];
-}
-
-- (void)setState:(NBSourceCellViewState)inState
-{
-    state = inState;
-
-    [sourceView clearExceptions];
-
-    [self setNeedsDisplay:YES];
-}
-
-- (void)evaluate
-{
-    self.state = NBCellViewEvaluating;
-    cell.output = nil;
-
-    [delegate evaluateCellView:self];
-}
-
-- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output
-{
-    // The backend finished evaluating our snippet, so update the NBCell's output string (which will propagate
-    // through to the NBOutputView).
-
-    self.state = exception ? NBCellViewFailed : NBCellViewSuccessful;
-
-    if(exception)
-    {
-        // TODO: highlight line/character where exception occurred
-        // TODO: Make error more distinct in the case where we have both (bold it?!)
-
-        cell.output = [NSString stringWithFormat:@"%@", exception.message, nil];
-
-        if(exception.line)
-        {
-            [sourceView addException:exception];
-        }
-
-        if(output && [output length])
-        {
-            cell.output = [cell.output stringByAppendingFormat:@"\n\n%@", output, nil];
-        }
-    }
-    else
-    {
-        if(output && [output length])
-        {
-            cell.output = [NSString stringWithFormat:@"%@", output, nil];
-        }
-        else
-        {
-            cell.output = nil;
-        }
-    }
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
@@ -208,12 +153,26 @@
     // Someone typed into the NBSourceView, so our NBCell and evaluation are no longer valid
 
     cell.content = [sourceView string];
-    self.state = NBCellViewChanged;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if([keyPath isEqualToString:@"content"] && (object == cell))
+    if([keyPath isEqualToString:@"exception"] && (object == cell))
+    {
+        [sourceView clearExceptions];
+
+        if(cell.exception.line)
+        {
+            [sourceView addException:cell.exception];
+        }
+    }
+    else if([keyPath isEqualToString:@"state"] && (object == cell))
+    {
+        [sourceView clearExceptions];
+
+        [self setNeedsDisplay:YES];
+    }
+    else if([keyPath isEqualToString:@"content"] && (object == cell))
     {
         // Our NBCell's content has changed, so we need to update our NBSourceView to correspond
 

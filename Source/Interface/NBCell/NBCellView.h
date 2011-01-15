@@ -61,8 +61,6 @@ typedef struct _NBMargin
 - (void)enableContentResizeNotifications;
 - (void)disableContentResizeNotifications;
 
-- (void)evaluate;
-
 - (NSRange)editableCursorLocation;
 
 - (void)clearSelection;

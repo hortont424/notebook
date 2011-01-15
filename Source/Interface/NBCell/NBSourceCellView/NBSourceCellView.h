@@ -27,35 +27,20 @@
 #import <NBCore/NBCore.h>
 
 #import "NBCellView.h"
-#import "NBSourceCellViewDelegate.h"
 #import "NBSourceView.h"
 #import "NBOutputView.h"
-
-typedef enum _NBSourceCellViewState
-{
-    NBCellViewChanged = 0,
-    NBCellViewEvaluating,
-    NBCellViewFailed,
-    NBCellViewSuccessful
-} NBSourceCellViewState;
 
 @interface NBSourceCellView : NBCellView<NSTextViewDelegate,NBSourceViewDelegate>
 {
     NBSourceView * sourceView;
     NBOutputView * outputView;
-    NBSourceCellViewState state;
 }
 
-@property (assign) NBSourceCellViewState state;
 @property (assign) NBSourceView * sourceView;
 @property (assign) NBOutputView * outputView;
-@property (nonatomic,retain) id<NBSourceCellViewDelegate> delegate;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 
 - (void)subviewBecameFirstResponder:(id)subview;
-
-- (void)evaluate;
-- (void)evaluationComplete:(NBException *)exception withOutput:(NSString *)output;
 
 @end

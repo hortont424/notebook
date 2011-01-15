@@ -25,24 +25,41 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef enum {
+typedef enum
+{
     NBCellNone,
     NBCellSnippet,
     NBCellComment
 } NBCellType;
 
+typedef enum
+{
+    NBCellChangedState = 0,
+    NBCellBusyState,
+    NBCellFailureState,
+    NBCellSuccessState
+} NBCellState;
+
+@class NBNotebook;
+@class NBException;
+
 @interface NBCell : NSObject
 {
     NSString * content;
     NSString * output;
-    id notebook;
+    NBNotebook * notebook;
+    NBException * exception;
 
     NBCellType type;
+    NBCellState state;
 }
 
 @property (nonatomic,assign) NSString * content;
 @property (nonatomic,assign) NSString * output;
-@property (nonatomic,assign) id notebook;
+@property (nonatomic,assign) NBNotebook * notebook;
+@property (nonatomic,assign) NBException * exception;
+
 @property (nonatomic,assign) NBCellType type;
+@property (nonatomic,assign) NBCellState state;
 
 @end

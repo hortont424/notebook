@@ -28,7 +28,6 @@
 #import <NBUI/NBCellViewDelegate.h>
 #import <NBUI/NBCommentCellView.h>
 #import <NBUI/NBSourceCellView.h>
-#import <NBUI/NBSourceCellViewDelegate.h>
 #import <NBUI/NBCreateNotebookView.h>
 #import <NBUI/NBCreateNotebookViewDelegate.h>
 #import <NBUI/NBPassthroughTextField.h>

@@ -283,7 +283,7 @@
 {
     for(NBCellView * cellView in [self selectedCellViews])
     {
-        [cellView evaluate];
+        [[cellView cell] evaluate];
     }
 }
 

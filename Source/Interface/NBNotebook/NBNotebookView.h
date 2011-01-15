@@ -28,9 +28,8 @@
 
 #import "NBCellView.h"
 #import "NBCellViewDelegate.h"
-#import "NBSourceCellViewDelegate.h"
 
-@interface NBNotebookView : NSView<NBSourceCellViewDelegate,NBCellViewDelegate,NBNotebookDelegate>
+@interface NBNotebookView : NSView<NBCellViewDelegate,NBNotebookDelegate>
 {
     IBOutlet NBNotebook * notebook;
 

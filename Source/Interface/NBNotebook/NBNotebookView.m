@@ -240,16 +240,6 @@
     [self relayoutViews];
 }
 
-- (void)evaluateCellView:(NBCellView *)cellView
-{
-    if([cellView isKindOfClass:[NBSourceCellView class]])
-    {
-        [notebook.engine executeSnippet:cellView.cell.content onCompletion:^(NBException * exception, NSString * output) {
-            [(NBSourceCellView *)cellView evaluationComplete:exception withOutput:output];
-        }];
-    }
-}
-
 - (void)cellViewTookFocus:(NBCellView *)cellView
 {
     for(NBCellView * defocusView in [cellViews objectEnumerator])

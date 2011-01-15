@@ -168,11 +168,6 @@
     [self setNeedsDisplay:YES];
 }
 
-- (void)evaluate
-{
-
-}
-
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];

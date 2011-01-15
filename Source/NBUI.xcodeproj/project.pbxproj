@@ -16,7 +16,6 @@
 		355AAC0512DBB13F00A9FA54 /* NBCommentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABD912DBB13F00A9FA54 /* NBCommentCellView.m */; };
 		355AAC0612DBB13F00A9FA54 /* NBSourceCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABDB12DBB13F00A9FA54 /* NBSourceCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0712DBB13F00A9FA54 /* NBSourceCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABDC12DBB13F00A9FA54 /* NBSourceCellView.m */; };
-		355AAC0812DBB13F00A9FA54 /* NBSourceCellViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABDD12DBB13F00A9FA54 /* NBSourceCellViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0912DBB13F00A9FA54 /* NBCreateNotebookView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABDF12DBB13F00A9FA54 /* NBCreateNotebookView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0A12DBB13F00A9FA54 /* NBCreateNotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABE012DBB13F00A9FA54 /* NBCreateNotebookView.m */; };
 		355AAC0B12DBB13F00A9FA54 /* NBCreateNotebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AABE112DBB13F00A9FA54 /* NBCreateNotebookView.xib */; };
@@ -146,7 +145,6 @@
 		355AABD912DBB13F00A9FA54 /* NBCommentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCommentCellView.m; sourceTree = "<group>"; };
 		355AABDB12DBB13F00A9FA54 /* NBSourceCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSourceCellView.h; sourceTree = "<group>"; };
 		355AABDC12DBB13F00A9FA54 /* NBSourceCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSourceCellView.m; sourceTree = "<group>"; };
-		355AABDD12DBB13F00A9FA54 /* NBSourceCellViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSourceCellViewDelegate.h; sourceTree = "<group>"; };
 		355AABDF12DBB13F00A9FA54 /* NBCreateNotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCreateNotebookView.h; sourceTree = "<group>"; };
 		355AABE012DBB13F00A9FA54 /* NBCreateNotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCreateNotebookView.m; sourceTree = "<group>"; };
 		355AABE112DBB13F00A9FA54 /* NBCreateNotebookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NBCreateNotebookView.xib; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 			children = (
 				355AABDB12DBB13F00A9FA54 /* NBSourceCellView.h */,
 				355AABDC12DBB13F00A9FA54 /* NBSourceCellView.m */,
-				355AABDD12DBB13F00A9FA54 /* NBSourceCellViewDelegate.h */,
 			);
 			path = NBSourceCellView;
 			sourceTree = "<group>";
@@ -414,7 +411,6 @@
 				355AAC0312DBB13F00A9FA54 /* NBCellViewDelegate.h in Headers */,
 				355AAC0412DBB13F00A9FA54 /* NBCommentCellView.h in Headers */,
 				355AAC0612DBB13F00A9FA54 /* NBSourceCellView.h in Headers */,
-				355AAC0812DBB13F00A9FA54 /* NBSourceCellViewDelegate.h in Headers */,
 				355AAC0912DBB13F00A9FA54 /* NBCreateNotebookView.h in Headers */,
 				355AAC0C12DBB13F00A9FA54 /* NBCreateNotebookViewDelegate.h in Headers */,
 				355AAC0D12DBB13F00A9FA54 /* NBPassthroughTextField.h in Headers */,
