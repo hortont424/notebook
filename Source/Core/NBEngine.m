@@ -118,7 +118,7 @@
     [taskQueue removeAllObjects];
 }
 
-- (void)abortBackend
+- (void)abort
 {
     if(backendTask && [backendTask isRunning])
         [backendTask terminate];
