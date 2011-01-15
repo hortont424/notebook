@@ -184,7 +184,22 @@
 
     if([selectedViews count])
     {
-        return [NSArray arrayWithArray:selectedViews];
+        NSMutableArray * orderedSelectedViews = [[NSMutableArray alloc] init];
+
+        // Iterate through in the order that the cells are in the notebook so that
+        // they are in display order and not in selection order
+
+        for(NBCell * cell in notebook.cells)
+        {
+            NBCellView * cellView = [notebookView.cellViews objectForKey:cell];
+
+            if([selectedViews containsObject:cellView])
+            {
+                [orderedSelectedViews addObject:cellView];
+            }
+        }
+
+        return orderedSelectedViews;
     }
     else
     {
@@ -262,6 +277,14 @@
     }
 
     [notebook mergeCells:cells];
+}
+
+- (IBAction)evaluateCells:(id)sender
+{
+    for(NBCellView * cellView in [self selectedCellViews])
+    {
+        [cellView evaluate];
+    }
 }
 
 - (IBAction)abortEvaluation:(id)sender

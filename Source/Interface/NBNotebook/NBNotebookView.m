@@ -121,47 +121,6 @@
     [self relayoutViews];
 }
 
-- (void)keyDown:(NSEvent *)theEvent
-{
-    BOOL handled = NO;
-
-    switch([theEvent keyCode])
-    {
-        case kVK_Delete: // TODO: all keyboard shortcuts should be adjustable
-            for(NBCellView * selectedCellView in selectedCellViews)
-            {
-                [notebook removeCell:selectedCellView.cell];
-            }
-
-            handled = YES;
-            break;
-        case kVK_Return:
-            if([theEvent modifierFlags] & NSShiftKeyMask)
-            {
-                // Iterate through in the order that the cells are in the notebook so that evaluation
-                // is in display order and not in selection order
-
-                for(NBCell * cell in notebook.cells)
-                {
-                    NBCellView * cellView = [cellViews objectForKey:cell];
-
-                    if([selectedCellViews containsObject:cellView])
-                    {
-                        [cellView evaluate];
-                    }
-                }
-
-                handled = YES;
-            }
-            break;
-    }
-
-    if(!handled)
-    {
-        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
-    }
-}
-
 - (void)mouseDown:(NSEvent *)theEvent
 {
     // TODO: need to be able to add different kinds of cells

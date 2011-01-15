@@ -25,7 +25,6 @@
 
 #import "NBSourceView.h"
 
-#import <Carbon/Carbon.h>
 #import <NBCore/NBCore.h>
 
 #import "NBSettings.h"
@@ -47,27 +46,6 @@
     }
 
     return self;
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    BOOL handled = NO;
-
-    switch([theEvent keyCode])
-    {
-        case kVK_Return:
-            if([theEvent modifierFlags] & NSShiftKeyMask)
-            {
-                [(id<NBSourceViewDelegate>)delegate evaluate];
-                handled = YES;
-            }
-            break;
-    }
-
-    if(!handled)
-    {
-        [self interpretKeyEvents:[NSArray arrayWithObject:theEvent]];
-    }
 }
 
 - (void)insertNewline:(id)sender

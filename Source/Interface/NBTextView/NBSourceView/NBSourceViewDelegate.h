@@ -29,6 +29,5 @@
 @protocol NBSourceViewDelegate
 
 - (NBCell *)cell;
-- (void)evaluate;
 
 @end

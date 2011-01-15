@@ -57,6 +57,7 @@
 - (IBAction)splitCell:(id)sender;
 - (IBAction)mergeCells:(id)sender;
 
+- (IBAction)evaluateCells:(id)sender;
 - (IBAction)abortEvaluation:(id)sender;
 
 @end

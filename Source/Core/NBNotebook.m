@@ -174,30 +174,24 @@
 
     // Combine the contents of all of the selected cells
 
-    // Note: We iterate through NBNotebook's list of cells instead of the cellList array so that we
-    // will combine them in the correct order
-
-    for(NBCell * cell in cells)
+    for(NBCell * cell in cellList)
     {
-        if([cellList containsObject:cell])
+        // If this is the first cell, save the type, and only accept cells of this type later
+        // TODO: there's no reason we can't support merging comment and code cells, but that's going
+        // to require more intelligence
+
+        if(mergeType == NBCellNone)
         {
-            // If this is the first cell, save the type, and only accept cells of this type later
-            // TODO: there's no reason we can't support merging comment and code cells, but that's going
-            // to require more intelligence
-
-            if(mergeType == NBCellNone)
-            {
-                mergeType = cell.type;
-                firstCell = cell;
-            }
-            else if(cell.type != mergeType)
-            {
-                continue;
-            }
-
-            [entireString appendString:cell.content];
-            [entireString appendString:@"\n\n"];
+            mergeType = cell.type;
+            firstCell = cell;
         }
+        else if(cell.type != mergeType)
+        {
+            continue;
+        }
+
+        [entireString appendString:cell.content];
+        [entireString appendString:@"\n\n"];
     }
 
     // Trim off the last pair of newlines
