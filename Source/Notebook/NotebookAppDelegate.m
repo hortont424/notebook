@@ -27,6 +27,14 @@
 
 #import "NotebookDocument.h"
 
+@interface NotebookAppDelegate ()
+
+- (void)loadThemes;
+- (void)currentDocumentInitializedChanged;
+
+@end
+
+
 @implementation NotebookAppDelegate
 
 @synthesize languageMenuItem;
@@ -53,8 +61,30 @@
 {
     currentDocument = inDocument;
 
-    [languageMenuItem setSubmenu:[currentDocument languageMenu]];
-    [languageMenuItem setHidden:!currentDocument.initialized];
+    [currentDocument addObserver:self forKeyPath:@"initialized" options:0 context:nil];
+
+    [self currentDocumentInitializedChanged];
+}
+
+- (void)currentDocumentInitializedChanged
+{
+    if(currentDocument.initialized)
+    {
+        [[languageMenuItem submenu] setTitle:[[[[currentDocument notebook] engine] class] name]];
+        [languageMenuItem setHidden:NO];
+    }
+    else
+    {
+        [languageMenuItem setHidden:YES];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"initialized"] && (object == currentDocument))
+    {
+        [self currentDocumentInitializedChanged];
+    }
 }
 
 @end

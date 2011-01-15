@@ -36,7 +36,6 @@
 @synthesize initialized;
 @synthesize initializedFromFile;
 @synthesize notebook;
-@synthesize languageMenu;
 
 - (id)init
 {
@@ -47,8 +46,6 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
-        languageMenu = [[NSMenu alloc] initWithTitle:@"whyDoesHideNotWork"];
-        [languageMenu addItem:[[NSMenuItem alloc] initWithTitle:@"asd" action:@selector(nothing:) keyEquivalent:@""]];
     }
 
     return self;
@@ -77,8 +74,6 @@
     [super windowControllerDidLoadNib:aController];
 
     [notebookView setNotebook:notebook];
-
-    [languageButton setTitle:[[notebookView.notebook.engine class] name]]; // TODO: this should be bound properly
 }
 
 - (void)finishLoadingFile:(NSDictionary *)userData
@@ -147,7 +142,6 @@
     [notebook setEngine:[[engineClass alloc] init]];
 
     [languageButton setTitle:[engineClass name]];
-    [languageMenu setTitle:[engineClass name]];
 
     self.initialized = YES;
 

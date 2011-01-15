@@ -30,28 +30,22 @@
 
 @interface NotebookDocument : NSDocument<NSWindowDelegate>
 {
-    IBOutlet NBNotebookView * notebookView;
-    IBOutlet BWAnchoredButton * languageButton;
-
-    IBOutlet BWSplitView * splitView;
+    NBNotebookView * notebookView;
+    BWAnchoredButton * languageButton;
+    BWSplitView * splitView;
 
     BOOL initialized;
     BOOL initializedFromFile;
     NBNotebook * notebook;
-
-    NSMenu * languageMenu;
 }
 
-@property (nonatomic,assign) NBNotebookView * notebookView;
-@property (nonatomic,assign) BWAnchoredButton * languageButton;
-
-@property (nonatomic,assign) BWSplitView * splitView;
+@property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;
+@property (nonatomic,assign) IBOutlet BWAnchoredButton * languageButton;
+@property (nonatomic,assign) IBOutlet BWSplitView * splitView;
 
 @property (nonatomic,assign) BOOL initialized;
 @property (nonatomic,assign) BOOL initializedFromFile;
 @property (nonatomic,assign) NBNotebook * notebook;
-
-@property (nonatomic,assign) NSMenu * languageMenu;
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
