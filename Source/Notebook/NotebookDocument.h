@@ -28,7 +28,7 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
-@interface NotebookDocument : NSDocument
+@interface NotebookDocument : NSDocument<NSWindowDelegate>
 {
     IBOutlet NBNotebookView * notebookView;
     IBOutlet BWAnchoredButton * languageButton;
@@ -42,6 +42,7 @@
 
 @property (nonatomic,assign) NBNotebookView * notebookView;
 @property (nonatomic,assign) BWAnchoredButton * languageButton;
+
 @property (nonatomic,assign) BWSplitView * splitView;
 
 @property (nonatomic,assign) BOOL initialized;

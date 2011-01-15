@@ -27,6 +27,8 @@
 
 @implementation NotebookAppDelegate
 
+@synthesize languageMenuItem;
+
 - (void)loadThemes
 {
     [[NBSettings sharedInstance] loadThemes:[[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"]];
@@ -42,6 +44,12 @@
 - (IBAction)showPreferences:(id)sender
 {
     [settingsWindowController showWindow:self];
+}
+
+- (void)setLanguageMenuTitle:(NSString *)name
+{
+    [[languageMenuItem submenu] setTitle:name];
+    [languageMenuItem setHidden:NO];
 }
 
 @end

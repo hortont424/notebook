@@ -27,11 +27,16 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
-@interface NotebookAppDelegate : NSObject <NSApplicationDelegate>
+@interface NotebookAppDelegate : NSObject<NSApplicationDelegate>
 {
+    IBOutlet NSMenuItem * languageMenuItem;
+
     NBSettingsWindowController * settingsWindowController;
 }
 
+@property (nonatomic,assign) NSMenuItem * languageMenuItem;
+
 - (IBAction)showPreferences:(id)sender;
+- (void)setLanguageMenuTitle:(NSString *)name;
 
 @end

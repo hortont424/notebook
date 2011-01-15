@@ -25,6 +25,7 @@
 
 #import "NotebookDocument.h"
 
+#import "NotebookAppDelegate.h"
 #import "NotebookWindowController.h"
 
 @implementation NotebookDocument
@@ -159,12 +160,23 @@
     [[self undoManager] enableUndoRegistration];
 
     [languageButton setTitle:[[notebookView.notebook.engine class] name]];
+    [[NSApp delegate] setLanguageMenuTitle:[[notebookView.notebook.engine class] name]];
 }
 
 - (IBAction)doSomethingButton:(id)sender
 {
     NSLog(@"something");
 }
+
+- (void)windowDidBecomeMain:(NSNotification *)notification
+{
+    if(notebookView.notebook.engine)
+    {
+        [[NSApp delegate] setLanguageMenuTitle:[[notebookView.notebook.engine class] name]];
+    }
+}
+
+#pragma mark Selection
 
 - (NBCellView *)keyCellView
 {
@@ -214,6 +226,8 @@
     return nil;
 
 }
+
+#pragma mark Menu Actions
 
 - (IBAction)insertCell:(id)sender
 {
