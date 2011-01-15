@@ -297,4 +297,60 @@
     [notebookView selectAll];
 }
 
+- (IBAction)selectAllCellsAboveCurrent:(id)sender
+{
+    NBCellView * keyView;
+
+    keyView = [self keyCellView];
+
+    if(!keyView)
+    {
+        return;
+    }
+
+    [notebookView deselectAll];
+
+    for(NBCell * cell in notebook.cells)
+    {
+        NBCellView * cellView = [notebookView.cellViews objectForKey:cell];
+
+        [notebookView selectedCell:cellView];
+
+        if(cellView == keyView)
+        {
+            break;
+        }
+    }
+}
+
+- (IBAction)selectAllCellsBelowCurrent:(id)sender
+{
+    NBCellView * keyView;
+    BOOL sawKeyView = NO;
+
+    keyView = [self keyCellView];
+
+    if(!keyView)
+    {
+        return;
+    }
+
+    [notebookView deselectAll];
+
+    for(NBCell * cell in notebook.cells)
+    {
+        NBCellView * cellView = [notebookView.cellViews objectForKey:cell];
+
+        if(cellView == keyView)
+        {
+            sawKeyView = YES;
+        }
+
+        if(sawKeyView)
+        {
+            [notebookView selectedCell:cellView];
+        }
+    }
+}
+
 @end

@@ -61,5 +61,7 @@
 - (IBAction)abortEvaluation:(id)sender;
 
 - (IBAction)selectAllCells:(id)sender;
+- (IBAction)selectAllCellsAboveCurrent:(id)sender;
+- (IBAction)selectAllCellsBelowCurrent:(id)sender;
 
 @end
