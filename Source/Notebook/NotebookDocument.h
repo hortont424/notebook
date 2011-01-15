@@ -35,16 +35,18 @@
 
     IBOutlet BWSplitView * splitView;
 
-    bool initializedFromFile;
+    BOOL initialized;
+    BOOL initializedFromFile;
     NBNotebook * notebook;
 }
 
 @property (nonatomic,assign) NBNotebookView * notebookView;
 @property (nonatomic,assign) BWAnchoredButton * languageButton;
-
 @property (nonatomic,assign) BWSplitView * splitView;
 
-@property (nonatomic,assign) bool initializedFromFile;
+@property (nonatomic,assign) BOOL initialized;
+@property (nonatomic,assign) BOOL initializedFromFile;
+@property (nonatomic,assign) NBNotebook * notebook;
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 

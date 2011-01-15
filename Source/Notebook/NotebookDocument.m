@@ -32,7 +32,9 @@
 @synthesize notebookView;
 @synthesize languageButton;
 @synthesize splitView;
+@synthesize initialized;
 @synthesize initializedFromFile;
+@synthesize notebook;
 
 - (id)init
 {
@@ -40,12 +42,24 @@
 
     if(self != nil)
     {
-        initializedFromFile = NO;
+        initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
     }
 
     return self;
+}
+
+- (void)setInitialized:(BOOL)inInitialized
+{
+    initialized = inInitialized;
+
+    // Synchronize all window titles after initialization, so they'll include the language name
+
+    for(NSWindowController * windowController in [self windowControllers])
+    {
+        [windowController synchronizeWindowTitleWithDocumentName];
+    }
 }
 
 - (void)makeWindowControllers
@@ -101,7 +115,7 @@
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
 {
-    initializedFromFile = YES;
+    self.initializedFromFile = YES;
 
     Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
 
@@ -127,6 +141,8 @@
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template
 {
     [notebook setEngine:[[engineClass alloc] init]];
+
+    self.initialized = YES;
 
     // We need to disable undo registration while creating the cells, otherwise a document will
     // appear as edited immediately after being created

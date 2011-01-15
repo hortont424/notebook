@@ -31,6 +31,16 @@
 
 @implementation NotebookWindowController
 
+- (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
+{
+    if([[self document] initialized])
+    {
+        return [NSString stringWithFormat: @"%@ (%@)", displayName, [[[[[self document] notebook] engine] class] name]];
+    }
+
+    return displayName;
+}
+
 - (void)windowDidLoad
 {
     if(![[self document] initializedFromFile])
