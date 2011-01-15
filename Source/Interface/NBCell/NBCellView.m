@@ -130,11 +130,18 @@
         if(!([theEvent modifierFlags] & NSCommandKeyMask || [theEvent modifierFlags] & NSShiftKeyMask))
         {
             [[self delegate] deselectAll];
-            self.selected = YES;
+            [[self delegate] selectedCell:self];
         }
         else
         {
-            self.selected = !self.selected;
+            if(self.selected)
+            {
+                [[self delegate] deselectedCell:self];
+            }
+            else
+            {
+                [[self delegate] selectedCell:self];
+            }
         }
     }
     else
@@ -151,16 +158,6 @@
 - (void)setSelected:(bool)inSelected
 {
     selected = inSelected;
-
-    if(selected)
-    {
-        [delegate selectedCell:self];
-    }
-    else
-    {
-        [delegate deselectedCell:self];
-    }
-
 
     [self setNeedsDisplay:YES];
 }

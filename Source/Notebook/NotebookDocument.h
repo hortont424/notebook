@@ -60,4 +60,6 @@
 - (IBAction)evaluateCells:(id)sender;
 - (IBAction)abortEvaluation:(id)sender;
 
+- (IBAction)selectAllCells:(id)sender;
+
 @end

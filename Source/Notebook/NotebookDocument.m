@@ -292,4 +292,9 @@
     [[notebook engine] abort];
 }
 
+- (IBAction)selectAllCells:(id)sender
+{
+    [notebookView selectAll];
+}
+
 @end

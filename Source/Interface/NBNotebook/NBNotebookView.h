@@ -43,12 +43,30 @@
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebook * notebook;
-@property (nonatomic,readonly) NSMutableArray * selectedCellViews; // TODO: obviously should be nonmutable
+@property (nonatomic,readonly) NSMutableArray * selectedCellViews;
 @property (nonatomic,readonly) NSMapTable * cellViews;
 
 - (void)relayoutViews;
 - (float)yForView:(NBCellView *)cellView;
 
-// TODO: there are a lot of methods missing here, this class's API needs a lot of cleanup and public/privateness
+- (id)undoManager;
+
+- (void)setNotebook:(NBNotebook *)inNotebook;
+
+- (void)cellAdded:(NBCell *)cell atIndex:(NSUInteger)index;
+- (void)cellRemoved:(NBCell *)cell;
+
+- (void)mouseDown:(NSEvent *)theEvent;
+- (void)mouseEntered:(NSEvent *)theEvent;
+- (void)mouseExited:(NSEvent *)theEvent;
+
+- (void)cellViewResized:(NBCellView *)cellView;
+- (void)cellViewTookFocus:(NBCellView *)cellView;
+
+- (void)selectAll;
+- (void)deselectAll;
+
+- (void)selectedCell:(NBCellView *)cellView;
+- (void)deselectedCell:(NBCellView *)cellView;
 
 @end

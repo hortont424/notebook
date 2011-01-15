@@ -32,6 +32,13 @@
 #import "NBSettings.h"
 #import "NBCellView.h"
 
+@interface NBNotebookView ()
+
+- (void)viewDidResize:(NSNotification *)aNotification;
+
+@end
+
+
 @implementation NBNotebookView
 
 @synthesize notebook;
@@ -259,6 +266,16 @@
     [selectedCellViews removeAllObjects];
 }
 
+- (void)selectAll
+{
+    [self deselectAll];
+    
+    for(NBCellView * cellView in [cellViews objectEnumerator])
+    {
+        [self selectedCell:cellView];
+    }
+}
+
 - (void)deselectAll
 {
     [[self window] makeFirstResponder:self];
@@ -280,6 +297,7 @@
 {
     if(cellView)
     {
+        cellView.selected = YES;
         [selectedCellViews addObject:cellView];
     }
 }
@@ -288,6 +306,7 @@
 {
     if(cellView)
     {
+        cellView.selected = NO;
         [selectedCellViews removeObject:cellView];
     }
 }
