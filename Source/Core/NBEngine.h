@@ -52,6 +52,9 @@ typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * ou
 + (NSString *)version;
 + (NSImage *)icon;
 
++ (NSString *)fileExtension;
++ (NSString *)fileTypeName;
+
 - (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 

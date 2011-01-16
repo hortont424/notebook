@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="590"/>
+			<integer value="81"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2084,6 +2084,86 @@
 					</object>
 					<int key="connectionID">708</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.initialized</string>
+						<reference key="source" ref="1023925487"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1023925487"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.initialized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.initialized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">711</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.initialized</string>
+						<reference key="source" ref="117038363"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="117038363"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.initialized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.initialized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">713</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.initialized</string>
+						<reference key="source" ref="579971712"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="579971712"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.initialized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.initialized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">715</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.initialized</string>
+						<reference key="source" ref="294629803"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="294629803"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.initialized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.initialized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">717</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.initialized</string>
+						<reference key="source" ref="49223823"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="49223823"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.initialized</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.initialized</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">718</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3198,7 +3278,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{593, 416}, {196, 203}}</string>
+					<string>{{381, 376}, {196, 203}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
@@ -3226,7 +3306,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">708</int>
+			<int key="maxID">718</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

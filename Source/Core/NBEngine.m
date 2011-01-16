@@ -177,6 +177,20 @@
     return nil;
 }
 
++ (NSString *)fileExtension
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
++ (NSString *)fileTypeName
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
 // TODO: it seems weird to have the IKImageBrowser stuff in NBCore
 
 #pragma mark IKImageBrowser-related Methods

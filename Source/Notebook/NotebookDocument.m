@@ -97,6 +97,11 @@
     [[self undoManager] enableUndoRegistration];
 }
 
+- (NSArray *)writableTypesForSaveOperation:(NSSaveOperationType)saveOperation
+{
+    return [NSArray arrayWithObject:[self fileType]];
+}
+
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
     Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
@@ -146,6 +151,8 @@
     [notebook setEngine:[[engineClass alloc] init]];
 
     [languageButton setTitle:[engineClass name]];
+
+    [self setFileType:[engineClass uuid]];
 
     self.initialized = YES;
 

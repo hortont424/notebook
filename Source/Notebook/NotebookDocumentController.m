@@ -23,59 +23,47 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBEnginePython.h"
+#import "NotebookDocumentController.h"
 
-#import <Python/Python.h>
+#import <NBUI/NBUI.h>
 
-#import "NBEnginePythonBackend.h"
-#import "NBEnginePythonHighlighter.h"
-#import "NBEnginePythonEncoder.h"
+#import "NotebookDocument.h"
 
-@implementation NBEnginePython
+static NSMutableArray * _documentClassNames = nil;
 
-+ (Class)backendClass
+@implementation NotebookDocumentController
+
+- (NSArray *)documentClassNames
 {
-    return [NBEnginePythonBackend class];
+    if(_documentClassNames == nil)
+    {
+        _documentClassNames = [[NSMutableArray alloc] init];
+
+        for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
+        {
+            [_documentClassNames addObject:[[engineClass uuid] copy]];
+        }
+    }
+
+    return _documentClassNames;
 }
 
-+ (Class)highlighterClass
+- (Class)documentClassForType:(NSString *)documentTypeName
 {
-    return [NBEnginePythonHighlighter class];
+    return [NotebookDocument class];
 }
 
-+ (Class)encoderClass
+// TODO: fileExtensionsFromType: is deprecated, but it's the only way I've found to specify extensions at runtime
+// Overriding NSDocument's fileNameExtensionForType:saveOperation: instead doesn't work because it doesn't get called
+
+- (NSArray *)fileExtensionsFromType:(NSString *)documentTypeName
 {
-    return [NBEnginePythonEncoder class];
+    return [NSArray arrayWithObject:[[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileExtension]];
 }
 
-+ (NSString *)uuid
+- (NSString *)displayNameForType:(NSString *)documentTypeName
 {
-    return @"com.hortont.notebook.python";
-}
-
-+ (NSString *)name
-{
-    return @"Python";
-}
-
-+ (NSString *)version
-{
-    return [[[NSString stringWithUTF8String:Py_GetVersion()] componentsSeparatedByString:@" "] objectAtIndex:0];
-}
-
-+ (NSImage *)icon
-{
-    return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"python.png"]];
-}
-
-+ (NSString *)fileExtension
-{
-    return @"py";
-}
-
-+ (NSString *)fileTypeName
-{
-    return @"Python Notebook";
+    return [[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileTypeName];
 }
 
 @end

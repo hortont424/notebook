@@ -26,6 +26,7 @@
 #import "NotebookAppDelegate.h"
 
 #import "NotebookDocument.h"
+#import "NotebookDocumentController.h"
 
 @interface NotebookAppDelegate ()
 
@@ -34,6 +35,7 @@
 
 @end
 
+static NotebookDocumentController * docController = nil;
 
 @implementation NotebookAppDelegate
 
@@ -45,10 +47,14 @@
     [[NBSettings sharedInstance] loadThemes:[[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"]];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
     [self loadThemes];
+    docController = [[NotebookDocumentController alloc] init];
+}
 
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
     settingsWindowController = [[NBSettingsWindowController alloc] initWithWindowNibName:@"NBSettingsWindow"];
 }
 

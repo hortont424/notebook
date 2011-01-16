@@ -23,59 +23,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBEnginePython.h"
+#import <Cocoa/Cocoa.h>
 
-#import <Python/Python.h>
-
-#import "NBEnginePythonBackend.h"
-#import "NBEnginePythonHighlighter.h"
-#import "NBEnginePythonEncoder.h"
-
-@implementation NBEnginePython
-
-+ (Class)backendClass
+@interface NotebookDocumentController : NSDocumentController
 {
-    return [NBEnginePythonBackend class];
-}
 
-+ (Class)highlighterClass
-{
-    return [NBEnginePythonHighlighter class];
-}
-
-+ (Class)encoderClass
-{
-    return [NBEnginePythonEncoder class];
-}
-
-+ (NSString *)uuid
-{
-    return @"com.hortont.notebook.python";
-}
-
-+ (NSString *)name
-{
-    return @"Python";
-}
-
-+ (NSString *)version
-{
-    return [[[NSString stringWithUTF8String:Py_GetVersion()] componentsSeparatedByString:@" "] objectAtIndex:0];
-}
-
-+ (NSImage *)icon
-{
-    return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"python.png"]];
-}
-
-+ (NSString *)fileExtension
-{
-    return @"py";
-}
-
-+ (NSString *)fileTypeName
-{
-    return @"Python Notebook";
 }
 
 @end

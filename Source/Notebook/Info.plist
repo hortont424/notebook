@@ -11,40 +11,12 @@
 			<string></string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>rb</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>com.hortont.notebook.ruby</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>NSDocumentClass</key>
-			<string>NotebookDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>py</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
-			<key>CFBundleTypeName</key>
-			<string>com.hortont.notebook.python</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>NSDocumentClass</key>
-			<string>NotebookDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
-			<key>CFBundleTypeExtensions</key>
-			<array>
 				<string>*</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>NotebookDocument</string>
 			<key>CFBundleTypeName</key>
-			<string>com.hortont.notebook.document</string>
+			<string>Notebook</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleTypeOSTypes</key>

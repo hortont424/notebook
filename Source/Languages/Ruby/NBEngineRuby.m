@@ -69,4 +69,14 @@
     return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"ruby.png"]];
 }
 
++ (NSString *)fileExtension
+{
+    return @"rb";
+}
+
++ (NSString *)fileTypeName
+{
+    return @"Ruby Notebook";
+}
+
 @end

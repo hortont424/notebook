@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		351BE5EC12DEDA050010FD5C /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
 		351BE60412DEDA610010FD5C /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
+		354EB8C012E2C57C007EF1ED /* NotebookDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */; };
 		355AACDA12DBB4D500A9FA54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACD912DBB4D500A9FA54 /* main.m */; };
 		355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */; };
 		355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */; };
@@ -214,6 +215,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
+		354EB8BE12E2C57C007EF1ED /* NotebookDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookDocumentController.h; path = Source/Notebook/NotebookDocumentController.h; sourceTree = "<group>"; };
+		354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookDocumentController.m; path = Source/Notebook/NotebookDocumentController.m; sourceTree = "<group>"; };
 		355AACD912DBB4D500A9FA54 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Notebook/main.m; sourceTree = "<group>"; };
 		355AACDB12DBB4DC00A9FA54 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/Notebook/NotebookAppDelegate.h; sourceTree = "<group>"; };
 		355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/Notebook/NotebookAppDelegate.m; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */,
 				355AACDD12DBB4DC00A9FA54 /* NotebookDocument.h */,
 				355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */,
+				354EB8BE12E2C57C007EF1ED /* NotebookDocumentController.h */,
+				354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */,
 				355AACDF12DBB4DC00A9FA54 /* NotebookWindowController.h */,
 				355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */,
 			);
@@ -655,6 +660,7 @@
 				355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */,
 				355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */,
 				355AACE312DBB4DC00A9FA54 /* NotebookWindowController.m in Sources */,
+				354EB8C012E2C57C007EF1ED /* NotebookDocumentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
