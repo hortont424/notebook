@@ -1386,6 +1386,214 @@
 					</object>
 					<int key="connectionID">632</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="320931626"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="320931626"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">634</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="88531068"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="88531068"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">636</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="22057630"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="22057630"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">640</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="880013051"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="880013051"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">642</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="209732495"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="209732495"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">644</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="462419535"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="462419535"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">648</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="1024228259"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1024228259"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">650</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasSelectedCell</string>
+						<reference key="source" ref="966540738"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="966540738"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasSelectedCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasSelectedCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">652</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<reference key="source" ref="900915024"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="900915024"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">654</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<reference key="source" ref="991938013"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="991938013"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">656</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<reference key="source" ref="838334976"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="838334976"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">658</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<reference key="source" ref="88726274"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="88726274"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">660</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<reference key="source" ref="418047001"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="418047001"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">662</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2367,7 +2575,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{429, 406}, {178, 223}}</string>
+					<string>{{423, 356}, {178, 223}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{187, 434}, {243, 243}}</string>
@@ -2413,7 +2621,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{304, 596}, {609, 20}}</string>
+					<string>{{281, 579}, {609, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>
@@ -2431,7 +2639,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{485, 470}, {185, 113}}</string>
+					<string>{{467, 466}, {185, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2455,7 +2663,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{634, 465}, {138, 123}}</string>
+					<string>{{590, 458}, {138, 123}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2473,7 +2681,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{557, 478}, {193, 113}}</string>
+					<string>{{532, 468}, {193, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2528,7 +2736,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">632</int>
+			<int key="maxID">662</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

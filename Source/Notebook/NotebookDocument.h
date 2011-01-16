@@ -47,9 +47,15 @@
 @property (nonatomic,assign) BOOL initializedFromFile;
 @property (nonatomic,assign) NBNotebook * notebook;
 
+@property (nonatomic,readonly) BOOL hasKeyCell;
+@property (nonatomic,readonly) BOOL hasSelectedCell;
+
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
 - (IBAction)doSomethingButton:(id)sender;
+
+- (NBCellView *)keyCellView;
+- (NSArray *)selectedCellViews;
 
 - (IBAction)insertCell:(id)sender;
 - (IBAction)deleteCell:(id)sender;

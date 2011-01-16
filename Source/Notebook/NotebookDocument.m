@@ -36,6 +36,8 @@
 @synthesize initialized;
 @synthesize initializedFromFile;
 @synthesize notebook;
+@synthesize hasKeyCell;
+@synthesize hasSelectedCell;
 
 - (id)init
 {
@@ -158,6 +160,16 @@
     }
 
     [[self undoManager] enableUndoRegistration];
+}
+
+- (BOOL)hasKeyCell
+{
+    return ([self keyCellView] != nil);
+}
+
+- (BOOL)hasSelectedCell
+{
+    return ([self selectedCellViews] && ([[self selectedCellViews] count] > 0));
 }
 
 - (IBAction)doSomethingButton:(id)sender
