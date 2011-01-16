@@ -61,6 +61,19 @@ static NSMutableArray * _documentClassNames = nil;
     return [NSArray arrayWithObject:[[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileExtension]];
 }
 
+- (NSString *)typeFromFileExtension:(NSString *)fileExtension
+{
+    for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
+    {
+        if([[engineClass fileExtension] isEqualToString:fileExtension])
+        {
+            return [engineClass uuid];
+        }
+    }
+
+    return @"Document";
+}
+
 - (NSString *)displayNameForType:(NSString *)documentTypeName
 {
     return [[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileTypeName];
