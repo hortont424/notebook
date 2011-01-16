@@ -47,6 +47,8 @@
 
     if(self != nil)
     {
+        NSLog(@"document init");
+
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
