@@ -66,7 +66,7 @@ static NBEngineHighlighter * sharedInstance = nil;
         // First, highlight Ruby keywords
         // TODO: Consider getting the list of keywords from Ruby, or at least from a file
 
-        NSArray * keywords = [NSArray arrayWithObjects:nil];
+        NSArray * keywords = [NSArray arrayWithObjects:@"alias", @"and", @"BEGIN", @"begin", @"break", @"case", @"class", @"def", @"defined", @"do", @"else", @"elsif", @"END", @"end", @"ensure", @"false", @"for", @"if", @"in", @"module", @"next", @"nil", @"not", @"or", @"redo", @"rescue", @"retry", @"return", @"self", @"super", @"then", @"true", @"undef", @"unless", @"until", @"when", @"while", @"yield", nil];
 
         for(NSString * keyword in keywords)
         {

@@ -25,14 +25,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54 /* NBApplication.framework */;
+			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54;
 			remoteInfo = NBApplication;
 		};
 		350B77C412E3B70400BC8507 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54 /* NBApplication */;
+			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54;
 			remoteInfo = NBApplication;
 		};
 		356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */ = {
