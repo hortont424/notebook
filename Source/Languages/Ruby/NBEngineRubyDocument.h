@@ -24,36 +24,12 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <NBCore/NBCore.h>
+#import <NBApplication/NBApplication.h>
 
-@class NBEngineBackend;
-@class NBException;
-
-typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
-
-@interface NBEngine : NSObject
+@interface NBEngineRubyDocument : NBDocument
 {
-    NSTask * backendTask;
-    NBEngineBackend * backend;
 
-    NSMutableArray * taskQueue;
-
-    SnippetCompletionCallback lastCompletionCallback;
-    BOOL busy;
 }
-
-- (void)abort;
-
-+ (Class)backendClass;
-+ (Class)highlighterClass;
-+ (Class)encoderClass;
-+ (Class)documentClass;
-
-+ (NSString *)uuid;
-+ (NSString *)name;
-+ (NSString *)version;
-+ (NSImage *)icon;
-
-- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
 @end

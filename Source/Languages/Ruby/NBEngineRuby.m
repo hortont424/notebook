@@ -31,6 +31,7 @@
 #import "NBEngineRubyBackend.h"
 #import "NBEngineRubyHighlighter.h"
 #import "NBEngineRubyEncoder.h"
+#import "NBEngineRubyDocument.h"
 
 @implementation NBEngineRuby
 
@@ -47,6 +48,11 @@
 + (Class)encoderClass
 {
     return [NBEngineRubyEncoder class];
+}
+
++ (Class)documentClass
+{
+    return [NBEngineRubyDocument class];
 }
 
 + (NSString *)uuid
@@ -67,16 +73,6 @@
 + (NSImage *)icon
 {
     return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"ruby.png"]];
-}
-
-+ (NSString *)fileExtension
-{
-    return @"rb";
-}
-
-+ (NSString *)fileTypeName
-{
-    return @"Ruby Notebook";
 }
 
 @end

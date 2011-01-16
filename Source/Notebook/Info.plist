@@ -14,9 +14,9 @@
 				<string>*</string>
 			</array>
 			<key>NSDocumentClass</key>
-			<string>NotebookDocument</string>
+			<string>NBDocument</string>
 			<key>CFBundleTypeName</key>
-			<string>Notebook</string>
+			<string>NBDocument</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleTypeOSTypes</key>

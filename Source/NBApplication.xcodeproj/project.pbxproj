@@ -476,7 +476,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = Interface/Info.plist;
+				INFOPLIST_FILE = Application/Info.plist;
 				INSTALL_PATH = "@rpath";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -506,7 +506,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = Interface/Info.plist;
+				INFOPLIST_FILE = Application/Info.plist;
 				INSTALL_PATH = "@rpath";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -530,6 +530,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Application/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -548,6 +549,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Application/Info.plist;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;

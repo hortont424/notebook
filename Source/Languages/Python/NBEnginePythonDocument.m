@@ -23,37 +23,18 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBEnginePythonDocument.h"
 
-@class NBEngineBackend;
-@class NBException;
+@implementation NBEnginePythonDocument
 
-typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
-
-@interface NBEngine : NSObject
++ (NSString *)fileExtension
 {
-    NSTask * backendTask;
-    NBEngineBackend * backend;
-
-    NSMutableArray * taskQueue;
-
-    SnippetCompletionCallback lastCompletionCallback;
-    BOOL busy;
+    return @"py";
 }
 
-- (void)abort;
-
-+ (Class)backendClass;
-+ (Class)highlighterClass;
-+ (Class)encoderClass;
-+ (Class)documentClass;
-
-+ (NSString *)uuid;
-+ (NSString *)name;
-+ (NSString *)version;
-+ (NSImage *)icon;
-
-- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
++ (NSString *)fileTypeName
+{
+    return @"Python Notebook";
+}
 
 @end

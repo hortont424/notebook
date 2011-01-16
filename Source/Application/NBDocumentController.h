@@ -30,4 +30,6 @@
 
 }
 
+- (Class)engineClassForType:(NSString *)documentTypeName;
+
 @end

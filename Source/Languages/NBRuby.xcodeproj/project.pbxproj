@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350B77C312E3B6F900BC8507 /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350B77C212E3B6F100BC8507 /* NBApplication.framework */; };
+		350B77C912E3B72100BC8507 /* NBEngineRubyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 350B77C812E3B72100BC8507 /* NBEngineRubyDocument.m */; };
 		356CBAD112DB238800E07E46 /* NBEngineRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACA12DB238800E07E46 /* NBEngineRuby.m */; };
 		356CBAD212DB238800E07E46 /* NBEngineRubyBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACC12DB238800E07E46 /* NBEngineRubyBackend.m */; };
 		356CBAD312DB238800E07E46 /* NBEngineRubyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACE12DB238800E07E46 /* NBEngineRubyEncoder.m */; };
@@ -19,6 +21,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		350B77C112E3B6F100BC8507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54 /* NBApplication.framework */;
+			remoteInfo = NBApplication;
+		};
+		350B77C412E3B70400BC8507 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54 /* NBApplication */;
+			remoteInfo = NBApplication;
+		};
 		356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
@@ -39,6 +55,9 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBApplication.xcodeproj; path = ../NBApplication.xcodeproj; sourceTree = SOURCE_ROOT; };
+		350B77C712E3B72100BC8507 /* NBEngineRubyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRubyDocument.h; path = Ruby/NBEngineRubyDocument.h; sourceTree = "<group>"; };
+		350B77C812E3B72100BC8507 /* NBEngineRubyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRubyDocument.m; path = Ruby/NBEngineRubyDocument.m; sourceTree = "<group>"; };
 		356CBAC912DB238800E07E46 /* NBEngineRuby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRuby.h; path = Ruby/NBEngineRuby.h; sourceTree = "<group>"; };
 		356CBACA12DB238800E07E46 /* NBEngineRuby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineRuby.m; path = Ruby/NBEngineRuby.m; sourceTree = "<group>"; };
 		356CBACB12DB238800E07E46 /* NBEngineRubyBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineRubyBackend.h; path = Ruby/NBEngineRubyBackend.h; sourceTree = "<group>"; };
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350B77C312E3B6F900BC8507 /* NBApplication.framework in Frameworks */,
 				356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */,
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				356CBAE112DB23C300E07E46 /* Ruby.framework in Frameworks */,
@@ -112,6 +132,8 @@
 				356CBACE12DB238800E07E46 /* NBEngineRubyEncoder.m */,
 				356CBACF12DB238800E07E46 /* NBEngineRubyHighlighter.h */,
 				356CBAD012DB238800E07E46 /* NBEngineRubyHighlighter.m */,
+				350B77C712E3B72100BC8507 /* NBEngineRubyDocument.h */,
+				350B77C812E3B72100BC8507 /* NBEngineRubyDocument.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -144,9 +166,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		350B77BE12E3B6F100BC8507 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				350B77C212E3B6F100BC8507 /* NBApplication.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		356CBAE512DB23E300E07E46 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */,
 				356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */,
 			);
 			name = Dependencies;
@@ -175,6 +206,7 @@
 			);
 			dependencies = (
 				356CBAF312DB241B00E07E46 /* PBXTargetDependency */,
+				350B77C512E3B70400BC8507 /* PBXTargetDependency */,
 			);
 			name = NBRuby;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -201,6 +233,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 350B77BE12E3B6F100BC8507 /* Products */;
+					ProjectRef = 350B77BD12E3B6F100BC8507 /* NBApplication.xcodeproj */;
+				},
+				{
 					ProductGroup = 356CBAE812DB23EB00E07E46 /* Products */;
 					ProjectRef = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
 				},
@@ -213,6 +249,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		350B77C212E3B6F100BC8507 /* NBApplication.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NBApplication.framework;
+			remoteRef = 350B77C112E3B6F100BC8507 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		356CBAEF12DB23EB00E07E46 /* NBCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -242,12 +285,18 @@
 				356CBAD212DB238800E07E46 /* NBEngineRubyBackend.m in Sources */,
 				356CBAD312DB238800E07E46 /* NBEngineRubyEncoder.m in Sources */,
 				356CBAD412DB238800E07E46 /* NBEngineRubyHighlighter.m in Sources */,
+				350B77C912E3B72100BC8507 /* NBEngineRubyDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		350B77C512E3B70400BC8507 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NBApplication;
+			targetProxy = 350B77C412E3B70400BC8507 /* PBXContainerItemProxy */;
+		};
 		356CBAF312DB241B00E07E46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NBCore;

@@ -149,6 +149,13 @@
     return nil;
 }
 
++ (Class)documentClass
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
 + (NSString *)uuid
 {
     [self doesNotRecognizeSelector:_cmd];
@@ -171,20 +178,6 @@
 }
 
 + (NSImage *)icon
-{
-    [self doesNotRecognizeSelector:_cmd];
-
-    return nil;
-}
-
-+ (NSString *)fileExtension
-{
-    [self doesNotRecognizeSelector:_cmd];
-
-    return nil;
-}
-
-+ (NSString *)fileTypeName
 {
     [self doesNotRecognizeSelector:_cmd];
 

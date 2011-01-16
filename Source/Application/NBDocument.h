@@ -53,6 +53,9 @@
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
++ (NSString *)fileExtension;
++ (NSString *)fileTypeName;
+
 - (IBAction)doSomethingButton:(id)sender;
 
 - (NBCellView *)keyCellView;

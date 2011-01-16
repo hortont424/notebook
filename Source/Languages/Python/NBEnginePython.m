@@ -30,6 +30,7 @@
 #import "NBEnginePythonBackend.h"
 #import "NBEnginePythonHighlighter.h"
 #import "NBEnginePythonEncoder.h"
+#import "NBEnginePythonDocument.h"
 
 @implementation NBEnginePython
 
@@ -46,6 +47,11 @@
 + (Class)encoderClass
 {
     return [NBEnginePythonEncoder class];
+}
+
++ (Class)documentClass
+{
+    return [NBEnginePythonDocument class];
 }
 
 + (NSString *)uuid
@@ -66,16 +72,6 @@
 + (NSImage *)icon
 {
     return [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:self] pathForImageResource:@"python.png"]];
-}
-
-+ (NSString *)fileExtension
-{
-    return @"py";
-}
-
-+ (NSString *)fileTypeName
-{
-    return @"Python Notebook";
 }
 
 @end

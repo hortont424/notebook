@@ -23,37 +23,18 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBEngineRubyDocument.h"
 
-@class NBEngineBackend;
-@class NBException;
+@implementation NBEngineRubyDocument
 
-typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
-
-@interface NBEngine : NSObject
++ (NSString *)fileExtension
 {
-    NSTask * backendTask;
-    NBEngineBackend * backend;
-
-    NSMutableArray * taskQueue;
-
-    SnippetCompletionCallback lastCompletionCallback;
-    BOOL busy;
+    return @"rb";
 }
 
-- (void)abort;
-
-+ (Class)backendClass;
-+ (Class)highlighterClass;
-+ (Class)encoderClass;
-+ (Class)documentClass;
-
-+ (NSString *)uuid;
-+ (NSString *)name;
-+ (NSString *)version;
-+ (NSImage *)icon;
-
-- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
++ (NSString *)fileTypeName
+{
+    return @"Ruby Notebook";
+}
 
 @end

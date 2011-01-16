@@ -29,54 +29,45 @@
 
 #import "NBDocument.h"
 
-static NSMutableArray * _allExtensions = nil;
+static NSMutableArray * _documentClassNames = nil;
+static NSMutableDictionary * _engineClassOfDocumentClasses = nil;
 
 @implementation NBDocumentController
 
-// This is actually an abuse of Cocoa, since this is supposed to return names of document classes, not types.
-// TODO: fix this, make each plugin have a relatively empty subclass of NBDocument
-
 - (NSArray *)documentClassNames
 {
-    NSLog(@"documentClassNames");
-
-    /*if(_documentClassNames == nil)
+    if(_documentClassNames == nil)
     {
         _documentClassNames = [[NSMutableArray alloc] init];
+        _engineClassOfDocumentClasses = [[NSMutableDictionary alloc] init];
 
         for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
         {
-            [_documentClassNames addObject:[[engineClass uuid] copy]];
+            [_documentClassNames addObject:NSStringFromClass([engineClass documentClass])];
+            [_engineClassOfDocumentClasses setObject:engineClass forKey:NSStringFromClass([engineClass documentClass])];
         }
     }
 
-    return _documentClassNames;*/
+    [_documentClassNames addObject:@"NBDocument"];
 
-    return [NSArray arrayWithObject:@"NBDocument"];
+    return _documentClassNames;
 }
-
-// TODO: CRITICAL: we're overriding a private method, this probably isn't a good idea
-// We have to do this because for some reason Cocoa decides that none of these types are openable
-// For some reason "openable types" is actually "openable extensions", which might be part of the reason why
-// it's not working in the first place?
-// This is broken because of the note attached to documentClassNames; once that is fixed this can go away
-
-/*- (NSSet *)_openableTypes
-{
-    NSMutableSet * openableExtensions = [[NSMutableSet alloc] init];
-
-    for(NSString * documentType in [self documentClassNames])
-    {
-        [openableExtensions addObjectsFromArray:[self fileExtensionsFromType:documentType]];
-    }
-
-    return openableExtensions;
-}*/
 
 - (Class)documentClassForType:(NSString *)documentTypeName
 {
-    NSLog(@"documentClassForType:%@", documentTypeName);
-    return [NBDocument class];
+    return NSClassFromString(documentTypeName);
+}
+
+- (Class)engineClassForType:(NSString *)documentTypeName
+{
+    Class engineClass = [_engineClassOfDocumentClasses objectForKey:documentTypeName];
+
+    if(engineClass)
+    {
+        return engineClass;
+    }
+
+    return [NBEngine class];
 }
 
 // TODO: fileExtensionsFromType: is deprecated, but it's the only way I've found to specify extensions at runtime
@@ -84,44 +75,25 @@ static NSMutableArray * _allExtensions = nil;
 
 - (NSArray *)fileExtensionsFromType:(NSString *)documentTypeName
 {
-    NSLog(@"fileExtensionsFromType:%@", documentTypeName);
-
-    if(!_allExtensions)
-    {
-        _allExtensions = [[NSMutableArray alloc] init];
-
-        for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
-        {
-            [_allExtensions addObject:[engineClass fileExtension]];
-        }
-    }
-
-    return _allExtensions;
+    return [NSArray arrayWithObject:[NSClassFromString(documentTypeName) fileExtension]];
 }
 
 - (NSString *)typeFromFileExtension:(NSString *)fileExtension
 {
-    /*NSLog(@"typeFromFileExtension:%@", fileExtension);
-
     for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
     {
-        if([[engineClass fileExtension] isEqualToString:fileExtension])
+        if([[[engineClass documentClass] fileExtension] isEqualToString:fileExtension])
         {
-            return [engineClass uuid];
+            return NSStringFromClass([engineClass documentClass]);
         }
     }
-
-    return @"Notebook";*/
 
     return @"NBDocument";
 }
 
 - (NSString *)displayNameForType:(NSString *)documentTypeName
 {
-    NSLog(@"displayNameForType:%@", documentTypeName);
-
-    //return [[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileTypeName];
-    return @"I don't even know";
+    return [NSClassFromString(documentTypeName) fileTypeName];
 }
 
 @end

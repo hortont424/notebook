@@ -26,6 +26,7 @@
 #import "NBDocument.h"
 
 #import "NBWindowController.h"
+#import "NBDocumentController.h"
 
 @implementation NBDocument
 
@@ -46,8 +47,6 @@
 
     if(self != nil)
     {
-        NSLog(@"document init");
-
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
@@ -70,7 +69,8 @@
 
 - (void)makeWindowControllers
 {
-    NBWindowController * windowController = [[NBWindowController alloc] initWithWindowNibName:@"Notebook" owner:self];
+    NBWindowController * windowController = [[NBWindowController alloc] initWithWindowNibPath:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForResource:@"Notebook" ofType:@"nib"] owner:self];
+
     [self addWindowController:windowController];
 }
 
@@ -98,6 +98,16 @@
     [[self undoManager] enableUndoRegistration];
 }
 
++ (NSString *)fileExtension
+{
+    return @"txt";
+}
+
++ (NSString *)fileTypeName
+{
+    return @"Notebook";
+}
+
 - (NSArray *)writableTypesForSaveOperation:(NSSaveOperationType)saveOperation
 {
     return [NSArray arrayWithObject:[self fileType]];
@@ -105,7 +115,8 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
 {
-    Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
+    Class engineClass = [[NSDocumentController sharedDocumentController] engineClassForType:typeName];
+
     NSData * data = nil;
 
     if(engineClass)
@@ -126,7 +137,7 @@
 {
     self.initializedFromFile = YES;
 
-    Class engineClass = [[[NBEngineLoader sharedInstance] engineClasses] objectForKey:typeName];
+    Class engineClass = [[NSDocumentController sharedDocumentController] engineClassForType:typeName];
 
     if(engineClass)
     {
@@ -165,7 +176,7 @@
 
     [languageButton setTitle:[engineClass name]];
 
-    [self setFileType:[engineClass uuid]];
+    [self setFileType:NSStringFromClass([engineClass documentClass])];
 
     self.initialized = YES;
 
