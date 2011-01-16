@@ -113,9 +113,9 @@
         data = [encoder dataForCells:notebook.cells];
     }
 
-    if(outError != NULL)
+    if(outError != nil)
     {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:nil];
 	}
 
 	return data;
@@ -137,10 +137,22 @@
                                            order:0
                                            modes:[NSArray arrayWithObject:NSDefaultRunLoopMode]];
     }
-
-    if(outError != NULL)
+    else
     {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
+        NSLog(@"Unknown file type: %@", typeName);
+
+        if(outError != nil)
+        {
+            *outError = [NSError errorWithDomain:@"Notebook" code:1 userInfo:nil]; // TODO: better errors
+        }
+
+        return NO;
+    }
+
+
+    if(outError != nil)
+    {
+		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:nil];
 	}
 
     return YES;

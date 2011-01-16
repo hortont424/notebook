@@ -71,7 +71,7 @@ static NSMutableArray * _documentClassNames = nil;
         }
     }
 
-    return @"Document";
+    return @"Notebook";
 }
 
 - (NSString *)displayNameForType:(NSString *)documentTypeName
