@@ -66,6 +66,11 @@
     return self;
 }
 
+- (BOOL)isRichText
+{
+    return NO;
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     NBSettings * settings = [NBSettings sharedInstance];

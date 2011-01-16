@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="29"/>
+			<integer value="376"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1548,51 +1548,51 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: currentDocument.hasKeyCell</string>
-						<reference key="source" ref="838334976"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="838334976"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">658</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<string key="label">enabled: currentDocument.keyCellIsRichText</string>
 						<reference key="source" ref="88726274"/>
 						<reference key="destination" ref="976324537"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="88726274"/>
 							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSLabel">enabled: currentDocument.keyCellIsRichText</string>
 							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<string key="NSKeyPath">currentDocument.keyCellIsRichText</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">660</int>
+					<int key="connectionID">666</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: currentDocument.hasKeyCell</string>
+						<string key="label">enabled: currentDocument.keyCellIsRichText</string>
+						<reference key="source" ref="838334976"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="838334976"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">enabled: currentDocument.keyCellIsRichText</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">currentDocument.keyCellIsRichText</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">667</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: currentDocument.keyCellIsRichText</string>
 						<reference key="source" ref="418047001"/>
 						<reference key="destination" ref="976324537"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="418047001"/>
 							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: currentDocument.hasKeyCell</string>
+							<string key="NSLabel">enabled: currentDocument.keyCellIsRichText</string>
 							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">currentDocument.hasKeyCell</string>
+							<string key="NSKeyPath">currentDocument.keyCellIsRichText</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">662</int>
+					<int key="connectionID">670</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2663,13 +2663,13 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{590, 458}, {138, 123}}</string>
+					<string>{{591, 456}, {138, 123}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{735, 586}, {157, 43}}</string>
+					<string>{{729, 536}, {157, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2736,7 +2736,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">662</int>
+			<int key="maxID">670</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

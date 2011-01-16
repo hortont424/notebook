@@ -49,6 +49,7 @@
 
 @property (nonatomic,readonly) BOOL hasKeyCell;
 @property (nonatomic,readonly) BOOL hasSelectedCell;
+@property (nonatomic,readonly) BOOL keyCellIsRichText;
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 

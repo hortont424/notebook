@@ -36,8 +36,10 @@
 @synthesize initialized;
 @synthesize initializedFromFile;
 @synthesize notebook;
+
 @synthesize hasKeyCell;
 @synthesize hasSelectedCell;
+@synthesize keyCellIsRichText;
 
 - (id)init
 {
@@ -172,6 +174,20 @@
     return ([self selectedCellViews] && ([[self selectedCellViews] count] > 0));
 }
 
+- (BOOL)keyCellIsRichText
+{
+    NBCellView * cellView = [self keyCellView];
+
+    if(cellView)
+    {
+        return [cellView isRichText];
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 - (IBAction)doSomethingButton:(id)sender
 {
     NSLog(@"something");
@@ -230,7 +246,6 @@
     }
 
     return nil;
-
 }
 
 #pragma mark Menu Actions

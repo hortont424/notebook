@@ -66,7 +66,7 @@
 - (void)addSubview:(NSView *)aView
 {
     [super addSubview:aView];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subviewBecameFirstResponder:) name:@"NBCellSubviewBecameFirstResponder" object:aView];
 }
 
@@ -155,7 +155,7 @@
     return YES;
 }
 
-- (void)setSelected:(bool)inSelected
+- (void)setSelected:(BOOL)inSelected
 {
     selected = inSelected;
 
@@ -167,11 +167,16 @@
     cell = inCell;
 }
 
-- (void)setSelectionHandleHighlight:(bool)inSelectionHandleHighlight
+- (void)setSelectionHandleHighlight:(BOOL)inSelectionHandleHighlight
 {
     selectionHandleHighlight = inSelectionHandleHighlight;
 
     [self setNeedsDisplay:YES];
+}
+
+- (BOOL)isRichText
+{
+    return NO;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
