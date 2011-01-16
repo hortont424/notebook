@@ -26,21 +26,12 @@
 #import <Cocoa/Cocoa.h>
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
-#import <NBApplication/NBApplication.h>
 
-@class NotebookDocument;
-
-@interface NotebookAppDelegate : NSObject<NSApplicationDelegate>
+@interface NBWindowController : NSWindowController<NBCreateNotebookViewDelegate>
 {
-    NSMenuItem * languageMenuItem;
+    NBCreateNotebookView * createNotebookController;
 
-    NotebookDocument * currentDocument;
-    NBSettingsWindowController * settingsWindowController;
+    CABasicAnimation * slideAnimation;
 }
-
-@property (nonatomic,assign) IBOutlet NSMenuItem * languageMenuItem;
-@property (nonatomic,assign) NotebookDocument * currentDocument;
-
-- (IBAction)showPreferences:(id)sender;
 
 @end

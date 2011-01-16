@@ -24,14 +24,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <NBCore/NBCore.h>
-#import <NBUI/NBUI.h>
 
-@interface NotebookWindowController : NSWindowController<NBCreateNotebookViewDelegate>
+@interface NBDocumentController : NSDocumentController
 {
-    NBCreateNotebookView * createNotebookController;
 
-    CABasicAnimation * slideAnimation;
 }
 
 @end

@@ -23,12 +23,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NotebookDocument.h"
+#import "NBDocument.h"
 
-#import "NotebookAppDelegate.h"
-#import "NotebookWindowController.h"
+#import "NBWindowController.h"
 
-@implementation NotebookDocument
+@implementation NBDocument
 
 @synthesize notebookView;
 @synthesize languageButton;
@@ -71,7 +70,7 @@
 
 - (void)makeWindowControllers
 {
-    NotebookWindowController * windowController = [[NotebookWindowController alloc] initWithWindowNibName:@"Notebook" owner:self];
+    NBWindowController * windowController = [[NBWindowController alloc] initWithWindowNibName:@"Notebook" owner:self];
     [self addWindowController:windowController];
 }
 

@@ -28,7 +28,7 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
-@interface NotebookDocument : NSDocument<NSWindowDelegate>
+@interface NBDocument : NSDocument<NSWindowDelegate>
 {
     NBNotebookView * notebookView;
     BWAnchoredButton * languageButton;

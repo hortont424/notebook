@@ -23,24 +23,24 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NotebookDocumentController.h"
+#import "NBDocumentController.h"
 
 #import <NBUI/NBUI.h>
 
-#import "NotebookDocument.h"
+#import "NBDocument.h"
 
-static NSMutableArray * _documentClassNames = nil;
+static NSMutableArray * _allExtensions = nil;
 
-@implementation NotebookDocumentController
+@implementation NBDocumentController
 
 // This is actually an abuse of Cocoa, since this is supposed to return names of document classes, not types.
-// TODO: fix this, make each plugin have a relatively empty subclass of NotebookDocument
+// TODO: fix this, make each plugin have a relatively empty subclass of NBDocument
 
 - (NSArray *)documentClassNames
 {
     NSLog(@"documentClassNames");
 
-    if(_documentClassNames == nil)
+    /*if(_documentClassNames == nil)
     {
         _documentClassNames = [[NSMutableArray alloc] init];
 
@@ -50,7 +50,9 @@ static NSMutableArray * _documentClassNames = nil;
         }
     }
 
-    return _documentClassNames;
+    return _documentClassNames;*/
+
+    return [NSArray arrayWithObject:@"NBDocument"];
 }
 
 // TODO: CRITICAL: we're overriding a private method, this probably isn't a good idea
@@ -59,7 +61,7 @@ static NSMutableArray * _documentClassNames = nil;
 // it's not working in the first place?
 // This is broken because of the note attached to documentClassNames; once that is fixed this can go away
 
-- (NSSet *)_openableTypes
+/*- (NSSet *)_openableTypes
 {
     NSMutableSet * openableExtensions = [[NSMutableSet alloc] init];
 
@@ -69,12 +71,12 @@ static NSMutableArray * _documentClassNames = nil;
     }
 
     return openableExtensions;
-}
+}*/
 
 - (Class)documentClassForType:(NSString *)documentTypeName
 {
     NSLog(@"documentClassForType:%@", documentTypeName);
-    return [NotebookDocument class];
+    return [NBDocument class];
 }
 
 // TODO: fileExtensionsFromType: is deprecated, but it's the only way I've found to specify extensions at runtime
@@ -84,12 +86,22 @@ static NSMutableArray * _documentClassNames = nil;
 {
     NSLog(@"fileExtensionsFromType:%@", documentTypeName);
 
-    return [NSArray arrayWithObject:[[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileExtension]];
+    if(!_allExtensions)
+    {
+        _allExtensions = [[NSMutableArray alloc] init];
+
+        for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
+        {
+            [_allExtensions addObject:[engineClass fileExtension]];
+        }
+    }
+
+    return _allExtensions;
 }
 
 - (NSString *)typeFromFileExtension:(NSString *)fileExtension
 {
-    NSLog(@"typeFromFileExtension:%@", fileExtension);
+    /*NSLog(@"typeFromFileExtension:%@", fileExtension);
 
     for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
     {
@@ -99,14 +111,17 @@ static NSMutableArray * _documentClassNames = nil;
         }
     }
 
-    return @"Notebook";
+    return @"Notebook";*/
+
+    return @"NBDocument";
 }
 
 - (NSString *)displayNameForType:(NSString *)documentTypeName
 {
     NSLog(@"displayNameForType:%@", documentTypeName);
 
-    return [[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileTypeName];
+    //return [[[[NBEngineLoader sharedInstance] engineClasses] objectForKey:documentTypeName] fileTypeName];
+    return @"I don't even know";
 }
 
 @end

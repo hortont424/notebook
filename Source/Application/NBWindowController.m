@@ -25,11 +25,11 @@
 
 #import <Quartz/Quartz.h>
 
-#import "NotebookWindowController.h"
+#import "NBWindowController.h"
 
-#import "NotebookDocument.h"
+#import "NBDocument.h"
 
-@implementation NotebookWindowController
+@implementation NBWindowController
 
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
 {

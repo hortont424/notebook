@@ -25,9 +25,6 @@
 
 #import "NotebookAppDelegate.h"
 
-#import "NotebookDocument.h"
-#import "NotebookDocumentController.h"
-
 @interface NotebookAppDelegate ()
 
 - (void)loadThemes;
@@ -35,7 +32,7 @@
 
 @end
 
-static NotebookDocumentController * docController = nil;
+static NBDocumentController * docController = nil; // TODO: do this in the NIB
 
 @implementation NotebookAppDelegate
 
@@ -50,7 +47,7 @@ static NotebookDocumentController * docController = nil;
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
     [self loadThemes];
-    docController = [[NotebookDocumentController alloc] init];
+    docController = [[NBDocumentController alloc] init];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -74,7 +71,7 @@ static NotebookDocumentController * docController = nil;
 
 - (void)currentDocumentInitializedChanged
 {
-    if(currentDocument.initialized)
+    if([currentDocument initialized])
     {
         [[languageMenuItem submenu] setTitle:[[[[currentDocument notebook] engine] class] name]];
         [languageMenuItem setHidden:NO];

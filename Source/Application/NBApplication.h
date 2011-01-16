@@ -23,11 +23,6 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-
-@interface NotebookDocumentController : NSDocumentController
-{
-
-}
-
-@end
+#import <NBApplication/NBDocument.h>
+#import <NBApplication/NBDocumentController.h>
+#import <NBApplication/NBWindowController.h>

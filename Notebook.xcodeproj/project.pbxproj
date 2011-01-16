@@ -9,13 +9,9 @@
 /* Begin PBXBuildFile section */
 		351BE5EC12DEDA050010FD5C /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
 		351BE60412DEDA610010FD5C /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
-		354EB8C012E2C57C007EF1ED /* NotebookDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */; };
 		355AACDA12DBB4D500A9FA54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACD912DBB4D500A9FA54 /* main.m */; };
 		355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */; };
-		355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */; };
-		355AACE312DBB4DC00A9FA54 /* NotebookWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */; };
 		355AACE812DBB4E700A9FA54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AACE512DBB4E700A9FA54 /* MainMenu.xib */; };
-		355AACE912DBB4E700A9FA54 /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AACE612DBB4E700A9FA54 /* Notebook.xib */; };
 		355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		355AAD2A12DBB5CD00A9FA54 /* NBPython.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 355AAD0D12DBB50F00A9FA54 /* NBPython.bundle */; };
@@ -28,6 +24,8 @@
 		3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
 		3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF612DBC89000C2ED92 /* tango.js */; };
 		3576FE6412DBC9B600C2ED92 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */; };
+		35A2C3B212E2FEE500C49D8C /* NBApplication.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3584CB1D12E2FE3F00A222CA /* NBApplication.framework */; };
+		35A2C3B312E2FEE900C49D8C /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584CB1D12E2FE3F00A222CA /* NBApplication.framework */; };
 		35B8CC6212DDBD0200F0CE4F /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */; };
@@ -137,6 +135,20 @@
 			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = NBRuby;
 		};
+		3584CB1C12E2FE3F00A222CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3584CB1112E2FE3F00A222CA /* NBApplication.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54;
+			remoteInfo = NBApplication;
+		};
+		3584CB1E12E2FE4D00A222CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3584CB1112E2FE3F00A222CA /* NBApplication.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54;
+			remoteInfo = NBApplication;
+		};
 		35B8CC5812DDBCB000F0CE4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -186,6 +198,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				35A2C3B212E2FEE500C49D8C /* NBApplication.framework in Copy Frameworks */,
 				351BE60412DEDA610010FD5C /* JSON.framework in Copy Frameworks */,
 				35E4823A12DEA2AA00B5EB91 /* BWToolkitFramework.framework in Copy Frameworks */,
 				355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */,
@@ -215,18 +228,11 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = External/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
-		354EB8BE12E2C57C007EF1ED /* NotebookDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookDocumentController.h; path = Source/Notebook/NotebookDocumentController.h; sourceTree = "<group>"; };
-		354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookDocumentController.m; path = Source/Notebook/NotebookDocumentController.m; sourceTree = "<group>"; };
 		355AACD912DBB4D500A9FA54 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Notebook/main.m; sourceTree = "<group>"; };
 		355AACDB12DBB4DC00A9FA54 /* NotebookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookAppDelegate.h; path = Source/Notebook/NotebookAppDelegate.h; sourceTree = "<group>"; };
 		355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookAppDelegate.m; path = Source/Notebook/NotebookAppDelegate.m; sourceTree = "<group>"; };
-		355AACDD12DBB4DC00A9FA54 /* NotebookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookDocument.h; path = Source/Notebook/NotebookDocument.h; sourceTree = "<group>"; };
-		355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookDocument.m; path = Source/Notebook/NotebookDocument.m; sourceTree = "<group>"; };
-		355AACDF12DBB4DC00A9FA54 /* NotebookWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotebookWindowController.h; path = Source/Notebook/NotebookWindowController.h; sourceTree = "<group>"; };
-		355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotebookWindowController.m; path = Source/Notebook/NotebookWindowController.m; sourceTree = "<group>"; };
 		355AACE412DBB4E700A9FA54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Notebook/Info.plist; sourceTree = "<group>"; };
 		355AACE512DBB4E700A9FA54 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainMenu.xib; path = Source/Notebook/MainMenu.xib; sourceTree = "<group>"; };
-		355AACE612DBB4E700A9FA54 /* Notebook.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Notebook.xib; path = Source/Notebook/Notebook.xib; sourceTree = "<group>"; };
 		355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = Source/NBCore.xcodeproj; sourceTree = "<group>"; };
 		355AACED12DBB4FB00A9FA54 /* NBUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBUI.xcodeproj; path = Source/NBUI.xcodeproj; sourceTree = "<group>"; };
 		355AAD0412DBB50F00A9FA54 /* NBPython.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBPython.xcodeproj; path = Source/Languages/NBPython.xcodeproj; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 		3576FDF512DBC89000C2ED92 /* morrowind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = morrowind.js; sourceTree = "<group>"; };
 		3576FDF612DBC89000C2ED92 /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		3576FE4B12DBC9A600C2ED92 /* NBRuby.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBRuby.xcodeproj; path = Source/Languages/NBRuby.xcodeproj; sourceTree = "<group>"; };
+		3584CB1112E2FE3F00A222CA /* NBApplication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBApplication.xcodeproj; path = Source/NBApplication.xcodeproj; sourceTree = "<group>"; };
 		35B8CC4D12DDBC7000F0CE4F /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBSourceViewTest.m; path = Tests/NBSourceViewTest.m; sourceTree = "<group>"; };
 		35B8CCFA12DDC1B400F0CE4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -259,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A2C3B312E2FEE900C49D8C /* NBApplication.framework in Frameworks */,
 				351BE5EC12DEDA050010FD5C /* JSON.framework in Frameworks */,
 				35D31A5512DEA083001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */,
@@ -277,12 +285,6 @@
 			children = (
 				355AACDB12DBB4DC00A9FA54 /* NotebookAppDelegate.h */,
 				355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */,
-				355AACDD12DBB4DC00A9FA54 /* NotebookDocument.h */,
-				355AACDE12DBB4DC00A9FA54 /* NotebookDocument.m */,
-				354EB8BE12E2C57C007EF1ED /* NotebookDocumentController.h */,
-				354EB8BF12E2C57C007EF1ED /* NotebookDocumentController.m */,
-				355AACDF12DBB4DC00A9FA54 /* NotebookWindowController.h */,
-				355AACE012DBB4DC00A9FA54 /* NotebookWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -299,6 +301,7 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				3584CB1112E2FE3F00A222CA /* NBApplication.xcodeproj */,
 				35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */,
 				351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */,
 				355AACEA12DBB4FB00A9FA54 /* NBCore.xcodeproj */,
@@ -328,7 +331,6 @@
 				3576FDF412DBC89000C2ED92 /* Themes */,
 				355AACE412DBB4E700A9FA54 /* Info.plist */,
 				355AACE512DBB4E700A9FA54 /* MainMenu.xib */,
-				355AACE612DBB4E700A9FA54 /* Notebook.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -407,6 +409,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3584CB1212E2FE3F00A222CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3584CB1D12E2FE3F00A222CA /* NBApplication.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		35B8CC3E12DDBC4700F0CE4F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +479,7 @@
 				3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */,
 				3541C4CA12DEDFCA005136EF /* PBXTargetDependency */,
 				3541C4CC12DEDFCA005136EF /* PBXTargetDependency */,
+				3584CB1F12E2FE4D00A222CA /* PBXTargetDependency */,
 			);
 			name = Notebook;
 			productInstallPath = "$(HOME)/Applications";
@@ -501,6 +512,10 @@
 				{
 					ProductGroup = 351BE5DA12DED9FA0010FD5C /* Products */;
 					ProjectRef = 351BE5D912DED9FA0010FD5C /* JSON.xcodeproj */;
+				},
+				{
+					ProductGroup = 3584CB1212E2FE3F00A222CA /* Products */;
+					ProjectRef = 3584CB1112E2FE3F00A222CA /* NBApplication.xcodeproj */;
 				},
 				{
 					ProductGroup = 355AACEB12DBB4FB00A9FA54 /* Products */;
@@ -584,6 +599,13 @@
 			remoteRef = 3576FE5312DBC9A600C2ED92 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3584CB1D12E2FE3F00A222CA /* NBApplication.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NBApplication.framework;
+			remoteRef = 3584CB1C12E2FE3F00A222CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		35D31A5012DEA073001A5F50 /* BWToolkit.ibplugin */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -620,7 +642,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				355AACE812DBB4E700A9FA54 /* MainMenu.xib in Resources */,
-				355AACE912DBB4E700A9FA54 /* Notebook.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,9 +679,6 @@
 			files = (
 				355AACDA12DBB4D500A9FA54 /* main.m in Sources */,
 				355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */,
-				355AACE212DBB4DC00A9FA54 /* NotebookDocument.m in Sources */,
-				355AACE312DBB4DC00A9FA54 /* NotebookWindowController.m in Sources */,
-				354EB8C012E2C57C007EF1ED /* NotebookDocumentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +714,11 @@
 			isa = PBXTargetDependency;
 			name = NBRuby;
 			targetProxy = 3576FE6512DBC9BE00C2ED92 /* PBXContainerItemProxy */;
+		};
+		3584CB1F12E2FE4D00A222CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NBApplication;
+			targetProxy = 3584CB1E12E2FE4D00A222CA /* PBXContainerItemProxy */;
 		};
 		35B8CC5912DDBCB000F0CE4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
