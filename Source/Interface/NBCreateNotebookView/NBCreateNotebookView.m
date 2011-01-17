@@ -30,7 +30,7 @@
 
 @implementation NBCreateNotebookView
 
-@synthesize languageChooser, delegate, mainView, engineClasses;
+@synthesize languageChooser, delegate, mainView;
 
 - (void)awakeFromNib
 {
@@ -81,17 +81,6 @@
 - (void)imageBrowser:(IKImageBrowserView*)aBrowser cellWasDoubleClickedAtIndex:(NSUInteger)index
 {
     [self chooseEngineClass:[engineClasses objectAtIndex:index]];
-}
-
-// image browser data source methods
-- (NSUInteger)numberOfItemsInImageBrowser:(IKImageBrowserView *)aBrowser
-{
-	return [engineClasses count];
-}
-
-- (id)imageBrowser:(IKImageBrowserView *)aBrowser itemAtIndex:(NSUInteger)index
-{
-	return [engineClasses objectAtIndex:index];
 }
 
 @end

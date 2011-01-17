@@ -24,10 +24,13 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 
 @interface NBSettingsWindowController : NSWindowController
 {
-
+    IKImageBrowserView * languageBrowser;
 }
+
+@property (nonatomic,assign) IBOutlet IKImageBrowserView * languageBrowser;
 
 @end

@@ -43,6 +43,8 @@
 		355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAC2B12DBB1A700A9FA54 /* NBCore.framework */; };
 		355AADA812DBB67000A9FA54 /* NBUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AADA712DBB67000A9FA54 /* NBUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAE3412DBC2C700A9FA54 /* RegexKit.framework */; };
+		35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */; };
 		35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +175,8 @@
 		355FBB3312D591BA002CF0DC /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		355FBB3612D591C1002CF0DC /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineListDataSource.h; path = Interface/NBEngineList/NBEngineListDataSource.h; sourceTree = "<group>"; };
+		35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineListDataSource.m; path = Interface/NBEngineList/NBEngineListDataSource.m; sourceTree = "<group>"; };
 		35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BWToolkit.xcodeproj; path = ../External/BWToolkit/BWToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -254,6 +258,7 @@
 		355AABC912DBB13200A9FA54 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				35BE6C2812E41A9400B52450 /* NBEngineList */,
 				355AABD212DBB13F00A9FA54 /* NBCell */,
 				355AABDE12DBB13F00A9FA54 /* NBCreateNotebookView */,
 				355AABE512DBB13F00A9FA54 /* NBNotebook */,
@@ -383,6 +388,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		35BE6C2812E41A9400B52450 /* NBEngineList */ = {
+			isa = PBXGroup;
+			children = (
+				35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */,
+				35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */,
+			);
+			name = NBEngineList;
+			sourceTree = "<group>";
+		};
 		35D3159F12DE9FCB001A5F50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +432,7 @@
 				355AAC2012DBB13F00A9FA54 /* NBSourceViewDelegate.h in Headers */,
 				355AAC2112DBB13F00A9FA54 /* NBTextView.h in Headers */,
 				355AADA812DBB67000A9FA54 /* NBUI.h in Headers */,
+				35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +587,7 @@
 				355AAC1D12DBB13F00A9FA54 /* NBOutputView.m in Sources */,
 				355AAC1F12DBB13F00A9FA54 /* NBSourceView.m in Sources */,
 				355AAC2212DBB13F00A9FA54 /* NBTextView.m in Sources */,
+				35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

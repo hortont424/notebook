@@ -27,4 +27,11 @@
 
 @implementation NBSettingsWindowController
 
+@synthesize languageBrowser;
+
+- (void)awakeFromNib
+{
+    [languageBrowser reloadData];
+}
+
 @end

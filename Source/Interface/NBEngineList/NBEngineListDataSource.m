@@ -23,27 +23,40 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBEngineListDataSource.h"
+
 #import <Quartz/Quartz.h>
+#import <NBCore/NBCore.h>
 
-#import "NBCreateNotebookViewDelegate.h"
+@implementation NBEngineListDataSource
 
-@interface NBCreateNotebookView : NSWindowController<NSCollectionViewDelegate>
+@synthesize engineClasses;
+
+- (id) init
 {
-    id<NBCreateNotebookViewDelegate> delegate;
+    self = [super init];
 
-    IKImageBrowserView * languageChooser;
-    NSView * mainView;
-    NSArray * engineClasses;
+    if(self != nil)
+    {
+        // TODO: we cache engines in lots of places, so right now we can't dynamically load plugins
+
+        engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
+        engineClasses = [engineClasses sortedArrayUsingComparator:^(id a, id b)
+                         {
+                             return [[a name] compare:[b name]];
+                         }];
+    }
+    return self;
 }
 
-@property (nonatomic,assign) id<NBCreateNotebookViewDelegate> delegate;
-@property (nonatomic,assign) IBOutlet IKImageBrowserView * languageChooser;
-@property (nonatomic,assign) IBOutlet NSView * mainView;
+- (NSUInteger)numberOfItemsInImageBrowser:(IKImageBrowserView *)aBrowser
+{
+	return [engineClasses count];
+}
 
-- (IBAction)chooseSelectedLanguage:(id)sender;
-- (IBAction)chooseEngineClass:(id)engineClass;
-- (IBAction)openExistingNotebook:(id)sender;
-- (IBAction)cancelCreateNotebook:(id)sender;
+- (id)imageBrowser:(IKImageBrowserView *)aBrowser itemAtIndex:(NSUInteger)index
+{
+	return [engineClasses objectAtIndex:index];
+}
 
 @end
