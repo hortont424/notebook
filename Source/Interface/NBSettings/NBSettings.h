@@ -33,6 +33,9 @@
     NSMutableDictionary * themes;
 }
 
+@property (nonatomic,assign) NSString * currentTheme;
+@property (nonatomic,assign) NSMutableDictionary * themes;
+
 + (NBSettings *)sharedInstance;
 
 - (NSFont *)fontWithSelector:(NSString *)sel;

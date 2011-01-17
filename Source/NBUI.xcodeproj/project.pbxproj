@@ -43,6 +43,8 @@
 		355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAC2B12DBB1A700A9FA54 /* NBCore.framework */; };
 		355AADA812DBB67000A9FA54 /* NBUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AADA712DBB67000A9FA54 /* NBUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAE3412DBC2C700A9FA54 /* RegexKit.framework */; };
+		3564A1DB12E4430B00C47469 /* NBThemeListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1D912E4430B00C47469 /* NBThemeListDataSource.h */; };
+		3564A1DC12E4430B00C47469 /* NBThemeListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564A1DA12E4430B00C47469 /* NBThemeListDataSource.m */; };
 		35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */; };
 		35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */; };
@@ -174,6 +176,8 @@
 		355AAE3412DBC2C700A9FA54 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
 		355FBB3312D591BA002CF0DC /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		355FBB3612D591C1002CF0DC /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
+		3564A1D912E4430B00C47469 /* NBThemeListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBThemeListDataSource.h; sourceTree = "<group>"; };
+		3564A1DA12E4430B00C47469 /* NBThemeListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBThemeListDataSource.m; sourceTree = "<group>"; };
 		357FF7391297A7D200A661E5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineListDataSource.h; path = Interface/NBEngineList/NBEngineListDataSource.h; sourceTree = "<group>"; };
 		35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineListDataSource.m; path = Interface/NBEngineList/NBEngineListDataSource.m; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 				355AABEF12DBB13F00A9FA54 /* NBSettingsWindow.xib */,
 				355AABF012DBB13F00A9FA54 /* NBSettingsWindowController.h */,
 				355AABF112DBB13F00A9FA54 /* NBSettingsWindowController.m */,
+				3564A1D912E4430B00C47469 /* NBThemeListDataSource.h */,
+				3564A1DA12E4430B00C47469 /* NBThemeListDataSource.m */,
 			);
 			name = NBSettings;
 			path = Interface/NBSettings;
@@ -433,6 +439,7 @@
 				355AAC2112DBB13F00A9FA54 /* NBTextView.h in Headers */,
 				355AADA812DBB67000A9FA54 /* NBUI.h in Headers */,
 				35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */,
+				3564A1DB12E4430B00C47469 /* NBThemeListDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +595,7 @@
 				355AAC1F12DBB13F00A9FA54 /* NBSourceView.m in Sources */,
 				355AAC2212DBB13F00A9FA54 /* NBTextView.m in Sources */,
 				35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */,
+				3564A1DC12E4430B00C47469 /* NBThemeListDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

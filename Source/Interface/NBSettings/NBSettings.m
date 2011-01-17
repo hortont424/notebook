@@ -33,6 +33,8 @@ static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
 
+@synthesize currentTheme, themes;
+
 - (id)init
 {
     // TODO: protect all singleton inits from reinit

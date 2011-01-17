@@ -24,13 +24,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
 
-@interface NBEngineListDataSource : NSObject
+@interface NBThemeListDataSource : NSObject<NSTableViewDataSource>
 {
-    NSArray * engineClasses;
-}
 
-@property (readonly) NSArray * engineClasses;
+}
 
 @end

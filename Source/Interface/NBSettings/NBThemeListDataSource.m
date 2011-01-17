@@ -23,14 +23,20 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
+#import "NBThemeListDataSource.h"
 
-@interface NBEngineListDataSource : NSObject
+#import "NBSettings.h"
+
+@implementation NBThemeListDataSource
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    NSArray * engineClasses;
+    return [[[[NBSettings sharedInstance] themes] allKeys] count];
 }
 
-@property (readonly) NSArray * engineClasses;
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+{
+    return [[[[NBSettings sharedInstance] themes] allKeys] objectAtIndex:rowIndex];
+}
 
 @end
