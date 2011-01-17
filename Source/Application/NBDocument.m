@@ -365,11 +365,10 @@
 
 - (IBAction)selectAllCellsAboveCurrent:(id)sender
 {
-    NBCellView * keyView;
+    NSArray * selectedViews = [self selectedCellViews];
+    NBCellView * startView = [selectedViews objectAtIndex:0];
 
-    keyView = [self keyCellView];
-
-    if(!keyView)
+    if([selectedViews count] != 1)
     {
         return;
     }
@@ -382,7 +381,7 @@
 
         [notebookView selectedCell:cellView];
 
-        if(cellView == keyView)
+        if(cellView == startView)
         {
             break;
         }
@@ -391,12 +390,11 @@
 
 - (IBAction)selectAllCellsBelowCurrent:(id)sender
 {
-    NBCellView * keyView;
-    BOOL sawKeyView = NO;
+    BOOL sawStartView = NO;
+    NSArray * selectedViews = [self selectedCellViews];
+    NBCellView * startView = [selectedViews objectAtIndex:0];
 
-    keyView = [self keyCellView];
-
-    if(!keyView)
+    if([selectedViews count] != 1)
     {
         return;
     }
@@ -407,12 +405,12 @@
     {
         NBCellView * cellView = [notebookView.cellViews objectForKey:cell];
 
-        if(cellView == keyView)
+        if(cellView == startView)
         {
-            sawKeyView = YES;
+            sawStartView = YES;
         }
 
-        if(sawKeyView)
+        if(sawStartView)
         {
             [notebookView selectedCell:cellView];
         }
