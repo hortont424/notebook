@@ -32,8 +32,6 @@
 
 @end
 
-static NBDocumentController * docController = nil; // TODO: do this in the NIB
-
 @implementation NotebookAppDelegate
 
 @synthesize languageMenuItem;
@@ -47,7 +45,6 @@ static NBDocumentController * docController = nil; // TODO: do this in the NIB
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
     [self loadThemes];
-    docController = [[NBDocumentController alloc] init];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
