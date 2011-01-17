@@ -23,52 +23,43 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBTextView.h"
+#import <Cocoa/Cocoa.h>
 
-#import "NBSettings.h"
-#import "NBTheme.h"
+@class NBHighlightSettings;
 
-@implementation NBTextView
-
-@synthesize parentCellView;
-
-- (id)initWithFrame:(NSRect)frame
+@interface NBTheme : NSObject
 {
-    self = [super initWithFrame:frame];
+    NSString * filename;
 
-    if(self)
-    {
-        [[self textStorage] setDelegate:self];
-        [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [self setTextColor:[[NBSettings sharedInstance].theme colorWithKey:@"normal"]];
-        [self setFont:[[NBSettings sharedInstance].theme fontWithKey:@"normal"]];
+    NSString * name;
+    NSString * author;
+    NSString * version;
 
-        NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
-        [para setLineSpacing:2.0];
-        [self setDefaultParagraphStyle:para];
-        [self setAllowsUndo:NO];
-    }
-
-    return self;
+    NSColorList * colors;
+    NSDictionary * fonts;
+    NSDictionary * highlights;
+    NSDictionary * settings;
 }
 
-- (BOOL)becomeFirstResponder
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NBCellSubviewBecameFirstResponder" object:self];
+@property (nonatomic,readonly) NSString * filename;
 
-    return [super becomeFirstResponder];
-}
+@property (nonatomic,readonly) NSString * name;
+@property (nonatomic,readonly) NSString * author;
+@property (nonatomic,readonly) NSString * version;
 
-- (float)requestedHeight
-{
-    NSLayoutManager * layoutManager = [self layoutManager];
-    NSTextContainer * textContainer = [self textContainer];
+@property (nonatomic,readonly) NSColorList * colors;
+@property (nonatomic,readonly) NSDictionary * fonts;
+@property (nonatomic,readonly) NSDictionary * highlights;
+@property (nonatomic,readonly) NSDictionary * settings;
 
-    [layoutManager glyphRangeForTextContainer:textContainer];
++ (id)themeWithFile:(NSString *)aFilename;
+- (id)initWithFile:(NSString *)aFilename;
 
-    // TODO: the 20 = 2*10 (the text view inset) and will come from there when that's made a setting
++ (NSString *)fileExtension;
 
-    return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
-}
+- (NSColor *)colorWithKey:(NSString *)key;
+- (NSFont *)fontWithKey:(NSString *)key;
+- (NBHighlightSettings *)highlightWithKey:(NSString *)key;
+- (NSObject *)settingWithKey:(NSString *)key;
 
 @end

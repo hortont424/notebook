@@ -10,6 +10,7 @@
 		350B77A612E3B67300BC8507 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3576FE5412DBC9A600C2ED92 /* NBRuby.bundle */; };
 		351BE5EC12DEDA050010FD5C /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
 		351BE60412DEDA610010FD5C /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 351BE5E512DED9FA0010FD5C /* JSON.framework */; };
+		352E875712E55B290012FBF1 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
 		355AACDA12DBB4D500A9FA54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACD912DBB4D500A9FA54 /* main.m */; };
 		355AACE112DBB4DC00A9FA54 /* NotebookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AACDC12DBB4DC00A9FA54 /* NotebookAppDelegate.m */; };
 		355AACE812DBB4E700A9FA54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355AACE512DBB4E700A9FA54 /* MainMenu.xib */; };
@@ -22,7 +23,6 @@
 		355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACF512DBB4FB00A9FA54 /* NBCore.framework */; };
 		355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		356A37D412E0250900FC2932 /* NBNotebookTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 356A37D312E0250900FC2932 /* NBNotebookTest.m */; };
-		3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF512DBC89000C2ED92 /* morrowind.js */; };
 		3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3576FDF612DBC89000C2ED92 /* tango.js */; };
 		35A2C3B212E2FEE500C49D8C /* NBApplication.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3584CB1D12E2FE3F00A222CA /* NBApplication.framework */; };
 		35A2C3B312E2FEE900C49D8C /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584CB1D12E2FE3F00A222CA /* NBApplication.framework */; };
@@ -214,7 +214,7 @@
 			dstPath = Themes;
 			dstSubfolderSpec = 7;
 			files = (
-				3576FDFB12DBC8C000C2ED92 /* morrowind.js in Copy Themes */,
+				352E875712E55B290012FBF1 /* morrowind.js in Copy Themes */,
 				3576FDFC12DBC8C000C2ED92 /* tango.js in Copy Themes */,
 			);
 			name = "Copy Themes";

@@ -23,28 +23,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBBackgroundView.h"
+#import <Cocoa/Cocoa.h>
 
-#import "NBSettings.h"
-#import "NBTheme.h"
+@interface NSColor (Notebook)
 
-@implementation NBBackgroundView
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-
-    if(self)
-    {
-
-    }
-    return self;
-}
-
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [[[NBSettings sharedInstance].theme colorWithKey:@"background"] setFill];
-    NSRectFill(dirtyRect);
-}
++ (NSColor *)colorFromObject:(NSObject *)obj;
++ (NSColor *)colorFromRGB:(NSArray *)rgbArray;
++ (NSColor *)colorFromList:(NSString *)listId;
++ (NSColor *)colorFromHex:(NSString *)hexString;
 
 @end

@@ -83,16 +83,16 @@
     switch(cell.state)
     {
         case NBCellChangedState:
-            [[settings colorWithSelector:@"status.default"] setFill];
+            [[settings.theme colorWithKey:@"status.default"] setFill];
             break;
         case NBCellBusyState:
-            [[settings colorWithSelector:@"status.busy"] setFill];
+            [[settings.theme colorWithKey:@"status.busy"] setFill];
             break;
         case NBCellFailureState:
-            [[settings colorWithSelector:@"status.failure"] setFill];
+            [[settings.theme colorWithKey:@"status.failure"] setFill];
             break;
         case NBCellSuccessState:
-            [[settings colorWithSelector:@"status.success"] setFill];
+            [[settings.theme colorWithKey:@"status.success"] setFill];
             break;
     }
 

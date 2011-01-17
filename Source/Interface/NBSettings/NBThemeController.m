@@ -23,73 +23,50 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBSettings.h"
+#import "NBThemeParserController.h"
 
-#import <JSON/JSON.h>
+#import "NBThemeParser.h"
+#import "NBThemeParserJSON.h"
 
-#import "NBHighlightSettings.h"
-#import "NBTheme.h"
+static NBThemeParserController * sharedInstance = nil;
 
-static NBSettings * sharedInstance = nil;
-
-@implementation NBSettings
-
-@synthesize theme, themes;
+@implementation NBThemeParserController
 
 - (id)init
 {
-    // TODO: protect all singleton inits from reinit
-
     self = [super init];
 
     if(self != nil)
     {
-        themes = nil;
+        themeParsers = [[NSMutableDictionary alloc] init];
+
+        [(NSMutableDictionary *)themeParsers setObject:[NBThemeParserJSON class] forKey:[[NBThemeParserJSON fileExtension] lowercaseString]];
     }
 
     return self;
 }
 
-- (void)loadThemes:(NSArray *)paths
+- (NBThemeParser *)themeParserClassForFilename:(NSString *)filename
 {
-    if(themes)
+    NSString * extension = [[filename pathExtension] lowercaseString];
+
+    if(![extension isEqualToString:@""])
     {
-        NSLog(@"themes have already been loaded");
+        return [themeParsers objectForKey:extension];
     }
 
-    themes = [[NSMutableDictionary alloc] init];
-
-    // Load all of the given themes
-
-    for(NSString * themeFilename in paths)
-    {
-        NBTheme * parsedTheme = [NBTheme themeWithFile:themeFilename];
-
-        if(parsedTheme)
-        {
-            [themes setObject:parsedTheme forKey:[parsedTheme name]];
-        }
-    }
-
-    // TODO: this should be loaded from a Cocoa defaults file
-
-    theme = [themes objectForKey:@"Tango"];
-
-    if(theme == nil)
-    {
-        NSLog(@"failed to find theme Tango");
-    }
+    return nil;
 }
 
 #pragma mark Singleton Methods
 
-+ (NBSettings *)sharedInstance
++ (NBThemeParserController *)sharedInstance
 {
     @synchronized(self)
     {
         if(sharedInstance == nil)
         {
-            sharedInstance = [[NBSettings alloc] init];
+            sharedInstance = [[NBThemeParserController alloc] init];
         }
     }
 

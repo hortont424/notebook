@@ -23,52 +23,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBTextView.h"
+#import <Cocoa/Cocoa.h>
 
-#import "NBSettings.h"
 #import "NBTheme.h"
 
-@implementation NBTextView
-
-@synthesize parentCellView;
-
-- (id)initWithFrame:(NSRect)frame
+@interface NBThemeJSON : NBTheme
 {
-    self = [super initWithFrame:frame];
 
-    if(self)
-    {
-        [[self textStorage] setDelegate:self];
-        [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [self setTextColor:[[NBSettings sharedInstance].theme colorWithKey:@"normal"]];
-        [self setFont:[[NBSettings sharedInstance].theme fontWithKey:@"normal"]];
-
-        NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
-        [para setLineSpacing:2.0];
-        [self setDefaultParagraphStyle:para];
-        [self setAllowsUndo:NO];
-    }
-
-    return self;
-}
-
-- (BOOL)becomeFirstResponder
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NBCellSubviewBecameFirstResponder" object:self];
-
-    return [super becomeFirstResponder];
-}
-
-- (float)requestedHeight
-{
-    NSLayoutManager * layoutManager = [self layoutManager];
-    NSTextContainer * textContainer = [self textContainer];
-
-    [layoutManager glyphRangeForTextContainer:textContainer];
-
-    // TODO: the 20 = 2*10 (the text view inset) and will come from there when that's made a setting
-
-    return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
 }
 
 @end

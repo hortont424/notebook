@@ -23,52 +23,75 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBTextView.h"
-
-#import "NBSettings.h"
 #import "NBTheme.h"
 
-@implementation NBTextView
+#import "NBHighlightSettings.h"
 
-@synthesize parentCellView;
+#import "NBThemeJSON.h"
 
-- (id)initWithFrame:(NSRect)frame
+static NSMutableDictionary * themeParsers;
+
+@implementation NBTheme
+
+@synthesize filename;
+@synthesize name, author, version;
+@synthesize colors, fonts, highlights, settings;
+
++ (void)initialize
 {
-    self = [super initWithFrame:frame];
+    [super initialize];
 
-    if(self)
+    themeParsers = [[NSMutableDictionary alloc] init];
+    [themeParsers setObject:[NBThemeJSON class] forKey:[[NBThemeJSON fileExtension] lowercaseString]];
+}
+
+- (id)initWithFile:(NSString *)aFilename
+{
+    [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
+}
+
++ (id)themeWithFile:(NSString *)aFilename
+{
+    Class parserClass;
+    NSString * extension = [[aFilename pathExtension] lowercaseString];
+
+    if(![extension isEqualToString:@""])
     {
-        [[self textStorage] setDelegate:self];
-        [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [self setTextColor:[[NBSettings sharedInstance].theme colorWithKey:@"normal"]];
-        [self setFont:[[NBSettings sharedInstance].theme fontWithKey:@"normal"]];
+        parserClass = [themeParsers objectForKey:extension];
 
-        NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
-        [para setLineSpacing:2.0];
-        [self setDefaultParagraphStyle:para];
-        [self setAllowsUndo:NO];
+        return [[parserClass alloc] initWithFile:aFilename];
     }
 
-    return self;
+    return nil;
 }
 
-- (BOOL)becomeFirstResponder
++ (NSString *)fileExtension
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NBCellSubviewBecameFirstResponder" object:self];
+    [self doesNotRecognizeSelector:_cmd];
 
-    return [super becomeFirstResponder];
+    return nil;
 }
 
-- (float)requestedHeight
+- (NSColor *)colorWithKey:(NSString *)key
 {
-    NSLayoutManager * layoutManager = [self layoutManager];
-    NSTextContainer * textContainer = [self textContainer];
+    return [colors colorWithKey:key];
+}
 
-    [layoutManager glyphRangeForTextContainer:textContainer];
+- (NSFont *)fontWithKey:(NSString *)key
+{
+    return [fonts objectForKey:key];
+}
 
-    // TODO: the 20 = 2*10 (the text view inset) and will come from there when that's made a setting
+- (NBHighlightSettings *)highlightWithKey:(NSString *)key
+{
+    return [highlights objectForKey:key];
+}
 
-    return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
+- (NSObject *)settingWithKey:(NSString *)key
+{
+    return [settings objectForKey:key];
 }
 
 @end

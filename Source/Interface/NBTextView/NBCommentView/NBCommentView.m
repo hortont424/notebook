@@ -26,6 +26,7 @@
 #import "NBCommentView.h"
 
 #import "NBSettings.h"
+#import "NBTheme.h"
 #import "NBHighlightSettings.h"
 
 @implementation NBCommentView
@@ -37,9 +38,9 @@
     if(self)
     {
         NBSettings * settings = [NBSettings sharedInstance];
-        [self setBackgroundColor:[settings colorWithSelector:@"background.comment"]];
-        [self setTextColor:[settings highlightWithSelector:@"comment"].color];
-        [self setFont:[settings highlightWithSelector:@"comment"].font];
+        [self setBackgroundColor:[settings.theme colorWithKey:@"background.comment"]];
+        [self setTextColor:[settings.theme highlightWithKey:@"comment"].color];
+        [self setFont:[settings.theme highlightWithKey:@"comment"].font];
     }
 
     return self;

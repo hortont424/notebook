@@ -1,32 +1,32 @@
 {
     "name": "Morrowind",
     "author": "Nate Stedman",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
         "italic": {"name": "Menlo Italic", "size": 12}
     },
     "colors": {
-        "normal": {"r": 0.827, "g": 0.843, "b": 0.812, "a": 1.0},
+        "normal": [0.827, 0.843, 0.812],
 
-        "background": {"r": 0.235, "g": 0.267, "b": 0.275, "a": 1.0},
-        "background.source": {"r": 0.180, "g": 0.204, "b": 0.212, "a": 1.0},
-        "background.output": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
-        "background.comment": {"r": 0.180, "g": 0.204, "b": 0.212, "a": 1.0},
+        "background": [0.235, 0.267, 0.275],
+        "background.source": [0.180, 0.204, 0.212],
+        "background.output": [0.0, 0.0, 0.0],
+        "background.comment": [0.180, 0.204, 0.212],
 
-        "highlight.comment": {"r": 0.510, "g": 0.522, "b": 0.604, "a": 1.0},
-        "highlight.keyword": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
-        "highlight.number": {"r": 0.808, "g": 0.361, "b": 0.0, "a": 1.0},
-        "highlight.string": {"r": 0.929, "g": 0.831, "b": 0.0, "a": 1.0},
+        "highlight.comment": [0.510, 0.522, 0.604],
+        "highlight.keyword": [1.0, 1.0, 1.0],
+        "highlight.number": [0.808, 0.361, 0.0],
+        "highlight.string": [0.929, 0.831, 0.0],
 
-        "status.default": {"r": 0.729, "g": 0.741, "b": 0.714, "a": 1.0},
-        "status.busy": {"r": 0.988, "g": 0.914, "b": 0.310, "a": 1.0},
-        "status.failure": {"r": 0.788, "g": 0.0, "b": 0.0, "a": 1.0},
-        "status.success": {"r": 0.451, "g": 0.824, "b": 0.086, "a": 1.0},
+        "status.default": [0.729, 0.741, 0.714],
+        "status.busy": [0.988, 0.914, 0.310],
+        "status.failure": [0.788, 0.0, 0.0],
+        "status.success": [0.451, 0.824, 0.086],
 
-        "cell.selected": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
-        "cell.unselected": {"r": 0.5, "g": 0.5, "b": 0.5, "a": 1.0}
+        "cell.selected": [1.0, 1.0, 1.0],
+        "cell.unselected": [0.5, 0.5, 0.5]
     },
     "highlights":
     {

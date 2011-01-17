@@ -26,24 +26,19 @@
 #import <Cocoa/Cocoa.h>
 
 @class NBHighlightSettings;
+@class NBTheme;
 
 @interface NBSettings : NSObject
 {
-    NSString * currentTheme;
+    NBTheme * theme;
     NSMutableDictionary * themes;
 }
 
-@property (nonatomic,assign) NSString * currentTheme;
+@property (nonatomic,assign) NBTheme * theme;
 @property (nonatomic,assign) NSMutableDictionary * themes;
 
 + (NBSettings *)sharedInstance;
 
-- (NSFont *)fontWithSelector:(NSString *)sel;
-- (NSColor *)colorWithSelector:(NSString *)sel;
-- (NBHighlightSettings *)highlightWithSelector:(NSString *)sel;
-- (id)settingsWithSelector:(NSString *)sel;
-
 - (void)loadThemes:(NSArray *)paths;
-- (NSDictionary *)themeFromFile:(NSString *)filename;
 
 @end

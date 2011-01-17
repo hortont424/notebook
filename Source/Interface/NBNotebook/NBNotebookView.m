@@ -29,6 +29,7 @@
 
 #import "NBSourceCellView.h"
 #import "NBCommentCellView.h"
+#import "NBTheme.h"
 #import "NBSettings.h"
 #import "NBCellView.h"
 
@@ -174,7 +175,7 @@
 - (float)yForView:(NBCellView *)cellView
 {
     NBSettings * settings = [NBSettings sharedInstance];
-    float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
+    float cellSpacing = [(NSNumber *)[settings.theme settingWithKey:@"cellSpacing"] floatValue];
     float y = cellSpacing;
 
     for(NBCell * cell in notebook.cells)
@@ -194,7 +195,7 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
 
-    float cellSpacing = [[settings settingsWithSelector:@"cellSpacing"] floatValue];
+    float cellSpacing = [(NSNumber *)[settings.theme settingWithKey:@"cellSpacing"] floatValue];
 
     NSTrackingArea * trackingArea;
     NSRect trackingRect;
@@ -269,7 +270,7 @@
 - (void)selectAll
 {
     [self deselectAll];
-    
+
     for(NBCellView * cellView in [cellViews objectEnumerator])
     {
         [self selectedCell:cellView];

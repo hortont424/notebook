@@ -1,32 +1,32 @@
 {
     "name": "Tango",
     "author": "Tim Horton",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
         "italic": {"name": "Menlo Italic", "size": 12}
     },
     "colors": {
-        "normal": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
+        "normal": [0.0, 0.0, 0.0],
 
-        "background": "controlColor",
-        "background.source": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
-        "background.output": {"r": 0.9, "g": 0.9, "b": 0.9, "a": 1.0},
-        "background.comment": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0},
+        "background": "System.controlColor",
+        "background.source": "#ffffff",
+        "background.output": [0.9, 0.9, 0.9],
+        "background.comment": "#ffffff",
 
-        "highlight.comment": {"r": 0.5, "g": 0.5, "b": 0.5, "a": 1.0},
-        "highlight.keyword": {"r": 0.306, "g": 0.604, "b": 0.024, "a": 1.0},
-        "highlight.number": {"r": 0.125, "g": 0.290, "b": 0.529, "a": 1.0},
-        "highlight.string": {"r": 0.804, "g": 0.361, "b": 0.0, "a": 1.0},
+        "highlight.comment": [0.5, 0.5, 0.5],
+        "highlight.keyword": [0.306, 0.604, 0.024],
+        "highlight.number": [0.125, 0.290, 0.529],
+        "highlight.string": [0.804, 0.361, 0.0],
 
-        "status.default": {"r": 0.729, "g": 0.741, "b": 0.714, "a": 1.0},
-        "status.busy": {"r": 0.988, "g": 0.914, "b": 0.310, "a": 1.0},
-        "status.failure": {"r": 0.788, "g": 0.0, "b": 0.0, "a": 1.0},
-        "status.success": {"r": 0.451, "g": 0.824, "b": 0.086, "a": 1.0},
+        "status.default": [0.729, 0.741, 0.714],
+        "status.busy": [0.988, 0.914, 0.310],
+        "status.failure": [0.788, 0.0, 0.0],
+        "status.success": [0.451, 0.824, 0.086],
 
-        "cell.selected": {"r": 0.447, "g": 0.624, "b": 0.812, "a": 1.0},
-        "cell.unselected": {"r": 0.729, "g": 0.741, "b": 0.714, "a": 1.0}
+        "cell.selected": [0.447, 0.624, 0.812],
+        "cell.unselected": [0.729, 0.741, 0.714]
     },
     "highlights":
     {
@@ -35,6 +35,8 @@
         "number": {"color": "highlight.number", "font": "normal"},
         "string": {"color": "highlight.string", "font": "normal"}
     },
-    "cellAnimationSpeed": 0.2,
-    "cellSpacing": 4.0
+    "settings":
+    {
+        "cellSpacing": 4.0
+    }
 }
