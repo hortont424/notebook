@@ -106,7 +106,6 @@ static NBSettings * sharedInstance = nil;
 
 - (NSString *)themeName
 {
-    NSLog(@"-themeName: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"theme"]);
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"theme"];
 }
 
