@@ -25,13 +25,31 @@
 
 #import "NBSettingsWindowController.h"
 
+#import "NBSettings.h"
+#import "NBThemeListDataSource.h"
+
 @implementation NBSettingsWindowController
 
 @synthesize languageBrowser;
+@synthesize themeList;
 
 - (void)awakeFromNib
 {
     [languageBrowser reloadData];
+
+    NBThemeListDataSource * dataSource = [themeList dataSource];
+    NSString * themeName = [[[NBSettings sharedInstance] theme] name];
+    NSIndexSet * selectedIndex = [NSIndexSet indexSetWithIndex:[dataSource.themeNames indexOfObject:themeName]];
+
+    [themeList selectRowIndexes:selectedIndex byExtendingSelection:NO];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+    NBThemeListDataSource * dataSource = [themeList dataSource];
+    NSString * themeName = [dataSource.themeNames objectAtIndex:[[themeList selectedRowIndexes] firstIndex]];
+
+    [[NBSettings sharedInstance] setTheme:[[[NBSettings sharedInstance] themes] objectForKey:themeName]];
 }
 
 @end

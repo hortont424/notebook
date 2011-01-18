@@ -29,14 +29,30 @@
 
 @implementation NBThemeListDataSource
 
+@synthesize themeNames;
+
+- (id)init
+{
+    self = [super init];
+
+    if(self != nil)
+    {
+        // TODO: we cache themes in lots of places, so right now we can't dynamically load them
+
+        themeNames = [[[NBSettings sharedInstance] themes] allKeys];
+        themeNames = [themeNames sortedArrayUsingSelector:@selector(localizedCompare:)];
+    }
+    return self;
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    return [[[[NBSettings sharedInstance] themes] allKeys] count];
+    return [themeNames count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-    return [[[[NBSettings sharedInstance] themes] allKeys] objectAtIndex:rowIndex];
+    return [themeNames objectAtIndex:rowIndex];
 }
 
 @end

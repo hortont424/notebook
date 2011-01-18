@@ -32,7 +32,7 @@
 
 @synthesize engineClasses;
 
-- (id) init
+- (id)init
 {
     self = [super init];
 
@@ -43,7 +43,7 @@
         engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
         engineClasses = [engineClasses sortedArrayUsingComparator:^(id a, id b)
                          {
-                             return [[a name] compare:[b name]];
+                             return [[a name] localizedCompare:[b name]];
                          }];
     }
     return self;

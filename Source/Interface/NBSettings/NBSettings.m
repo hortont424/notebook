@@ -30,6 +30,8 @@
 #import "NBHighlightSettings.h"
 #import "NBTheme.h"
 
+#define NB_DEFAULT_THEME @"Tango"
+
 static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
@@ -45,6 +47,15 @@ static NBSettings * sharedInstance = nil;
     if(self != nil)
     {
         themes = nil;
+
+        NSMutableDictionary * appDefaults = [[NSMutableDictionary alloc] init];
+
+        if(![[NSUserDefaults standardUserDefaults] stringForKey:@"theme"])
+        {
+            [appDefaults setObject:NB_DEFAULT_THEME forKey:@"theme"];
+        }
+
+        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     }
 
     return self;
@@ -71,14 +82,27 @@ static NBSettings * sharedInstance = nil;
         }
     }
 
-    // TODO: this should be loaded from a Cocoa defaults file
+    NSString * defaultTheme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
 
-    theme = [themes objectForKey:@"Tango"];
+    theme = [themes objectForKey:defaultTheme];
 
-    if(theme == nil)
+    if(!theme)
     {
-        NSLog(@"failed to find theme Tango");
+        NSLog(@"Failed to load theme %@");
+
+        theme = [themes objectForKey:NB_DEFAULT_THEME];
+
+        if(!theme)
+        {
+            NSLog(@"Failed to load default theme!");
+        }
     }
+}
+
+- (void)setTheme:(NBTheme *)inTheme
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[inTheme name] forKey:@"theme"];
+    theme = inTheme;
 }
 
 #pragma mark Singleton Methods

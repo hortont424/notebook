@@ -26,11 +26,13 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@interface NBSettingsWindowController : NSWindowController
+@interface NBSettingsWindowController : NSWindowController<NSTableViewDelegate>
 {
     IKImageBrowserView * languageBrowser;
+    NSTableView * themeList;
 }
 
 @property (nonatomic,assign) IBOutlet IKImageBrowserView * languageBrowser;
+@property (nonatomic,assign) IBOutlet NSTableView * themeList;
 
 @end

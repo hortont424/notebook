@@ -27,7 +27,9 @@
 
 @interface NBThemeListDataSource : NSObject<NSTableViewDataSource>
 {
-
+    NSArray * themeNames;
 }
+
+@property (readonly) NSArray * themeNames;
 
 @end
