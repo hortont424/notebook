@@ -70,7 +70,7 @@
 
     // Draw the background color over the left hand side of the cell
 
-    [[settings.theme colorWithKey:@"background.comment"] setFill];
+    [[settings colorWithKey:@"background.comment"] setFill];
     CGContextFillRect(ctx, NSMakeRect(1, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 

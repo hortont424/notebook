@@ -30,15 +30,19 @@
 
 @interface NBSettings : NSObject
 {
-    NBTheme * theme;
     NSMutableDictionary * themes;
 }
 
-@property (nonatomic,assign) NBTheme * theme;
+@property (nonatomic,assign) NSString * themeName;
 @property (nonatomic,assign) NSMutableDictionary * themes;
 
 + (NBSettings *)sharedInstance;
 
 - (void)loadThemes:(NSArray *)paths;
+
+- (NSColor *)colorWithKey:(NSString *)key;
+- (NSFont *)fontWithKey:(NSString *)key;
+- (NBHighlightSettings *)highlightWithKey:(NSString *)key;
+- (NSObject *)settingWithKey:(NSString *)key;
 
 @end

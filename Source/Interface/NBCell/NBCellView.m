@@ -188,17 +188,17 @@
 
     if(self.selected)
     {
-        [[settings.theme colorWithKey:@"cell.selected"] setFill];
+        [[settings colorWithKey:@"cell.selected"] setFill];
     }
     else
     {
         if(self.selectionHandleHighlight)
         {
-            [[[settings.theme colorWithKey:@"cell.selected"] colorWithAlphaComponent:0.5] setFill];
+            [[[settings colorWithKey:@"cell.selected"] colorWithAlphaComponent:0.5] setFill];
         }
         else
         {
-            [[settings.theme colorWithKey:@"cell.unselected"] setFill];
+            [[settings colorWithKey:@"cell.unselected"] setFill];
         }
     }
 

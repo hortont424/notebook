@@ -43,7 +43,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [[[NBSettings sharedInstance].theme colorWithKey:@"background"] setFill];
+    [[[NBSettings sharedInstance] colorWithKey:@"background"] setFill];
     NSRectFill(dirtyRect);
 }
 

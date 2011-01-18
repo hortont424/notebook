@@ -40,8 +40,8 @@
     {
         [[self textStorage] setDelegate:self];
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [self setTextColor:[[NBSettings sharedInstance].theme colorWithKey:@"normal"]];
-        [self setFont:[[NBSettings sharedInstance].theme fontWithKey:@"normal"]];
+        [self setTextColor:[[NBSettings sharedInstance] colorWithKey:@"normal"]];
+        [self setFont:[[NBSettings sharedInstance] fontWithKey:@"normal"]];
 
         NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
         [para setLineSpacing:2.0];

@@ -38,7 +38,7 @@
     [languageBrowser reloadData];
 
     NBThemeListDataSource * dataSource = [themeList dataSource];
-    NSString * themeName = [[[NBSettings sharedInstance] theme] name];
+    NSString * themeName = [[NBSettings sharedInstance] themeName];
     NSIndexSet * selectedIndex = [NSIndexSet indexSetWithIndex:[dataSource.themeNames indexOfObject:themeName]];
 
     [themeList selectRowIndexes:selectedIndex byExtendingSelection:NO];
@@ -49,7 +49,7 @@
     NBThemeListDataSource * dataSource = [themeList dataSource];
     NSString * themeName = [dataSource.themeNames objectAtIndex:[[themeList selectedRowIndexes] firstIndex]];
 
-    [[NBSettings sharedInstance] setTheme:[[[NBSettings sharedInstance] themes] objectForKey:themeName]];
+    [[NBSettings sharedInstance] setThemeName:themeName];
 }
 
 @end

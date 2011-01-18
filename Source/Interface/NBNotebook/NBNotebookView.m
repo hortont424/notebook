@@ -175,7 +175,7 @@
 - (float)yForView:(NBCellView *)cellView
 {
     NBSettings * settings = [NBSettings sharedInstance];
-    float cellSpacing = [(NSNumber *)[settings.theme settingWithKey:@"cellSpacing"] floatValue];
+    float cellSpacing = [(NSNumber *)[settings settingWithKey:@"cellSpacing"] floatValue];
     float y = cellSpacing;
 
     for(NBCell * cell in notebook.cells)
@@ -195,7 +195,7 @@
 {
     NBSettings * settings = [NBSettings sharedInstance];
 
-    float cellSpacing = [(NSNumber *)[settings.theme settingWithKey:@"cellSpacing"] floatValue];
+    float cellSpacing = [(NSNumber *)[settings settingWithKey:@"cellSpacing"] floatValue];
 
     NSTrackingArea * trackingArea;
     NSRect trackingRect;

@@ -44,7 +44,7 @@
         exceptions = [[NSMutableDictionary alloc] init];
         leadingSpacesRegex = [RKRegex regexWithRegexString:@"^([[:blank:]]*)" options:RKCompileNoOptions];
 
-        [self setBackgroundColor:[[NBSettings sharedInstance].theme colorWithKey:@"background.source"]];
+        [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
     }
 
     return self;
@@ -122,7 +122,7 @@
                 CGContextAddLineToPoint(ctx, bounds.origin.x + (bounds.size.width / 2), bounds.origin.y + bounds.size.height - 3);
                 CGContextClosePath(ctx);
 
-                [[settings.theme colorWithKey:@"status.failure"] setFill]; // TODO: this should get its own selector
+                [[settings colorWithKey:@"status.failure"] setFill]; // TODO: this should get its own selector
 
                 CGContextFillPath(ctx);
             }
@@ -172,8 +172,8 @@
     [textStorage removeAttribute:NSFontAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSUnderlineStyleAttributeName range:wholeStringRange];
     [textStorage removeAttribute:NSUnderlineColorAttributeName range:wholeStringRange];
-    [textStorage addAttribute:NSFontAttributeName value:[settings.theme fontWithKey:@"normal"] range:wholeStringRange];
-    [textStorage addAttribute:NSForegroundColorAttributeName value:[settings.theme colorWithKey:@"normal"] range:wholeStringRange];
+    [textStorage addAttribute:NSFontAttributeName value:[settings fontWithKey:@"normal"] range:wholeStringRange];
+    [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithKey:@"normal"] range:wholeStringRange];
 
     // Apply each syntax highlighting style
 
@@ -181,7 +181,7 @@
 
     for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
     {
-        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings.theme highlightWithKey:context.highlight]];
+        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithKey:context.highlight]];
     }
 }
 

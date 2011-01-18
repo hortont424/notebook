@@ -36,7 +36,7 @@ static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
 
-@synthesize theme, themes;
+@synthesize themeName, themes;
 
 - (id)init
 {
@@ -47,6 +47,8 @@ static NBSettings * sharedInstance = nil;
     if(self != nil)
     {
         themes = nil;
+
+        // Set up global defaults
 
         NSMutableDictionary * appDefaults = [[NSMutableDictionary alloc] init];
 
@@ -82,27 +84,52 @@ static NBSettings * sharedInstance = nil;
         }
     }
 
-    NSString * defaultTheme = [[NSUserDefaults standardUserDefaults] stringForKey:@"theme"];
-
-    theme = [themes objectForKey:defaultTheme];
-
-    if(!theme)
+    if(![themes objectForKey:self.themeName])
     {
-        NSLog(@"Failed to load theme %@");
+        NSLog(@"Failed to load theme %@", self.themeName);
 
-        theme = [themes objectForKey:NB_DEFAULT_THEME];
+        self.themeName = NB_DEFAULT_THEME;
 
-        if(!theme)
+        if(![themes objectForKey:self.themeName])
         {
             NSLog(@"Failed to load default theme!");
         }
     }
 }
 
-- (void)setTheme:(NBTheme *)inTheme
+- (void)setThemeName:(NSString *)inThemeName
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[inTheme name] forKey:@"theme"];
-    theme = inTheme;
+    themeName = inThemeName;
+
+    [[NSUserDefaults standardUserDefaults] setObject:themeName forKey:@"theme"];
+}
+
+- (NSString *)themeName
+{
+    NSLog(@"-themeName: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"theme"]);
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"theme"];
+}
+
+#pragma mark Setting Accessors
+
+- (NSColor *)colorWithKey:(NSString *)key
+{
+    return [[themes objectForKey:themeName] colorWithKey:key];
+}
+
+- (NSFont *)fontWithKey:(NSString *)key
+{
+    return [[themes objectForKey:themeName] fontWithKey:key];
+}
+
+- (NBHighlightSettings *)highlightWithKey:(NSString *)key
+{
+    return [[themes objectForKey:themeName] highlightWithKey:key];
+}
+
+- (NSObject *)settingWithKey:(NSString *)key
+{
+    return [[themes objectForKey:themeName] settingWithKey:key];
 }
 
 #pragma mark Singleton Methods

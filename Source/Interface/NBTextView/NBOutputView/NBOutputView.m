@@ -35,7 +35,7 @@
 
     if(self)
     {
-        [self setBackgroundColor:[[NBSettings sharedInstance].theme colorWithKey:@"background.output"]];
+        [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.output"]];
     }
 
     return self;
