@@ -1,7 +1,7 @@
 {
     "name": "Morrowind",
     "author": "Nate Stedman",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "fonts": {
         "normal": {"name": "Menlo", "size": 12},
         "bold": {"name": "Menlo Bold", "size": 12},
@@ -35,6 +35,8 @@
         "number": {"color": "highlight.number", "font": "normal"},
         "string": {"color": "highlight.string", "font": "normal"}
     },
-    "cellAnimationSpeed": 0.2,
-    "cellSpacing": 4.0
+    "settings":
+    {
+        "cellSpacing": 4.0
+    }
 }
