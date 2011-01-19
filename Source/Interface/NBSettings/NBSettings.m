@@ -162,12 +162,54 @@ static NBSettings * sharedInstance = nil;
     }
 }
 
+#pragma mark Setting Accessors
+
 - (NSString *)themeName
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:NBThemeNameKey];
 }
 
-#pragma mark Setting Accessors
+- (NSUInteger)tabWidth
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBTabWidthKey] unsignedIntValue];
+}
+
+- (BOOL)shouldMatchIndent
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBMatchIndentKey] boolValue];
+}
+
+- (BOOL)shouldPairCharacters
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBPairCharactersKey] boolValue];
+}
+
+- (BOOL)shouldWrapLines
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBWrapLinesKey] boolValue];
+}
+
+- (char)tabCharacter
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBMatchIndentKey] unsignedIntValue] ? '\t' : ' ';
+}
+
+- (NSUInteger)createUntitledMode // TODO: make an enum for this that matches the UI
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBCreateUntitledModeKey] unsignedIntValue];
+}
+
+- (BOOL)shouldHighlightSyntax
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBHighlightSyntaxKey] boolValue];
+}
+
+- (BOOL)shouldHighlightGlobals
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBHighlightGlobalsKey] boolValue];
+}
+
+#pragma mark Keyed Setting Accessors
 
 - (NSColor *)colorWithKey:(NSString *)key
 {

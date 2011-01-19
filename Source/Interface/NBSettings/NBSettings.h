@@ -73,6 +73,17 @@
 
 - (void)loadThemes:(NSArray *)paths;
 
+- (NSString *)themeName;
+- (NSUInteger)tabWidth;
+- (BOOL)shouldMatchIndent;
+- (BOOL)shouldHighlightGlobals;
+- (BOOL)shouldPairCharacters;
+- (BOOL)shouldWrapLines;
+- (char)tabCharacter;
+- (NSUInteger)createUntitledMode;
+- (BOOL)shouldHighlightSyntax;
+- (BOOL)shouldHighlightGlobals;
+
 - (NSColor *)colorWithKey:(NSString *)key;
 - (NSFont *)fontWithKey:(NSString *)key;
 - (NBHighlightSettings *)highlightWithKey:(NSString *)key;
