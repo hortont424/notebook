@@ -49,10 +49,25 @@
         CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
                                                                    object:nil
                                                                     queue:nil
-                                                               usingBlock:^(NSNotification *arg1)
+                                                               usingBlock:^(NSNotification * arg1)
         {
             [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
         }]);
+
+        void (^rehighlight)(NSNotification * arg1) = CFRetain(^(NSNotification *arg1)
+        {
+            [self textStorageDidProcessEditing:nil];
+        });
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBHighlightSyntaxChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:rehighlight]);
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBHighlightGlobalsChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:rehighlight]);
     }
 
     return self;
@@ -60,28 +75,35 @@
 
 - (void)insertNewline:(id)sender
 {
-    NSRange insertionPoint;
-    NSUInteger start, end;
-    NSString * lineSubstring, * leadingSpaces;
-    NSRange leadingSpacesRange;
-
-    insertionPoint = [[[self selectedRanges] lastObject] rangeValue];
-
-    [[self string] getLineStart:&start end:&end contentsEnd:NULL forRange:insertionPoint];
-
-    lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
-    leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
-
-    if(leadingSpacesRange.location != NSNotFound)
+    if([[NBSettings sharedInstance] shouldMatchIndent])
     {
-        leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+        NSRange insertionPoint;
+        NSUInteger start, end;
+        NSString * lineSubstring, * leadingSpaces;
+        NSRange leadingSpacesRange;
+
+        insertionPoint = [[[self selectedRanges] lastObject] rangeValue];
+
+        [[self string] getLineStart:&start end:&end contentsEnd:NULL forRange:insertionPoint];
+
+        lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
+        leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
+
+        if(leadingSpacesRange.location != NSNotFound)
+        {
+            leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+        }
+        else
+        {
+            leadingSpaces = @"";
+        }
+
+        [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
     }
     else
     {
-        leadingSpaces = @"";
+        [super insertNewline:sender];
     }
-
-    [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
 
 }
 
@@ -170,7 +192,7 @@
 
 - (void)textStorageDidProcessEditing:(NSNotification *)notification
 {
-    NSTextStorage * textStorage = [notification object];
+    NSTextStorage * textStorage = [self textStorage];
     NBSettings * settings = [NBSettings sharedInstance];
     NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
 
@@ -183,13 +205,16 @@
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithKey:@"normal"] range:wholeStringRange];
     [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithKey:@"normal"] range:wholeStringRange];
 
-    // Apply each syntax highlighting style
-
-    NBEngineHighlighter * highlighter = [[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] sharedInstance];
-
-    for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
+    if([[NBSettings sharedInstance] shouldHighlightSyntax])
     {
-        [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithKey:context.highlight]];
+        // Apply each syntax highlighting style
+
+        NBEngineHighlighter * highlighter = [[[[[[(id<NBSourceViewDelegate>)delegate cell] notebook] engine] class] highlighterClass] sharedInstance];
+
+        for(NBEngineHighlightContext * context in [highlighter highlightingPairs])
+        {
+            [self highlightRegex:context.expression onTextStorage:textStorage withHighlight:[settings highlightWithKey:context.highlight]];
+        }
     }
 }
 
