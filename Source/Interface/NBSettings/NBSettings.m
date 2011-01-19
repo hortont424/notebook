@@ -30,7 +30,27 @@
 #import "NBHighlightSettings.h"
 #import "NBTheme.h"
 
-#define NB_DEFAULT_THEME @"Tango"
+#define NBThemeNameKey @"theme"
+#define NBTabWidthKey @"tabWidth"
+#define NBMatchIndentKey @"formatMatchIndent"
+#define NBPairCharactersKey @"formatPairCharacters"
+#define NBWrapLinesKey @"layoutWrapLines"
+#define NBTabInsertTypeKey @"tabType"
+#define NBCreateUntitledModeKey @"createUntitledMode"
+#define NBHighlightSyntaxKey @"highlightSyntax"
+#define NBHighlightGlobalsKey @"highlightGlobals"
+#define NBFontNameKey @"fontName"
+
+#define NBThemeNameDefault @"Tango"
+#define NBTabWidthDefault 4
+#define NBMatchIndentDefault YES
+#define NBPairCharactersDefault NO
+#define NBWrapLinesDefault YES
+#define NBTabInsertTypeDefault 0
+#define NBCreateUntitledModeDefault 0
+#define NBHighlightSyntaxDefault YES
+#define NBHighlightGlobalsDefault YES
+#define NBFontNameDefault @""
 
 static NBSettings * sharedInstance = nil;
 
@@ -52,7 +72,18 @@ static NBSettings * sharedInstance = nil;
 
         NSMutableDictionary * appDefaults = [[NSMutableDictionary alloc] init];
 
-        [appDefaults setObject:NB_DEFAULT_THEME forKey:@"theme"];
+        [appDefaults setObject:NBThemeNameDefault forKey:NBThemeNameKey];
+
+        [appDefaults setObject:NBThemeNameDefault forKey:NBThemeNameKey];
+        [appDefaults setObject:[NSNumber numberWithInt:NBTabWidthDefault] forKey:NBTabWidthKey];
+        [appDefaults setObject:[NSNumber numberWithBool:NBMatchIndentDefault] forKey:NBMatchIndentKey];
+        [appDefaults setObject:[NSNumber numberWithBool:NBPairCharactersDefault] forKey:NBPairCharactersKey];
+        [appDefaults setObject:[NSNumber numberWithBool:NBWrapLinesDefault] forKey:NBWrapLinesKey];
+        [appDefaults setObject:[NSNumber numberWithInt:NBTabInsertTypeDefault] forKey:NBTabInsertTypeKey];
+        [appDefaults setObject:[NSNumber numberWithInt:NBCreateUntitledModeDefault] forKey:NBCreateUntitledModeKey];
+        [appDefaults setObject:[NSNumber numberWithBool:NBHighlightSyntaxDefault] forKey:NBHighlightSyntaxKey];
+        [appDefaults setObject:[NSNumber numberWithBool:NBHighlightGlobalsDefault] forKey:NBHighlightGlobalsKey];
+        [appDefaults setObject:NBFontNameDefault forKey:NBFontNameKey];
 
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     }
@@ -85,9 +116,9 @@ static NBSettings * sharedInstance = nil;
     {
         NSLog(@"Failed to load theme %@", self.themeName);
 
-        self.themeName = NB_DEFAULT_THEME;
+        self.themeName = NBThemeNameDefault;
 
-        if(![themes objectForKey:NB_DEFAULT_THEME])
+        if(![themes objectForKey:NBThemeNameDefault])
         {
             NSLog(@"Failed to load default theme!");
         }
@@ -96,14 +127,14 @@ static NBSettings * sharedInstance = nil;
 
 - (void)setThemeName:(NSString *)inThemeName
 {
-    [[NSUserDefaults standardUserDefaults] setObject:inThemeName forKey:@"theme"];
+    [[NSUserDefaults standardUserDefaults] setObject:inThemeName forKey:NBThemeNameKey];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:NBThemeChangedNotification object:self];
 }
 
 - (NSString *)themeName
 {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"theme"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:NBThemeNameKey];
 }
 
 #pragma mark Setting Accessors
