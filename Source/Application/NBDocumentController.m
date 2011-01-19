@@ -31,6 +31,7 @@
 
 static NSMutableArray * _documentClassNames = nil;
 static NSMutableDictionary * _engineClassOfDocumentClasses = nil;
+static NSMutableSet * _allExtensions = nil;
 
 @implementation NBDocumentController
 
@@ -40,15 +41,17 @@ static NSMutableDictionary * _engineClassOfDocumentClasses = nil;
     {
         _documentClassNames = [[NSMutableArray alloc] init];
         _engineClassOfDocumentClasses = [[NSMutableDictionary alloc] init];
+        _allExtensions = [[NSMutableSet alloc] init];
 
         for(Class engineClass in [[[NBEngineLoader sharedInstance] engineClasses] allValues])
         {
             [_documentClassNames addObject:NSStringFromClass([engineClass documentClass])];
             [_engineClassOfDocumentClasses setObject:engineClass forKey:NSStringFromClass([engineClass documentClass])];
+            [_allExtensions addObject:[[engineClass documentClass] fileExtension]];
         }
-    }
 
-    [_documentClassNames addObject:@"NBDocument"];
+        [_documentClassNames addObject:@"NBDocument"];
+    }
 
     return _documentClassNames;
 }
@@ -75,7 +78,19 @@ static NSMutableDictionary * _engineClassOfDocumentClasses = nil;
 
 - (NSArray *)fileExtensionsFromType:(NSString *)documentTypeName
 {
-    return [NSArray arrayWithObject:[NSClassFromString(documentTypeName) fileExtension]];
+    if([documentTypeName isEqualToString:@"NBDocument"])
+    {
+        if(!_allExtensions)
+        {
+            [self documentClassNames];
+        }
+
+        return [_allExtensions allObjects];
+    }
+    else
+    {
+        return [NSArray arrayWithObject:[NSClassFromString(documentTypeName) fileExtension]];
+    }
 }
 
 - (NSString *)typeFromFileExtension:(NSString *)fileExtension
