@@ -26,6 +26,37 @@
 #import <Cocoa/Cocoa.h>
 
 #define NBThemeChangedNotification @"NBThemeChangedNotification"
+#define NBTabWidthChangedNotification @"NBTabWidthChangedNotification"
+#define NBMatchIndentChangedNotification @"NBMatchIndentChangedNotification"
+#define NBPairCharactersChangedNotification @"NBPairCharactersChangedNotification"
+#define NBWrapLinesChangedNotification @"NBWrapLinesChangedNotification"
+#define NBTabInsertTypeChangedNotification @"NBTabInsertTypeChangedNotification"
+#define NBCreateUntitledModeChangedNotification @"NBCreateUntitledModeChangedNotification"
+#define NBHighlightSyntaxChangedNotification @"NBHighlightSyntaxChangedNotification"
+#define NBHighlightGlobalsChangedNotification @"NBHighlightGlobalsChangedNotification"
+#define NBFontNameChangedNotification @"NBFontNameChangedNotification"
+
+#define NBThemeNameKey @"theme"
+#define NBTabWidthKey @"tabWidth"
+#define NBMatchIndentKey @"formatMatchIndent"
+#define NBPairCharactersKey @"formatPairCharacters"
+#define NBWrapLinesKey @"layoutWrapLines"
+#define NBTabInsertTypeKey @"tabType"
+#define NBCreateUntitledModeKey @"createUntitledMode"
+#define NBHighlightSyntaxKey @"highlightSyntax"
+#define NBHighlightGlobalsKey @"highlightGlobals"
+#define NBFontNameKey @"fontName"
+
+#define NBThemeNameDefault @"Tango"
+#define NBTabWidthDefault 4
+#define NBMatchIndentDefault YES
+#define NBPairCharactersDefault NO
+#define NBWrapLinesDefault YES
+#define NBTabInsertTypeDefault 1
+#define NBCreateUntitledModeDefault 0
+#define NBHighlightSyntaxDefault YES
+#define NBHighlightGlobalsDefault YES
+#define NBFontNameDefault @""
 
 @class NBHighlightSettings;
 @class NBTheme;
@@ -35,7 +66,7 @@
     NSMutableDictionary * themes;
 }
 
-@property (nonatomic,assign) NSString * themeName;
+@property (readonly) NSString * themeName;
 @property (nonatomic,assign) NSMutableDictionary * themes;
 
 + (NBSettings *)sharedInstance;

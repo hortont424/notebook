@@ -49,7 +49,7 @@
     NBThemeListDataSource * dataSource = [themeList dataSource];
     NSString * themeName = [dataSource.themeNames objectAtIndex:[[themeList selectedRowIndexes] firstIndex]];
 
-    [[NBSettings sharedInstance] setThemeName:themeName];
+    [[NSUserDefaults standardUserDefaults] setObject:themeName forKey:NBThemeNameKey];
 }
 
 @end

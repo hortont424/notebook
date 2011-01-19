@@ -30,28 +30,6 @@
 #import "NBHighlightSettings.h"
 #import "NBTheme.h"
 
-#define NBThemeNameKey @"theme"
-#define NBTabWidthKey @"tabWidth"
-#define NBMatchIndentKey @"formatMatchIndent"
-#define NBPairCharactersKey @"formatPairCharacters"
-#define NBWrapLinesKey @"layoutWrapLines"
-#define NBTabInsertTypeKey @"tabType"
-#define NBCreateUntitledModeKey @"createUntitledMode"
-#define NBHighlightSyntaxKey @"highlightSyntax"
-#define NBHighlightGlobalsKey @"highlightGlobals"
-#define NBFontNameKey @"fontName"
-
-#define NBThemeNameDefault @"Tango"
-#define NBTabWidthDefault 4
-#define NBMatchIndentDefault YES
-#define NBPairCharactersDefault NO
-#define NBWrapLinesDefault YES
-#define NBTabInsertTypeDefault 1
-#define NBCreateUntitledModeDefault 0
-#define NBHighlightSyntaxDefault YES
-#define NBHighlightGlobalsDefault YES
-#define NBFontNameDefault @""
-
 static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
@@ -86,6 +64,19 @@ static NBSettings * sharedInstance = nil;
         [appDefaults setObject:NBFontNameDefault forKey:NBFontNameKey];
 
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+
+        NSUserDefaultsController * defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
+
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBThemeNameKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBTabWidthKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBMatchIndentKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBPairCharactersKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBWrapLinesKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBTabInsertTypeKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBCreateUntitledModeKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBHighlightSyntaxKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBHighlightGlobalsKey] options:0 context:nil];
+        [defaultsController addObserver:self forKeyPath:[@"values." stringByAppendingString:NBFontNameKey] options:0 context:nil];
     }
 
     return self;
@@ -116,7 +107,7 @@ static NBSettings * sharedInstance = nil;
     {
         NSLog(@"Failed to load theme %@", self.themeName);
 
-        self.themeName = NBThemeNameDefault;
+        [[NSUserDefaults standardUserDefaults] setObject:NBThemeNameDefault forKey:NBThemeNameKey];
 
         if(![themes objectForKey:NBThemeNameDefault])
         {
@@ -125,11 +116,50 @@ static NBSettings * sharedInstance = nil;
     }
 }
 
-- (void)setThemeName:(NSString *)inThemeName
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [[NSUserDefaults standardUserDefaults] setObject:inThemeName forKey:NBThemeNameKey];
+    NSString * key = [keyPath stringByReplacingOccurrencesOfString:@"values." withString:@""];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:NBThemeChangedNotification object:self];
+    if([key isEqualToString:NBThemeNameKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBThemeChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBTabWidthKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBTabWidthChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBMatchIndentKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBMatchIndentChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBPairCharactersKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBPairCharactersChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBWrapLinesKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBWrapLinesChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBTabInsertTypeKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBTabInsertTypeChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBCreateUntitledModeKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBCreateUntitledModeChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBHighlightSyntaxKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBHighlightSyntaxChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBHighlightGlobalsKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBHighlightGlobalsChangedNotification object:self];
+    }
+    else if([key isEqualToString:NBFontNameKey])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NBFontNameChangedNotification object:self];
+    }
 }
 
 - (NSString *)themeName
