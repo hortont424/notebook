@@ -60,15 +60,10 @@
 {
     if(![content isEqualToString:aContent])
     {
-        if(!undoTimer || [[[notebook delegate] undoManager] isUndoing] || [[[notebook delegate] undoManager] isRedoing])
-        {
-            [[[notebook delegate] undoManager] registerUndoWithTarget:self
-                                                             selector:@selector(setContent:)
-                                                               object:[content copy]];
-            [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
-
-            undoTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(undoTimerExpired:) userInfo:nil repeats:NO];
-        }
+        [[[notebook delegate] undoManager] registerUndoWithTarget:self
+                                                         selector:@selector(setContent:)
+                                                           object:[content copy]];
+        [[[notebook delegate] undoManager] setActionName:@"Edit Cell"];
 
         content = [aContent copy];
 
