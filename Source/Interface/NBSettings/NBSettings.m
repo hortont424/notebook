@@ -46,7 +46,7 @@
 #define NBMatchIndentDefault YES
 #define NBPairCharactersDefault NO
 #define NBWrapLinesDefault YES
-#define NBTabInsertTypeDefault 0
+#define NBTabInsertTypeDefault 1
 #define NBCreateUntitledModeDefault 0
 #define NBHighlightSyntaxDefault YES
 #define NBHighlightGlobalsDefault YES
