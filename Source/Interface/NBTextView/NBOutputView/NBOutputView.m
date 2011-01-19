@@ -36,6 +36,14 @@
     if(self)
     {
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.output"]];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification *arg1)
+        {
+            [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.output"]];
+        }]);
     }
 
     return self;

@@ -52,10 +52,7 @@ static NBSettings * sharedInstance = nil;
 
         NSMutableDictionary * appDefaults = [[NSMutableDictionary alloc] init];
 
-        if(![[NSUserDefaults standardUserDefaults] stringForKey:@"theme"])
-        {
-            [appDefaults setObject:NB_DEFAULT_THEME forKey:@"theme"];
-        }
+        [appDefaults setObject:NB_DEFAULT_THEME forKey:@"theme"];
 
         [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     }
@@ -90,7 +87,7 @@ static NBSettings * sharedInstance = nil;
 
         self.themeName = NB_DEFAULT_THEME;
 
-        if(![themes objectForKey:self.themeName])
+        if(![themes objectForKey:NB_DEFAULT_THEME])
         {
             NSLog(@"Failed to load default theme!");
         }
@@ -99,9 +96,9 @@ static NBSettings * sharedInstance = nil;
 
 - (void)setThemeName:(NSString *)inThemeName
 {
-    themeName = inThemeName;
+    [[NSUserDefaults standardUserDefaults] setObject:inThemeName forKey:@"theme"];
 
-    [[NSUserDefaults standardUserDefaults] setObject:themeName forKey:@"theme"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NBThemeChangedNotification object:self];
 }
 
 - (NSString *)themeName
@@ -113,22 +110,22 @@ static NBSettings * sharedInstance = nil;
 
 - (NSColor *)colorWithKey:(NSString *)key
 {
-    return [[themes objectForKey:themeName] colorWithKey:key];
+    return [[themes objectForKey:self.themeName] colorWithKey:key];
 }
 
 - (NSFont *)fontWithKey:(NSString *)key
 {
-    return [[themes objectForKey:themeName] fontWithKey:key];
+    return [[themes objectForKey:self.themeName] fontWithKey:key];
 }
 
 - (NBHighlightSettings *)highlightWithKey:(NSString *)key
 {
-    return [[themes objectForKey:themeName] highlightWithKey:key];
+    return [[themes objectForKey:self.themeName] highlightWithKey:key];
 }
 
 - (NSObject *)settingWithKey:(NSString *)key
 {
-    return [[themes objectForKey:themeName] settingWithKey:key];
+    return [[themes objectForKey:self.themeName] settingWithKey:key];
 }
 
 #pragma mark Singleton Methods

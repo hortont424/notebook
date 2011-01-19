@@ -41,6 +41,16 @@
         [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
         [self setTextColor:[settings highlightWithKey:@"comment"].color];
         [self setFont:[settings highlightWithKey:@"comment"].font];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification *arg1)
+        {
+            [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
+            [self setTextColor:[settings highlightWithKey:@"comment"].color];
+            [self setFont:[settings highlightWithKey:@"comment"].font];
+        }]);
     }
 
     return self;

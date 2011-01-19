@@ -27,7 +27,7 @@
 
 @interface NBBackgroundView : NSView
 {
-
+    NSObject * themeNotificationObject;
 }
 
 @end

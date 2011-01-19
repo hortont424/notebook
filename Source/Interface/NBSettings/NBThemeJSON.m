@@ -86,20 +86,20 @@
         fonts = [[NSMutableDictionary alloc] init];
 
         [[themeObject objectForKey:@"fonts"] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
-         {
-             NSFont * font;
+        {
+            NSFont * font;
 
-             font = [NSFont fontWithName:[obj objectForKey:@"name"] size:[[obj objectForKey:@"size"] floatValue]];
+            font = [NSFont fontWithName:[obj objectForKey:@"name"] size:[[obj objectForKey:@"size"] floatValue]];
 
-             if(font)
-             {
-                 [(NSMutableDictionary *)fonts setObject:font forKey:key];
-             }
-             else
-             {
-                 NSLog(@"Failed to parse font: %@ %@", key, obj);
-             }
-         }];
+            if(font)
+            {
+                [(NSMutableDictionary *)fonts setObject:font forKey:key];
+            }
+            else
+            {
+                NSLog(@"Failed to parse font: %@ %@", key, obj);
+            }
+        }];
 
         // Load highlights
 

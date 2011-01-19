@@ -47,6 +47,15 @@
         [para setLineSpacing:2.0];
         [self setDefaultParagraphStyle:para];
         [self setAllowsUndo:NO];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification *arg1)
+        {
+            [self setTextColor:[[NBSettings sharedInstance] colorWithKey:@"normal"]];
+            [self setFont:[[NBSettings sharedInstance] fontWithKey:@"normal"]];
+        }]);
     }
 
     return self;

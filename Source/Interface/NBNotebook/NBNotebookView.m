@@ -57,6 +57,15 @@
         addCellTrackingAreas = [[NSMutableArray alloc] init];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidResize:) name:NSViewFrameDidChangeNotification object:self];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification * arg1)
+        {
+            [self relayoutViews];
+            [self setNeedsDisplay:YES];
+        }]);
     }
 
     return self;

@@ -25,6 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define NBThemeChangedNotification @"NBThemeChangedNotification"
+
 @class NBHighlightSettings;
 @class NBTheme;
 

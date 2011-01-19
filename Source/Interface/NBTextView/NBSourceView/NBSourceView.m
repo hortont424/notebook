@@ -45,6 +45,14 @@
         leadingSpacesRegex = [RKRegex regexWithRegexString:@"^([[:blank:]]*)" options:RKCompileNoOptions];
 
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification *arg1)
+        {
+            [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
+        }]);
     }
 
     return self;
