@@ -194,7 +194,7 @@ static NBSettings * sharedInstance = nil;
     return [[[NSUserDefaults standardUserDefaults] objectForKey:NBMatchIndentKey] unsignedIntValue] ? '\t' : ' ';
 }
 
-- (NSUInteger)createUntitledMode // TODO: make an enum for this that matches the UI
+- (NBCreateUntitledModes)createUntitledMode
 {
     return [[[NSUserDefaults standardUserDefaults] objectForKey:NBCreateUntitledModeKey] unsignedIntValue];
 }

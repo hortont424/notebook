@@ -58,6 +58,13 @@
 #define NBHighlightGlobalsDefault YES
 #define NBFontNameDefault @""
 
+typedef enum
+{
+    NBCreateUntitledNever = 0,
+    NBCreateUntitledOnLaunch = 1,
+    NBCreateUntitledOnLaunchAndReactivation = 2
+} NBCreateUntitledModes;
+
 @class NBHighlightSettings;
 @class NBTheme;
 
@@ -80,7 +87,7 @@
 - (BOOL)shouldPairCharacters;
 - (BOOL)shouldWrapLines;
 - (char)tabCharacter;
-- (NSUInteger)createUntitledMode;
+- (NBCreateUntitledModes)createUntitledMode;
 - (BOOL)shouldHighlightSyntax;
 - (BOOL)shouldHighlightGlobals;
 
