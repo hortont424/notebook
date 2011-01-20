@@ -111,14 +111,14 @@
 {
     [super drawRect:dirtyRect];
 
-    NSLayoutManager * layout = [self layoutManager];
-    NBSettings * settings = [NBSettings sharedInstance];
-    CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-
     // Highlight errors
 
     if([exceptions count])
     {
+        NSLayoutManager * layout = [self layoutManager];
+        NBSettings * settings = [NBSettings sharedInstance];
+        CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
+
         NSUInteger currentLocation = 0, lineNumber = 0;
         NSArray * lines = [[self string] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 
