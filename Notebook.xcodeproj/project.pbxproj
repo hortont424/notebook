@@ -30,9 +30,9 @@
 		35B8CC6312DDBD0600F0CE4F /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AACFC12DBB4FB00A9FA54 /* NBUI.framework */; };
 		35B8CC7112DDBE8E00F0CE4F /* NBSourceViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B8CC6612DDBD5A00F0CE4F /* NBSourceViewTest.m */; };
 		35B8CCDB12DDBFE000F0CE4F /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAD3212DBB62100A9FA54 /* RegexKit.framework */; };
-		35D31A5512DEA083001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
+		35C465FC12ECE19900D56326 /* BWToolkitFrameworkMAS.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5412DEA073001A5F50 /* BWToolkitFrameworkMAS.framework */; };
+		35C465FD12ECE1A400D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5412DEA073001A5F50 /* BWToolkitFrameworkMAS.framework */; };
 		35E4823912DEA2A200B5EB91 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
-		35E4823A12DEA2AA00B5EB91 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 35D31A5212DEA073001A5F50 /* BWToolkitFramework.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,13 +71,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 53D229800C96121600276605;
 			remoteInfo = JSON;
-		};
-		3541C4CB12DEDFCA005136EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
-			remoteInfo = BWToolkitFramework;
 		};
 		355AACF412DBB4FB00A9FA54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -156,6 +149,13 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = Notebook;
 		};
+		35C465FA12ECE18200D56326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF6901067E5B8E0090B5B0;
+			remoteInfo = All;
+		};
 		35D31A4F12DEA073001A5F50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D31A4812DEA073001A5F50 /* BWToolkit.xcodeproj */;
@@ -198,9 +198,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				35C465FC12ECE19900D56326 /* BWToolkitFrameworkMAS.framework in Copy Frameworks */,
 				35A2C3B212E2FEE500C49D8C /* NBApplication.framework in Copy Frameworks */,
 				351BE60412DEDA610010FD5C /* JSON.framework in Copy Frameworks */,
-				35E4823A12DEA2AA00B5EB91 /* BWToolkitFramework.framework in Copy Frameworks */,
 				355AAD2512DBB5A200A9FA54 /* NBUI.framework in Copy Frameworks */,
 				355AAD2412DBB5A000A9FA54 /* NBCore.framework in Copy Frameworks */,
 				355AADD812DBB78300A9FA54 /* RegexKit.framework in Copy Frameworks */,
@@ -266,9 +266,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C465FD12ECE1A400D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */,
 				35A2C3B312E2FEE900C49D8C /* NBApplication.framework in Frameworks */,
 				351BE5EC12DEDA050010FD5C /* JSON.framework in Frameworks */,
-				35D31A5512DEA083001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AADDA12DBB7A200A9FA54 /* NBUI.framework in Frameworks */,
 				355AADD912DBB79C00A9FA54 /* NBCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -478,8 +478,8 @@
 				355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */,
 				3576FE6612DBC9BE00C2ED92 /* PBXTargetDependency */,
 				3541C4CA12DEDFCA005136EF /* PBXTargetDependency */,
-				3541C4CC12DEDFCA005136EF /* PBXTargetDependency */,
 				3584CB1F12E2FE4D00A222CA /* PBXTargetDependency */,
+				35C465FB12ECE18200D56326 /* PBXTargetDependency */,
 			);
 			name = Notebook;
 			productInstallPath = "$(HOME)/Applications";
@@ -690,11 +690,6 @@
 			name = JSON;
 			targetProxy = 3541C4C912DEDFCA005136EF /* PBXContainerItemProxy */;
 		};
-		3541C4CC12DEDFCA005136EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = BWToolkitFramework;
-			targetProxy = 3541C4CB12DEDFCA005136EF /* PBXContainerItemProxy */;
-		};
 		355AAD1F12DBB58E00A9FA54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NBPython;
@@ -724,6 +719,11 @@
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Notebook */;
 			targetProxy = 35B8CC5812DDBCB000F0CE4F /* PBXContainerItemProxy */;
+		};
+		35C465FB12ECE18200D56326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = All;
+			targetProxy = 35C465FA12ECE18200D56326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -840,6 +840,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -855,6 +856,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 				SYMROOT = Build;

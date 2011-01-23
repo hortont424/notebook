@@ -13,7 +13,7 @@
 		3584C9BB12E2FD3000A222CA /* NBUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3584C9B812E2FD1B00A222CA /* NBUI.framework */; };
 		3584CA8F12E2FDD800A222CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353E2B841295F2B8001A40B6 /* QuartzCore.framework */; };
 		3584CA9012E2FDD800A222CA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385972B12D57EBF003D2E8D /* Quartz.framework */; };
-		35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */; };
+		35C4660712ECE1D200D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AD12DE9FCB001A5F50 /* BWToolkitFrameworkMAS.framework */; };
 		35E370D012E2FC9300314C39 /* Notebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E370CF12E2FC9300314C39 /* Notebook.xib */; };
 		35E370D712E2FC9A00314C39 /* NBDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 35E370D112E2FC9A00314C39 /* NBDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35E370D812E2FC9A00314C39 /* NBDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E370D212E2FC9A00314C39 /* NBDocument.m */; };
@@ -88,6 +88,13 @@
 			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54;
 			remoteInfo = NBUI;
 		};
+		35C4660512ECE1C400D56326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF6901067E5B8E0090B5B0 /* All */;
+			remoteInfo = All;
+		};
 		35D315A812DE9FCB001A5F50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
@@ -108,13 +115,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = C7D4AD1612C939E8000FD3F9;
 			remoteInfo = BWToolkitFrameworkMAS;
-		};
-		35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
-			remoteInfo = BWToolkitFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -150,11 +150,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C4660712ECE1D200D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */,
 				3584CA8F12E2FDD800A222CA /* QuartzCore.framework in Frameworks */,
 				3584CA9012E2FDD800A222CA /* Quartz.framework in Frameworks */,
 				3584C9BB12E2FD3000A222CA /* NBUI.framework in Frameworks */,
 				3541C4B212DEDFA5005136EF /* JSON.framework in Frameworks */,
-				35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */,
 				355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */,
 			);
@@ -293,9 +293,9 @@
 			);
 			dependencies = (
 				355AAC2E12DBB1B600A9FA54 /* PBXTargetDependency */,
-				35D3187012DEA008001A5F50 /* PBXTargetDependency */,
 				3541C4C312DEDFBA005136EF /* PBXTargetDependency */,
 				3584C9BA12E2FD2300A222CA /* PBXTargetDependency */,
+				35C4660612ECE1C400D56326 /* PBXTargetDependency */,
 			);
 			name = NBApplication;
 			productName = NBApplication;
@@ -450,10 +450,10 @@
 			name = NBUI;
 			targetProxy = 3584C9B912E2FD2300A222CA /* PBXContainerItemProxy */;
 		};
-		35D3187012DEA008001A5F50 /* PBXTargetDependency */ = {
+		35C4660612ECE1C400D56326 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = BWToolkitFramework;
-			targetProxy = 35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */;
+			name = All;
+			targetProxy = 35C4660512ECE1C400D56326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -530,6 +530,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = Application/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -549,6 +550,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = Application/Info.plist;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;

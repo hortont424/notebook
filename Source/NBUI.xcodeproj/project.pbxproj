@@ -53,7 +53,7 @@
 		3564A1FA12E4457100C47469 /* NBThemeJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564A1F812E4457100C47469 /* NBThemeJSON.m */; };
 		35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */; };
-		35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AB12DE9FCB001A5F50 /* BWToolkitFramework.framework */; };
+		35C4662112ECE1FC00D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D315AD12DE9FCB001A5F50 /* BWToolkitFrameworkMAS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +106,20 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = NBCore;
 		};
+		359A0E1012ECCB4A00AA1A12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1AC9600486D14A00FE50C9;
+			remoteInfo = BWToolkit;
+		};
+		35C4661F12ECE1EE00D56326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF6901067E5B8E0090B5B0 /* All */;
+			remoteInfo = All;
+		};
 		35D315A812DE9FCB001A5F50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
@@ -126,13 +140,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = C7D4AD1612C939E8000FD3F9;
 			remoteInfo = BWToolkitFrameworkMAS;
-		};
-		35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
-			remoteInfo = BWToolkitFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -202,8 +209,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C4662112ECE1FC00D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */,
 				3541C4B212DEDFA5005136EF /* JSON.framework in Frameworks */,
-				35D3186E12DE9FFC001A5F50 /* BWToolkitFramework.framework in Frameworks */,
 				355AAC2C12DBB1AC00A9FA54 /* NBCore.framework in Frameworks */,
 				355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */,
 			);
@@ -488,8 +495,9 @@
 			);
 			dependencies = (
 				355AAC2E12DBB1B600A9FA54 /* PBXTargetDependency */,
-				35D3187012DEA008001A5F50 /* PBXTargetDependency */,
 				3541C4C312DEDFBA005136EF /* PBXTargetDependency */,
+				359A0E1112ECCB4A00AA1A12 /* PBXTargetDependency */,
+				35C4662012ECE1EE00D56326 /* PBXTargetDependency */,
 			);
 			name = NBUI;
 			productName = NBUI;
@@ -644,10 +652,15 @@
 			name = NBCore;
 			targetProxy = 355AAC2D12DBB1B600A9FA54 /* PBXContainerItemProxy */;
 		};
-		35D3187012DEA008001A5F50 /* PBXTargetDependency */ = {
+		359A0E1112ECCB4A00AA1A12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = BWToolkitFramework;
-			targetProxy = 35D3186F12DEA008001A5F50 /* PBXContainerItemProxy */;
+			name = BWToolkit;
+			targetProxy = 359A0E1012ECCB4A00AA1A12 /* PBXContainerItemProxy */;
+		};
+		35C4662012ECE1EE00D56326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = All;
+			targetProxy = 35C4661F12ECE1EE00D56326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -724,6 +737,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -742,6 +756,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_PLUGIN_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;

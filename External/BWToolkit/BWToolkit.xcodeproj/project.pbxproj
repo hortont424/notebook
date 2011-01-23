@@ -13,6 +13,7 @@
 			buildPhases = (
 			);
 			dependencies = (
+				35BA6CB212ECE2AA00BD6DB7 /* PBXTargetDependency */,
 				53DF6903067E5B930090B5B0 /* PBXTargetDependency */,
 				53DF6905067E5B930090B5B0 /* PBXTargetDependency */,
 			);
@@ -479,6 +480,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		35BA6CB112ECE2AA00BD6DB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7D4AC6A12C939E8000FD3F9 /* BWToolkitFrameworkMAS */;
+			remoteInfo = BWToolkitFrameworkMAS;
+		};
 		53DF6902067E5B930090B5B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
@@ -2174,6 +2182,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		35BA6CB212ECE2AA00BD6DB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7D4AC6A12C939E8000FD3F9 /* BWToolkitFrameworkMAS */;
+			targetProxy = 35BA6CB112ECE2AA00BD6DB7 /* PBXContainerItemProxy */;
+		};
 		53DF6903067E5B930090B5B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1AC9600486D14A00FE50C9 /* BWToolkit */;
@@ -2233,7 +2246,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "BWToolkitFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = BWToolkitFramework;
 				SKIP_INSTALL = NO;
@@ -2257,7 +2270,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "BWToolkitFramework-Info.plist";
 				INSTALL_MODE_FLAG = "go-w,a+rX";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = BWToolkitFramework;
 				SKIP_INSTALL = NO;
@@ -2331,17 +2344,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				"ARCHS[sdk=macosx10.5]" = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = "";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "";
 				SYMROOT = ../../Build;
 			};
 			name = Debug;
@@ -2350,17 +2360,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				"ARCHS[sdk=macosx10.5]" = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = "";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "";
 				SYMROOT = ../../Build;
 			};
 			name = Release;
@@ -2388,7 +2395,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = APPSTORE;
 				INFOPLIST_FILE = "BWToolkitFrameworkMAS-Info.plist";
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = BWToolkitFrameworkMAS;
 				SKIP_INSTALL = NO;
@@ -2413,7 +2420,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = APPSTORE;
 				INFOPLIST_FILE = "BWToolkitFrameworkMAS-Info.plist";
 				INSTALL_MODE_FLAG = "go-w,a+rX";
-				INSTALL_PATH = "@loader_path/../Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = BWToolkitFrameworkMAS;
 				SKIP_INSTALL = NO;
