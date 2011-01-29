@@ -37,5 +37,6 @@
 + (void)launchServer:(NSString *)port;
 
 - (oneway void)executeSnippet:(NSString *)snippet;
+- (NSDictionary *)globals;
 
 @end

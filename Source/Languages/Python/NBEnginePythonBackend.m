@@ -25,6 +25,46 @@
 
 #import "NBEnginePythonBackend.h"
 
+id PyObject_AsNSObject(PyObject * obj)
+{
+    if(PyString_Check(obj))
+    {
+        return [NSString stringWithUTF8String:PyString_AsString(obj)];
+    }
+    else if(PyUnicode_Check(obj))
+    {
+        return [NSString stringWithUTF8String:PyString_AsString(obj)];
+    }
+    else if(PyInt_Check(obj))
+    {
+        return [NSNumber numberWithLong:PyInt_AsLong(obj)];
+    }
+    else if(PyFloat_Check(obj))
+    {
+        return [NSNumber numberWithDouble:PyFloat_AsDouble(obj)];
+    }
+    else if(PyLong_Check(obj))
+    {
+        return [NSNumber numberWithLongLong:PyLong_AsLongLong(obj)];
+    }
+    else if(PyList_Check(obj))
+    {
+        // TODO: if a list contains a reference to itself, we infinitely recurse; this is a problem
+
+        Py_ssize_t listCount = PyList_Size(obj);
+        NSMutableArray * subObjects = [[NSMutableArray alloc] initWithCapacity:listCount];
+
+        for(Py_ssize_t currentItem = 0; currentItem < listCount; currentItem++)
+        {
+            [subObjects addObject:PyObject_AsNSObject(PyList_GetItem(obj, currentItem))];
+        }
+
+        return subObjects;
+    }
+
+    return nil;
+}
+
 @implementation NBEnginePythonBackend
 
 - (id)init
@@ -37,6 +77,8 @@
 
         mainModule = PyImport_AddModule("__main__");
         globals = PyDict_Copy(PyModule_GetDict(mainModule));
+
+        objGlobalsCache = [[NSMutableDictionary alloc] init];
     }
 
     return self;
@@ -106,7 +148,9 @@
     // TODO: is this the right thing to do?
 
     if([stdoutString length] && ([stdoutString characterAtIndex:[stdoutString length] - 1] == '\n'))
+    {
         stdoutString = [stdoutString substringToIndex:[stdoutString length] - 1];
+    }
 
     return stdoutString;
 }
@@ -138,6 +182,32 @@
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
     [engine snippetComplete:[self retrievePythonException] withOutput:[self prepareCapturedPythonStdout:pythonStdout]];
+}
+
+- (NSDictionary *)globals
+{
+    // TODO: need to determine if there were changes and have some way of notifying/recomputing just those
+
+    PyObject * key, * value;
+    Py_ssize_t pos = 0;
+
+    [objGlobalsCache removeAllObjects];
+
+    while(PyDict_Next(globals, &pos, &key, &value))
+    {
+        id objValue = PyObject_AsNSObject(value);
+        NSString * objKey = [NSString stringWithUTF8String:PyString_AsString(key)];
+
+        if(!objValue)
+        {
+            NSLog(@"unknown type for key %@!!", objKey);
+            objValue = PyObject_AsNSObject(PyObject_Str(value));
+        }
+
+        [objGlobalsCache setObject:objValue forKey:objKey];
+    }
+
+    return objGlobalsCache;
 }
 
 @end

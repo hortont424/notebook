@@ -56,4 +56,6 @@ typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * ou
 - (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
 - (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
 
+- (NSDictionary *)globals;
+
 @end

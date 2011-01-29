@@ -59,4 +59,9 @@ static NSConnection * connection = nil;
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (NSDictionary *)globals
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 @end

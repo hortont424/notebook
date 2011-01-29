@@ -263,4 +263,17 @@
     }
 }
 
+- (NSDictionary *)globals
+{
+    if(backend)
+    {
+        return [backend globals];
+    }
+    else
+    {
+        return nil;
+    }
+
+}
+
 @end

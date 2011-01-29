@@ -31,6 +31,8 @@
 {
     PyObject * mainModule;
     PyObject * globals;
+
+    NSMutableDictionary * objGlobalsCache;
 }
 
 @end
