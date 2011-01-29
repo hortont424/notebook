@@ -61,6 +61,22 @@ id PyObject_AsNSObject(PyObject * obj)
 
         return subObjects;
     }
+    else if(PyDict_Check(obj))
+    {
+        // TODO: if a dict contains a reference to itself, we infinitely recurse; this is a problem
+
+        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+
+        PyObject * key, * value;
+        Py_ssize_t pos = 0;
+
+        while(PyDict_Next(obj, &pos, &key, &value))
+        {
+            [dict setObject:PyObject_AsNSObject(value) forKey:PyObject_AsNSObject(key)];
+        }
+
+        return dict;
+    }
 
     return nil;
 }
