@@ -25,9 +25,15 @@
 
 #import "NBEnginePythonBackend.h"
 
-id PyObject_AsNSObject(PyObject * obj)
+id _PyObject_AsNSObject(PyObject * obj, NSMapTable * seen)
 {
-    if(PyString_Check(obj))
+    id seenObject = NSMapGet(seen, obj);
+
+    if(seenObject)
+    {
+        return [NSString stringWithFormat:@"<recursion: %p>", seenObject];
+    }
+    else if(PyString_Check(obj))
     {
         return [NSString stringWithUTF8String:PyString_AsString(obj)];
     }
@@ -49,36 +55,42 @@ id PyObject_AsNSObject(PyObject * obj)
     }
     else if(PyList_Check(obj))
     {
-        // TODO: if a list contains a reference to itself, we infinitely recurse; this is a problem
-
         Py_ssize_t listCount = PyList_Size(obj);
         NSMutableArray * subObjects = [[NSMutableArray alloc] initWithCapacity:listCount];
 
+        NSMapInsert(seen, obj, subObjects);
+
         for(Py_ssize_t currentItem = 0; currentItem < listCount; currentItem++)
         {
-            [subObjects addObject:PyObject_AsNSObject(PyList_GetItem(obj, currentItem))];
+            [subObjects addObject:_PyObject_AsNSObject(PyList_GetItem(obj, currentItem), [seen copy])];
         }
 
         return subObjects;
     }
     else if(PyDict_Check(obj))
     {
-        // TODO: if a dict contains a reference to itself, we infinitely recurse; this is a problem
-
         NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+
+        NSMapInsert(seen, obj, dict);
 
         PyObject * key, * value;
         Py_ssize_t pos = 0;
 
         while(PyDict_Next(obj, &pos, &key, &value))
         {
-            [dict setObject:PyObject_AsNSObject(value) forKey:PyObject_AsNSObject(key)];
+            [dict setObject:_PyObject_AsNSObject(value, [seen copy]) forKey:_PyObject_AsNSObject(key, [seen copy])];
         }
 
         return dict;
     }
 
     return nil;
+}
+
+id PyObject_AsNSObject(PyObject * obj)
+{
+    NSMapTable * seen = NSCreateMapTable(NSNonOwnedPointerOrNullMapKeyCallBacks, NSNonOwnedPointerMapValueCallBacks, 100);
+    return _PyObject_AsNSObject(obj, seen);
 }
 
 @implementation NBEnginePythonBackend
@@ -211,8 +223,14 @@ id PyObject_AsNSObject(PyObject * obj)
 
     while(PyDict_Next(globals, &pos, &key, &value))
     {
-        id objValue = PyObject_AsNSObject(value);
         NSString * objKey = [NSString stringWithUTF8String:PyString_AsString(key)];
+
+        if([objKey hasPrefix:@"__"])
+        {
+            continue;
+        }
+
+        id objValue = PyObject_AsNSObject(value);
 
         if(!objValue)
         {
@@ -222,6 +240,8 @@ id PyObject_AsNSObject(PyObject * obj)
 
         [objGlobalsCache setObject:objValue forKey:objKey];
     }
+
+    NSLog(@"made all globals!! %@", objGlobalsCache);
 
     return objGlobalsCache;
 }
