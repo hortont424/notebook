@@ -241,8 +241,6 @@ id PyObject_AsNSObject(PyObject * obj)
         [objGlobalsCache setObject:objValue forKey:objKey];
     }
 
-    NSLog(@"made all globals!! %@", objGlobalsCache);
-
     return objGlobalsCache;
 }
 
