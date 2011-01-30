@@ -56,16 +56,16 @@ id _PyObject_AsNSObject(PyObject * obj, NSMapTable * seen)
     else if(PyList_Check(obj))
     {
         Py_ssize_t listCount = PyList_Size(obj);
-        NSMutableArray * subObjects = [[NSMutableArray alloc] initWithCapacity:listCount];
+        NSMutableArray * list = [[NSMutableArray alloc] initWithCapacity:listCount];
 
-        NSMapInsert(seen, obj, subObjects);
+        NSMapInsert(seen, obj, list);
 
         for(Py_ssize_t currentItem = 0; currentItem < listCount; currentItem++)
         {
-            [subObjects addObject:_PyObject_AsNSObject(PyList_GetItem(obj, currentItem), [seen copy])];
+            [list addObject:_PyObject_AsNSObject(PyList_GetItem(obj, currentItem), [seen copy])];
         }
 
-        return subObjects;
+        return list;
     }
     else if(PyDict_Check(obj))
     {
@@ -82,6 +82,25 @@ id _PyObject_AsNSObject(PyObject * obj, NSMapTable * seen)
         }
 
         return dict;
+    }
+    else if(PyTuple_Check(obj))
+    {
+        Py_ssize_t tupleCount = PyTuple_Size(obj);
+        NSMutableArray * tuple = [[NSMutableArray alloc] initWithCapacity:tupleCount];
+
+        NSMapInsert(seen, obj, tuple);
+
+        for(Py_ssize_t currentItem = 0; currentItem < tupleCount; currentItem++)
+        {
+            [tuple addObject:_PyObject_AsNSObject(PyTuple_GetItem(obj, currentItem), [seen copy])];
+        }
+
+        return tuple;
+    }
+    else
+    {
+        NSLog(@"unknown type with object %p!!", obj);
+        return _PyObject_AsNSObject(PyObject_Str(obj), [seen copy]);
     }
 
     return nil;
@@ -225,18 +244,16 @@ id PyObject_AsNSObject(PyObject * obj)
     {
         NSString * objKey = [NSString stringWithUTF8String:PyString_AsString(key)];
 
+        // Don't include the various Python special globals
+
         if([objKey hasPrefix:@"__"])
         {
             continue;
         }
 
-        id objValue = PyObject_AsNSObject(value);
+        // Attempt to convert the given Python object to a corresponding Objective-C object
 
-        if(!objValue)
-        {
-            NSLog(@"unknown type for key %@!!", objKey);
-            objValue = PyObject_AsNSObject(PyObject_Str(value));
-        }
+        id objValue = PyObject_AsNSObject(value);
 
         [objGlobalsCache setObject:objValue forKey:objKey];
     }
