@@ -17,6 +17,7 @@
 		356CBAE112DB23C300E07E46 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAE012DB23C300E07E46 /* Python.framework */; };
 		356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAEF12DB23EB00E07E46 /* NBCore.framework */; };
 		356CBB5712DB271000E07E46 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBB5612DB271000E07E46 /* RegexKit.framework */; };
+		3571109312FA13CA00D87931 /* NBEnginePythonTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3571109212FA13CA00D87931 /* NBEnginePythonTypes.m */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		356CBAE012DB23C300E07E46 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = ../NBCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		356CBB5612DB271000E07E46 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
+		3571109112FA13CA00D87931 /* NBEnginePythonTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePythonTypes.h; path = Python/NBEnginePythonTypes.h; sourceTree = "<group>"; };
+		3571109212FA13CA00D87931 /* NBEnginePythonTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEnginePythonTypes.m; path = Python/NBEnginePythonTypes.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* NBPython.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBPython.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -128,12 +131,14 @@
 				356CBACA12DB238800E07E46 /* NBEnginePython.m */,
 				356CBACB12DB238800E07E46 /* NBEnginePythonBackend.h */,
 				356CBACC12DB238800E07E46 /* NBEnginePythonBackend.m */,
+				354087E312E3010A00C4D39E /* NBEnginePythonDocument.h */,
+				354087E412E3010A00C4D39E /* NBEnginePythonDocument.m */,
 				356CBACD12DB238800E07E46 /* NBEnginePythonEncoder.h */,
 				356CBACE12DB238800E07E46 /* NBEnginePythonEncoder.m */,
 				356CBACF12DB238800E07E46 /* NBEnginePythonHighlighter.h */,
 				356CBAD012DB238800E07E46 /* NBEnginePythonHighlighter.m */,
-				354087E312E3010A00C4D39E /* NBEnginePythonDocument.h */,
-				354087E412E3010A00C4D39E /* NBEnginePythonDocument.m */,
+				3571109112FA13CA00D87931 /* NBEnginePythonTypes.h */,
+				3571109212FA13CA00D87931 /* NBEnginePythonTypes.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				356CBAD312DB238800E07E46 /* NBEnginePythonEncoder.m in Sources */,
 				356CBAD412DB238800E07E46 /* NBEnginePythonHighlighter.m in Sources */,
 				354087E512E3010A00C4D39E /* NBEnginePythonDocument.m in Sources */,
+				3571109312FA13CA00D87931 /* NBEnginePythonTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

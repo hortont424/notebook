@@ -23,40 +23,8 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#include <Cocoa/Cocoa.h>
+#include <Python/Python.h>
 
-@class NBEngineBackend;
-@class NBException;
-
-typedef void (^SnippetCompletionCallback)(NBException * exception, NSString * output);
-
-@interface NBEngine : NSObject
-{
-    NSTask * backendTask;
-    NBEngineBackend * backend;
-
-    NSMutableArray * taskQueue;
-
-    SnippetCompletionCallback lastCompletionCallback;
-    BOOL busy;
-}
-
-- (void)abort;
-
-+ (Class)backendClass;
-+ (Class)highlighterClass;
-+ (Class)encoderClass;
-+ (Class)documentClass;
-
-+ (NSString *)uuid;
-+ (NSString *)name;
-+ (NSString *)version;
-+ (NSImage *)icon;
-
-- (void)executeSnippet:(NSString *)snippet onCompletion:(SnippetCompletionCallback)completion;
-- (oneway void)snippetComplete:(NBException *)exception withOutput:(NSString *)outputString;
-
-- (NSDictionary *)globals;
-- (id)globalWithKey:(NSString *)key;
-
-@end
+id PyObject_AsNSObject(PyObject * obj);
+NSString * PyObject_NSObjectClassName(PyObject * obj);

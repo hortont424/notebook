@@ -30,13 +30,17 @@
 @interface NBEngineBackend : NSObject
 {
     NBEngine * engine;
+
+    NSMutableDictionary * globals;
 }
 
 @property (nonatomic,assign) NBEngine * engine;
+@property (nonatomic,readonly) NSMutableDictionary * globals;
 
 + (void)launchServer:(NSString *)port;
 
 - (oneway void)executeSnippet:(NSString *)snippet;
-- (NSDictionary *)globals;
+
+- (id)globalWithKey:(NSString *)key;
 
 @end

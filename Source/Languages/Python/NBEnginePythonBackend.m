@@ -24,93 +24,17 @@
  */
 
 #import "NBEnginePythonBackend.h"
+#import "NBEnginePythonTypes.h"
 
-id _PyObject_AsNSObject(PyObject * obj, NSMapTable * seen)
-{
-    id seenObject = NSMapGet(seen, obj);
+@interface NBEnginePythonBackend ()
 
-    if(seenObject)
-    {
-        return [NSString stringWithFormat:@"<recursion: %p>", seenObject];
-    }
-    else if(PyString_Check(obj))
-    {
-        return [NSString stringWithUTF8String:PyString_AsString(obj)];
-    }
-    else if(PyUnicode_Check(obj))
-    {
-        return [NSString stringWithUTF8String:PyString_AsString(obj)];
-    }
-    else if(PyInt_Check(obj))
-    {
-        return [NSNumber numberWithLong:PyInt_AsLong(obj)];
-    }
-    else if(PyFloat_Check(obj))
-    {
-        return [NSNumber numberWithDouble:PyFloat_AsDouble(obj)];
-    }
-    else if(PyLong_Check(obj))
-    {
-        return [NSNumber numberWithLongLong:PyLong_AsLongLong(obj)];
-    }
-    else if(PyList_Check(obj))
-    {
-        Py_ssize_t listCount = PyList_Size(obj);
-        NSMutableArray * list = [[NSMutableArray alloc] initWithCapacity:listCount];
+- (void)recomputeGlobalKeys;
+- (NBException *)retrievePythonException;
+- (PyObject *)capturePythonStdout;
+- (NSString *)prepareCapturedPythonStdout:(PyObject *)stringIOObject;
 
-        NSMapInsert(seen, obj, list);
+@end
 
-        for(Py_ssize_t currentItem = 0; currentItem < listCount; currentItem++)
-        {
-            [list addObject:_PyObject_AsNSObject(PyList_GetItem(obj, currentItem), [seen copy])];
-        }
-
-        return list;
-    }
-    else if(PyDict_Check(obj))
-    {
-        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-
-        NSMapInsert(seen, obj, dict);
-
-        PyObject * key, * value;
-        Py_ssize_t pos = 0;
-
-        while(PyDict_Next(obj, &pos, &key, &value))
-        {
-            [dict setObject:_PyObject_AsNSObject(value, [seen copy]) forKey:_PyObject_AsNSObject(key, [seen copy])];
-        }
-
-        return dict;
-    }
-    else if(PyTuple_Check(obj))
-    {
-        Py_ssize_t tupleCount = PyTuple_Size(obj);
-        NSMutableArray * tuple = [[NSMutableArray alloc] initWithCapacity:tupleCount];
-
-        NSMapInsert(seen, obj, tuple);
-
-        for(Py_ssize_t currentItem = 0; currentItem < tupleCount; currentItem++)
-        {
-            [tuple addObject:_PyObject_AsNSObject(PyTuple_GetItem(obj, currentItem), [seen copy])];
-        }
-
-        return tuple;
-    }
-    else
-    {
-        NSLog(@"unknown type with object %p!!", obj);
-        return _PyObject_AsNSObject(PyObject_Str(obj), [seen copy]);
-    }
-
-    return nil;
-}
-
-id PyObject_AsNSObject(PyObject * obj)
-{
-    NSMapTable * seen = NSCreateMapTable(NSNonOwnedPointerOrNullMapKeyCallBacks, NSNonOwnedPointerMapValueCallBacks, 100);
-    return _PyObject_AsNSObject(obj, seen);
-}
 
 @implementation NBEnginePythonBackend
 
@@ -123,9 +47,9 @@ id PyObject_AsNSObject(PyObject * obj)
         Py_Initialize();
 
         mainModule = PyImport_AddModule("__main__");
-        globals = PyDict_Copy(PyModule_GetDict(mainModule));
+        _globalDict = PyDict_Copy(PyModule_GetDict(mainModule));
 
-        objGlobalsCache = [[NSMutableDictionary alloc] init];
+        globalsValueCache = [[NSMutableDictionary alloc] init];
     }
 
     return self;
@@ -224,23 +148,27 @@ id PyObject_AsNSObject(PyObject * obj)
 
     // Execute the code in the context of our engine
 
-    PyEval_EvalCode((PyCodeObject *)compiledSnippet, globals, globals); // TODO: check about sending globals as locals
+    PyEval_EvalCode((PyCodeObject *)compiledSnippet, _globalDict, _globalDict); // TODO: check about sending globals as locals
+
+    // Recompute the list of globals and their types
+
+    [self recomputeGlobalKeys];
 
     // Let the caller know that we're done, including any exceptions that occurred and any captured output
 
     [engine snippetComplete:[self retrievePythonException] withOutput:[self prepareCapturedPythonStdout:pythonStdout]];
 }
 
-- (NSDictionary *)globals
+- (void)recomputeGlobalKeys
 {
-    // TODO: need to determine if there were changes and have some way of notifying/recomputing just those
-
     PyObject * key, * value;
     Py_ssize_t pos = 0;
 
-    [objGlobalsCache removeAllObjects];
+    [self.globals removeAllObjects];
 
-    while(PyDict_Next(globals, &pos, &key, &value))
+    // Update the mapping of global variable names to corresponding Objective-C classes
+
+    while(PyDict_Next(_globalDict, &pos, &key, &value))
     {
         NSString * objKey = [NSString stringWithUTF8String:PyString_AsString(key)];
 
@@ -251,14 +179,17 @@ id PyObject_AsNSObject(PyObject * obj)
             continue;
         }
 
-        // Attempt to convert the given Python object to a corresponding Objective-C object
+        // Attempt to determine the Objective-C type corresponding to the type of the given Python object
 
-        id objValue = PyObject_AsNSObject(value);
+        NSString * objClassName = PyObject_NSObjectClassName(value);
 
-        [objGlobalsCache setObject:objValue forKey:objKey];
+        [globals setObject:objClassName forKey:objKey];
     }
+}
 
-    return objGlobalsCache;
+- (id)globalWithKey:(NSString *)key
+{
+    return PyObject_AsNSObject(PyDict_GetItemString(_globalDict, [key UTF8String]));
 }
 
 @end

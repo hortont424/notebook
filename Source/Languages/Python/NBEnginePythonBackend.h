@@ -30,9 +30,9 @@
 @interface NBEnginePythonBackend : NBEngineBackend
 {
     PyObject * mainModule;
-    PyObject * globals;
+    PyObject * _globalDict;
 
-    NSMutableDictionary * objGlobalsCache;
+    NSMutableDictionary * globalsValueCache;
 }
 
 @end

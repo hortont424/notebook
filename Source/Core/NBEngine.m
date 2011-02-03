@@ -276,4 +276,18 @@
 
 }
 
+- (id)globalWithKey:(NSString *)key
+{
+    // TODO: look into method forwarding in a few places
+
+    if(backend)
+    {
+        return [backend globalWithKey:key];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
 @end

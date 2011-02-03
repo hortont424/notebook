@@ -32,7 +32,7 @@ static NSConnection * connection = nil;
 
 @implementation NBEngineBackend
 
-@synthesize engine;
+@synthesize engine, globals;
 
 + (void)launchServer:(NSString *)port
 {
@@ -54,14 +54,28 @@ static NSConnection * connection = nil;
     [[NSRunLoop currentRunLoop] run];
 }
 
+- (id)init
+{
+    self = [super init];
+
+    if(self != nil)
+    {
+        globals = [[NSMutableDictionary alloc] init];
+    }
+
+    return self;
+}
+
 - (oneway void)executeSnippet:(NSString *)snippet
 {
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (NSDictionary *)globals
+- (id)globalWithKey:(NSString *)key
 {
     [self doesNotRecognizeSelector:_cmd];
+
+    return nil;
 }
 
 @end
