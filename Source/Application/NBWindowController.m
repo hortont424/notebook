@@ -59,6 +59,9 @@
     }
     else
     {
+        [[[self document] splitView] setWantsLayer:NO];
+        [[[self window] contentView] setWantsLayer:NO];
+
         [[self window] setMinSize:NSMakeSize(150, 150)];
         [[self window] setMaxSize:NSMakeSize(10000, 10000)];
     }
