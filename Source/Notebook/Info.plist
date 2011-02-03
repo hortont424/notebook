@@ -37,8 +37,6 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>0.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>NOTB</string>
 	<key>CFBundleVersion</key>
@@ -49,5 +47,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2010, 2011 Tim Horton</string>
 </dict>
 </plist>
