@@ -112,8 +112,10 @@
     [super drawRect:dirtyRect];
 
     // Highlight errors
+    // TODO: for some reason, glyph generation caused by glyphIndexForCharacterAtIndex: is making other text views
+    // fail to redraw properly... figure out why this is the case, then re-enable drawing exception locations
 
-    if([exceptions count])
+    /*if([exceptions count])
     {
         NSLayoutManager * layout = [self layoutManager];
         NBSettings * settings = [NBSettings sharedInstance];
@@ -159,7 +161,7 @@
 
             currentLocation = nextLocation;
         }
-    }
+    }*/
 }
 
 - (void)addException:(NBException *)exception
