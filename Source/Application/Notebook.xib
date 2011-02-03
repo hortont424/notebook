@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="51"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -51,7 +51,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{541, 176}, {604, 708}}</string>
+				<string key="NSWindowRect">{{541, 176}, {618, 708}}</string>
 				<int key="NSWTFlags">544737280</int>
 				<string key="NSWindowTitle">Notebook</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -210,7 +210,7 @@
 													</object>
 												</object>
 											</object>
-											<string key="NSFrameSize">{428, 23}</string>
+											<string key="NSFrameSize">{618, 23}</string>
 											<reference key="NSSuperview" ref="518658062"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
 											<bool key="BWABBIsResizable">NO</bool>
@@ -231,13 +231,13 @@
 														<object class="NSCustomView" id="874569302">
 															<reference key="NSNextResponder" ref="936204314"/>
 															<int key="NSvFlags">274</int>
-															<string key="NSFrameSize">{413, 685}</string>
+															<string key="NSFrameSize">{603, 685}</string>
 															<reference key="NSSuperview" ref="936204314"/>
 															<int key="NSViewLayerContentsRedrawPolicy">2</int>
 															<string key="NSClassName">NBNotebookView</string>
 														</object>
 													</object>
-													<string key="NSFrameSize">{413, 685}</string>
+													<string key="NSFrameSize">{603, 685}</string>
 													<reference key="NSSuperview" ref="562465488"/>
 													<reference key="NSNextKeyView" ref="874569302"/>
 													<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -256,7 +256,7 @@
 												<object class="NSScroller" id="621865841">
 													<reference key="NSNextResponder" ref="562465488"/>
 													<int key="NSvFlags">256</int>
-													<string key="NSFrame">{{413, 0}, {15, 685}}</string>
+													<string key="NSFrame">{{603, 0}, {15, 685}}</string>
 													<reference key="NSSuperview" ref="562465488"/>
 													<int key="NSViewLayerContentsRedrawPolicy">2</int>
 													<reference key="NSTarget" ref="562465488"/>
@@ -276,7 +276,7 @@
 													<double key="NSPercent">0.50602412223815918</double>
 												</object>
 											</object>
-											<string key="NSFrame">{{0, 23}, {428, 685}}</string>
+											<string key="NSFrame">{{0, 23}, {618, 685}}</string>
 											<reference key="NSSuperview" ref="518658062"/>
 											<reference key="NSNextKeyView" ref="936204314"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -286,7 +286,7 @@
 											<reference key="NSContentView" ref="936204314"/>
 										</object>
 									</object>
-									<string key="NSFrameSize">{428, 708}</string>
+									<string key="NSFrameSize">{618, 708}</string>
 									<reference key="NSSuperview" ref="193179086"/>
 									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSClassName">NBBackgroundView</string>
@@ -294,13 +294,13 @@
 								<object class="BWCustomView" id="871535585">
 									<reference key="NSNextResponder" ref="193179086"/>
 									<int key="NSvFlags">258</int>
-									<string key="NSFrame">{{438, 0}, {176, 708}}</string>
+									<string key="NSFrame">{{628, 0}, {0, 708}}</string>
 									<reference key="NSSuperview" ref="193179086"/>
 									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSClassName">NSView</string>
 								</object>
 							</object>
-							<string key="NSFrameSize">{614, 708}</string>
+							<string key="NSFrameSize">{618, 708}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSViewIsLayerTreeHost">YES</bool>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -358,7 +358,7 @@
 							<bool key="BWSVDividerCanCollapse">YES</bool>
 						</object>
 					</object>
-					<string key="NSFrameSize">{604, 708}</string>
+					<string key="NSFrameSize">{618, 708}</string>
 					<reference key="NSSuperview"/>
 					<bool key="NSViewIsLayerTreeHost">YES</bool>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -648,9 +648,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{319, 66}, {604, 708}}</string>
+					<string>{{258, 80}, {618, 708}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{319, 66}, {604, 708}}</string>
+					<string>{{258, 80}, {618, 708}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
