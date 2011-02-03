@@ -7,28 +7,28 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>*</string>
 			</array>
-			<key>NSDocumentClass</key>
-			<string>NBDocument</string>
+			<key>CFBundleTypeIconFile</key>
+			<string></string>
 			<key>CFBundleTypeName</key>
 			<string>NBDocument</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>****</string>
 			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>NBDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>Notebook.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.hortont.notebook</string>
 	<key>CFBundleInfoDictionaryVersion</key>
