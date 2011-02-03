@@ -42,7 +42,7 @@ typedef struct _NBMargin
     NBMargin margin;
     id<NBCellViewDelegate> delegate;
     BOOL selected;
-    BOOL selectionHandleHiglight;
+    BOOL selectionHandleHighlight;
 
     NSTrackingArea * selectionHandleTrackingArea;
 }

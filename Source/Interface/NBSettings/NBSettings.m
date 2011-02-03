@@ -34,7 +34,7 @@ static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
 
-@synthesize themeName, themes;
+@synthesize themes;
 
 - (id)init
 {
@@ -270,7 +270,7 @@ static NBSettings * sharedInstance = nil;
     return self;
 }
 
-- (unsigned long)retainCount
+- (NSUInteger)retainCount
 {
     return ULONG_MAX;
 }

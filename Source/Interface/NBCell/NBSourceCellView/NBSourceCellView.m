@@ -96,7 +96,7 @@
             break;
     }
 
-    CGContextFillRect(ctx, NSMakeRect(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
+    CGContextFillRect(ctx, CGRectMake(0, margin.top, margin.left, self.bounds.size.height - (margin.top + margin.bottom)));
 }
 
 - (void)viewDidResize:(id)sender

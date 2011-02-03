@@ -37,10 +37,6 @@
 @synthesize initializedFromFile;
 @synthesize notebook;
 
-@synthesize hasKeyCell;
-@synthesize hasSelectedCell;
-@synthesize keyCellIsRichText;
-
 - (id)init
 {
     self = [super init];

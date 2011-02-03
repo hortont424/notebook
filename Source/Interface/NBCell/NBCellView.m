@@ -210,7 +210,7 @@
         }
     }
 
-    CGContextFillRect(ctx, [self bounds]);
+    CGContextFillRect(ctx, NSRectToCGRect([self bounds]));
 }
 
 - (float)requestedHeight
