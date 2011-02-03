@@ -1,4 +1,4 @@
-Notebook 0.2.0
+Notebook 0.1.1
 ==============
 
 Notebook combines the instant interactivity of a REPL with the graphical polish of Cocoa to bring you the best way to both *learn* and rapidly *use* many programming languages.
