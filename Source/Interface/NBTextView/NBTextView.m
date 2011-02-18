@@ -37,8 +37,6 @@
 #import "NBSettings.h"
 #import "NBTheme.h"
 
-#import <Carbon/Carbon.h>
-
 @implementation NBTextView
 
 @synthesize parentCellView, indentString;
@@ -49,6 +47,8 @@
 
     if(self)
     {
+        leadingSpacesRegex = [RKRegex regexWithRegexString:@"^([[:blank:]]*)" options:RKCompileNoOptions];
+
         [[self textStorage] setDelegate:self];
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
         [self setTextColor:[[NBSettings sharedInstance] colorWithKey:@"normal"]];
@@ -109,6 +109,39 @@
     // TODO: cache this and invalidate when the setting changes
 
     return [NSString stringWithUTF8String:tabString];
+}
+
+- (void)insertNewline:(id)sender
+{
+    if([[NBSettings sharedInstance] shouldMatchIndent])
+    {
+        NSRange insertionPoint;
+        NSUInteger start, end;
+        NSString * lineSubstring, * leadingSpaces;
+        NSRange leadingSpacesRange;
+
+        insertionPoint = [[[self selectedRanges] lastObject] rangeValue];
+
+        [[self string] getLineStart:&start end:&end contentsEnd:NULL forRange:insertionPoint];
+
+        lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
+        leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
+
+        if(leadingSpacesRange.location != NSNotFound)
+        {
+            leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
+        }
+        else
+        {
+            leadingSpaces = @"";
+        }
+
+        [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
+    }
+    else
+    {
+        [super insertNewline:sender];
+    }
 }
 
 - (void)keyDown:(NSEvent *)event

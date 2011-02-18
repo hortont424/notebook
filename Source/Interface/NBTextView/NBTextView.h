@@ -25,6 +25,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <NBCore/NBCore.h>
+#import <RegexKit/RegexKit.h>
+#import <Carbon/Carbon.h>
 
 #import "NBCellSubview.h"
 
@@ -34,6 +36,7 @@
 {
     NBCellView * parentCellView;
     NSString * indentString;
+    RKRegex * leadingSpacesRegex;
 }
 
 @property (nonatomic,assign) NBCellView * parentCellView;
