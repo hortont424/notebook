@@ -34,7 +34,7 @@ static NBSettings * sharedInstance = nil;
 
 @implementation NBSettings
 
-@synthesize themeName, themes;
+@synthesize themes;
 
 - (id)init
 {
@@ -191,7 +191,7 @@ static NBSettings * sharedInstance = nil;
 
 - (char)tabCharacter
 {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBMatchIndentKey] unsignedIntValue] ? '\t' : ' ';
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBTabInsertTypeKey] unsignedIntValue] ? ' ' : '\t';
 }
 
 - (NBCreateUntitledModes)createUntitledMode
@@ -270,7 +270,7 @@ static NBSettings * sharedInstance = nil;
     return self;
 }
 
-- (unsigned long)retainCount
+- (NSUInteger)retainCount
 {
     return ULONG_MAX;
 }

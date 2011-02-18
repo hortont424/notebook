@@ -61,6 +61,9 @@
 - (NBCellView *)keyCellView;
 - (NSArray *)selectedCellViews;
 
+- (IBAction)increaseIndent:(id)sender;
+- (IBAction)decreaseIndent:(id)sender;
+
 - (IBAction)insertCell:(id)sender;
 - (IBAction)deleteCell:(id)sender;
 - (IBAction)splitCell:(id)sender;

@@ -42,7 +42,6 @@
     if(self)
     {
         exceptions = [[NSMutableDictionary alloc] init];
-        leadingSpacesRegex = [RKRegex regexWithRegexString:@"^([[:blank:]]*)" options:RKCompileNoOptions];
 
         [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
 
@@ -73,47 +72,15 @@
     return self;
 }
 
-- (void)insertNewline:(id)sender
-{
-    if([[NBSettings sharedInstance] shouldMatchIndent])
-    {
-        NSRange insertionPoint;
-        NSUInteger start, end;
-        NSString * lineSubstring, * leadingSpaces;
-        NSRange leadingSpacesRange;
-
-        insertionPoint = [[[self selectedRanges] lastObject] rangeValue];
-
-        [[self string] getLineStart:&start end:&end contentsEnd:NULL forRange:insertionPoint];
-
-        lineSubstring = [[self string] substringWithRange:NSMakeRange(start, end - start)];
-        leadingSpacesRange = [lineSubstring rangeOfRegex:leadingSpacesRegex];
-
-        if(leadingSpacesRange.location != NSNotFound)
-        {
-            leadingSpaces = [lineSubstring substringWithRange:leadingSpacesRange];
-        }
-        else
-        {
-            leadingSpaces = @"";
-        }
-
-        [self insertText:[@"\n" stringByAppendingString:leadingSpaces]];
-    }
-    else
-    {
-        [super insertNewline:sender];
-    }
-
-}
-
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
 
     // Highlight errors
+    // TODO: for some reason, glyph generation caused by glyphIndexForCharacterAtIndex: is making other text views
+    // fail to redraw properly... figure out why this is the case, then re-enable drawing exception locations
 
-    if([exceptions count])
+    /*if([exceptions count])
     {
         NSLayoutManager * layout = [self layoutManager];
         NBSettings * settings = [NBSettings sharedInstance];
@@ -159,7 +126,7 @@
 
             currentLocation = nextLocation;
         }
-    }
+    }*/
 }
 
 - (void)addException:(NBException *)exception

@@ -24,6 +24,9 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <NBCore/NBCore.h>
+#import <RegexKit/RegexKit.h>
+#import <Carbon/Carbon.h>
 
 #import "NBCellSubview.h"
 
@@ -32,8 +35,14 @@
 @interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellSubview>
 {
     NBCellView * parentCellView;
+    NSString * indentString;
+    RKRegex * leadingSpacesRegex;
 }
 
 @property (nonatomic,assign) NBCellView * parentCellView;
+@property (readonly) NSString * indentString;
+
+- (void)increaseIndent;
+- (void)decreaseIndent;
 
 @end

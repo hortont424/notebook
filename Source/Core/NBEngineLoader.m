@@ -113,7 +113,7 @@ static NBEngineLoader * sharedInstance = nil;
     return self;
 }
 
-- (unsigned long)retainCount
+- (NSUInteger)retainCount
 {
     return ULONG_MAX;
 }

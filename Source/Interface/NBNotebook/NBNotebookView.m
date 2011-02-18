@@ -166,7 +166,6 @@
     if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
     {
         appendingCellView = (NBCellView *)[userData objectForKey:@"cellView"];
-        [[NSCursor resizeDownCursor] push];
     }
 }
 
@@ -177,7 +176,6 @@
     if([[userData objectForKey:@"reason"] isEqualToString:@"addCell"])
     {
         appendingCellView = nil;
-        [NSCursor pop];
     }
 }
 

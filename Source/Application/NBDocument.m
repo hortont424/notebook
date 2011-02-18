@@ -37,10 +37,6 @@
 @synthesize initializedFromFile;
 @synthesize notebook;
 
-@synthesize hasKeyCell;
-@synthesize hasSelectedCell;
-@synthesize keyCellIsRichText;
-
 - (id)init
 {
     self = [super init];
@@ -280,6 +276,26 @@
 }
 
 #pragma mark Menu Actions
+
+- (IBAction)increaseIndent:(id)sender
+{
+    NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+    if([firstResponder respondsToSelector:@selector(increaseIndent)])
+    {
+        [firstResponder increaseIndent];
+    }
+}
+
+- (IBAction)decreaseIndent:(id)sender
+{
+    NSResponder * firstResponder = [[NSApp keyWindow] firstResponder];
+
+    if([firstResponder respondsToSelector:@selector(decreaseIndent)])
+    {
+        [firstResponder decreaseIndent];
+    }
+}
 
 - (IBAction)insertCell:(id)sender
 {
