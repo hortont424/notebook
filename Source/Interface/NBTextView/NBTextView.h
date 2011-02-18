@@ -24,6 +24,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <NBCore/NBCore.h>
 
 #import "NBCellSubview.h"
 
@@ -35,5 +36,8 @@
 }
 
 @property (nonatomic,assign) NBCellView * parentCellView;
+
+- (void)increaseIndent;
+- (void)decreaseIndent;
 
 @end

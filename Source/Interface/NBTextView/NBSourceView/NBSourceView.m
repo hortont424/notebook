@@ -104,7 +104,6 @@
     {
         [super insertNewline:sender];
     }
-
 }
 
 - (void)drawRect:(NSRect)dirtyRect

@@ -33,3 +33,5 @@
 #import <NBCore/NBNotebook.h>
 #import <NBCore/NBNotebookDelegate.h>
 #import <NBCore/NBProcessWatchdog.h>
+
+#import <NBCore/NSString-ranges.h>

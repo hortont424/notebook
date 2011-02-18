@@ -26,6 +26,8 @@
 		3522373B12DB21F4007DDF2A /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3522373A12DB21F4007DDF2A /* RegexKit.framework */; };
 		3522375612DB222C007DDF2A /* NBNotebookDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3522375512DB222C007DDF2A /* NBNotebookDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3522379B12DB228D007DDF2A /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3522379A12DB228D007DDF2A /* Quartz.framework */; };
+		352B174A130E4F9A00D5765E /* NSString-ranges.h in Headers */ = {isa = PBXBuildFile; fileRef = 352B1748130E4F9A00D5765E /* NSString-ranges.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		352B174B130E4F9A00D5765E /* NSString-ranges.m in Sources */ = {isa = PBXBuildFile; fileRef = 352B1749130E4F9A00D5765E /* NSString-ranges.m */; };
 		353C260812E173B6007A6F40 /* NBException.h in Headers */ = {isa = PBXBuildFile; fileRef = 353C260612E173B6007A6F40 /* NBException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		353C260912E173B6007A6F40 /* NBException.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C260712E173B6007A6F40 /* NBException.m */; };
 		356CBB3012DB25FA00E07E46 /* NBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 356CBB2F12DB25FA00E07E46 /* NBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +58,8 @@
 		3522373A12DB21F4007DDF2A /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
 		3522375512DB222C007DDF2A /* NBNotebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBNotebookDelegate.h; path = Core/NBNotebookDelegate.h; sourceTree = "<group>"; };
 		3522379A12DB228D007DDF2A /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		352B1748130E4F9A00D5765E /* NSString-ranges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString-ranges.h"; path = "Core/NSString-ranges.h"; sourceTree = "<group>"; };
+		352B1749130E4F9A00D5765E /* NSString-ranges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString-ranges.m"; path = "Core/NSString-ranges.m"; sourceTree = "<group>"; };
 		353C260612E173B6007A6F40 /* NBException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBException.h; path = Core/NBException.h; sourceTree = "<group>"; };
 		353C260712E173B6007A6F40 /* NBException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBException.m; path = Core/NBException.m; sourceTree = "<group>"; };
 		356CBB2F12DB25FA00E07E46 /* NBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBCore.h; path = Core/NBCore.h; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			children = (
 				356CBB2F12DB25FA00E07E46 /* NBCore.h */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
+				352B1747130E4F8E00D5765E /* Additions */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
@@ -160,6 +165,15 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		352B1747130E4F8E00D5765E /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				352B1748130E4F9A00D5765E /* NSString-ranges.h */,
+				352B1749130E4F9A00D5765E /* NSString-ranges.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -178,6 +192,7 @@
 				3522375612DB222C007DDF2A /* NBNotebookDelegate.h in Headers */,
 				356CBB3012DB25FA00E07E46 /* NBCore.h in Headers */,
 				353C260812E173B6007A6F40 /* NBException.h in Headers */,
+				352B174A130E4F9A00D5765E /* NSString-ranges.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +267,7 @@
 				3522372C12DB219C007DDF2A /* NBNotebook.m in Sources */,
 				3522372E12DB219C007DDF2A /* NBProcessWatchdog.m in Sources */,
 				353C260912E173B6007A6F40 /* NBException.m in Sources */,
+				352B174B130E4F9A00D5765E /* NSString-ranges.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
