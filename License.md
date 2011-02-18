@@ -27,10 +27,11 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Kod License
 ===========
 
-Copyright (c) 2010, Rasmus Andersson
+**Copyright 2010, Rasmus Andersson. All rights reserved.**
+
 Kod™ is a trademark of Rasmus Andersson.
+
 http://kodapp.com/
-All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -39,18 +40,18 @@ limitation the rights to use, copy, modify, merge, publish, distribute, and/or
 sublicense, and to permit persons to whom the Software is furnished to do so,
 subject to the following conditions:
 
-- The Software and/or source code cannot be copied in whole and sold without
-  meaningful modification for a profit.
+1. The Software and/or source code cannot be copied in whole and sold without
+   meaningful modification for a profit.
 
-- The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
+2. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
 
-- Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
+3. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
 
-- Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
+4. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
