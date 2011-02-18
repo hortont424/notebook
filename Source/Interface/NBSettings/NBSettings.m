@@ -191,7 +191,7 @@ static NBSettings * sharedInstance = nil;
 
 - (char)tabCharacter
 {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBMatchIndentKey] unsignedIntValue] ? '\t' : ' ';
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:NBTabInsertTypeKey] unsignedIntValue] ? ' ' : '\t';
 }
 
 - (NBCreateUntitledModes)createUntitledMode

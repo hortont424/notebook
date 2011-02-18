@@ -33,9 +33,11 @@
 @interface NBTextView : NSTextView<NSTextStorageDelegate,NBCellSubview>
 {
     NBCellView * parentCellView;
+    NSString * indentString;
 }
 
 @property (nonatomic,assign) NBCellView * parentCellView;
+@property (readonly) NSString * indentString;
 
 - (void)increaseIndent;
 - (void)decreaseIndent;

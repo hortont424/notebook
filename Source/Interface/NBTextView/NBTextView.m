@@ -24,7 +24,7 @@
  */
 
 /*
- * increaseIndent, decreaseIndent
+ * increaseIndent, decreaseIndent, keyDown
  *
  * Copyright (c) 2010-2011, Rasmus Andersson. All rights reserved.
  *
@@ -37,9 +37,11 @@
 #import "NBSettings.h"
 #import "NBTheme.h"
 
+#import <Carbon/Carbon.h>
+
 @implementation NBTextView
 
-@synthesize parentCellView;
+@synthesize parentCellView, indentString;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -89,12 +91,61 @@
     return [layoutManager usedRectForTextContainer:textContainer].size.height + 20;
 }
 
+- (NSString *)indentString
+{
+    NBSettings * settings = [NBSettings sharedInstance];
+    NSUInteger tabWidth = [settings tabWidth];
+    char tabChar = [settings tabCharacter];
+    char * tabString;
+
+    if(tabChar == '\t')
+    {
+        tabWidth = 1;
+    }
+
+    tabString = (char *)calloc(tabWidth + 1, sizeof(char));
+    memset(tabString, tabChar, tabWidth);
+
+    // TODO: cache this and invalidate when the setting changes
+
+    return [NSString stringWithUTF8String:tabString];
+}
+
+- (void)keyDown:(NSEvent *)event
+{
+    unsigned short keyCode = event.keyCode;
+
+    if(keyCode == kVK_Tab)
+    {
+        NSUInteger modifiers = [event modifierFlags];
+
+        if(modifiers & NSAlternateKeyMask)
+        {
+            // When pressing Alt-TAB, insert regular tab character
+
+            [super keyDown:event];
+        }
+        else if(modifiers & (NSShiftKeyMask | NSAlphaShiftKeyMask))
+        {
+            [self decreaseIndent];
+        }
+        else
+        {
+            [self increaseIndent];
+        }
+    }
+    else
+    {
+        [super keyDown:event];
+    }
+}
+
 - (void)increaseIndent
 {
     // Make a copy of the selection before we insert text
 
     NSRange initialSelectedRange = [self selectedRange];
-    NSString * indentationString = @"\t";
+    NSString * indentationString = [self indentString];
     NSUInteger indentLength = indentationString.length;
     NSRange finalSelectedRange = initialSelectedRange;
     NSString * text = self.textStorage.string;
@@ -197,7 +248,7 @@
 
 - (void)decreaseIndent
 {
-    NSString * indentationString = @"\t";
+    NSString * indentationString = [self indentString];
     NSUInteger indentLength = indentationString.length;
 
     // Make a copy of the selection before we insert text
