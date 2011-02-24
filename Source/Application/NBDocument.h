@@ -76,4 +76,6 @@
 - (IBAction)selectAllCellsAboveCurrent:(id)sender;
 - (IBAction)selectAllCellsBelowCurrent:(id)sender;
 
+- (IBAction)searchGlobals:(id)sender;
+
 @end

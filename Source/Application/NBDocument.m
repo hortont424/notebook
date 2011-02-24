@@ -435,4 +435,9 @@
     }
 }
 
+- (IBAction)searchGlobals:(id)sender
+{
+    NSLog(@"search globals!");
+}
+
 @end
