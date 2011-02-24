@@ -367,8 +367,6 @@
     {
         [[cellView cell] evaluate];
     }
-
-    NSLog(@"%@", [[notebook engine] globals]);
 }
 
 - (IBAction)abortEvaluation:(id)sender

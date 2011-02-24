@@ -139,6 +139,7 @@ NSString * PyObject_NSObjectClassName(PyObject * obj)
     else
     {
         NSLog(@"unknown type with object %p!!", obj);
+        return @"Unknown type!";
     }
 
     return NSStringFromClass(objcClass);

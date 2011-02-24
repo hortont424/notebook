@@ -121,6 +121,8 @@
             self.output = nil;
         }
     }
+
+    NSLog(@"%@", [[notebook engine] globals]);
 }
 
 @end
