@@ -28,8 +28,6 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
-@class MAAttachedWindow;
-
 @interface NBDocument : NSDocument<NSWindowDelegate>
 {
     NBNotebookView * notebookView;
@@ -42,7 +40,6 @@
 
     NSSearchField * searchField;
     NSView * searchResultsView;
-    MAAttachedWindow * searchWindow;
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;

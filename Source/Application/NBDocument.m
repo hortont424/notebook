@@ -50,8 +50,6 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
-
-        searchWindow = nil;
     }
 
     return self;
@@ -441,33 +439,13 @@
 
 - (IBAction)searchGlobals:(id)sender
 {
-    if(!searchWindow)
-    {
-        NSPoint searchWindowPoint = [[[notebookView window] contentView] convertPoint:[searchField frame].origin fromView:[searchField superview]];
-
-        [searchResultsView setFrameSize:NSMakeSize([searchField bounds].size.width, 200)];
-
-        searchWindowPoint.x += [searchResultsView bounds].size.width / 2;
-
-        searchWindow = [[MAAttachedWindow alloc]
-                        initWithView:searchResultsView
-                     attachedToPoint:searchWindowPoint
-                            inWindow:[notebookView window]
-                              onSide:MAPositionBottom
-                          atDistance:0.0f];
-        [searchWindow setArrowHeight:0.0f];
-    }
-
     // TODO: fix the point not changing when things resize (or the window moves while the thing is not a child)
 
     if([[searchField stringValue] isEqualToString:@""])
     {
-        [[notebookView window] removeChildWindow:searchWindow];
-        [searchWindow orderOut:self];
     }
     else
     {
-        [[notebookView window] addChildWindow:searchWindow ordered:NSWindowAbove];
     }
 }
 

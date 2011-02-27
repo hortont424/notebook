@@ -22,7 +22,6 @@
 		35E370DB12E2FC9A00314C39 /* NBWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 35E370D512E2FC9A00314C39 /* NBWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35E370DC12E2FC9A00314C39 /* NBWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E370D612E2FC9A00314C39 /* NBWindowController.m */; };
 		35E370DE12E2FCD000314C39 /* NBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 35E370DD12E2FCD000314C39 /* NBApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		35F737CA131AFAFF00FA2581 /* MAAttachedWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F7374C131AF22200FA2581 /* MAAttachedWindow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,20 +116,6 @@
 			remoteGlobalIDString = C7D4AD1612C939E8000FD3F9;
 			remoteInfo = BWToolkitFrameworkMAS;
 		};
-		35F7374B131AF22200FA2581 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35F73744131AF22200FA2581 /* MAAttachedWindow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3532A85A1318823100A3E474 /* MAAttachedWindow.framework */;
-			remoteInfo = MAAttachedWindow;
-		};
-		35F7374D131AF23900FA2581 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35F73744131AF22200FA2581 /* MAAttachedWindow.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3532A8591318823100A3E474 /* MAAttachedWindow */;
-			remoteInfo = MAAttachedWindow;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +142,6 @@
 		35E370D512E2FC9A00314C39 /* NBWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBWindowController.h; path = Application/NBWindowController.h; sourceTree = "<group>"; };
 		35E370D612E2FC9A00314C39 /* NBWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBWindowController.m; path = Application/NBWindowController.m; sourceTree = "<group>"; };
 		35E370DD12E2FCD000314C39 /* NBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBApplication.h; path = Application/NBApplication.h; sourceTree = "<group>"; };
-		35F73744131AF22200FA2581 /* MAAttachedWindow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MAAttachedWindow.xcodeproj; path = ../External/MAAttachedWindow/MAAttachedWindow.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -166,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F737CA131AFAFF00FA2581 /* MAAttachedWindow.framework in Frameworks */,
 				35C4660712ECE1D200D56326 /* BWToolkitFrameworkMAS.framework in Frameworks */,
 				3584CA8F12E2FDD800A222CA /* QuartzCore.framework in Frameworks */,
 				3584CA9012E2FDD800A222CA /* Quartz.framework in Frameworks */,
@@ -191,7 +174,6 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
-				35F73744131AF22200FA2581 /* MAAttachedWindow.xcodeproj */,
 				3584C9AD12E2FD1B00A222CA /* NBUI.xcodeproj */,
 				3541C4A212DEDF97005136EF /* JSON.xcodeproj */,
 				35D3159E12DE9FCB001A5F50 /* BWToolkit.xcodeproj */,
@@ -281,14 +263,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		35F73745131AF22200FA2581 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				35F7374C131AF22200FA2581 /* MAAttachedWindow.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -322,7 +296,6 @@
 				3541C4C312DEDFBA005136EF /* PBXTargetDependency */,
 				3584C9BA12E2FD2300A222CA /* PBXTargetDependency */,
 				35C4660612ECE1C400D56326 /* PBXTargetDependency */,
-				35F7374E131AF23900FA2581 /* PBXTargetDependency */,
 			);
 			name = NBApplication;
 			productName = NBApplication;
@@ -354,10 +327,6 @@
 				{
 					ProductGroup = 3541C4A312DEDF97005136EF /* Products */;
 					ProjectRef = 3541C4A212DEDF97005136EF /* JSON.xcodeproj */;
-				},
-				{
-					ProductGroup = 35F73745131AF22200FA2581 /* Products */;
-					ProjectRef = 35F73744131AF22200FA2581 /* MAAttachedWindow.xcodeproj */;
 				},
 				{
 					ProductGroup = 355AAC2412DBB1A700A9FA54 /* Products */;
@@ -439,13 +408,6 @@
 			remoteRef = 35D315AC12DE9FCB001A5F50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		35F7374C131AF22200FA2581 /* MAAttachedWindow.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MAAttachedWindow.framework;
-			remoteRef = 35F7374B131AF22200FA2581 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -492,11 +454,6 @@
 			isa = PBXTargetDependency;
 			name = All;
 			targetProxy = 35C4660512ECE1C400D56326 /* PBXContainerItemProxy */;
-		};
-		35F7374E131AF23900FA2581 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MAAttachedWindow;
-			targetProxy = 35F7374D131AF23900FA2581 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
