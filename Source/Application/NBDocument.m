@@ -28,6 +28,8 @@
 #import "NBWindowController.h"
 #import "NBDocumentController.h"
 
+#import <MAAttachedWindow/MAAttachedWindow.h>
+
 @implementation NBDocument
 
 @synthesize notebookView;
@@ -36,6 +38,8 @@
 @synthesize initialized;
 @synthesize initializedFromFile;
 @synthesize notebook;
+@synthesize searchResultsView;
+@synthesize searchField;
 
 - (id)init
 {
@@ -46,6 +50,8 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
+
+        searchWindow = nil;
     }
 
     return self;
@@ -436,6 +442,28 @@
 - (IBAction)searchGlobals:(id)sender
 {
     NSLog(@"search globals!");
+
+    if(!searchWindow)
+    {
+        searchWindow = [[MAAttachedWindow alloc]
+                        initWithView:searchResultsView
+                     attachedToPoint:[[[notebookView window] contentView] convertPoint:[searchField frame].origin fromView:[searchField superview]]
+                            inWindow:[notebookView window]
+                              onSide:MAPositionBottom
+                          atDistance:0.0];
+    }
+
+    // TODO: fix the point not changing when things resize (or the window moves while the thing is not a child)
+
+    if([[searchField stringValue] isEqualToString:@""])
+    {
+        [[notebookView window] removeChildWindow:searchWindow];
+        [searchWindow orderOut:self];
+    }
+    else
+    {
+        [[notebookView window] addChildWindow:searchWindow ordered:NSWindowAbove];
+    }
 }
 
 @end

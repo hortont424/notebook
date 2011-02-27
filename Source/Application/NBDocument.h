@@ -28,6 +28,8 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
+@class MAAttachedWindow;
+
 @interface NBDocument : NSDocument<NSWindowDelegate>
 {
     NBNotebookView * notebookView;
@@ -37,6 +39,10 @@
     BOOL initialized;
     BOOL initializedFromFile;
     NBNotebook * notebook;
+
+    NSSearchField * searchField;
+    NSView * searchResultsView;
+    MAAttachedWindow * searchWindow;
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;
@@ -50,6 +56,9 @@
 @property (nonatomic,readonly) BOOL hasKeyCell;
 @property (nonatomic,readonly) BOOL hasSelectedCell;
 @property (nonatomic,readonly) BOOL keyCellIsRichText;
+
+@property (nonatomic,assign) IBOutlet NSSearchField * searchField;
+@property (nonatomic,assign) IBOutlet NSView * searchResultsView;
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 
