@@ -441,16 +441,21 @@
 
 - (IBAction)searchGlobals:(id)sender
 {
-    NSLog(@"search globals!");
-
     if(!searchWindow)
     {
+        NSPoint searchWindowPoint = [[[notebookView window] contentView] convertPoint:[searchField frame].origin fromView:[searchField superview]];
+
+        [searchResultsView setFrameSize:NSMakeSize([searchField bounds].size.width, 200)];
+
+        searchWindowPoint.x += [searchResultsView bounds].size.width / 2;
+
         searchWindow = [[MAAttachedWindow alloc]
                         initWithView:searchResultsView
-                     attachedToPoint:[[[notebookView window] contentView] convertPoint:[searchField frame].origin fromView:[searchField superview]]
+                     attachedToPoint:searchWindowPoint
                             inWindow:[notebookView window]
                               onSide:MAPositionBottom
-                          atDistance:0.0];
+                          atDistance:0.0f];
+        [searchWindow setArrowHeight:0.0f];
     }
 
     // TODO: fix the point not changing when things resize (or the window moves while the thing is not a child)

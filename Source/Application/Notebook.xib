@@ -21,6 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="85"/>
 			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -463,13 +464,13 @@
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
 			<object class="NSCustomView" id="394006866">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSButton" id="290063919">
 						<reference key="NSNextResponder" ref="394006866"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{14, 12}, {158, 32}}</string>
 						<reference key="NSSuperview" ref="394006866"/>
 						<bool key="NSEnabled">YES</bool>
@@ -489,7 +490,7 @@
 					</object>
 					<object class="NSButton" id="838952364">
 						<reference key="NSNextResponder" ref="394006866"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{14, 44}, {158, 32}}</string>
 						<reference key="NSSuperview" ref="394006866"/>
 						<bool key="NSEnabled">YES</bool>
@@ -509,7 +510,7 @@
 					</object>
 					<object class="NSButton" id="707137248">
 						<reference key="NSNextResponder" ref="394006866"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{14, 76}, {158, 32}}</string>
 						<reference key="NSSuperview" ref="394006866"/>
 						<bool key="NSEnabled">YES</bool>
@@ -529,7 +530,7 @@
 					</object>
 					<object class="NSButton" id="1019218745">
 						<reference key="NSNextResponder" ref="394006866"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{14, 108}, {158, 32}}</string>
 						<reference key="NSSuperview" ref="394006866"/>
 						<bool key="NSEnabled">YES</bool>
@@ -549,6 +550,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{186, 156}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</object>
