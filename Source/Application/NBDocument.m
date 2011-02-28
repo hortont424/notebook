@@ -39,6 +39,7 @@
 @synthesize initializedFromFile;
 @synthesize notebook;
 @synthesize searchResultsView;
+@synthesize globalsTableView;
 @synthesize searchField;
 
 - (id)init
@@ -79,6 +80,8 @@
     [super windowControllerDidLoadNib:aController];
 
     [notebookView setNotebook:notebook];
+    [searchResultsView setDataSource:self];
+    [globalsTableView setDataSource:self];
 }
 
 - (void)finishLoadingFile:(NSDictionary *)userData
@@ -439,14 +442,22 @@
 
 - (IBAction)searchGlobals:(id)sender
 {
-    // TODO: fix the point not changing when things resize (or the window moves while the thing is not a child)
-
     if([[searchField stringValue] isEqualToString:@""])
     {
     }
     else
     {
     }
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return 2;
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    return @"asdf";
 }
 
 @end

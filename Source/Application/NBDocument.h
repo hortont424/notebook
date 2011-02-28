@@ -28,7 +28,7 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
-@interface NBDocument : NSDocument<NSWindowDelegate>
+@interface NBDocument : NSDocument<NSWindowDelegate, NSTableViewDataSource>
 {
     NBNotebookView * notebookView;
     BWAnchoredButton * languageButton;
@@ -39,7 +39,8 @@
     NBNotebook * notebook;
 
     NSSearchField * searchField;
-    NSView * searchResultsView;
+    NSTableView * searchResultsView;
+    NSTableView * globalsTableView;
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;
@@ -55,7 +56,8 @@
 @property (nonatomic,readonly) BOOL keyCellIsRichText;
 
 @property (nonatomic,assign) IBOutlet NSSearchField * searchField;
-@property (nonatomic,assign) IBOutlet NSView * searchResultsView;
+@property (nonatomic,assign) IBOutlet NSTableView * searchResultsView;
+@property (nonatomic,assign) IBOutlet NSTableView * globalsTableView;
 
 - (void)initDocumentWithEngineClass:(Class)engineClass withTemplate:(NSString *)template;
 

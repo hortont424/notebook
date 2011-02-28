@@ -298,7 +298,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSScrollView" id="347203846">
 											<reference key="NSNextResponder" ref="871535585"/>
-											<int key="NSvFlags">274</int>
+											<int key="NSvFlags">4370</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSClipView" id="427646920">
@@ -308,7 +308,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSTableView" id="61677700">
 															<reference key="NSNextResponder" ref="427646920"/>
-															<int key="NSvFlags">256</int>
+															<int key="NSvFlags">4352</int>
 															<string key="NSFrameSize">{145, 541}</string>
 															<reference key="NSSuperview" ref="427646920"/>
 															<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -441,7 +441,7 @@
 										</object>
 										<object class="NSScrollView" id="721791966">
 											<reference key="NSNextResponder" ref="871535585"/>
-											<int key="NSvFlags">266</int>
+											<int key="NSvFlags">4362</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSClipView" id="35033509">
@@ -451,7 +451,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSTableView" id="1047758067">
 															<reference key="NSNextResponder" ref="35033509"/>
-															<int key="NSvFlags">256</int>
+															<int key="NSvFlags">4352</int>
 															<string key="NSFrameSize">{145, 97}</string>
 															<reference key="NSSuperview" ref="35033509"/>
 															<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -775,6 +775,22 @@
 						<reference key="destination" ref="285294439"/>
 					</object>
 					<int key="connectionID">95</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">searchResultsView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1047758067"/>
+					</object>
+					<int key="connectionID">120</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">globalsTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="61677700"/>
+					</object>
+					<int key="connectionID">121</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1128,9 +1144,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{57, 39}, {618, 708}}</string>
+					<string>{{295, 100}, {618, 708}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{57, 39}, {618, 708}}</string>
+					<string>{{295, 100}, {618, 708}}</string>
 					<boolean value="NO"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -1211,7 +1227,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">119</int>
+			<int key="maxID">121</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1332,6 +1348,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>globalsTableView</string>
 							<string>languageButton</string>
 							<string>notebookView</string>
 							<string>searchField</string>
@@ -1340,10 +1357,11 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSTableView</string>
 							<string>BWAnchoredButton</string>
 							<string>NBNotebookView</string>
 							<string>NSSearchField</string>
-							<string>NSView</string>
+							<string>NSTableView</string>
 							<string>BWSplitView</string>
 						</object>
 					</object>
@@ -1351,6 +1369,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>globalsTableView</string>
 							<string>languageButton</string>
 							<string>notebookView</string>
 							<string>searchField</string>
@@ -1359,6 +1378,10 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">globalsTableView</string>
+								<string key="candidateClassName">NSTableView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">languageButton</string>
 								<string key="candidateClassName">BWAnchoredButton</string>
@@ -1373,7 +1396,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchResultsView</string>
-								<string key="candidateClassName">NSView</string>
+								<string key="candidateClassName">NSTableView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">splitView</string>
