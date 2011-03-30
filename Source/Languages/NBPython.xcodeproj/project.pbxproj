@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		354087E112E300EC00C4D39E /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354087DE12E300DE00C4D39E /* NBApplication.framework */; };
 		354087E512E3010A00C4D39E /* NBEnginePythonDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 354087E412E3010A00C4D39E /* NBEnginePythonDocument.m */; };
 		356CBAD112DB238800E07E46 /* NBEnginePython.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACA12DB238800E07E46 /* NBEnginePython.m */; };
 		356CBAD212DB238800E07E46 /* NBEnginePythonBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBACC12DB238800E07E46 /* NBEnginePythonBackend.m */; };
@@ -15,48 +14,17 @@
 		356CBAD412DB238800E07E46 /* NBEnginePythonHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 356CBAD012DB238800E07E46 /* NBEnginePythonHighlighter.m */; };
 		356CBAD812DB239000E07E46 /* python.png in Resources */ = {isa = PBXBuildFile; fileRef = 356CBAD612DB239000E07E46 /* python.png */; };
 		356CBAE112DB23C300E07E46 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAE012DB23C300E07E46 /* Python.framework */; };
-		356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBAEF12DB23EB00E07E46 /* NBCore.framework */; };
 		356CBB5712DB271000E07E46 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356CBB5612DB271000E07E46 /* RegexKit.framework */; };
 		3571109312FA13CA00D87931 /* NBEnginePythonTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3571109212FA13CA00D87931 /* NBEnginePythonTypes.m */; };
+		35BE1B201343EFA300F4DC95 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE1B1F1343EFA300F4DC95 /* NBCore.framework */; };
+		35BE1B261343EFF400F4DC95 /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE1B251343EFF400F4DC95 /* NBApplication.framework */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		354087DD12E300DE00C4D39E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 354087D912E300DE00C4D39E /* NBApplication.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 355AAB6C12DBB07D00A9FA54;
-			remoteInfo = NBApplication;
-		};
-		354087DF12E300E400C4D39E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 354087D912E300DE00C4D39E /* NBApplication.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 355AAB6B12DBB07D00A9FA54;
-			remoteInfo = NBApplication;
-		};
-		356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = NBCore;
-		};
-		356CBAF212DB241B00E07E46 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = NBCore;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		354087D912E300DE00C4D39E /* NBApplication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBApplication.xcodeproj; path = ../NBApplication.xcodeproj; sourceTree = SOURCE_ROOT; };
 		354087E312E3010A00C4D39E /* NBEnginePythonDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePythonDocument.h; path = Python/NBEnginePythonDocument.h; sourceTree = "<group>"; };
 		354087E412E3010A00C4D39E /* NBEnginePythonDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEnginePythonDocument.m; path = Python/NBEnginePythonDocument.m; sourceTree = "<group>"; };
 		356CBAC912DB238800E07E46 /* NBEnginePython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePython.h; path = Python/NBEnginePython.h; sourceTree = "<group>"; };
@@ -70,10 +38,11 @@
 		356CBAD512DB239000E07E46 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Python/Info.plist; sourceTree = "<group>"; };
 		356CBAD612DB239000E07E46 /* python.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = python.png; path = Python/python.png; sourceTree = "<group>"; };
 		356CBAE012DB23C300E07E46 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
-		356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NBCore.xcodeproj; path = ../NBCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		356CBB5612DB271000E07E46 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../../External/RegexKit.framework; sourceTree = SOURCE_ROOT; };
 		3571109112FA13CA00D87931 /* NBEnginePythonTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEnginePythonTypes.h; path = Python/NBEnginePythonTypes.h; sourceTree = "<group>"; };
 		3571109212FA13CA00D87931 /* NBEnginePythonTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEnginePythonTypes.m; path = Python/NBEnginePythonTypes.m; sourceTree = "<group>"; };
+		35BE1B1F1343EFA300F4DC95 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35BE1B251343EFF400F4DC95 /* NBApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NBApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B6048680CD000E48DA /* NBPython.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBPython.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -83,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				354087E112E300EC00C4D39E /* NBApplication.framework in Frameworks */,
-				356CBAF612DB243E00E07E46 /* NBCore.framework in Frameworks */,
+				35BE1B261343EFF400F4DC95 /* NBApplication.framework in Frameworks */,
+				35BE1B201343EFA300F4DC95 /* NBCore.framework in Frameworks */,
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				356CBAE112DB23C300E07E46 /* Python.framework in Frameworks */,
 				356CBB5712DB271000E07E46 /* RegexKit.framework in Frameworks */,
@@ -97,22 +66,23 @@
 		089C166AFE841209C02AAC07 /* NBPython */ = {
 			isa = PBXGroup;
 			children = (
-				356CBAE512DB23E300E07E46 /* Dependencies */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				089C167CFE841241C02AAC07 /* Resources */,
-				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				089C1671FE841209C02AAC07 /* Frameworks */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
 			name = NBPython;
 			sourceTree = "<group>";
 		};
-		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+		089C1671FE841209C02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35BE1B251343EFF400F4DC95 /* NBApplication.framework */,
+				35BE1B1F1343EFA300F4DC95 /* NBCore.framework */,
 				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
 				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
 			);
-			name = "Frameworks and Libraries";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		089C167CFE841241C02AAC07 /* Resources */ = {
@@ -171,31 +141,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		354087DA12E300DE00C4D39E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				354087DE12E300DE00C4D39E /* NBApplication.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		356CBAE512DB23E300E07E46 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				354087D912E300DE00C4D39E /* NBApplication.xcodeproj */,
-				356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */,
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		356CBAE812DB23EB00E07E46 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				356CBAEF12DB23EB00E07E46 /* NBCore.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,8 +155,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				356CBAF312DB241B00E07E46 /* PBXTargetDependency */,
-				354087E012E300E400C4D39E /* PBXTargetDependency */,
 			);
 			name = NBPython;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -236,39 +179,12 @@
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* NBPython */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 354087DA12E300DE00C4D39E /* Products */;
-					ProjectRef = 354087D912E300DE00C4D39E /* NBApplication.xcodeproj */;
-				},
-				{
-					ProductGroup = 356CBAE812DB23EB00E07E46 /* Products */;
-					ProjectRef = 356CBAE712DB23EB00E07E46 /* NBCore.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* NBPython */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		354087DE12E300DE00C4D39E /* NBApplication.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = NBApplication.framework;
-			remoteRef = 354087DD12E300DE00C4D39E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		356CBAEF12DB23EB00E07E46 /* NBCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = NBCore.framework;
-			remoteRef = 356CBAEE12DB23EB00E07E46 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D5B49AF048680CD000E48DA /* Resources */ = {
@@ -296,19 +212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		354087E012E300E400C4D39E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NBApplication;
-			targetProxy = 354087DF12E300E400C4D39E /* PBXContainerItemProxy */;
-		};
-		356CBAF312DB241B00E07E46 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NBCore;
-			targetProxy = 356CBAF212DB241B00E07E46 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB913B08733D840010E9CD /* Debug */ = {
@@ -363,6 +266,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,6 +282,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
