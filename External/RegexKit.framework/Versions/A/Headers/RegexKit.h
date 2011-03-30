@@ -36,6 +36,9 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// This is horrifying. RegexKit needs to go (doesn't build on 10.6, and now this)
+#define restrict
+
 #ifdef __cplusplus
 extern "C" {
 #endif
