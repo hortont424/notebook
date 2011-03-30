@@ -1,4 +1,8 @@
 [Bb]uild/
 .DS_Store
 *.perspectivev3
+*~.nib/
+*.perspective
 *.pbxuser
+xcuserdata/
+*.xcworkspace/
