@@ -14,7 +14,7 @@ Notebook includes a plugin system to add support for a variety of languages. By 
 Building
 --------
 
-Use Xcode 4+ to build Notebook. Open Notebook.xcodeproj, and press the green "Run" button.
+Use Xcode 4+ to build Notebook. Open Notebook.xcworkspace, and press the "Run" button.
 
 License
 -------

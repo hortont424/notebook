@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Documentation">
+      <FileRef
+         location = "group:Authors.md">
+      </FileRef>
+      <FileRef
+         location = "group:Errors.md">
+      </FileRef>
+      <FileRef
+         location = "group:License.md">
+      </FileRef>
+      <FileRef
+         location = "group:Readme.md">
+      </FileRef>
+      <FileRef
+         location = "group:Style.md">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Dependencies">
+      <FileRef
+         location = "group:External/BWToolkit/BWToolkit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:External/JSON/JSON.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Languages">
+      <FileRef
+         location = "group:Source/Languages/NBPython.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Source/Languages/NBRuby.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Notebook">
+      <FileRef
+         location = "group:Source/Notebook.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Source/NBApplication.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Source/NBCore.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Source/NBUI.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
