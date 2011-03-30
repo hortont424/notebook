@@ -484,7 +484,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C7D4AC6A12C939E8000FD3F9 /* BWToolkitFrameworkMAS */;
+			remoteGlobalIDString = C7D4AC6A12C939E8000FD3F9;
 			remoteInfo = BWToolkitFrameworkMAS;
 		};
 		53DF6902067E5B930090B5B0 /* PBXContainerItemProxy */ = {
@@ -2348,10 +2348,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				SDKROOT = macosx;
 				SYMROOT = ../../Build;
 			};
 			name = Debug;
@@ -2364,10 +2365,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				SDKROOT = macosx;
 				SYMROOT = ../../Build;
 			};
 			name = Release;
