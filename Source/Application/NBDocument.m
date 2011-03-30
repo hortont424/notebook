@@ -28,8 +28,6 @@
 #import "NBWindowController.h"
 #import "NBDocumentController.h"
 
-#import <MAAttachedWindow/MAAttachedWindow.h>
-
 @implementation NBDocument
 
 @synthesize notebookView;
