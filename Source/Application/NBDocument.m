@@ -452,12 +452,12 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return 2;
+    return [[[[notebook engine] globals] allKeys] count];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    return @"asdf";
+    return [[[[notebook engine] globals] allKeys] objectAtIndex:row];
 }
 
 @end
