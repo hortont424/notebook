@@ -683,6 +683,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Interface/Info.plist;
 				INSTALL_PATH = "@rpath";
 				OTHER_LDFLAGS = (
@@ -693,6 +694,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = NBUI;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -713,6 +715,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Interface/Info.plist;
 				INSTALL_PATH = "@rpath";
 				OTHER_LDFLAGS = (
@@ -723,6 +726,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = NBUI;
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
