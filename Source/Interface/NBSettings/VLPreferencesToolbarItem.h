@@ -19,9 +19,9 @@
 
 @interface VLPreferencesToolbarItem : NSToolbarItem
 {
-    IBOutlet VLPreferencesView * preferencesView;
+    VLPreferencesView * preferencesView;
 }
 
-@property (readonly) VLPreferencesView * preferencesView;
+@property (readonly) IBOutlet VLPreferencesView * preferencesView;
 
 @end

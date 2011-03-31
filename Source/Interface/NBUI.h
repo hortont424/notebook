@@ -43,4 +43,3 @@
 #import <NBUI/VLPreferencesToolbar.h>
 #import <NBUI/VLPreferencesToolbarItem.h>
 #import <NBUI/VLPreferencesView.h>
-#import <NBUI/VLPreferencesWindowController.h>
