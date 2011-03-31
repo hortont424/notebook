@@ -26,13 +26,19 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@interface NBSettingsWindowController : NSWindowController<NSTableViewDelegate>
+@interface NBSettingsWindowController : NSWindowController<NSTableViewDelegate,NSToolbarDelegate>
 {
     IKImageBrowserView * languageBrowser;
     NSTableView * themeList;
+    
+    NSView * currentView;
+    CATransition * transition;
+    NSToolbarItem * currentItem;
 }
 
 @property (nonatomic,assign) IBOutlet IKImageBrowserView * languageBrowser;
 @property (nonatomic,assign) IBOutlet NSTableView * themeList;
+
+-(IBAction)toolbarItemClicked:(id)sender;
 
 @end

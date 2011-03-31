@@ -24,15 +24,14 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <BWToolkitFramework/BWToolkitFramework.h>
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
 @interface NBDocument : NSDocument<NSWindowDelegate, NSTableViewDataSource>
 {
     NBNotebookView * notebookView;
-    BWAnchoredButton * languageButton;
-    BWSplitView * splitView;
+    NSButton * languageButton;
+    NSSplitView * splitView;
 
     BOOL initialized;
     BOOL initializedFromFile;
@@ -44,8 +43,8 @@
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;
-@property (nonatomic,assign) IBOutlet BWAnchoredButton * languageButton;
-@property (nonatomic,assign) IBOutlet BWSplitView * splitView;
+@property (nonatomic,assign) IBOutlet NSButton * languageButton;
+@property (nonatomic,assign) IBOutlet NSSplitView * splitView;
 
 @property (nonatomic,assign) BOOL initialized;
 @property (nonatomic,assign) BOOL initializedFromFile;

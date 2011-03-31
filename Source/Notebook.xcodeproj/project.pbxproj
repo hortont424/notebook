@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3500A8E71343F287009944D4 /* NBPython.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3500A8E51343F287009944D4 /* NBPython.bundle */; };
 		3500A8E81343F287009944D4 /* NBRuby.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 3500A8E61343F287009944D4 /* NBRuby.bundle */; };
-		3500A8EE1343F2C3009944D4 /* BWToolkitFrameworkMAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8E91343F2C3009944D4 /* BWToolkitFrameworkMAS.framework */; };
 		3500A8EF1343F2C3009944D4 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EA1343F2C3009944D4 /* JSON.framework */; };
 		3500A8F01343F2C3009944D4 /* NBApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EB1343F2C3009944D4 /* NBApplication.framework */; };
 		3500A8F11343F2C3009944D4 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EC1343F2C3009944D4 /* NBCore.framework */; };
@@ -20,7 +19,6 @@
 		3500A9021343F300009944D4 /* Notebook.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3500A9011343F300009944D4 /* Notebook.icns */; };
 		3535B2CD1343F41E00E3AEEA /* morrowind.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3500A8FD1343F2F4009944D4 /* morrowind.js */; };
 		3535B2CE1343F42000E3AEEA /* tango.js in Copy Themes */ = {isa = PBXBuildFile; fileRef = 3500A8FE1343F2F4009944D4 /* tango.js */; };
-		3535B2CF1343F42500E3AEEA /* BWToolkitFrameworkMAS.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8E91343F2C3009944D4 /* BWToolkitFrameworkMAS.framework */; };
 		3535B2D01343F42700E3AEEA /* JSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EA1343F2C3009944D4 /* JSON.framework */; };
 		3535B2D11343F42900E3AEEA /* NBApplication.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EB1343F2C3009944D4 /* NBApplication.framework */; };
 		3535B2D21343F42B00E3AEEA /* NBCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8EC1343F2C3009944D4 /* NBCore.framework */; };
@@ -50,7 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3535B2CF1343F42500E3AEEA /* BWToolkitFrameworkMAS.framework in Copy Frameworks */,
 				3535B2D01343F42700E3AEEA /* JSON.framework in Copy Frameworks */,
 				3535B2D21343F42B00E3AEEA /* NBCore.framework in Copy Frameworks */,
 				3535B2D61343F49300E3AEEA /* RegexKit.framework in Copy Frameworks */,
@@ -104,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3500A8EE1343F2C3009944D4 /* BWToolkitFrameworkMAS.framework in Frameworks */,
 				3500A8EF1343F2C3009944D4 /* JSON.framework in Frameworks */,
 				3500A8F01343F2C3009944D4 /* NBApplication.framework in Frameworks */,
 				3500A8F11343F2C3009944D4 /* NBCore.framework in Frameworks */,

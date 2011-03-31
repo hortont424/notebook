@@ -39,3 +39,8 @@
 #import <NBUI/NBOutputView.h>
 #import <NBUI/NBSourceView.h>
 #import <NBUI/NBTextView.h>
+
+#import <NBUI/VLPreferencesToolbar.h>
+#import <NBUI/VLPreferencesToolbarItem.h>
+#import <NBUI/VLPreferencesView.h>
+#import <NBUI/VLPreferencesWindowController.h>

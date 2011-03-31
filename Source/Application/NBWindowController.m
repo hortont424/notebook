@@ -56,6 +56,7 @@
 
         [[createNotebookController mainView] setFrame:[[[self window] contentView] frame]];
         [[[self window] contentView] addSubview:[createNotebookController mainView]];
+        [[self window] setContentBorderThickness:40.0 forEdge:NSMinYEdge];
     }
     else
     {
@@ -91,6 +92,8 @@
     [[[self window] contentView] addSubview:[[self document] splitView]
                                  positioned:NSWindowBelow
                                  relativeTo:[createNotebookController mainView]];
+    
+    [[self window] setContentBorderThickness:0.0 forEdge:NSMinYEdge];
 
     [CATransaction begin];
     [CATransaction setValue:[NSNumber numberWithFloat:0.5f] forKey:kCATransactionAnimationDuration];

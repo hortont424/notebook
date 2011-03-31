@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352E864B12E5452F0012FBF1 /* NSColor+Notebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352E864912E5452F0012FBF1 /* NSColor+Notebook.h */; };
+		352E864B12E5452F0012FBF1 /* NSColor+Notebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352E864912E5452F0012FBF1 /* NSColor+Notebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		352E864C12E5452F0012FBF1 /* NSColor+Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E864A12E5452F0012FBF1 /* NSColor+Notebook.m */; };
 		355AAC0012DBB13F00A9FA54 /* NBCellSubview.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD312DBB13F00A9FA54 /* NBCellSubview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0112DBB13F00A9FA54 /* NBCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD412DBB13F00A9FA54 /* NBCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,16 +43,24 @@
 		355AAC2212DBB13F00A9FA54 /* NBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABFE12DBB13F00A9FA54 /* NBTextView.m */; };
 		355AADA812DBB67000A9FA54 /* NBUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AADA712DBB67000A9FA54 /* NBUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AAE3412DBC2C700A9FA54 /* RegexKit.framework */; };
-		3564A1DB12E4430B00C47469 /* NBThemeListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1D912E4430B00C47469 /* NBThemeListDataSource.h */; };
+		3564A1DB12E4430B00C47469 /* NBThemeListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1D912E4430B00C47469 /* NBThemeListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3564A1DC12E4430B00C47469 /* NBThemeListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564A1DA12E4430B00C47469 /* NBThemeListDataSource.m */; };
-		3564A1F112E4455B00C47469 /* NBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1EF12E4455B00C47469 /* NBTheme.h */; };
+		3564A1F112E4455B00C47469 /* NBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1EF12E4455B00C47469 /* NBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3564A1F212E4455B00C47469 /* NBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564A1F012E4455B00C47469 /* NBTheme.m */; };
-		3564A1F912E4457100C47469 /* NBThemeJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1F712E4457100C47469 /* NBThemeJSON.h */; };
+		3564A1F912E4457100C47469 /* NBThemeJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3564A1F712E4457100C47469 /* NBThemeJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3564A1FA12E4457100C47469 /* NBThemeJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564A1F812E4457100C47469 /* NBThemeJSON.m */; };
 		35BE1B161343EF2300F4DC95 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE1B141343EF2300F4DC95 /* JSON.framework */; };
 		35BE1B171343EF2300F4DC95 /* NBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE1B151343EF2300F4DC95 /* NBCore.framework */; };
 		35BE6C2B12E41AD100B52450 /* NBEngineListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35BE6C2C12E41AD100B52450 /* NBEngineListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */; };
+		35C924B8134425EE00825533 /* VLPreferencesToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C924B0134425EE00825533 /* VLPreferencesToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C924B9134425EE00825533 /* VLPreferencesToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C924B1134425EE00825533 /* VLPreferencesToolbar.m */; };
+		35C924BA134425EE00825533 /* VLPreferencesToolbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C924B2134425EE00825533 /* VLPreferencesToolbarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C924BB134425EE00825533 /* VLPreferencesToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C924B3134425EE00825533 /* VLPreferencesToolbarItem.m */; };
+		35C924BC134425EE00825533 /* VLPreferencesView.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C924B4134425EE00825533 /* VLPreferencesView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C924BD134425EE00825533 /* VLPreferencesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C924B5134425EE00825533 /* VLPreferencesView.m */; };
+		35C924C21344323A00825533 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C924C01344323A00825533 /* Quartz.framework */; };
+		35C924C31344323A00825533 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C924C11344323A00825533 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +120,14 @@
 		35BE1B151343EF2300F4DC95 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BE6C2912E41AD100B52450 /* NBEngineListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBEngineListDataSource.h; path = Interface/NBEngineList/NBEngineListDataSource.h; sourceTree = "<group>"; };
 		35BE6C2A12E41AD100B52450 /* NBEngineListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBEngineListDataSource.m; path = Interface/NBEngineList/NBEngineListDataSource.m; sourceTree = "<group>"; };
+		35C924B0134425EE00825533 /* VLPreferencesToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPreferencesToolbar.h; sourceTree = "<group>"; };
+		35C924B1134425EE00825533 /* VLPreferencesToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPreferencesToolbar.m; sourceTree = "<group>"; };
+		35C924B2134425EE00825533 /* VLPreferencesToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPreferencesToolbarItem.h; sourceTree = "<group>"; };
+		35C924B3134425EE00825533 /* VLPreferencesToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPreferencesToolbarItem.m; sourceTree = "<group>"; };
+		35C924B4134425EE00825533 /* VLPreferencesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPreferencesView.h; sourceTree = "<group>"; };
+		35C924B5134425EE00825533 /* VLPreferencesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPreferencesView.m; sourceTree = "<group>"; };
+		35C924C01344323A00825533 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		35C924C11344323A00825533 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4385972B12D57EBF003D2E8D /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -120,6 +136,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C924C21344323A00825533 /* Quartz.framework in Frameworks */,
+				35C924C31344323A00825533 /* QuartzCore.framework in Frameworks */,
 				35BE1B161343EF2300F4DC95 /* JSON.framework in Frameworks */,
 				35BE1B171343EF2300F4DC95 /* NBCore.framework in Frameworks */,
 				355AAE3512DBC2C700A9FA54 /* RegexKit.framework in Frameworks */,
@@ -140,6 +158,8 @@
 		29B97314FDCFA39411CA2CEA /* Notebook */ = {
 			isa = PBXGroup;
 			children = (
+				35C924C01344323A00825533 /* Quartz.framework */,
+				35C924C11344323A00825533 /* QuartzCore.framework */,
 				355AADA712DBB67000A9FA54 /* NBUI.h */,
 				355AABC912DBB13200A9FA54 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -256,6 +276,12 @@
 				355AABEF12DBB13F00A9FA54 /* NBSettingsWindow.xib */,
 				355AABF012DBB13F00A9FA54 /* NBSettingsWindowController.h */,
 				355AABF112DBB13F00A9FA54 /* NBSettingsWindowController.m */,
+				35C924B0134425EE00825533 /* VLPreferencesToolbar.h */,
+				35C924B1134425EE00825533 /* VLPreferencesToolbar.m */,
+				35C924B2134425EE00825533 /* VLPreferencesToolbarItem.h */,
+				35C924B3134425EE00825533 /* VLPreferencesToolbarItem.m */,
+				35C924B4134425EE00825533 /* VLPreferencesView.h */,
+				35C924B5134425EE00825533 /* VLPreferencesView.m */,
 			);
 			name = NBSettings;
 			path = Interface/NBSettings;
@@ -356,6 +382,9 @@
 				3564A1F112E4455B00C47469 /* NBTheme.h in Headers */,
 				3564A1F912E4457100C47469 /* NBThemeJSON.h in Headers */,
 				352E864B12E5452F0012FBF1 /* NSColor+Notebook.h in Headers */,
+				35C924B8134425EE00825533 /* VLPreferencesToolbar.h in Headers */,
+				35C924BA134425EE00825533 /* VLPreferencesToolbarItem.h in Headers */,
+				35C924BC134425EE00825533 /* VLPreferencesView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +468,9 @@
 				3564A1F212E4455B00C47469 /* NBTheme.m in Sources */,
 				3564A1FA12E4457100C47469 /* NBThemeJSON.m in Sources */,
 				352E864C12E5452F0012FBF1 /* NSColor+Notebook.m in Sources */,
+				35C924B9134425EE00825533 /* VLPreferencesToolbar.m in Sources */,
+				35C924BB134425EE00825533 /* VLPreferencesToolbarItem.m in Sources */,
+				35C924BD134425EE00825533 /* VLPreferencesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
