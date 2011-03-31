@@ -24,9 +24,6 @@
       location = "container:"
       name = "Dependencies">
       <FileRef
-         location = "group:External/BWToolkit/BWToolkit.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:External/JSON/JSON.xcodeproj">
       </FileRef>
    </Group>
