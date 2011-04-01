@@ -448,10 +448,10 @@
 
 - (void)finishedEvaluation:(NSNotification *)notification
 {
+    globalsCache = [[[notebook engine] globals] copy];
+    
     [searchResultsView reloadData];
     [searchResultsView setNeedsDisplay:YES];
-    
-    globalsCache = [[[notebook engine] globals] copy];
 }
 
 - (IBAction)searchGlobals:(id)sender
