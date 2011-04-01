@@ -27,6 +27,8 @@
 #import <NBCore/NBCore.h>
 #import <NBUI/NBUI.h>
 
+#define NBDocumentGlobalDragType @"NBDocumentGlobalDragType"
+
 @interface NBDocument : NSDocument<NSWindowDelegate, NSTableViewDataSource>
 {
     NBNotebookView * notebookView;
@@ -43,6 +45,7 @@
     
     NSDictionary * globalsCache;
     NSDictionary * filteredGlobals;
+    NSMutableArray * watchedGlobals;
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;

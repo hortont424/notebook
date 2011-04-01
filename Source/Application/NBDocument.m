@@ -50,6 +50,7 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
+        watchedGlobals = [[NSMutableArray alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(finishedEvaluation:)
@@ -86,6 +87,9 @@
     [notebookView setNotebook:notebook];
     [searchResultsView setDataSource:self];
     [globalsTableView setDataSource:self];
+    
+    [searchResultsView registerForDraggedTypes:[NSArray arrayWithObject:NBDocumentGlobalDragType]];
+    [globalsTableView registerForDraggedTypes:[NSArray arrayWithObject:NBDocumentGlobalDragType]];
 }
 
 - (void)finishLoadingFile:(NSDictionary *)userData
@@ -446,12 +450,17 @@
 
 #pragma mark Globals Sidebar
 
+// TODO: most of this stuff needs to move elsewhere
+
 - (void)finishedEvaluation:(NSNotification *)notification
 {
     globalsCache = [[[notebook engine] globals] copy];
     
     [searchResultsView reloadData];
     [searchResultsView setNeedsDisplay:YES];
+    
+    [globalsTableView reloadData];
+    [globalsTableView setNeedsDisplay:YES];
 }
 
 - (IBAction)searchGlobals:(id)sender
@@ -485,27 +494,106 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
+    if(tableView == searchResultsView)
+    {
+        NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
+        
+        return [[globals allKeys] count];
+    }
+    else if(tableView == globalsTableView)
+    {
+        return [watchedGlobals count];
+    }
     
-    return [[globals allKeys] count];
+    return 0;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
-    
-    if([[tableColumn identifier] isEqualToString:@"icon"])
+    if(tableView == searchResultsView)
     {
-        NSString * type = [globals objectForKey:[[globals allKeys] objectAtIndex:row]];
+        NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
         
-        return [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForImageResource:type]];
+        if([[tableColumn identifier] isEqualToString:@"icon"])
+        {
+            NSString * type = [globals objectForKey:[[globals allKeys] objectAtIndex:row]];
+            
+            return [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForImageResource:type]];
+        }
+        else if([[tableColumn identifier] isEqualToString:@"name"])
+        {
+            return [[globals allKeys] objectAtIndex:row];
+        }
     }
-    else if([[tableColumn identifier] isEqualToString:@"name"])
+    else if(tableView == globalsTableView)
     {
-        return [[globals allKeys] objectAtIndex:row];
+        return [NSString stringWithFormat:@"%@ = %@", [watchedGlobals objectAtIndex:row], [[notebook engine] globalWithKey:[watchedGlobals objectAtIndex:row]]];
     }
     
     return nil;
+}
+
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard
+{
+    if(tableView == searchResultsView)
+    {
+        NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
+        NSMutableSet * globalNames = [[NSMutableSet alloc] init];
+        
+        [rowIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+            [globalNames addObject:[[globals allKeys] objectAtIndex:idx]];
+        }];
+        
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:globalNames];
+        
+        [pboard declareTypes:[NSArray arrayWithObject:NBDocumentGlobalDragType] owner:self];
+        [pboard setData:data forType:NBDocumentGlobalDragType];
+        
+        return YES;
+    }
+    else if(tableView == globalsTableView)
+    {
+        return NO;
+    }
+    
+    return NO;
+}
+
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)op
+{
+    if(tableView == searchResultsView)
+    {
+        return NSDragOperationNone;
+    }
+    else if(tableView == globalsTableView)
+    {
+        return NSDragOperationLink;
+    }
+    
+    return NSDragOperationNone;
+}
+
+- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
+{
+    if(tableView == searchResultsView)
+    {
+        return NO;
+    }
+    else if(tableView == globalsTableView)
+    {
+        NSPasteboard * pboard = [info draggingPasteboard];
+        NSData * nameData = [pboard dataForType:NBDocumentGlobalDragType];
+        NSSet * globalNames = [NSKeyedUnarchiver unarchiveObjectWithData:nameData];
+        
+        [watchedGlobals addObjectsFromArray:[globalNames allObjects]];
+        [tableView reloadData];
+        NSLog(@"%@", watchedGlobals);
+        
+        
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end
