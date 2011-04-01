@@ -390,7 +390,7 @@
 														<object class="NSTableView" id="415614369">
 															<reference key="NSNextResponder" ref="561218016"/>
 															<int key="NSvFlags">4352</int>
-															<string key="NSFrameSize">{215, 545}</string>
+															<string key="NSFrameSize">{218, 545}</string>
 															<reference key="NSSuperview" ref="561218016"/>
 															<reference key="NSWindow"/>
 															<reference key="NSNextKeyView" ref="417795246"/>
@@ -405,7 +405,7 @@
 															<array class="NSMutableArray" key="NSTableColumns">
 																<object class="NSTableColumn" id="846556533">
 																	<string key="NSIdentifier">icon</string>
-																	<double key="NSWidth">200</double>
+																	<double key="NSWidth">215</double>
 																	<double key="NSMaxWidth">5000</double>
 																	<object class="NSTableHeaderCell" key="NSHeaderCell">
 																		<int key="NSCellFlags">75628096</int>
@@ -424,8 +424,8 @@
 																		</object>
 																	</object>
 																	<object class="IBCustomCell" key="NSDataCell" id="399518899">
-																		<int key="NSCellFlags">67239424</int>
-																		<int key="NSCellFlags2">0</int>
+																		<int key="NSCellFlags">67239488</int>
+																		<int key="NSCellFlags2">2048</int>
 																		<reference key="NSSupport" ref="237670158"/>
 																		<reference key="NSControlView" ref="415614369"/>
 																	</object>
@@ -451,7 +451,7 @@
 																</object>
 															</object>
 															<double key="NSRowHeight">17</double>
-															<int key="NSTvFlags">1444937728</int>
+															<int key="NSTvFlags">1447034880</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
 															<int key="NSColumnAutoresizingStyle">4</int>
@@ -495,6 +495,7 @@
 													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="561218016"/>
 													<int key="NSViewLayerContentsRedrawPolicy">2</int>
+													<bool key="NSEnabled">YES</bool>
 													<int key="NSsFlags">1</int>
 													<reference key="NSTarget" ref="72956106"/>
 													<string key="NSAction">_doScroller:</string>
@@ -506,7 +507,7 @@
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="350954476"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
-											<int key="NSsFlags">528</int>
+											<int key="NSsFlags">656</int>
 											<reference key="NSVScroller" ref="417795246"/>
 											<reference key="NSHScroller" ref="350954476"/>
 											<reference key="NSContentView" ref="561218016"/>
@@ -1110,7 +1111,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">300</int>
+			<int key="maxID">302</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
