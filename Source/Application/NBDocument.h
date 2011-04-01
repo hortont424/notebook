@@ -40,6 +40,9 @@
     NSSearchField * searchField;
     NSTableView * searchResultsView;
     NSTableView * globalsTableView;
+    
+    NSDictionary * globalsCache;
+    NSDictionary * filteredGlobals;
 }
 
 @property (nonatomic,assign) IBOutlet NBNotebookView * notebookView;

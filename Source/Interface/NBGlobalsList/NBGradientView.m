@@ -23,49 +23,22 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NBGradientView.h"
 
-#define NBCellFinishedEvaluationNotification @"NBCellFinishedEvaluationNotification"
+@implementation NBGradientView
 
-typedef enum
+- (void)drawRect:(NSRect)dirtyRect
 {
-    NBCellNone,
-    NBCellSnippet,
-    NBCellComment
-} NBCellType;
-
-typedef enum
-{
-    NBCellChangedState = 0,
-    NBCellBusyState,
-    NBCellFailureState,
-    NBCellSuccessState
-} NBCellState;
-
-@class NBNotebook;
-@class NBException;
-
-@interface NBCell : NSObject
-{
-    NSString * content;
-    NSString * output;
-    NBNotebook * notebook;
-    NBException * exception;
-
-    NSTimer * undoTimer;
-
-    NBCellType type;
-    NBCellState state;
+    dirtyRect = [self bounds];
+    
+    NSGradient * grad = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceWhite:0.815f alpha:1.0f]
+                                                      endingColor:[NSColor colorWithDeviceWhite:0.941f alpha:1.0f]];
+    
+    [grad drawInRect:dirtyRect angle:90.0f];
+    
+    NSBezierPath * bp = [NSBezierPath bezierPathWithRect:dirtyRect];
+    [[NSColor colorWithDeviceWhite:0.6f alpha:1.0f] setStroke];
+    [bp stroke];
 }
-
-@property (nonatomic,assign) NSString * content;
-@property (nonatomic,assign) NSString * output;
-@property (nonatomic,assign) NBNotebook * notebook;
-@property (nonatomic,assign) NBException * exception;
-
-@property (nonatomic,assign) NBCellType type;
-@property (nonatomic,assign) NBCellState state;
-
-- (void)evaluate;
 
 @end

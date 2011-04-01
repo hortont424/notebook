@@ -27,6 +27,7 @@
 
 #import "NBWindowController.h"
 #import "NBDocumentController.h"
+#import <NBCore/NBCore.h>
 
 @implementation NBDocument
 
@@ -49,6 +50,11 @@
         initialized = initializedFromFile = NO;
 
         notebook = [[NBNotebook alloc] init];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(finishedEvaluation:)
+                                                     name:NBCellFinishedEvaluationNotification
+                                                   object:notebook];
     }
 
     return self;
@@ -438,24 +444,68 @@
     }
 }
 
+#pragma mark Globals Sidebar
+
+- (void)finishedEvaluation:(NSNotification *)notification
+{
+    [searchResultsView reloadData];
+    [searchResultsView setNeedsDisplay:YES];
+    
+    globalsCache = [[[notebook engine] globals] copy];
+}
+
 - (IBAction)searchGlobals:(id)sender
 {
-    if([[searchField stringValue] isEqualToString:@""])
+    NSString * searchString = [searchField stringValue];
+    
+    if(!searchString || [searchString isEqualToString:@""])
     {
+        filteredGlobals = nil;
     }
     else
     {
+        NSMutableDictionary * newFilteredGlobals = [[NSMutableDictionary alloc] init];
+        
+        for(NSString * global in globalsCache)
+        {
+            NSRange findRange = [global rangeOfString:[searchField stringValue]];
+            
+            if(findRange.location != NSNotFound)
+            {
+                [newFilteredGlobals setObject:[globalsCache objectForKey:global] forKey:global];
+            }
+        }
+        
+        filteredGlobals = newFilteredGlobals;
     }
+    
+    [searchResultsView reloadData];
+    [searchResultsView setNeedsDisplay:YES];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return [[[[notebook engine] globals] allKeys] count];
+    NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
+    
+    return [[globals allKeys] count];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    return [[[[notebook engine] globals] allKeys] objectAtIndex:row];
+    NSDictionary * globals = filteredGlobals ? filteredGlobals : globalsCache;
+    
+    if([[tableColumn identifier] isEqualToString:@"icon"])
+    {
+        NSString * type = [globals objectForKey:[[globals allKeys] objectAtIndex:row]];
+        
+        return [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForImageResource:type]];
+    }
+    else if([[tableColumn identifier] isEqualToString:@"name"])
+    {
+        return [[globals allKeys] objectAtIndex:row];
+    }
+    
+    return nil;
 }
 
 @end

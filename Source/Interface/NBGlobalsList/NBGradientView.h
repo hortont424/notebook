@@ -25,47 +25,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define NBCellFinishedEvaluationNotification @"NBCellFinishedEvaluationNotification"
-
-typedef enum
+@interface NBGradientView : NSView
 {
-    NBCellNone,
-    NBCellSnippet,
-    NBCellComment
-} NBCellType;
-
-typedef enum
-{
-    NBCellChangedState = 0,
-    NBCellBusyState,
-    NBCellFailureState,
-    NBCellSuccessState
-} NBCellState;
-
-@class NBNotebook;
-@class NBException;
-
-@interface NBCell : NSObject
-{
-    NSString * content;
-    NSString * output;
-    NBNotebook * notebook;
-    NBException * exception;
-
-    NSTimer * undoTimer;
-
-    NBCellType type;
-    NBCellState state;
+    
 }
-
-@property (nonatomic,assign) NSString * content;
-@property (nonatomic,assign) NSString * output;
-@property (nonatomic,assign) NBNotebook * notebook;
-@property (nonatomic,assign) NBException * exception;
-
-@property (nonatomic,assign) NBCellType type;
-@property (nonatomic,assign) NBCellState state;
-
-- (void)evaluate;
 
 @end

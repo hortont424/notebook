@@ -122,7 +122,7 @@
         }
     }
 
-    NSLog(@"%@", [[notebook engine] globals]);
+    [[NSNotificationCenter defaultCenter] postNotificationName:NBCellFinishedEvaluationNotification object:self.notebook];
 }
 
 @end

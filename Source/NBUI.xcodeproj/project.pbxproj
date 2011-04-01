@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		352E864B12E5452F0012FBF1 /* NSColor+Notebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 352E864912E5452F0012FBF1 /* NSColor+Notebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		352E864C12E5452F0012FBF1 /* NSColor+Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E864A12E5452F0012FBF1 /* NSColor+Notebook.m */; };
+		35386A0A134512B000EB8A25 /* NBGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 35386A08134512B000EB8A25 /* NBGradientView.h */; };
+		35386A0B134512B000EB8A25 /* NBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35386A09134512B000EB8A25 /* NBGradientView.m */; };
 		355AAC0012DBB13F00A9FA54 /* NBCellSubview.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD312DBB13F00A9FA54 /* NBCellSubview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0112DBB13F00A9FA54 /* NBCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 355AABD412DBB13F00A9FA54 /* NBCellView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		355AAC0212DBB13F00A9FA54 /* NBCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355AABD512DBB13F00A9FA54 /* NBCellView.m */; };
@@ -70,6 +72,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		352E864912E5452F0012FBF1 /* NSColor+Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Notebook.h"; sourceTree = "<group>"; };
 		352E864A12E5452F0012FBF1 /* NSColor+Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Notebook.m"; sourceTree = "<group>"; };
+		35386A08134512B000EB8A25 /* NBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBGradientView.h; path = Interface/NBGlobalsList/NBGradientView.h; sourceTree = "<group>"; };
+		35386A09134512B000EB8A25 /* NBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBGradientView.m; path = Interface/NBGlobalsList/NBGradientView.m; sourceTree = "<group>"; };
 		353E2B841295F2B8001A40B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		355AAB6C12DBB07D00A9FA54 /* NBUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		355AABC612DBB12D00A9FA54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Interface/Info.plist; sourceTree = "<group>"; };
@@ -196,9 +200,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		35386A071345112A00EB8A25 /* NBGlobalsList */ = {
+			isa = PBXGroup;
+			children = (
+				35386A08134512B000EB8A25 /* NBGradientView.h */,
+				35386A09134512B000EB8A25 /* NBGradientView.m */,
+			);
+			name = NBGlobalsList;
+			sourceTree = "<group>";
+		};
 		355AABC912DBB13200A9FA54 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				35386A071345112A00EB8A25 /* NBGlobalsList */,
 				35BE6C2812E41A9400B52450 /* NBEngineList */,
 				355AABD212DBB13F00A9FA54 /* NBCell */,
 				355AABDE12DBB13F00A9FA54 /* NBCreateNotebookView */,
@@ -385,6 +399,7 @@
 				35C924B8134425EE00825533 /* VLPreferencesToolbar.h in Headers */,
 				35C924BA134425EE00825533 /* VLPreferencesToolbarItem.h in Headers */,
 				35C924BC134425EE00825533 /* VLPreferencesView.h in Headers */,
+				35386A0A134512B000EB8A25 /* NBGradientView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +486,7 @@
 				35C924B9134425EE00825533 /* VLPreferencesToolbar.m in Sources */,
 				35C924BB134425EE00825533 /* VLPreferencesToolbarItem.m in Sources */,
 				35C924BD134425EE00825533 /* VLPreferencesView.m in Sources */,
+				35386A0B134512B000EB8A25 /* NBGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
