@@ -25,6 +25,8 @@
 		3535B2D31343F42E00E3AEEA /* NBUI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A8ED1343F2C3009944D4 /* NBUI.framework */; };
 		3535B2D51343F48800E3AEEA /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3535B2D41343F48800E3AEEA /* RegexKit.framework */; };
 		3535B2D61343F49300E3AEEA /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3535B2D41343F48800E3AEEA /* RegexKit.framework */; };
+		353D8AB613494AF4002AA7E2 /* NBLua.bundle in Copy Language PlugIns */ = {isa = PBXBuildFile; fileRef = 353D8AB513494AF4002AA7E2 /* NBLua.bundle */; };
+		353D8ABA13494C03002AA7E2 /* LuaFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 353D8AB913494C03002AA7E2 /* LuaFramework.framework */; };
 		355AADC512DBB75300A9FA54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355AADC412DBB75300A9FA54 /* QuartzCore.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,7 @@
 			files = (
 				3500A8E71343F287009944D4 /* NBPython.bundle in Copy Language PlugIns */,
 				3500A8E81343F287009944D4 /* NBRuby.bundle in Copy Language PlugIns */,
+				353D8AB613494AF4002AA7E2 /* NBLua.bundle in Copy Language PlugIns */,
 			);
 			name = "Copy Language PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +54,7 @@
 				3535B2D01343F42700E3AEEA /* JSON.framework in Copy Frameworks */,
 				3535B2D21343F42B00E3AEEA /* NBCore.framework in Copy Frameworks */,
 				3535B2D61343F49300E3AEEA /* RegexKit.framework in Copy Frameworks */,
+				353D8ABA13494C03002AA7E2 /* LuaFramework.framework in Copy Frameworks */,
 				3535B2D31343F42E00E3AEEA /* NBUI.framework in Copy Frameworks */,
 				3535B2D11343F42900E3AEEA /* NBApplication.framework in Copy Frameworks */,
 			);
@@ -78,7 +82,6 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		3500A8E51343F287009944D4 /* NBPython.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = NBPython.bundle; path = /Users/hortont/src/notebook/Build/Debug/NBPython.bundle; sourceTree = "<absolute>"; };
 		3500A8E61343F287009944D4 /* NBRuby.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = NBRuby.bundle; path = /Users/hortont/src/notebook/Build/Debug/NBRuby.bundle; sourceTree = "<absolute>"; };
-		3500A8E91343F2C3009944D4 /* BWToolkitFrameworkMAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BWToolkitFrameworkMAS.framework; path = /Users/hortont/src/notebook/Build/Debug/BWToolkitFrameworkMAS.framework; sourceTree = "<absolute>"; };
 		3500A8EA1343F2C3009944D4 /* JSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = JSON.framework; path = /Users/hortont/src/notebook/Build/Debug/JSON.framework; sourceTree = "<absolute>"; };
 		3500A8EB1343F2C3009944D4 /* NBApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = NBApplication.framework; path = /Users/hortont/src/notebook/Build/Debug/NBApplication.framework; sourceTree = "<absolute>"; };
 		3500A8EC1343F2C3009944D4 /* NBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = NBCore.framework; path = /Users/hortont/src/notebook/Build/Debug/NBCore.framework; sourceTree = "<absolute>"; };
@@ -92,6 +95,8 @@
 		3500A8FE1343F2F4009944D4 /* tango.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tango.js; sourceTree = "<group>"; };
 		3500A9011343F300009944D4 /* Notebook.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Notebook.icns; path = ../Artwork/Notebook.icns; sourceTree = "<group>"; };
 		3535B2D41343F48800E3AEEA /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = ../External/RegexKit.framework; sourceTree = "<group>"; };
+		353D8AB513494AF4002AA7E2 /* NBLua.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = NBLua.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		353D8AB913494C03002AA7E2 /* LuaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = LuaFramework.framework; path = /Users/hortont/src/notebook/External/Lua/build/Default/LuaFramework.framework; sourceTree = "<absolute>"; };
 		355AADC412DBB75300A9FA54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1107320486CEB800E47090 /* Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,8 +171,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				353D8AB913494C03002AA7E2 /* LuaFramework.framework */,
 				3535B2D41343F48800E3AEEA /* RegexKit.framework */,
-				3500A8E91343F2C3009944D4 /* BWToolkitFrameworkMAS.framework */,
 				3500A8EA1343F2C3009944D4 /* JSON.framework */,
 				3500A8EB1343F2C3009944D4 /* NBApplication.framework */,
 				3500A8EC1343F2C3009944D4 /* NBCore.framework */,
@@ -194,6 +199,7 @@
 		35BE1B3C1343F23A00F4DC95 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
+				353D8AB513494AF4002AA7E2 /* NBLua.bundle */,
 				3500A8E51343F287009944D4 /* NBPython.bundle */,
 				3500A8E61343F287009944D4 /* NBRuby.bundle */,
 			);

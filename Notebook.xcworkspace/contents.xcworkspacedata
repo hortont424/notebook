@@ -24,12 +24,18 @@
       location = "container:"
       name = "Dependencies">
       <FileRef
+         location = "group:External/JSON/../Lua/LuaFramework.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:External/JSON/JSON.xcodeproj">
       </FileRef>
    </Group>
    <Group
       location = "container:"
       name = "Languages">
+      <FileRef
+         location = "group:Source/Languages/NBLua.xcodeproj">
+      </FileRef>
       <FileRef
          location = "group:Source/Languages/NBPython.xcodeproj">
       </FileRef>
