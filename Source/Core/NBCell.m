@@ -85,8 +85,10 @@
 {
     self.state = NBCellBusyState;
     self.output = nil;
+    
+    NSString * trimmedString = [content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-    [[notebook engine] executeSnippet:content onCompletion:^(NBException * newException, NSString * outputString) {
+    [[notebook engine] executeSnippet:trimmedString onCompletion:^(NBException * newException, NSString * outputString) {
         [self evaluationComplete:newException withOutput:outputString];
     }];
 }
