@@ -1,0 +1,8 @@
+Import("outerEnv")
+
+env = outerEnv.Clone()
+
+env.AppendUnique(FRAMEWORKS=["Cocoa", "RegexKit", "Quartz"])
+notebook = env.Program("Notebook", Glob("Core/*.m") + Glob("Application/*.m"))
+
+Return("notebook")

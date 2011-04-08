@@ -1,0 +1,8 @@
+Import("outerEnv")
+
+env = outerEnv.Clone()
+
+env.AppendUnique(FRAMEWORKS=["Cocoa"])
+libjson = env.SharedLibrary("json", Glob("Classes/*.m"))
+
+Return("libjson")
