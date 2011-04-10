@@ -6,3 +6,4 @@
 *.pbxuser
 *.mode1*
 xcuserdata/
+.sconsign.dblite
