@@ -1,8 +1,15 @@
 Import("outerEnv")
+Import("libjson")
+Import("lua")
 
 env = outerEnv.Clone()
 
 env.AppendUnique(FRAMEWORKS=["Cocoa", "RegexKit", "Quartz"])
-notebook = env.Program("Notebook", Glob("Core/*.m") + Glob("Application/*.m"))
+env.AppendUnique(CPPPATH=["."])
+files = Glob("NBApplication/*.m") + Glob("NBCore/*.m") + Glob("NBSettings/*.m") + Glob("NBUI/*.m")
+notebook = env.Program("Notebook", files, LIBS=["libjson", "lua"])
+
+Depends(notebook, libjson)
+Depends(notebook, lua)
 
 Return("notebook")

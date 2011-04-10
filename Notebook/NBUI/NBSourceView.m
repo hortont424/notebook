@@ -27,9 +27,7 @@
 
 #import <NBCore/NBCore.h>
 
-#import "NBSettings.h"
-#import "NBTheme.h"
-#import "NBHighlightSettings.h"
+#import <NBSettings/NBSettings.h>
 
 @implementation NBSourceView
 
@@ -43,14 +41,14 @@
     {
         exceptions = [[NSMutableDictionary alloc] init];
 
-        [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
+        [self setBackgroundColor:[[NBSettingsController sharedInstance] colorWithKey:@"background.source"]];
 
         CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
                                                                    object:nil
                                                                     queue:nil
                                                                usingBlock:^(NSNotification * arg1)
         {
-            [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.source"]];
+            [self setBackgroundColor:[[NBSettingsController sharedInstance] colorWithKey:@"background.source"]];
         }]);
 
         void (^rehighlight)(NSNotification * arg1) = CFRetain(^(NSNotification *arg1)
@@ -83,7 +81,7 @@
     /*if([exceptions count])
     {
         NSLayoutManager * layout = [self layoutManager];
-        NBSettings * settings = [NBSettings sharedInstance];
+        NBSettingsController * settings = [NBSettingsController sharedInstance];
         CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
 
         NSUInteger currentLocation = 0, lineNumber = 0;
@@ -160,7 +158,7 @@
 - (void)textStorageDidProcessEditing:(NSNotification *)notification
 {
     NSTextStorage * textStorage = [self textStorage];
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     NSRange wholeStringRange = NSMakeRange(0, [[textStorage string] length]);
 
     // Remove all attributes, then reapply the defaults
@@ -172,7 +170,7 @@
     [textStorage addAttribute:NSFontAttributeName value:[settings fontWithKey:@"normal"] range:wholeStringRange];
     [textStorage addAttribute:NSForegroundColorAttributeName value:[settings colorWithKey:@"normal"] range:wholeStringRange];
 
-    if([[NBSettings sharedInstance] shouldHighlightSyntax])
+    if([[NBSettingsController sharedInstance] shouldHighlightSyntax])
     {
         // Apply each syntax highlighting style
 

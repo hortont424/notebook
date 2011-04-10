@@ -29,8 +29,7 @@
 
 #import "NBSourceCellView.h"
 #import "NBCommentCellView.h"
-#import "NBTheme.h"
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 #import "NBCellView.h"
 
 @interface NBNotebookView ()
@@ -181,7 +180,7 @@
 
 - (float)yForView:(NBCellView *)cellView
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     float cellSpacing = [(NSNumber *)[settings settingWithKey:@"cellSpacing"] floatValue];
     float y = cellSpacing;
 
@@ -200,7 +199,7 @@
 
 - (void)relayoutViews
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
 
     float cellSpacing = [(NSNumber *)[settings settingWithKey:@"cellSpacing"] floatValue];
 

@@ -32,14 +32,7 @@
 #import <NBUI/NBCreateNotebookViewDelegate.h>
 #import <NBUI/NBBackgroundView.h>
 #import <NBUI/NBNotebookView.h>
-#import <NBUI/NBHighlightSettings.h>
-#import <NBUI/NBSettings.h>
-#import <NBUI/NBSettingsWindowController.h>
 #import <NBUI/NBCommentView.h>
 #import <NBUI/NBOutputView.h>
 #import <NBUI/NBSourceView.h>
 #import <NBUI/NBTextView.h>
-
-#import <NBUI/VLPreferencesToolbar.h>
-#import <NBUI/VLPreferencesToolbarItem.h>
-#import <NBUI/VLPreferencesView.h>

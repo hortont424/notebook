@@ -44,26 +44,9 @@
  
 */
 
-
-// This setting of 1 is best if you copy the source into your project. 
-// The build transforms the 1 to a 0 when building the framework and static lib.
-
-#if 1
-
-#import "SBJsonParser.h"
-#import "SBJsonWriter.h"
-#import "SBJsonStreamWriter.h"
-#import "SBJsonStreamParser.h"
-#import "SBJsonStreamParserAdapter.h"
-#import "NSObject+JSON.h"
-
-#else
-
 #import <JSON/SBJsonParser.h>
 #import <JSON/SBJsonWriter.h>
 #import <JSON/SBJsonStreamParser.h>
 #import <JSON/SBJsonStreamParserAdapter.h>
 #import <JSON/SBJsonStreamWriter.h>
 #import <JSON/NSObject+JSON.h>
-
-#endif

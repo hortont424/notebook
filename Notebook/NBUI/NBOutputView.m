@@ -25,7 +25,7 @@
 
 #import "NBOutputView.h"
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 
 @implementation NBOutputView
 
@@ -35,14 +35,14 @@
 
     if(self)
     {
-        [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.output"]];
+        [self setBackgroundColor:[[NBSettingsController sharedInstance] colorWithKey:@"background.output"]];
 
         CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
                                                                    object:nil
                                                                     queue:nil
                                                                usingBlock:^(NSNotification *arg1)
         {
-            [self setBackgroundColor:[[NBSettings sharedInstance] colorWithKey:@"background.output"]];
+            [self setBackgroundColor:[[NBSettingsController sharedInstance] colorWithKey:@"background.output"]];
         }]);
     }
 

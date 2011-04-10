@@ -23,37 +23,12 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBCommentView.h"
-
-#import "NBSettings.h"
-#import "NBTheme.h"
-#import "NBHighlightSettings.h"
-
-@implementation NBCommentView
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-
-    if(self)
-    {
-        NBSettings * settings = [NBSettings sharedInstance];
-        [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
-        [self setTextColor:[settings highlightWithKey:@"comment"].color];
-        [self setFont:[settings highlightWithKey:@"comment"].font];
-
-        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
-                                                                   object:nil
-                                                                    queue:nil
-                                                               usingBlock:^(NSNotification *arg1)
-        {
-            [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
-            [self setTextColor:[settings highlightWithKey:@"comment"].color];
-            [self setFont:[settings highlightWithKey:@"comment"].font];
-        }]);
-    }
-
-    return self;
-}
-
-@end
+#import <NBSettings/NBHighlightSettings.h>
+#import <NBSettings/NBSettingsController.h>
+#import <NBSettings/NBSettingsWindowController.h>
+#import <NBSettings/NBTheme.h>
+#import <NBSettings/NBThemeJSON.h>
+#import <NBSettings/NBThemeListDataSource.h>
+#import <NBSettings/VLPreferencesToolbar.h>
+#import <NBSettings/VLPreferencesToolbarItem.h>
+#import <NBSettings/VLPreferencesView.h>

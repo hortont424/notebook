@@ -23,16 +23,16 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 
 #import <JSON/JSON.h>
 
 #import "NBHighlightSettings.h"
 #import "NBTheme.h"
 
-static NBSettings * sharedInstance = nil;
+static NBSettingsController * sharedInstance = nil;
 
-@implementation NBSettings
+@implementation NBSettingsController
 
 @synthesize themes;
 
@@ -233,13 +233,13 @@ static NBSettings * sharedInstance = nil;
 
 #pragma mark Singleton Methods
 
-+ (NBSettings *)sharedInstance
++ (NBSettingsController *)sharedInstance
 {
     @synchronized(self)
     {
         if(sharedInstance == nil)
         {
-            sharedInstance = [[NBSettings alloc] init];
+            sharedInstance = [[NBSettingsController alloc] init];
         }
     }
 

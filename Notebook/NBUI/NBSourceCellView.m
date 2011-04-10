@@ -25,7 +25,7 @@
 
 #import "NBSourceCellView.h"
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 #import "NBSourceView.h"
 #import "NBOutputView.h"
 
@@ -73,7 +73,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
 
     [super drawRect:dirtyRect];

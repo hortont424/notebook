@@ -34,8 +34,7 @@
 
 #import "NBTextView.h"
 
-#import "NBSettings.h"
-#import "NBTheme.h"
+#import <NBSettings/NBSettings.h>
 
 @implementation NBTextView
 
@@ -51,8 +50,8 @@
 
         [[self textStorage] setDelegate:self];
         [self setTextContainerInset:NSMakeSize(10, 10)]; // TODO: make it a setting!
-        [self setTextColor:[[NBSettings sharedInstance] colorWithKey:@"normal"]];
-        [self setFont:[[NBSettings sharedInstance] fontWithKey:@"normal"]];
+        [self setTextColor:[[NBSettingsController sharedInstance] colorWithKey:@"normal"]];
+        [self setFont:[[NBSettingsController sharedInstance] fontWithKey:@"normal"]];
 
         NSMutableParagraphStyle * para = [[NSMutableParagraphStyle alloc] init];
         [para setLineSpacing:2.0];
@@ -64,8 +63,8 @@
                                                                     queue:nil
                                                                usingBlock:^(NSNotification *arg1)
         {
-            [self setTextColor:[[NBSettings sharedInstance] colorWithKey:@"normal"]];
-            [self setFont:[[NBSettings sharedInstance] fontWithKey:@"normal"]];
+            [self setTextColor:[[NBSettingsController sharedInstance] colorWithKey:@"normal"]];
+            [self setFont:[[NBSettingsController sharedInstance] fontWithKey:@"normal"]];
         }]);
     }
 
@@ -93,7 +92,7 @@
 
 - (NSString *)indentString
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     NSUInteger tabWidth = [settings tabWidth];
     char tabChar = [settings tabCharacter];
     char * tabString;
@@ -113,7 +112,7 @@
 
 - (void)insertNewline:(id)sender
 {
-    if([[NBSettings sharedInstance] shouldMatchIndent])
+    if([[NBSettingsController sharedInstance] shouldMatchIndent])
     {
         NSRange insertionPoint;
         NSUInteger start, end;

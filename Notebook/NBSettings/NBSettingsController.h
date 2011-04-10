@@ -68,7 +68,7 @@ typedef enum
 @class NBHighlightSettings;
 @class NBTheme;
 
-@interface NBSettings : NSObject
+@interface NBSettingsController : NSObject
 {
     NSMutableDictionary * themes;
 }
@@ -76,7 +76,7 @@ typedef enum
 @property (readonly) NSString * themeName;
 @property (nonatomic,assign) NSMutableDictionary * themes;
 
-+ (NBSettings *)sharedInstance;
++ (NBSettingsController *)sharedInstance;
 
 - (void)loadThemes:(NSArray *)paths;
 

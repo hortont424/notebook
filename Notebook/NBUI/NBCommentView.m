@@ -23,24 +23,35 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <NBCore/NBCore.h>
-#import <NBUI/NBUI.h>
-#import <NBApplication/NBApplication.h>
+#import "NBCommentView.h"
 
-@class NotebookDocument;
+#import <NBSettings/NBSettings.h>
 
-@interface NotebookAppDelegate : NSObject<NSApplicationDelegate>
+@implementation NBCommentView
+
+- (id)initWithFrame:(NSRect)frame
 {
-    NSMenuItem * languageMenuItem;
+    self = [super initWithFrame:frame];
 
-    NotebookDocument * currentDocument;
-    NBSettingsWindowController * settingsWindowController;
+    if(self)
+    {
+        NBSettingsController * settings = [NBSettingsController sharedInstance];
+        [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
+        [self setTextColor:[settings highlightWithKey:@"comment"].color];
+        [self setFont:[settings highlightWithKey:@"comment"].font];
+
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification *arg1)
+        {
+            [self setBackgroundColor:[settings colorWithKey:@"background.comment"]];
+            [self setTextColor:[settings highlightWithKey:@"comment"].color];
+            [self setFont:[settings highlightWithKey:@"comment"].font];
+        }]);
+    }
+
+    return self;
 }
-
-@property (nonatomic,assign) IBOutlet NSMenuItem * languageMenuItem;
-@property (nonatomic,assign) NotebookDocument * currentDocument;
-
-- (IBAction)showPreferences:(id)sender;
 
 @end

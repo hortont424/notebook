@@ -23,14 +23,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBThemeParserController.h"
+#import "NBThemeListDataSource.h"
 
-#import "NBThemeParser.h"
-#import "NBThemeParserJSON.h"
+#import <NBSettings/NBSettings.h>
 
-static NBThemeParserController * sharedInstance = nil;
+@implementation NBThemeListDataSource
 
-@implementation NBThemeParserController
+@synthesize themeNames;
 
 - (id)init
 {
@@ -38,77 +37,22 @@ static NBThemeParserController * sharedInstance = nil;
 
     if(self != nil)
     {
-        themeParsers = [[NSMutableDictionary alloc] init];
+        // TODO: we cache themes in lots of places, so right now we can't dynamically load them
 
-        [(NSMutableDictionary *)themeParsers setObject:[NBThemeParserJSON class] forKey:[[NBThemeParserJSON fileExtension] lowercaseString]];
+        themeNames = [[[NBSettingsController sharedInstance] themes] allKeys];
+        themeNames = [themeNames sortedArrayUsingSelector:@selector(localizedCompare:)];
     }
-
     return self;
 }
 
-- (NBThemeParser *)themeParserClassForFilename:(NSString *)filename
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    NSString * extension = [[filename pathExtension] lowercaseString];
-
-    if(![extension isEqualToString:@""])
-    {
-        return [themeParsers objectForKey:extension];
-    }
-
-    return nil;
+    return [themeNames count];
 }
 
-#pragma mark Singleton Methods
-
-+ (NBThemeParserController *)sharedInstance
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-    @synchronized(self)
-    {
-        if(sharedInstance == nil)
-        {
-            sharedInstance = [[NBThemeParserController alloc] init];
-        }
-    }
-
-    return sharedInstance;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    @synchronized(self)
-    {
-        if(sharedInstance == nil)
-        {
-            sharedInstance = [super allocWithZone:zone];
-            return sharedInstance;
-        }
-    }
-
-    return nil;
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (unsigned long)retainCount
-{
-    return ULONG_MAX;
-}
-
-- (void)release
-{
-}
-
-- (id)autorelease
-{
-    return self;
+    return [themeNames objectAtIndex:rowIndex];
 }
 
 @end

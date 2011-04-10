@@ -37,6 +37,7 @@ outerEnv = Environment(
     FRAMEWORKPATH = ["External"],
     CCFLAGS = CCFLAGS,
     LDFLAGS = LDFLAGS,
+    CPPPATH = ["#Build/External"],
     LIBPATH = ["#Build/Notebook",
                "#Build/External/JSON"])
 
@@ -49,7 +50,7 @@ lua = SConscript('Build/External/Lua/SConscript')
 libraries = ['libjson', 'lua']
 
 # Application
-notebook = SConscript('Build/Notebook/SConscript')
+notebook = SConscript('Build/Notebook/SConscript', libraries)
 
 # Base Libraries
 #libparticles = SConscript('Libraries/build/libparticles/SConscript', libraries)

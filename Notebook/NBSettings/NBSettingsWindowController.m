@@ -40,7 +40,7 @@
 
 #import "NBSettingsWindowController.h"
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 #import "NBThemeListDataSource.h"
 #import "VLPreferencesToolbarItem.h"
 
@@ -54,7 +54,7 @@
     [languageBrowser reloadData];
 
     NBThemeListDataSource * dataSource = [themeList dataSource];
-    NSString * themeName = [[NBSettings sharedInstance] themeName];
+    NSString * themeName = [[NBSettingsController sharedInstance] themeName];
     NSIndexSet * selectedIndex = [NSIndexSet indexSetWithIndex:[dataSource.themeNames indexOfObject:themeName]];
 
     [themeList selectRowIndexes:selectedIndex byExtendingSelection:NO];

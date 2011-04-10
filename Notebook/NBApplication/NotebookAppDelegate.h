@@ -23,34 +23,25 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBBackgroundView.h"
+#import <Cocoa/Cocoa.h>
+#import <NBCore/NBCore.h>
+#import <NBUI/NBUI.h>
+#import <NBSettings/NBSettings.h>
+#import <NBApplication/NBApplication.h>
 
-#import "NBSettings.h"
-#import "NBTheme.h"
+@class NotebookDocument;
 
-@implementation NBBackgroundView
-
-- (id)initWithFrame:(NSRect)frame
+@interface NotebookAppDelegate : NSObject<NSApplicationDelegate>
 {
-    self = [super initWithFrame:frame];
+    NSMenuItem * languageMenuItem;
 
-    if(self)
-    {
-        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
-                                                                   object:nil
-                                                                    queue:nil
-                                                               usingBlock:^(NSNotification * arg1)
-        {
-            [self setNeedsDisplay:YES];
-        }]);
-    }
-    return self;
+    NotebookDocument * currentDocument;
+    NBSettingsWindowController * settingsWindowController;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [[[NBSettings sharedInstance] colorWithKey:@"background"] setFill];
-    NSRectFill(dirtyRect);
-}
+@property (nonatomic,assign) IBOutlet NSMenuItem * languageMenuItem;
+@property (nonatomic,assign) NotebookDocument * currentDocument;
+
+- (IBAction)showPreferences:(id)sender;
 
 @end

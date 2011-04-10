@@ -2,7 +2,7 @@ Import("outerEnv")
 
 env = outerEnv.Clone()
 
-env.AppendUnique(FRAMEWORKS=["Cocoa"])
-libjson = env.SharedLibrary("json", Glob("Classes/*.m"))
+env.AppendUnique(FRAMEWORKS=["Cocoa"], LINKFLAGS=["-install_name", "@executable_path/libjson.dylib"])
+libjson = env.SharedLibrary("json", Glob("*.m"))
 
 Return("libjson")

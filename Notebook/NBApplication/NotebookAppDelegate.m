@@ -39,7 +39,7 @@
 
 - (void)loadThemes
 {
-    [[NBSettings sharedInstance] loadThemes:[[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"]];
+    [[NBSettingsController sharedInstance] loadThemes:[[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:@"Themes"]];
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification

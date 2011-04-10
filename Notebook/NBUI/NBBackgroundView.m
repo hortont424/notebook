@@ -23,36 +23,33 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NBThemeListDataSource.h"
+#import "NBBackgroundView.h"
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 
-@implementation NBThemeListDataSource
+@implementation NBBackgroundView
 
-@synthesize themeNames;
-
-- (id)init
+- (id)initWithFrame:(NSRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
 
-    if(self != nil)
+    if(self)
     {
-        // TODO: we cache themes in lots of places, so right now we can't dynamically load them
-
-        themeNames = [[[NBSettings sharedInstance] themes] allKeys];
-        themeNames = [themeNames sortedArrayUsingSelector:@selector(localizedCompare:)];
+        CFRetain([[NSNotificationCenter defaultCenter] addObserverForName:NBThemeChangedNotification
+                                                                   object:nil
+                                                                    queue:nil
+                                                               usingBlock:^(NSNotification * arg1)
+        {
+            [self setNeedsDisplay:YES];
+        }]);
     }
     return self;
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+- (void)drawRect:(NSRect)dirtyRect
 {
-    return [themeNames count];
-}
-
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
-{
-    return [themeNames objectAtIndex:rowIndex];
+    [[[NBSettingsController sharedInstance] colorWithKey:@"background"] setFill];
+    NSRectFill(dirtyRect);
 }
 
 @end

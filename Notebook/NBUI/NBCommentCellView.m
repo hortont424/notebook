@@ -25,7 +25,7 @@
 
 #import "NBCommentCellView.h"
 
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 #import "NBCommentView.h"
 
 @implementation NBCommentCellView
@@ -63,7 +63,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
 
     [super drawRect:dirtyRect];

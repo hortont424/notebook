@@ -27,7 +27,7 @@
 
 #import "NBSourceView.h"
 #import "NBOutputView.h"
-#import "NBSettings.h"
+#import <NBSettings/NBSettings.h>
 #import "NBCellSubview.h"
 
 @implementation NBCellView
@@ -189,7 +189,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    NBSettings * settings = [NBSettings sharedInstance];
+    NBSettingsController * settings = [NBSettingsController sharedInstance];
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
 
     // Draw the cell background

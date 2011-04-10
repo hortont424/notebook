@@ -27,7 +27,6 @@
 
 #import "NBWindowController.h"
 #import "NBDocumentController.h"
-#import <NBCore/NBCore.h>
 
 @implementation NBDocument
 
@@ -75,7 +74,7 @@
 
 - (void)makeWindowControllers
 {
-    NBWindowController * windowController = [[NBWindowController alloc] initWithWindowNibPath:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForResource:@"Notebook" ofType:@"nib"] owner:self];
+    NBWindowController * windowController = [[NBWindowController alloc] initWithWindowNibPath:[[NSBundle mainBundle] pathForResource:@"Notebook" ofType:@"nib"] owner:self];
 
     [self addWindowController:windowController];
 }
