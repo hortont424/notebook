@@ -1,15 +1,20 @@
 Import("outerEnv")
 Import("libjson")
-Import("lua")
 
 env = outerEnv.Clone()
 
 env.AppendUnique(FRAMEWORKS=["Cocoa", "RegexKit", "Quartz"])
 env.AppendUnique(CPPPATH=["."])
 files = Glob("NBApplication/*.m") + Glob("NBCore/*.m") + Glob("NBSettings/*.m") + Glob("NBUI/*.m")
-notebook = env.Program("Notebook", files, LIBS=["libjson", "lua"])
+notebooklib = env.SharedLibrary("notebook", files, LIBS=[libjson], LINKFLAGS=["-install_name", "@executable_path/libnotebook.dylib"])
 
-Depends(notebook, libjson)
-Depends(notebook, lua)
+Depends(notebooklib, libjson)
 
-Return("notebook")
+notebook = env.Program("Notebook", "main.m", LIBS=[libjson, notebooklib])
+
+notebookapp = env.MacApplication("Notebook", creator="NOTB", resources=["NBApplication/MainMenu.xib", "NBApplication/Notebook.xib", "NBSettings/NBSettingsWindow.xib", "NBUI/NBCreateNotebookView.xib", "#Artwork/Notebook.icns"], frameworks=["#External/RegexKit.framework"], dylibs=[libjson, notebooklib])
+
+Depends(notebookapp, libjson)
+Depends(notebookapp, notebooklib)
+
+Return(["notebookapp", "notebooklib", "notebook"])

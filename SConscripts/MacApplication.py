@@ -17,7 +17,7 @@ def TOOL_MAC_APPLICATION(env):
     env['APPDIRSUFFIX'] = '.app'
 
     def MacApplication(env, app, info_plist="Info.plist", creator='APPL',
-                        resources=[], frameworks=[]):
+                        resources=[], frameworks=[], dylibs=[]):
         """Create and populate the structure of a Mac OS X application"""
 
         if SCons.Util.is_List(app):
@@ -33,11 +33,12 @@ def TOOL_MAC_APPLICATION(env):
         contentsdir = join(bundledir, "Contents")
         resourcesdir = join(contentsdir, "Resources")
         frameworksdir = join(contentsdir, "Frameworks")
+        bindir = join(contentsdir, "MacOS")
 
         env.SideEffect(bundledir, app)
 
         # Install various required files to the .app/Contents
-        inst = env.Install(join(contentsdir, "MacOS"), app)
+        inst = env.Install(bindir, app)
         inf = env.InstallAs(join(contentsdir, "Info.plist"), info_plist)
         env.WriteVal(target=join(contentsdir, "PkgInfo"),
                      source=SCons.Node.Python.Value("APPL" + creator))
@@ -48,6 +49,9 @@ def TOOL_MAC_APPLICATION(env):
             if r.endswith(".xib"):
                 r = env.NIB(r)[0]
             env.Install(resourcesdir, r)
+        
+        for d in dylibs:
+            env.Install(bindir, d)
 
         # Install included frameworks to .app/Contents/Frameworks
         for r in frameworks:

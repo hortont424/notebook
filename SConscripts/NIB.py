@@ -14,8 +14,9 @@ def TOOL_NIB(env):
     def nib(target, source, env):
         args = "--errors --output-format human-readable-text"
 
-        for plugin in env["IBPLUGINSPATH"]:
-            args += " --plugin-dir %s" % plugin
+        if "IBPLUGINSPATH" in env:
+            for plugin in env["IBPLUGINSPATH"]:
+                args += " --plugin-dir %s" % plugin
 
         os.system("ibtool %s --compile %s %s" % (args, target[0], source[0]))
 

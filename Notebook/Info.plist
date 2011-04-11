@@ -11,8 +11,6 @@
 			<array>
 				<string>*</string>
 			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
 			<key>CFBundleTypeName</key>
 			<string>NBDocument</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -26,7 +24,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
+	<string>Notebook</string>
 	<key>CFBundleIconFile</key>
 	<string>Notebook.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -34,7 +32,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Notebook</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -42,12 +40,12 @@
 	<key>CFBundleVersion</key>
 	<string>0.1.1</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<string>10.6</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2010, 2011 Tim Horton</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>© 2010, 2011 Tim Horton</string>
 </dict>
 </plist>

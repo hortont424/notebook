@@ -1,0 +1,12 @@
+Import("outerEnv")
+Import("notebooklib")
+
+env = outerEnv.Clone()
+
+env.AppendUnique(FRAMEWORKS=["Cocoa", "RegexKit", "Python"])
+env.AppendUnique(CPPPATH=[".", "#Notebook"])
+files = Glob("*.m")
+
+NBPython = env.LoadableModule("NBPython", files, LIBS=[notebooklib])
+
+Return("NBPython")

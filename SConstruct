@@ -5,8 +5,8 @@ SetOption('num_jobs', 8)
 
 VariantDir('Build/Notebook', 'Notebook')
 VariantDir('Build/External', 'External')
+VariantDir('Build/Languages', 'Languages')
 
-includes = ["-IExternal/JSON/Classes", "-I/opt/local/include"]
 globalFlags = ["-std=c99", "-Wall", "-fobjc-gc"]
 CFlags = globalFlags + []
 linkFlags = globalFlags + []
@@ -46,27 +46,18 @@ Export("outerEnv")
 
 # External libraries
 libjson = SConscript('Build/External/JSON/SConscript')
-lua = SConscript('Build/External/Lua/SConscript')
-libraries = ['libjson', 'lua']
 
 # Application
-notebook = SConscript('Build/Notebook/SConscript', libraries)
+notebookapp, notebooklib, notebook = SConscript('Build/Notebook/SConscript', ["libjson"])
 
-# Base Libraries
-#libparticles = SConscript('Libraries/build/libparticles/SConscript', libraries)
-#libcurve = SConscript('Libraries/build/libcurve/SConscript', libraries)
-#libcomputer = SConscript('Libraries/build/libcomputer/SConscript', libraries)
-#libraries += ['libcomputer', 'libparticles', 'libcurve']
+# Languages
 
-# High-level Libraries
-#librenderer = SConscript('Libraries/build/librenderer/SConscript', libraries)
-#libpreviewer = SConscript('Libraries/build/libpreviewer/SConscript', libraries)
-#libsimulator = SConscript('Libraries/build/libsimulator/SConscript', libraries)
-#libraries += ['librenderer', 'libpreviewer', 'libsimulator']
+## Python
+python = SConscript('Build/Languages/Python/SConscript', ['notebooklib'])
 
-# Tools
-#simulator = SConscript('Simulator/build/SConscript', libraries)
-#interpolator = SConscript('Interpolator/build/SConscript', libraries)
+## Ruby
 
-#outerEnv.Install('/usr/local/lib', [libjsonc, libparticles, libcurve, libcomputer, librenderer, libpreviewer, libsimulator])
-#outerEnv.Alias('install', '/usr/local/lib')
+## Lua
+
+liblua = SConscript('Build/External/Lua/SConscript')
+
