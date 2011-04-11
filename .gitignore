@@ -7,3 +7,4 @@
 *.mode1*
 xcuserdata/
 .sconsign.dblite
+*.pyc
