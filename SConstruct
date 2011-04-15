@@ -61,3 +61,8 @@ python = SConscript('Build/Languages/Python/SConscript', ['notebooklib'])
 
 liblua = SConscript('Build/External/Lua/SConscript')
 
+# Install Language PlugIns
+
+plugindir = os.path.join(outerEnv.GetBuildPath(notebookapp)[0], "Contents", "PlugIns")
+
+outerEnv.Install(plugindir, python)

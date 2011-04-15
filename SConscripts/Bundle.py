@@ -1,23 +1,22 @@
 #!/usr/bin/env python
 # Initially from Joey Mukherjee (joey@swri.edu), 2005; heavily modified
 
-"""Provides tools for building Mac application bundles."""
+"""Provides tools for building Mac OS X bundles."""
 
 from os.path import *
 
 from SCons.Builder import *
 from SCons.Script.SConscript import SConsEnvironment
 
-def TOOL_MAC_APPLICATION(env):
+def TOOL_BUNDLE(env):
     if env['PLATFORM'] != 'darwin':
         return
-    if 'MAC_APPLICATION' in env['TOOLS']:
+    if 'BUNDLE' in env['TOOLS']:
         return
-    env.Append(TOOLS = 'MAC_APPLICATION')
-    env['APPDIRSUFFIX'] = '.app'
+    env.Append(TOOLS = 'BUNDLE')
 
-    def MacApplication(env, app, info_plist="Info.plist", creator='APPL',
-                        resources=[], frameworks=[], dylibs=[]):
+    def Bundle(env, app, info_plist="Info.plist", creator='APPL',
+               resources=[], frameworks=[], dylibs=[], hasPkgInfo=True, suffix=".app"):
         """Create and populate the structure of a Mac OS X application"""
 
         if SCons.Util.is_List(app):
@@ -29,7 +28,7 @@ def TOOL_MAC_APPLICATION(env):
         else:
             appbase = basename(str(app))
 
-        bundledir = env.subst(appbase + '$APPDIRSUFFIX')
+        bundledir = env.subst(appbase + suffix)
         contentsdir = join(bundledir, "Contents")
         resourcesdir = join(contentsdir, "Resources")
         frameworksdir = join(contentsdir, "Frameworks")
@@ -40,8 +39,10 @@ def TOOL_MAC_APPLICATION(env):
         # Install various required files to the .app/Contents
         inst = env.Install(bindir, app)
         inf = env.InstallAs(join(contentsdir, "Info.plist"), info_plist)
-        env.WriteVal(target=join(contentsdir, "PkgInfo"),
-                     source=SCons.Node.Python.Value("APPL" + creator))
+        
+        if hasPkgInfo:
+            env.WriteVal(target=join(contentsdir, "PkgInfo"),
+                         source=SCons.Node.Python.Value("APPL" + creator))
 
         # Install all resources to .app/Contents/Resources
         for r in resources:
@@ -59,4 +60,4 @@ def TOOL_MAC_APPLICATION(env):
 
         return [SCons.Node.FS.default_fs.Dir(bundledir)]
 
-    SConsEnvironment.MacApplication = MacApplication
+    SConsEnvironment.Bundle = Bundle

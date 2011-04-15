@@ -9,4 +9,8 @@ files = Glob("*.m")
 
 NBPython = env.LoadableModule("NBPython", files, LIBS=[notebooklib])
 
-Return("NBPython")
+NBPythonBundle = env.Bundle("NBPython", creator="NOTB", resources=["python.png"], frameworks=[], dylibs=[], suffix=".bundle", hasPkgInfo=False)
+
+Depends(NBPythonBundle, NBPython)
+
+Return("NBPythonBundle")
