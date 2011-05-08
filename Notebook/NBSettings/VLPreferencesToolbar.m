@@ -22,8 +22,10 @@
 
 -(void)awakeFromNib
 {
+    NSArray * items = [self items];
+    
     // set the first item as active
-    [self setSelectedItemIdentifier:[[[self items] objectAtIndex:0] itemIdentifier]];
+    [self setSelectedItemIdentifier:[[items objectAtIndex:0] itemIdentifier]];
 }
 
 @end

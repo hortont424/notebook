@@ -101,10 +101,6 @@
 
 -(IBAction)toolbarItemClicked:(id)sender
 {
-    // choose the correct transition
-    NSArray * items = [[[self window] toolbar] items];
-    [transition setSubtype:[items indexOfObject:sender] < [items indexOfObject:currentItem] ?
-    kCATransitionFromLeft : kCATransitionFromRight];
     currentItem = sender;
     
     // select the toolbar item
@@ -113,18 +109,20 @@
     // set the window's title
     [[self window] setTitle:[sender label]];
     
-    // set the window's height
+    // calculate the window's height
     CGFloat height = [[sender preferencesView] desiredHeight];
     height -= [[[self window] contentView] frame].size.height;
     
-    [[[[self window] contentView] animator] replaceSubview:currentView with:[sender preferencesView]];
-    [[sender preferencesView] setFrame:[[[self window] contentView] bounds]];
-    currentView = [sender preferencesView];
-    
+    // resize the window
     NSRect windowFrame = [[self window] frame];
     windowFrame.size.height += height;
     windowFrame.origin.y -= height;
-    [[self window] setFrame:windowFrame display:YES animate:YES];
+    [[self window] setFrame:windowFrame display:YES animate:NO];
+    
+    // replace the view
+    [[sender preferencesView] setFrame:[[[self window] contentView] bounds]];
+    [[[self window] contentView] replaceSubview:currentView with:[sender preferencesView]];
+    currentView = [sender preferencesView];
 }
 
 -(NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar*)toolbar
