@@ -1,0 +1,16 @@
+Import("outerEnv")
+Import("notebooklib")
+
+env = outerEnv.Clone()
+
+env.AppendUnique(FRAMEWORKS=["Cocoa", "RegexKit", "Ruby"])
+env.AppendUnique(CPPPATH=[".", "#Notebook"])
+files = Glob("*.m")
+
+NBRuby = env.LoadableModule("NBRuby", files, LIBS=[notebooklib])
+
+NBRubyBundle = env.Bundle("NBRuby", creator="NOTB", resources=["ruby.png"], frameworks=[], dylibs=[], suffix=".bundle", hasPkgInfo=False)
+
+Depends(NBRubyBundle, NBRuby)
+
+Return("NBRubyBundle")

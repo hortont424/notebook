@@ -25,9 +25,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import <NBCore/NBCore.h>
-#import <LuaFramework/lua.h>
-#import <LuaFramework/lauxlib.h>
-#import <LuaFramework/lualib.h>
+
+#import <lua.h>
+#import <lauxlib.h>
+#import <lualib.h>
 
 @interface NBEngineLuaBackend : NBEngineBackend
 {

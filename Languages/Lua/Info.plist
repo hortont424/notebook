@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
+	<string>NBLua</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.hortont.notebook.lua</string>
 	<key>CFBundleInfoDictionaryVersion</key>

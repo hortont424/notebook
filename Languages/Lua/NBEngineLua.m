@@ -25,7 +25,7 @@
 
 #import "NBEngineLua.h"
 
-#import <LuaFramework/lua.h>
+#import <lua.h>
 
 #import "NBEngineLuaBackend.h"
 #import "NBEngineLuaHighlighter.h"

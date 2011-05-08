@@ -3,6 +3,6 @@ Import("outerEnv")
 env = outerEnv.Clone()
 
 env.AppendUnique(LIBS=["readline"], CPPDEFINES={'LUA_USE_LINUX' : '1'}, LINKFLAGS=["-install_name", "@executable_path/liblua.dylib"])
-liblua = env.SharedLibrary("lua", Glob("src/*.c"))
+liblua = env.StaticLibrary("lua", Glob("src/*.c"))
 
 Return("liblua")
