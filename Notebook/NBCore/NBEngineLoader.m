@@ -59,17 +59,31 @@ static NBEngineLoader * sharedInstance = nil;
     for(NSString * path in all)
     {
         NSBundle * pluginBundle = [NSBundle bundleWithPath:path];
-        [pluginBundle load];
+        NSError * error = nil;
+        
+        NSLog(@"Found language plugin at %@", path);
+        
+        [pluginBundle loadAndReturnError:&error];
+        
+        if(error != nil)
+        {
+            NSLog(@"Language plugin load for %@ failed: %@", path, error);
+            continue;
+        }
 
         Class pluginClass = [pluginBundle principalClass];
 
         if(![pluginClass isSubclassOfClass:[NBEngine class]])
         {
+            NSLog(@"Language plugin load failed for %@", path);
             continue;
         }
 
         [availablePlugins setObject:pluginClass forKey:[pluginClass uuid]];
+        NSLog(@"Language plugin load succeeded: %@", [pluginClass name]);
     }
+    
+    NSLog(@"Loaded %lu language plugins.", [availablePlugins count]);
 
     return availablePlugins;
 }

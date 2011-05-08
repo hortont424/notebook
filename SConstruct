@@ -52,17 +52,18 @@ notebookapp, notebooklib, notebook = SConscript('Build/Notebook/SConscript', ["l
 
 # Languages
 
+plugindir = os.path.join(outerEnv.GetBuildPath(notebookapp)[0], "Contents", "PlugIns")
+
 ## Python
 python = SConscript('Build/Languages/Python/SConscript', ['notebooklib'])
+outerEnv.Install(plugindir, python)
 
 ## Ruby
+ruby = SConscript('Build/Languages/Ruby/SConscript', ['notebooklib'])
+outerEnv.Install(plugindir, ruby)
 
 ## Lua
 
 liblua = SConscript('Build/External/Lua/SConscript')
 
 # Install Language PlugIns
-
-plugindir = os.path.join(outerEnv.GetBuildPath(notebookapp)[0], "Contents", "PlugIns")
-
-outerEnv.Install(plugindir, python)
