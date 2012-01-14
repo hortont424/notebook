@@ -51,7 +51,6 @@ libjson = SConscript('Build/External/JSON/SConscript')
 notebookapp, notebooklib, notebook = SConscript('Build/Notebook/SConscript', ["libjson"])
 
 # Languages
-
 plugindir = os.path.join(outerEnv.GetBuildPath(notebookapp)[0], "Contents", "PlugIns")
 
 ## Python
@@ -62,4 +61,3 @@ outerEnv.Install(plugindir, python)
 ruby = SConscript('Build/Languages/Ruby/SConscript', ['notebooklib'])
 outerEnv.Install(plugindir, ruby)
 
-# Install Language PlugIns

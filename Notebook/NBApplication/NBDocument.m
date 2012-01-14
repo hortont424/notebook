@@ -87,6 +87,8 @@
     [notebookView setNotebook:notebook];
     [searchResultsView setDataSource:self];
     [globalsTableView setDataSource:self];
+    [searchResultsView setDelegate:self];
+    [globalsTableView setDelegate:self];
     
     [searchResultsView registerForDraggedTypes:[NSArray arrayWithObject:NBDocumentGlobalDragType]];
     [globalsTableView registerForDraggedTypes:[NSArray arrayWithObject:NBDocumentGlobalDragType]];
@@ -502,7 +504,7 @@
     }
     else if(tableView == globalsTableView)
     {
-        return [watchedGlobals count];
+        return [watchedGlobals count] || 1;
     }
     
     return 0;
@@ -517,8 +519,7 @@
         if([[tableColumn identifier] isEqualToString:@"icon"])
         {
             NSString * type = [globals objectForKey:[[globals allKeys] objectAtIndex:row]];
-            
-            return [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleWithIdentifier:@"com.hortont.notebook.app"] pathForImageResource:type]];
+            return [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:type]];
         }
         else if([[tableColumn identifier] isEqualToString:@"name"])
         {
@@ -527,7 +528,27 @@
     }
     else if(tableView == globalsTableView)
     {
-        return [NSString stringWithFormat:@"%@ = %@", [watchedGlobals objectAtIndex:row], [[notebook engine] globalWithKey:[watchedGlobals objectAtIndex:row]]];
+        if([[tableColumn identifier] isEqualToString:@"icon"])
+        {
+            if(![watchedGlobals count])
+                return nil;
+
+            NSString * type = [globalsCache objectForKey:[watchedGlobals objectAtIndex:row]];
+            return [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:type]];
+        }
+        else if([[tableColumn identifier] isEqualToString:@"name"])
+        {
+            if(![watchedGlobals count])
+            {
+                NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                [paragraphStyle setAlignment:NSCenterTextAlignment];
+                NSDictionary * attrs = [NSDictionary dictionaryWithObjectsAndKeys:[NSColor grayColor], NSForegroundColorAttributeName, paragraphStyle, NSParagraphStyleAttributeName, nil];
+                NSAttributedString * dragString = [[NSAttributedString alloc] initWithString:@"Drag globals here." attributes:attrs];
+                return dragString;
+            }
+
+            return [NSString stringWithFormat:@"%@ = %@", [watchedGlobals objectAtIndex:row], [[notebook engine] globalWithKey:[watchedGlobals objectAtIndex:row]]];
+        }
     }
     
     return nil;
@@ -587,8 +608,6 @@
         
         [watchedGlobals addObjectsFromArray:[globalNames allObjects]];
         [tableView reloadData];
-        NSLog(@"%@", watchedGlobals);
-        
         
         return YES;
     }

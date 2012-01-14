@@ -12,7 +12,7 @@ Depends(notebooklib, libjson)
 
 notebook = env.Program("Notebook", "main.m", LIBS=[libjson, notebooklib])
 
-notebookapp = env.Bundle("Notebook", creator="NOTB", resources=["NBApplication/MainMenu.xib", "NBApplication/Notebook.xib", "NBSettings/NBSettingsWindow.xib", "NBUI/NBCreateNotebookView.xib", "#Artwork/Notebook.icns", "#Themes"], frameworks=["#External/RegexKit.framework"], dylibs=[libjson, notebooklib])
+notebookapp = env.Bundle("Notebook", creator="NOTB", resources=["NBApplication/MainMenu.xib", "NBApplication/Notebook.xib", "NBSettings/NBSettingsWindow.xib", "NBUI/NBCreateNotebookView.xib", "#Artwork/Notebook.icns", "#Themes", "#Artwork/types/NSNumber.png", "#Artwork/types/NSString.png"], frameworks=["#External/RegexKit.framework"], dylibs=[libjson, notebooklib])
 
 Depends(notebookapp, libjson)
 Depends(notebookapp, notebooklib)
