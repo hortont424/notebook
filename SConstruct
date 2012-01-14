@@ -62,9 +62,4 @@ outerEnv.Install(plugindir, python)
 ruby = SConscript('Build/Languages/Ruby/SConscript', ['notebooklib'])
 outerEnv.Install(plugindir, ruby)
 
-## Lua
-liblua = SConscript('Build/External/Lua/SConscript')
-lua = SConscript('Build/Languages/Lua/SConscript', ['notebooklib', 'liblua'])
-outerEnv.Install(plugindir, lua)
-
 # Install Language PlugIns
