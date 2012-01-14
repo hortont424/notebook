@@ -14,7 +14,9 @@ Notebook includes a plugin system to add support for a variety of languages. By 
 Building
 --------
 
-Use Xcode 4+ to build Notebook. Open Notebook.xcworkspace, and press the "Run" button.
+Use Scons to build Notebook: just type "scons" at the prompt ("sudo easy\_install scons" if it's not already installed).
+
+The resulting application will be located at Build/Notebook/Notebook.app.
 
 License
 -------
