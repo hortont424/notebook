@@ -29,18 +29,18 @@
 #import <NBSettings/NBSettings.h>
 #import <NBApplication/NBApplication.h>
 
-@class NotebookDocument;
+@class NBDocument;
 
 @interface NotebookAppDelegate : NSObject<NSApplicationDelegate>
 {
     NSMenuItem * languageMenuItem;
 
-    NotebookDocument * currentDocument;
+    NBDocument * currentDocument;
     NBSettingsWindowController * settingsWindowController;
 }
 
 @property (nonatomic,assign) IBOutlet NSMenuItem * languageMenuItem;
-@property (nonatomic,assign) NotebookDocument * currentDocument;
+@property (nonatomic,assign) NBDocument * currentDocument;
 
 - (IBAction)showPreferences:(id)sender;
 

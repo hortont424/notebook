@@ -57,7 +57,7 @@
     [settingsWindowController showWindow:self];
 }
 
-- (void)setCurrentDocument:(NotebookDocument *)inDocument
+- (void)setCurrentDocument:(NBDocument *)inDocument
 {
     currentDocument = inDocument;
 

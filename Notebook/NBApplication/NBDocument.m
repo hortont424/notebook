@@ -27,6 +27,7 @@
 
 #import "NBWindowController.h"
 #import "NBDocumentController.h"
+#import "NotebookAppDelegate.h"
 
 @implementation NBDocument
 
@@ -297,7 +298,7 @@
 
     if([firstResponder respondsToSelector:@selector(increaseIndent)])
     {
-        [firstResponder increaseIndent];
+        [(NBTextView *)firstResponder increaseIndent];
     }
 }
 
@@ -307,7 +308,7 @@
 
     if([firstResponder respondsToSelector:@selector(decreaseIndent)])
     {
-        [firstResponder decreaseIndent];
+        [(NBTextView *)firstResponder decreaseIndent];
     }
 }
 
