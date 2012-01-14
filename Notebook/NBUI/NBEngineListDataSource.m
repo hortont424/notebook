@@ -43,7 +43,7 @@
         engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
         engineClasses = [engineClasses sortedArrayUsingComparator:^(id a, id b)
                          {
-                             return [[a name] localizedCompare:[b name]];
+                             return [[(Class)a name] localizedCompare:[(Class)b name]];
                          }];
     }
     return self;

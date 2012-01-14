@@ -37,7 +37,7 @@
     engineClasses = [[[NBEngineLoader sharedInstance] engineClasses] allValues];
     engineClasses = [engineClasses sortedArrayUsingComparator:^(id a, id b)
                      {
-                         return [[a name] compare:[b name]];
+                         return [[(Class)a name] compare:[(Class)b name]];
                      }];
     NSRect windowFrame = [mainView frame];
 

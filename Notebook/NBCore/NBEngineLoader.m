@@ -132,7 +132,7 @@ static NBEngineLoader * sharedInstance = nil;
     return ULONG_MAX;
 }
 
-- (void)release
+- (oneway void)release
 {
 }
 

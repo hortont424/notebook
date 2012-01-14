@@ -64,7 +64,7 @@
     return ULONG_MAX;
 }
 
-- (void)release
+- (oneway void)release
 {
 }
 
