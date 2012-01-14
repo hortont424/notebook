@@ -44,7 +44,7 @@
     if(self)
     {
         margin.left = 4; // TODO: make it a setting!
-        margin.right = 10;
+        margin.right = 12;
         margin.top = 1;
         margin.bottom = 1;
 
